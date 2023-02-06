@@ -1,6 +1,5 @@
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 
-import { spacing } from '@mui/system';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import SpeedIcon from '@mui/icons-material/Speed';
 import GridOnIcon from '@mui/icons-material/GridOn';
