@@ -17,17 +17,18 @@ import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
 
-  return (
-    <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
-      <Sidebar backgroundColor="#434C56" style={{ height: "100vh" }}>
-        <Menu sx={{ px: -2 }} style={{color: "#d6dee9", fontSize: '12px' }}>
 
-          <MenuItem icon={<SpeedIcon fontSize="small" />}>Dashboard</MenuItem>
-          <MenuItem icon={<GridOnIcon fontSize="small" />}>Sales Grid</MenuItem>
-          <MenuItem icon={<ShoppingCartOutlinedIcon fontSize="small"/>}>Orders</MenuItem>
-          <MenuItem icon={<RateReviewOutlinedIcon fontSize="small"/>}>Master Quotes</MenuItem>
-          <MenuItem icon={<RequestQuoteOutlinedIcon fontSize="small"/>}>Quote Management</MenuItem>
-          <MenuItem icon={<LocalShippingOutlinedIcon fontSize="small"/>}>Shipments</MenuItem>
+  return (
+    <div id="app" style={{display: 'flex', height:'100vh'}}>
+      <Sidebar backgroundColor="#434C56" style={{ height: "100vh" }}>
+        <Menu sx={{ px: -2 }} style={{color: "#d6dee9", fontSize: '10px', }}>
+
+          <MenuItem icon={<SpeedIcon style={{ fontSize: '16px'}} />}>Dashboard</MenuItem>
+          <MenuItem icon={<GridOnIcon style={{ fontSize: '16px'}} />}>Sales Grid</MenuItem>
+          <MenuItem icon={<ShoppingCartOutlinedIcon style={{ fontSize: '16px'}}/>}>Orders</MenuItem>
+          <MenuItem icon={<RateReviewOutlinedIcon style={{ fontSize: '16px'}}/>}>Master Quotes</MenuItem>
+          <MenuItem icon={<RequestQuoteOutlinedIcon style={{ fontSize: '16px'}}/>}>Quote Management</MenuItem>
+          <MenuItem icon={<LocalShippingOutlinedIcon style={{ fontSize: '16px'}}/>}>Shipments</MenuItem>
           <MenuItem 
             icon={<ArrowCircleLeftOutlinedIcon style={{color: "black" }}/>}
             onClick={() => {
@@ -35,11 +36,11 @@ function WD_LeftSideBar() {
             }}
             style={{ textAlign: "center" }}
           />
-          <MenuItem icon={<ReceiptOutlinedIcon fontSize="small" />}>Invoices</MenuItem>
-          <MenuItem icon={<EditOutlinedIcon fontSize="small"/>}>Contracts</MenuItem>
-          <MenuItem icon={<PersonOutlineOutlinedIcon fontSize="small"/>}>People</MenuItem>
-          <MenuItem icon={<BusinessOutlinedIcon fontSize="small"/>}>Facilities</MenuItem>
-          <MenuItem icon={<CachedOutlinedIcon fontSize="small"/>}>Supply and Demand</MenuItem>
+          <MenuItem icon={<ReceiptOutlinedIcon style={{ fontSize: '16px'}} />}>Invoices</MenuItem>
+          <MenuItem icon={<EditOutlinedIcon style={{ fontSize: '16px'}}/>}>Contracts</MenuItem>
+          <MenuItem icon={<PersonOutlineOutlinedIcon style={{ fontSize: '16px'}}/>}>People</MenuItem>
+          <MenuItem icon={<BusinessOutlinedIcon style={{ fontSize: '16px'}}/>}>Facilities</MenuItem>
+          <MenuItem icon={<CachedOutlinedIcon style={{ fontSize: '16px'}}/>}>Supply and Demand</MenuItem>
         </Menu>
       </Sidebar>
       <main>
