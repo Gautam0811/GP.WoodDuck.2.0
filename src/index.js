@@ -3,12 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ProSidebarProvider } from "react-pro-sidebar";
+import axios from "axios";
+
+axios.interceptors.request.use((request) => {
+  console.log(request);
+  request.headers.genericKey = "gpWoodDUCK2.0";
+  return request;
+}, (error) => {
+  return Promise.reject(error);
+});
+
+axios.interceptors.response.use((response) => {
+  console.log(response);
+  return response;
+}, (error) => {
+  return Promise.reject(error);
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ProSidebarProvider>
-      <App />
+      <App /> 
     </ProSidebarProvider>
   </React.StrictMode>
 );
