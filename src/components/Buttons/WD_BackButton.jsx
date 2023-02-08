@@ -11,9 +11,9 @@ export default function BackButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      <Box>
           <LoadingButton style={{ color:'#005FA8' }}>
-          <div style={{padding: '10px',}}>
+          <div>
             <div>
               <ArrowBackOutlinedIcon fontSize='7px'/>
             </div>

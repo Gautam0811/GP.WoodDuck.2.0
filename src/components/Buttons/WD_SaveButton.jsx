@@ -11,11 +11,11 @@ export default function SaveButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      <Box>
           <LoadingButton style={{ color:'#005FA8'}}>
-          <div style={{padding: '10px',}}>
+          <div >
             <div>
-              <SaveIcon fontSize='7px'/>
+              <SaveIcon  fontSize='7px'/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>SAVE</span>

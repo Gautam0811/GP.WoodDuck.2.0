@@ -11,9 +11,9 @@ export default function DeleteButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      <Box >
           <LoadingButton style={{color:'#005FA8'}}>
-          <div style={{padding: '10px',}}>
+          <div >
             <div>
               <CloseOutlinedIcon fontSize='7px'/>
             </div>
