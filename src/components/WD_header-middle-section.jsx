@@ -22,6 +22,7 @@ export default function WD_headerMiddleSection() {
     setName(event.target.value);
   };
   return (
+    // View for header middle section
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#ffb74d" }}>
         <Toolbar>

@@ -1,5 +1,6 @@
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 
+import { spacing } from '@mui/system';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import SpeedIcon from '@mui/icons-material/Speed';
 import GridOnIcon from '@mui/icons-material/GridOn';
@@ -15,6 +16,7 @@ import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
+
 
   return (
     <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
