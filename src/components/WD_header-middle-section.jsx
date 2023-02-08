@@ -2,6 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import axios from "axios";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -17,9 +18,28 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 export default function WD_headerMiddleSection() {
+  const baseURL = "https://localhost:44351/employee/";
   const [name, setName] = React.useState("");
+  const [post, setPost] = React.useState({});
+  const [id, setId] = React.useState(1001);
+
+  function getCustomerData() {
+    return axios.get(baseURL+id)
+      .then((response) => {
+        const customerList = response.data;
+        console.log(customerList);
+        return customerList;
+      })
+  }
+
+  React.useEffect(() => {
+    getCustomerData().then((customerData) => {
+      setPost(customerData);
+    });
+  }, [id]);
+
   const handleChange = (event) => {
-    setName(event.target.value);
+    setId(event.target.value);
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -38,13 +58,13 @@ export default function WD_headerMiddleSection() {
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
-              value={name}
+              value={id}
               label="Name"
               onChange={handleChange}
             >
               <MenuItem value=""></MenuItem>
-              <MenuItem value={"DAVID KLEKAMP"}>DAVID KLEKAMP</MenuItem>
-              <MenuItem value={"HANNAH"}>HANNAH </MenuItem>
+              <MenuItem value="1001">DAVID KLEKAMP</MenuItem>
+              <MenuItem value="1002">HANNAH </MenuItem>
             </Select>
           </FormControl>
           <Typography
@@ -55,7 +75,7 @@ export default function WD_headerMiddleSection() {
           >
             Offers
             <Typography variant="caption" component="div" color={"black"}>
-              0
+              {post.offers}
             </Typography>
           </Typography>
           <Typography
@@ -66,7 +86,7 @@ export default function WD_headerMiddleSection() {
           >
             Quotes
             <Typography variant="caption" component="div" color={"black"}>
-              3
+              {post.quotes}
             </Typography>
           </Typography>
           <Typography
@@ -77,7 +97,7 @@ export default function WD_headerMiddleSection() {
           >
             Orders
             <Typography variant="caption" component="div" color={"black"}>
-              314
+              {post.orders}
             </Typography>
           </Typography>
           <Typography
@@ -88,7 +108,7 @@ export default function WD_headerMiddleSection() {
           >
             Fullfilments
             <Typography variant="caption" component="div" color={"black"}>
-              276
+              {post.fullfilments}
             </Typography>
           </Typography>
           <Typography
@@ -99,7 +119,7 @@ export default function WD_headerMiddleSection() {
           >
             Pickups
             <Typography variant="caption" component="div" color={"black"}>
-              10
+              {post.pickups}
             </Typography>
           </Typography>
           <Typography
@@ -110,17 +130,17 @@ export default function WD_headerMiddleSection() {
           >
             A/R
             <Typography variant="caption" component="div" color={"black"}>
-              0
+              {post.ar}
             </Typography>
           </Typography>
           <Typography
             variant="h6"
             component="div"
             color={"primary"}
-            align='center'
-            sx={{ flexGrow: 1, position: "absolute", right: 10}}
+            align="center"
+            sx={{ flexGrow: 1, position: "absolute", right: 10 }}
           >
-            {name}
+            {post.name}
             <Typography variant="caption" component="div" color={"black"}>
               <IconButton size="small" color="primary" aria-label="menu">
                 <MenuIcon fontSize="small" />
