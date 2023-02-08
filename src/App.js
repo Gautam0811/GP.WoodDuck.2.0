@@ -9,9 +9,15 @@ import WD_SalesGridHeader from './components/WD_SalesGridHeader';
 function App() {
   return (
     <div>
+      <div>
       <WD_headerMiddleSection/>
+      
+    </div>
+    <div style={{display: 'flex', flexDirection: 'row'}}>
       <WD_LeftSideBar />
-    </Fragment>
+      <WD_SalesGridHeader />
+    </div>
+    </div>
   );
 }
 

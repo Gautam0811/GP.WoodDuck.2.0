@@ -1,6 +1,6 @@
-import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
+import * as React from 'react';
 
-import { spacing } from '@mui/system';
+import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import SpeedIcon from '@mui/icons-material/Speed';
 import GridOnIcon from '@mui/icons-material/GridOn';
@@ -17,6 +17,9 @@ import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
 
+  React.useEffect(() => {
+    collapseSidebar();
+  }, []);
 
   return (
     <div id="app" style={{display: 'flex', height:'100vh'}}>
@@ -43,10 +46,6 @@ function WD_LeftSideBar() {
           <MenuItem icon={<CachedOutlinedIcon style={{ fontSize: '16px'}}/>}>Supply and Demand</MenuItem>
         </Menu>
       </Sidebar>
-      <main>
-        <h1 style={{ color: "white", marginLeft: "5rem" }}>
-        </h1>
-      </main>
     </div>
   );
 }

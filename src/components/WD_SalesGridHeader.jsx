@@ -53,7 +53,7 @@ export default function WD_SalesGridHeader() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1,}}>
       <AppBar position="static" style={{ background: "#ffffff" }}>
         <Toolbar>
           <font color="blue">Mode</font>
