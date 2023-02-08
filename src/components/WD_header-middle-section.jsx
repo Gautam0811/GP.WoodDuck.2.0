@@ -27,7 +27,6 @@ export default function WD_headerMiddleSection() {
     return axios.get(baseURL+id)
       .then((response) => {
         const customerList = response.data;
-        console.log(customerList);
         return customerList;
       })
   }
