@@ -11,7 +11,6 @@ export default function CloseButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
           <LoadingButton style={{ color:'#005FA8' }}>
           <div style={{padding: '10px'}}>
             <div>
@@ -22,7 +21,6 @@ export default function CloseButton() {
             </div>
           </div>
           </LoadingButton>
-      </Box>
     </Box>
   );
 }
