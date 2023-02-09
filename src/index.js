@@ -7,7 +7,7 @@ import axios from "axios";
 
 axios.interceptors.request.use((request) => {
   console.log(request);
-  request.headers.genericKey = "gpWoodDUCK2.0";
+  request.headers.genericKey = "Request_gpWoodDUCK2.0";
   return request;
 }, (error) => {
   return Promise.reject(error);
@@ -15,6 +15,7 @@ axios.interceptors.request.use((request) => {
 
 axios.interceptors.response.use((response) => {
   console.log(response);
+  response.headers.genericKey = "Response_gpWoodDUCK2.0";
   return response;
 }, (error) => {
   return Promise.reject(error);
