@@ -10,8 +10,9 @@ function App() {
   return (
     <div>
       <WD_headerMiddleSection/>
+      <WD_SalesGridHeader/>
       <WD_LeftSideBar />
-    </Fragment>
+  </div>
   );
 }
 
