@@ -13,6 +13,8 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+
 
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
@@ -20,6 +22,8 @@ function WD_LeftSideBar() {
   React.useEffect(() => {
     collapseSidebar();
   }, []);
+
+ 
 
   return (
     <div id="app" style={{ display: "flex", height: "100vh" }}>
@@ -52,7 +56,7 @@ function WD_LeftSideBar() {
             Shipments
           </MenuItem>
           <MenuItem
-            icon={<ArrowCircleLeftOutlinedIcon style={{ color: "black" }} />}
+            icon={<ArrowCircleRightOutlinedIcon style={{ color: "black" }} />}
             onClick={() => {
               collapseSidebar();
             }}

@@ -15,7 +15,7 @@ axios.interceptors.request.use((request) => {
 
 axios.interceptors.response.use((response) => {
   console.log(response);
-  response.headers.genericKey = "Response_gpWoodDUCK2.0";
+  response.headers.className = "Response_gpWoodDUCK2.0";
   return response;
 }, (error) => {
   return Promise.reject(error);
