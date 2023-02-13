@@ -2,6 +2,7 @@ import * as React from "react";
 import Table from "@mui/joy/Table";
 import WD_SalesGridHeader from "./WD_SalesGridHeader";
 import Grid from "@mui/material/Grid";
+import CustomizedTabs from "./WD_Tabs";
 
 
 export default function SalesGrid() {
@@ -240,7 +241,7 @@ export default function SalesGrid() {
         </Table>
          
 
-         {/* Manas Component comes here */}
+         
       </Grid>
     </Grid>
   );
