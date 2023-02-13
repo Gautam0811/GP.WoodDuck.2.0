@@ -1,17 +1,35 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { Grid } from '@mui/material';
 import PhoneCallbackRoundedIcon from '@mui/icons-material/PhoneCallbackRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import EmailIcon from '@mui/icons-material/Email';
-import Grid from '@mui/material/Grid';
-
 import MidBox from './Tabs_Comp/WD_MidBox';
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{bgcolor: '#d1eaff',py: 25,height:'410%'}}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
 const AntTabs = styled(Tabs)({
   borderBottom: '0px none transparent',
   '& .MuiTabs-indicator': {
@@ -63,7 +81,18 @@ const AntTab = styled((props) => <Tab disableRipple {...props}  />)(({ theme }) 
   },
 }));
 
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 export default function CustomizedTabs() {
   const [value, setValue] = React.useState(0);
@@ -73,21 +102,24 @@ export default function CustomizedTabs() {
   };
 
   return (<Grid container justifyContent="flex-end" sx={{ mt: -10,pt:10,}}>
-{/* //   <Box display="flex" justifyContent="flex-end" sx={{ mt: 6,pt:6,pr:2}}> using flex*/}
-    <Box sx={{ width: '27%',height: '80px' }}  >
-      <Box sx={{ bgcolor: '#fff',mb:-2}} >
-        <AntTabs value={value} onChange={handleChange}  selectionFollowsFocus aria-label="ant example">
-          <AntTab icon={<PhoneCallbackRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="INBOUND" />
-          <AntTab icon={<EmailIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="OUTBOUND" />
-          <AntTab icon={<GroupsRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="PRICE LIST" />
+    <Box sx={{  width: '27%' ,height: '80px'}}>
+      <Box sx={{ bgcolor: '#fff',mb:-2 }}>
+        <AntTabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <AntTab icon={<PhoneCallbackRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="INBOUND" {...a11yProps(0)} />
+          <AntTab icon={<EmailIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="OUTBOUND"  {...a11yProps(1)} />
+          <AntTab icon={<GroupsRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="PRICE LIST" {...a11yProps(2)} />
         </AntTabs>
-        </Box>
-      <Box sx={{ bgcolor: '#d1eaff',py: 25,height:'410%'}}>
-       
-      <Grid><MidBox /></Grid>
       </Box>
-      
-    </Box></Grid>
-     
+      <TabPanel value={value} index={0}>
+      <Grid><MidBox /></Grid>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+    </Box>
+    </Grid>
   );
 }
