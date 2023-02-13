@@ -7,10 +7,8 @@ import WD_LeftSideBar from "./components/WD_LeftSideBar";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import WD_ProductsGroupHeader from "./components/WD_ProductGroupsHeader";
 import WD_ProductGroupsPage from "./components/WD_ProductGroupsPage";
 import WD_SalesGridHeader from "./components/WD_SalesGridHeader";
-import CustomizedTabs from "./components/WD_Tabs";
 function App() {
   return (
     <Grid>
@@ -22,7 +20,7 @@ function App() {
           <WD_LeftSideBar />
           
           <Routes>
-            <Route path="/" element={<CustomizedTabs/>}></Route>
+            <Route path="/" element={<WD_SalesGridHeader />}></Route>
             <Route path="/salesgrid" element={<WD_SalesGridHeader />}></Route>
             <Route path="/productgroups" element={<WD_ProductGroupsPage />}></Route>            
           </Routes>

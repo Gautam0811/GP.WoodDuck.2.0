@@ -10,7 +10,7 @@ export default function WD_ProductGroupsHeader() {
   return (
     //for header
     //<div style={{ width:'1000px',  display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center', backgroundColor: '#f1f4fb'}}>
-    <Box sx={{ flexGrow: 1,display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center', backgroundColor: '#f1f4fb' }}>
+    <Box sx={{flexGrow: 1,display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center', backgroundColor: '#f1f4fb' }}>
         <div style={{justifyContent: 'center', paddingLeft: '20px'}}>
             <Typography style={{ fontWeight: 'bold' }}>My Product Groups</Typography>
         </div>
