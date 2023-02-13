@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import SpeedIcon from "@mui/icons-material/Speed";
@@ -13,6 +13,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
@@ -25,17 +26,23 @@ function WD_LeftSideBar() {
     <div id="app" style={{ display: "flex", height: "100vh" }}>
       <Sidebar backgroundColor="#434C56" style={{ height: "100vh" }}>
         <Menu sx={{ px: -2 }} style={{ color: "#d6dee9", fontSize: "10px" }}>
-          <MenuItem icon={<SpeedIcon style={{ fontSize: "16px" }} />}>
-            Dashboard
-          </MenuItem>
-          <MenuItem icon={<GridOnIcon style={{ fontSize: "16px" }} />}>
-            Sales Grid
-          </MenuItem>
-          <MenuItem
-            icon={<ShoppingCartOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            Orders
-          </MenuItem>
+          <Link to="/" style={{ color: "#d6dee9" }}>
+            <MenuItem icon={<SpeedIcon style={{ fontSize: "16px" }} />}>
+              Dashboard
+            </MenuItem>
+          </Link>
+          <Link to="/salesgrid" style={{ color: "#d6dee9" }}>
+            <MenuItem icon={<GridOnIcon style={{ fontSize: "16px" }} />}>
+              Sales Grid
+            </MenuItem>
+          </Link>
+          <Link to="/productgroups" style={{ color: "#d6dee9" }}>
+            <MenuItem
+              icon={<ShoppingCartOutlinedIcon style={{ fontSize: "16px" }} />}
+            >
+              Orders
+            </MenuItem>
+          </Link>
           <MenuItem
             icon={<RateReviewOutlinedIcon style={{ fontSize: "16px" }} />}
           >
@@ -52,7 +59,7 @@ function WD_LeftSideBar() {
             Shipments
           </MenuItem>
           <MenuItem
-            icon={<ArrowCircleLeftOutlinedIcon style={{ color: "black" }} />}
+            icon={<ArrowCircleRightOutlinedIcon style={{ color: "black" }} />}
             onClick={() => {
               collapseSidebar();
             }}

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -151,9 +152,11 @@ export default function WD_headerMiddleSection() {
               <IconButton size="small" color="primary" aria-label="menu">
                 <CalculateTwoToneIcon fontSize="small" />
               </IconButton>
-              <IconButton size="small" color="primary" aria-label="menu">
-                <SettingsIcon fontSize="small" />
-              </IconButton>
+              <Link to="/settings">
+                <IconButton size="small" color="primary" aria-label="menu">
+                  <SettingsIcon fontSize="small" />
+                </IconButton>
+              </Link>
               <IconButton size="small" color="primary" aria-label="menu">
                 <EmailOutlinedIcon fontSize="small" />
               </IconButton>

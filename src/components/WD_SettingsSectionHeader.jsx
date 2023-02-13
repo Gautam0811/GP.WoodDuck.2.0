@@ -6,13 +6,11 @@ export default function SettingsSectionHeader() {
     //This is the header for settings in components_2.png
     <div
       style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
         backgroundColor: "#f1f4fb",
         padding: "15px",
-        paddingLeft: "25px"
+        paddingLeft: "25px",
+        width: '90vw'
       }}
     >
       <Typography style={{ fontWeight: "bold" }}>Settings</Typography>
