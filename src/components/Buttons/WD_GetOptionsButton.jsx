@@ -11,7 +11,7 @@ export default function GetOptionsButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1, } }}>
+      <Box sx={{ "& > button": { mt: -56.5,mr:2,p:0.2  } }}>
         <LoadingButton
           size='small'
           checked={loading}

@@ -11,10 +11,10 @@ export default function QuoteButton() {
   
 
   return (
-    <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+    <Box >
+      <Box sx={{ "& > button": { mt: -46,mr:28,p:0.2} }}>
         
-        <LoadingButton
+      <LoadingButton
           size="small"
           onClick={handleClick}
           // loading={loading}
