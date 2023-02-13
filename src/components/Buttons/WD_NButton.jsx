@@ -12,7 +12,7 @@ export default function NextButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      <Box sx={{ "& > button": { mt: -51.9,mr:18,p:0.2 } }}>
         
         <LoadingButton
           size="small"

@@ -43,11 +43,14 @@ function WD_LeftSideBar() {
               Orders
             </MenuItem>
           </Link>
+          <Link to="/customizedTabs" style={{ color: "#d6dee9" }}>
           <MenuItem
             icon={<RateReviewOutlinedIcon style={{ fontSize: "16px" }} />}
           >
             Master Quotes
           </MenuItem>
+          </Link>
+          
           <MenuItem
             icon={<RequestQuoteOutlinedIcon style={{ fontSize: "16px" }} />}
           >

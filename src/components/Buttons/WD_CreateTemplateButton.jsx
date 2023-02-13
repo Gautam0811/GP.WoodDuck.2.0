@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-export default function QuoteButton() {
+export default function CreateTemplate() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -12,7 +12,7 @@ export default function QuoteButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      <Box sx={{ "& > button": { m: 1 ,mr:17,mt:3} }}>
         
         <LoadingButton
           size='small'
