@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
-import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import SpeedIcon from "@mui/icons-material/Speed";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -18,10 +17,12 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 function WD_LeftSideBar() {
   const { collapseSidebar } = useProSidebar();
 
+  //by default the sidebar is collapsed
   React.useEffect(() => {
     collapseSidebar();
   }, []);
 
+  //all the buttons in the sidebar
   return (
     <div id="app" style={{ display: "flex", height: "100vh" }}>
       <Sidebar backgroundColor="#434C56" style={{ height: "100vh" }}>

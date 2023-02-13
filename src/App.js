@@ -24,7 +24,7 @@ function App() {
           
           <Routes>
             <Route path="/" element={<WD_SalesGrid/>}> </Route>
-            <Route path="/salesgrid" element={<WD_SalesGridHeader />}></Route>
+            <Route path="/salesgrid" element={<WD_SalesGrid />}></Route>
             <Route path="/productgroups" element={<WD_ProductGroupsPage />}></Route>
             <Route path="/customizedTabs" element={<CustomizedTabs/>} > </Route>  
             <Route path="/settings" element={<WD_Settings/>} > </Route>           
