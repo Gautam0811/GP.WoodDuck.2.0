@@ -1,5 +1,4 @@
 import * as React from "react";
-import Table from "@mui/joy/Table";
 import WD_SalesGridHeader from "./WD_SalesGridHeader";
 import WD_SalesGridMainSection from "./WD_SalesGridMainSection";
 import Grid from "@mui/material/Grid";
