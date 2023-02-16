@@ -7,7 +7,7 @@ import WD_Footer from './WD_Footer';
 export default function ProductGroupsPage() {
 
   return (
-    <Grid>
+    <Grid sx={{width:"100%"}}>
 
       {/* the header component */}
       <WD_ProductGroupsHeader />

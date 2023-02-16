@@ -8,12 +8,12 @@ export default function SettingsSectionHeader() {
       style={{
         alignItems: "center",
         backgroundColor: "#f1f4fb",
-        padding: "15px",
-        paddingLeft: "25px",
-        width: '90vw'
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        width: '100%'
       }}
     >
-      <Typography style={{ fontWeight: "bold" }}>Settings</Typography>
+      <Typography style={{paddingLeft:"25px", fontWeight: "bold" }}>Settings</Typography>
     </div>
   );
 }
