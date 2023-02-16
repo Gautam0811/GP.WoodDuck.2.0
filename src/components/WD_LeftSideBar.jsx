@@ -13,13 +13,13 @@ import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import { Divider } from "@mui/material";
-import ListItemButton from '@mui/material/ListItemButton';
-import Collapse from '@mui/material/Collapse';
-import { ShoppingCartOutlined } from '@mui/icons-material';
+import ListItemButton from "@mui/material/ListItemButton";
+import Collapse from "@mui/material/Collapse";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 import "../styles/WD_Styles.css";
-import { useState } from 'react';
+import { useState } from "react";
 
 function LeftSidebar() {
   const [openOrders, setOpenOrders] = React.useState(false);
@@ -40,32 +40,37 @@ function LeftSidebar() {
     setOpenContracts(!openContracts);
   };
 
-  const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
+  const sidebarCollapsed = localStorage.getItem("sidebar-collapsed");
 
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
 
   const handleToggler = () => {
-    if(isExpanded) {
+    if (isExpanded) {
       setIsExpanded(false);
-      localStorage.setItem('sidebar-collapsed', true);
+      localStorage.setItem("sidebar-collapsed", true);
       return;
     }
     setIsExpanded(true);
-    localStorage.removeItem('sidebar-collapsed');
+    localStorage.removeItem("sidebar-collapsed");
   };
 
   return (
     <div className={isExpanded ? "Sidebar" : "Sidebar collapsed"}>
       <div className="sidebar-items">
-        <div className="item">
-          <SpeedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Dashboard</span>{" "}
-        </div>
-        <Link to='./salesgrid' style={{ color: "#ffffff", textDecoration: "none" }}>
-        <div className="item">
-          <GridOnIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Salesgrid</span>{" "}
-        </div>
+        <Link to="./" style={{ color: "#ffffff", textDecoration: "none" }}>
+          <div className="item">
+            <SpeedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Dashboard</span>{" "}
+          </div>
+        </Link>
+        <Link
+          to="./salesgrid"
+          style={{ color: "#ffffff", textDecoration: "none" }}
+        >
+          <div className="item">
+            <GridOnIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Salesgrid</span>{" "}
+          </div>
         </Link>
         <div className="item" onClick={handleClickOrders}>
           <ShoppingCartOutlined className="sidebar-icon" />
@@ -96,15 +101,10 @@ function LeftSidebar() {
             </ListItemButton>
           </div>
         </Collapse>
-        <Link
-          to="/customizedtabs"
-          style={{ color: "#ffffff", textDecoration: "none" }}
-        >
-          <div className="item">
-            <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Master Quotes</span>{" "}
-          </div>
-        </Link>
+        <div className="item">
+          <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Master Quotes</span>{" "}
+        </div>
         <div className="item">
           <RequestQuoteOutlinedIcon className="sidebar-icon" />{" "}
           <span className="sidebar-text">Quote Management</span>{" "}

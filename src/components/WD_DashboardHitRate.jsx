@@ -7,9 +7,7 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import "./WD_DashboardHitRate.css";
+import "../styles/WD_DashboardHitRate.css";
 
 
 export default function WD_DasboardHitRate() {

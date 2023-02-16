@@ -101,8 +101,8 @@ export default function CustomizedTabs() {
     setValue(newValue);
   };
 
-  return (<Grid container justifyContent="flex-end"  sx={{ mt: -10,pt:10,position:'absolute'}}>
-    <Box sx={{  width: '27%' ,height: '80px'}}>
+  return (<Grid container justifyContent={"flex-end"} sx={{ position:'relative'}}>
+    <Box sx={{  width: '30%' ,height: '80px'}}>
       <Box sx={{ bgcolor: '#fff',mb:-2 }}>
         <AntTabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <AntTab icon={<PhoneCallbackRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="INBOUND" {...a11yProps(0)} />
