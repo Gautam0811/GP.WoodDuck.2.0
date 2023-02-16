@@ -6,10 +6,8 @@ import WD_Footer from './WD_Footer';
 
 export default function ProductGroupsPage() {
 
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
   return (
-    <Grid>
+    <Grid sx={{width:"100%"}}>
 
       {/* the header component */}
       <WD_ProductGroupsHeader />

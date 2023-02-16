@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 
 export default function Settings() {
   return (
-    <Grid>
+    <Grid sx={{width:"100%"}}>
         {/* settings header part */}
         <WD_SettingsHeader />
         
