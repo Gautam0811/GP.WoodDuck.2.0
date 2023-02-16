@@ -12,6 +12,7 @@ import WD_SalesGridHeader from "./components/WD_SalesGridHeader";
 import WD_SalesGrid from "./components/WD_SalesGrid";
 import CustomizedTabs from "./components/WD_Tabs";
 import  WD_Settings from "./components/WD_Settings";
+import WD_Dashboard from "./components/WD_Dashboard";
 function App() {
   return (
     <Grid>
@@ -23,7 +24,7 @@ function App() {
           <WD_LeftSideBar />
           
           <Routes>
-            <Route path="/" element={<WD_SalesGrid/>}> </Route>
+            <Route path="/" element={<WD_Dashboard/>}> </Route>
             <Route path="/salesgrid" element={<WD_SalesGrid />}></Route>
             <Route path="/productgroups" element={<WD_ProductGroupsPage />}></Route>
             <Route path="/customizedTabs" element={<CustomizedTabs/>} > </Route>  
