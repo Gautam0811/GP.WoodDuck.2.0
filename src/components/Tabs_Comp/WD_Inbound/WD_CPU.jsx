@@ -1,30 +1,23 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Grid, ListItemText} from '@mui/material';
+import { Grid } from '@mui/material';
 
-
-
-
-export default function BasicSelect(props) {
-  
+export default function BasicSelectC() {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
 
-  return (<Grid sx={{pt:5,mt:-28,ml:5,display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
-    
-    <Grid sx={{pr:3}}>{props.message}</Grid>
-    <Grid>
-    <Box sx={{ width: 190,bgcolor: '#fff'}}>
-    <ListItemText sx={{marginBlock:-1,}}>
-      {/* <InputLabel id="demo-simple-select-label" sx={{justifyContent:'start'}} >Age</InputLabel> */}
-      <FormControl  fullWidth size="small"  >
-        
+  return (<Grid sx={{display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
+    <Grid sx={{pr:3,mt:1}}>TRUCK</Grid>
+    <Box sx={{minWidth: 70 }}>
+      <FormControl fullWidth size="small">
+        <InputLabel id="demo-simple-select-label" sx={{fontSize:13,opacity:1}}>CPU</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -36,7 +29,7 @@ export default function BasicSelect(props) {
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
-      </FormControl></ListItemText>
-    </Box></Grid></Grid>
+      </FormControl>
+    </Box></Grid>
   );
 }

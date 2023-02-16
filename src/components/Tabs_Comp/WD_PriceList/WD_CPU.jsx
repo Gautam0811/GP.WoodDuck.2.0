@@ -14,7 +14,7 @@ export default function BasicSelectC() {
   };
 
   return (<Grid sx={{display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
-    <Grid sx={{pr:3,mt:1}}>TRUCK</Grid>
+    <Grid sx={{pr:3,mt:1}}>MODES</Grid>
     <Box sx={{minWidth: 70 }}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label" sx={{fontSize:13,opacity:1}}>CPU</InputLabel>
@@ -22,7 +22,7 @@ export default function BasicSelectC() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="Age"
+          // label="Age"
           onChange={handleChange}
         >
           <MenuItem value={10}>Ten</MenuItem>

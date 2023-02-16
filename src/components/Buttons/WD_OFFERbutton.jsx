@@ -1,9 +1,9 @@
 import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 
-export default function CreateTemplate() {
+export default function QuoteButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -11,18 +11,19 @@ export default function CreateTemplate() {
   
 
   return (
-    <Box>
-      <Box sx={{ "& > button": { m: 1 ,mr:20,mt:3} }}>
+    <Box >
+      <Box sx={{ "& > button": { mt: -46,mr:33,p:0.2} }}>
         
-        <LoadingButton
-          size='small'
-          startIcon={<ContentCopyIcon />}
+      <LoadingButton
+          size="small"
           onClick={handleClick}
           // loading={loading}
+          startIcon={<AddOutlinedIcon />}
           loadingIndicator="Loading…"
           variant="outlined"
-          style={{ border: '2px solid', borderColor: '#005FA8', color: '#005FA8' }}        >
-          <span>CREATE TEMPLATE</span>
+          style={{ border: '2px solid', borderColor: '#005FA8', color: '#005FA8' }}
+        >
+          <span>OFFER</span>
         </LoadingButton>
       </Box>
     </Box>
