@@ -14,7 +14,7 @@ export default function BasicSelectC() {
   };
 
   return (<Grid sx={{display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
-    <Grid sx={{pr:3,mt:1}}>MODES</Grid>
+    <Grid sx={{pr:7,mt:1}}>MODES</Grid>
     <Box sx={{minWidth: 70 }}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label" sx={{fontSize:13,opacity:1}}>CPU</InputLabel>

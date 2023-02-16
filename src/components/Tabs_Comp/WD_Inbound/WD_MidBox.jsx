@@ -27,7 +27,7 @@ export default function MidBox () {
     
       <BasicSelect message={"Template"}/>
       </Grid>
-   <Box component="span" sx={{ width: 340,height: 490,bgcolor: '#fff',mt:-20}}>
+   <Box component="span" sx={{ width: 325,height: 490,bgcolor: '#fff',mt:-20}}>
    <Grid  > <LBox/></Grid>
    <Grid sx={{pt:5,mt:26,ml:1,}} >
       <BasicSelect message={"BUYER"}/>

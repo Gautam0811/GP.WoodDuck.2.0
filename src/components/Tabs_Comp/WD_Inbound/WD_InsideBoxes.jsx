@@ -20,7 +20,7 @@ export default function BasicSelect(props) {
     
     <Grid sx={{pr:6,ml:-2}}>{props.message}</Grid>
     <Grid>
-    <Box sx={{ width: 210,bgcolor: '#fff'}}>
+    <Box sx={{ width: 200,bgcolor: '#fff'}}>
     <ListItemText sx={{marginBlock:-1,}}>
       {/* <InputLabel id="demo-simple-select-label" sx={{justifyContent:'start'}} >Age</InputLabel> */}
       <FormControl  fullWidth size="small"  >

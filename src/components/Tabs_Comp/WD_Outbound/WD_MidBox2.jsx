@@ -40,23 +40,23 @@ export default function MidBox() {
       </Grid>
       <Box
         component='span'
-        sx={{ width: 340, height: 860, bgcolor: "#fff", mt: -20 }}
+        sx={{ width: 320, height: 860, bgcolor: "#fff", mt: -20 }}
       >
         <Grid>
           <LBox />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 26, ml: 1 }}>
+        <Grid sx={{ pt: 5, mt: 26, ml: 0.5 }}>
           <BasicSelect message={"BUYER"} />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 2, ml: -2 }}>
+        <Grid sx={{ pt: 5, mt: 2, ml: -2.5 }}>
           <BasicSelect message={"CUSTOMER"} />
         </Grid>
         <Divider sx={{ mt: -17 }} />
 
-        <Grid sx={{ pt: 5, mt: 20, ml: -2 }}>
-          <BasicSelect message={"STATE/CITY"} />
+        <Grid sx={{ pt: 5, mt: 20, ml: -1 }}>
+          <BasicSelect message={"SHIP TOS"} />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 2, ml: 0.5 }}>
+        <Grid sx={{ pt: 5, mt: 2, ml: 0 }}>
           <BasicSelect message={"SHIP TO"} />
         </Grid>
         <Divider sx={{ mt: -11 }} />
@@ -87,7 +87,7 @@ export default function MidBox() {
         </Grid>
       </Box>
 
-      <Grid sx={{ mt: -70, ml: 18 }}>
+      <Grid sx={{ mt: -69, ml: 18 }}>
         <CustomizedSwitches Text={"Average Freight"}/>
       </Grid>
       

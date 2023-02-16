@@ -40,15 +40,15 @@ export default function MidBox() {
       </Grid>
       <Box
         component='span'
-        sx={{ width: 340, height: 940, bgcolor: "#fff", mt: -20 }}
+        sx={{ width: 320, height: 940, bgcolor: "#fff", mt: -20 }}
       >
         <Grid>
           <LBox />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 26, ml: 1 ,pr:1}}>
+        <Grid sx={{ pt: 5, mt: 26, ml: 0 ,pr:1}}>
           <BasicSelect message={"BUYER GROUP"} />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 2, ml: -1,pl:2.4 }}>
+        <Grid sx={{ pt: 5, mt: 2, ml: -2,pl:2.4 }}>
           <BasicSelect message={"BUYER"} />
         </Grid>
         <Divider sx={{ mt: -17 }} />
@@ -56,10 +56,10 @@ export default function MidBox() {
         <Grid sx={{ml:3,fontSize:12,fontWeight:"Bold",mt:2}}><p>BUYERS</p></Grid>
         <Divider sx={{ mt: 2}} />
 
-        <Grid sx={{ pt: 5, mt: 31, ml: 0 }}>
+        <Grid sx={{ pt: 5, mt: 31, ml: -1 }}>
           <BasicSelect message={"SHIP TOS"} />
         </Grid>
-        <Grid sx={{ pt: 5, mt: 2, ml: 0.5 }}>
+        <Grid sx={{ pt: 5, mt: 2, ml: 0 }}>
           <BasicSelect message={"SHIP TO"} />
         </Grid>
         <Divider sx={{ mt: -17 }} />
@@ -83,6 +83,9 @@ export default function MidBox() {
           </Grid>
         </Grid>
         
+        <Grid container sx={{ pt: 0, mt: -82, ml: 2 }}>
+            <BasicSelectC />
+          </Grid>
         
       </Box>
       
@@ -100,9 +103,7 @@ export default function MidBox() {
         </Grid>
       </Grid>
       
-      <Grid container sx={{ pt: 0, mt: -100, ml: 8 }}>
-            <BasicSelectC />
-          </Grid>
+      
           
     </Grid>
   );

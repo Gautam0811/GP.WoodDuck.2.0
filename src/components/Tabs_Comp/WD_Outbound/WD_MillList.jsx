@@ -33,7 +33,7 @@ export default function SwitchListSecondary() {
     >
       <ListItem>
         <ListItemText sx={{ml:5}} id="switch-list-label-wifi" secondary="GURDON" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid><p>---------------------------------------</p></Grid>
+        <Grid><p>-----------------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -46,7 +46,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="ROCKY CREEK" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>---------------------------------</p></Grid>
+        <Grid ><p>-----------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -59,7 +59,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="GP SL WARRENTON ll" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>-------------------------</p></Grid>
+        <Grid ><p>---------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -72,7 +72,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="DUDLEY STUD" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>---------------------------------</p></Grid>
+        <Grid ><p>-----------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -85,7 +85,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="PROSPERITY STUD" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>----------------------------</p></Grid>
+        <Grid ><p>------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -98,7 +98,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="THOMSO-R" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>------------------------------------</p></Grid>
+        <Grid ><p>--------------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -111,7 +111,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="CHICAGO-R" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>------------------------------------</p></Grid>
+        <Grid ><p>--------------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
@@ -124,7 +124,7 @@ export default function SwitchListSecondary() {
       </ListItem>
       <ListItem sx={{mt:-5}}>
         <ListItemText sx={{ml:5}} id="switch-list-label-bluetooth" secondary="CAMDEN" secondaryTypographyProps={{fontSize: '11px', fontWeight:'Bold'}} />
-        <Grid ><p>---------------------------------------</p></Grid>
+        <Grid ><p>-----------------------------------</p></Grid>
         <Switch
         size='small'
           edge="end"
