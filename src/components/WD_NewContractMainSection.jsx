@@ -7,7 +7,7 @@ import { FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
 import '../styles/WD_NewContractHeader.css';
 
-export default function WD_NewContractHeader() {
+export default function WD_NewContractMainSection() {
   return (
     //for header
     //<div style={{ width:'1000px',  display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center', backgroundColor: '#f1f4fb'}}>
@@ -18,42 +18,7 @@ export default function WD_NewContractHeader() {
         backgroundColor: "#f1f4fb",
       }}
     >
-      <Grid
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <div
-          style={{
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <WD_ExitButton />
-          <span style={{ fontWeight: "bold" }}>New Contracts</span>
-          <FormGroup style={{ paddingLeft: "20px" }}>
-            <FormControlLabel
-              control={<Switch color="primary" defaultChecked />}
-              label="Active"
-              style={{ color: "#005fa8" }}
-            />
-          </FormGroup>
-        </div>
-        <div
-          style={{
-            alignItems: "center",
-            color: "gray",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <span>Cancel</span>
-          <WD_AddContractButton />
-        </div>
-      </Grid>
+      
       <Grid
         sx={{
           display: "flex",

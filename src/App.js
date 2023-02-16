@@ -30,7 +30,7 @@ function App() {
             <Route path="/salesgrid" element={<WD_SalesGrid />}></Route>
             <Route path="/productgroups" element={<WD_ProductGroupsPage />}></Route>
             <Route path="/settings" element={<WD_Settings/>} > </Route>   
-            <Route path="/newcontract" element={<WD_NewContract/>} > </Route>          
+            <Route path="/contracts" element={<WD_NewContract/>} > </Route>        
           </Routes>
         </Grid>
       </Router>

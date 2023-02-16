@@ -145,11 +145,13 @@ function LeftSidebar() {
             </ListItemButton>
           </div>
         </Collapse>
+        <Link to='/contracts' style={{ color: "#ffffff", textDecoration: "none" }}>
         <div className="item" onClick={handleClickContracts}>
           <EditOutlinedIcon className="sidebar-icon" />
           <span className="sidebar-text">Contracts</span>
           {openContracts ? " " : " "}
         </div>
+        </Link>
         <Collapse in={openContracts} timeout="auto">
           <div component="div" disablePadding>
             <Link
