@@ -9,7 +9,9 @@ import { Grid } from '@mui/material';
 import PhoneCallbackRoundedIcon from '@mui/icons-material/PhoneCallbackRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import EmailIcon from '@mui/icons-material/Email';
-import MidBox from './Tabs_Comp/WD_MidBox';
+import MidBox from './Tabs_Comp/WD_Inbound/WD_MidBox';
+import MidBox2 from './Tabs_Comp/WD_Outbound/WD_MidBox2';
+import MidBox3 from './Tabs_Comp/WD_PriceList/WD_MidBox3';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -114,10 +116,10 @@ export default function CustomizedTabs() {
       <Grid><MidBox /></Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      <Grid><MidBox2/></Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      <Grid><MidBox3/></Grid>
       </TabPanel>
     </Box>
     </Grid>

@@ -6,7 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Grid } from '@mui/material';
 
-export default function BasicSelectC() {
+
+export default function BasicSelectL() {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -14,22 +15,22 @@ export default function BasicSelectC() {
   };
 
   return (<Grid sx={{display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
-    <Grid sx={{pr:3,mt:1}}>TRUCK</Grid>
-    <Box sx={{minWidth: 70 }}>
+    <Grid sx={{pr:3,mt:1}}>LOADS</Grid>
+    <Box sx={{minWidth: 20 }}>
       <FormControl fullWidth size="small">
-        <InputLabel id="demo-simple-select-label" sx={{fontSize:13,opacity:1}}>CPU</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="Age"
+          // label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>1</MenuItem>
+          <MenuItem value={20}>2</MenuItem>
+          <MenuItem value={30}>3</MenuItem>
         </Select>
       </FormControl>
     </Box></Grid>
   );
 }
+
