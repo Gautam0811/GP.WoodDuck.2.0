@@ -6,8 +6,6 @@ import WD_Footer from './WD_Footer';
 
 export default function ProductGroupsPage() {
 
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
   return (
     <Grid>
 

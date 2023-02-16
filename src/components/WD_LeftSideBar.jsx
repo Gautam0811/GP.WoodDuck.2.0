@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import SpeedIcon from "@mui/icons-material/Speed";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -13,85 +12,186 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import { Divider } from "@mui/material";
+import ListItemButton from '@mui/material/ListItemButton';
+import Collapse from '@mui/material/Collapse';
+import { ShoppingCartOutlined } from '@mui/icons-material';
+import "../styles/WD_Styles.css";
+import { useState } from 'react';
 
-function WD_LeftSideBar() {
-  const { collapseSidebar } = useProSidebar();
+function LeftSidebar() {
+  const [openOrders, setOpenOrders] = React.useState(false);
 
-  //by default the sidebar is collapsed
-  React.useEffect(() => {
-    collapseSidebar();
-  }, []);
+  const handleClickOrders = () => {
+    setOpenOrders(!openOrders);
+  };
 
-  //all the buttons in the sidebar
+  const [openInvoices, setOpenInvoices] = React.useState(false);
+
+  const handleClickInvoices = () => {
+    setOpenInvoices(!openInvoices);
+  };
+
+  const [openContracts, setOpenContracts] = React.useState(false);
+
+  const handleClickContracts = () => {
+    setOpenContracts(!openContracts);
+  };
+
+  const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
+
+  const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
+
+  const handleToggler = () => {
+    if(isExpanded) {
+      setIsExpanded(false);
+      localStorage.setItem('sidebar-collapsed', true);
+      return;
+    }
+    setIsExpanded(true);
+    localStorage.removeItem('sidebar-collapsed');
+  };
+
   return (
-    <div id="app" style={{ display: "flex", height: "100vh" }}>
-      <Sidebar backgroundColor="#434C56" style={{ height: "100vh" }}>
-        <Menu sx={{ px: -2 }} style={{ color: "#d6dee9", fontSize: "10px" }}>
-          <Link to="/" style={{ color: "#d6dee9" }}>
-            <MenuItem icon={<SpeedIcon style={{ fontSize: "16px" }} />}>
-              Dashboard
-            </MenuItem>
-          </Link>
-          <Link to="/salesgrid" style={{ color: "#d6dee9" }}>
-            <MenuItem icon={<GridOnIcon style={{ fontSize: "16px" }} />}>
-              Sales Grid
-            </MenuItem>
-          </Link>
-          <Link to="/productgroups" style={{ color: "#d6dee9" }}>
-            <MenuItem
-              icon={<ShoppingCartOutlinedIcon style={{ fontSize: "16px" }} />}
+    <div className={isExpanded ? "Sidebar" : "Sidebar collapsed"}>
+      <div className="sidebar-items">
+        <div className="item">
+          <SpeedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Dashboard</span>{" "}
+        </div>
+        <Link to='./salesgrid' style={{ color: "#ffffff", textDecoration: "none" }}>
+        <div className="item">
+          <GridOnIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Salesgrid</span>{" "}
+        </div>
+        </Link>
+        <div className="item" onClick={handleClickOrders}>
+          <ShoppingCartOutlined className="sidebar-icon" />
+          <span className="sidebar-text">Orders</span>
+          {openOrders ? " " : " "}
+        </div>
+        <Collapse in={openOrders} timeout="auto">
+          <div component="div" disablePadding>
+            <Link
+              to="/productgroups"
+              style={{ color: "#ffffff", textDecoration: "none" }}
             >
-              Orders
-            </MenuItem>
-          </Link>
-          <Link to="/customizedTabs" style={{ color: "#d6dee9" }}>
-          <MenuItem
-            icon={<RateReviewOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            Master Quotes
-          </MenuItem>
-          </Link>
-          
-          <MenuItem
-            icon={<RequestQuoteOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            Quote Management
-          </MenuItem>
-          <MenuItem
-            icon={<LocalShippingOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            Shipments
-          </MenuItem>
-          <MenuItem
-            icon={<ArrowCircleRightOutlinedIcon style={{ color: "black" }} />}
-            onClick={() => {
-              collapseSidebar();
-            }}
-            style={{ textAlign: "center" }}
+              <ListItemButton sx={{ pl: 6 }}>
+                <span className="fontsize">Open</span>
+              </ListItemButton>
+            </Link>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Late Fulfillment</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Late Pickup</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Today</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">All</span>
+            </ListItemButton>
+          </div>
+        </Collapse>
+        <Link
+          to="/customizedtabs"
+          style={{ color: "#ffffff", textDecoration: "none" }}
+        >
+          <div className="item">
+            <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Master Quotes</span>{" "}
+          </div>
+        </Link>
+        <div className="item">
+          <RequestQuoteOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Quote Management</span>{" "}
+        </div>
+        <div className="item">
+          <LocalShippingOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Shipments</span>{" "}
+        </div>
+        <div className="arrow-item">
+          <ArrowCircleLeftOutlinedIcon
+            className="sidebar-arrow-icon"
+            onClick={handleToggler}
           />
-          <MenuItem icon={<ReceiptOutlinedIcon style={{ fontSize: "16px" }} />}>
-            Invoices
-          </MenuItem>
-          <MenuItem icon={<EditOutlinedIcon style={{ fontSize: "16px" }} />}>
-            Contracts
-          </MenuItem>
-          <MenuItem
-            icon={<PersonOutlineOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            People
-          </MenuItem>
-          <MenuItem
-            icon={<BusinessOutlinedIcon style={{ fontSize: "16px" }} />}
-          >
-            Facilities
-          </MenuItem>
-          <MenuItem icon={<CachedOutlinedIcon style={{ fontSize: "16px" }} />}>
-            Supply and Demand
-          </MenuItem>
-        </Menu>
-      </Sidebar>
+        </div>
+        <div className="item" onClick={handleClickInvoices}>
+          <ReceiptOutlinedIcon className="sidebar-icon" />
+          <span className="sidebar-text">Invoices</span>
+          {openInvoices ? " " : " "}
+        </div>
+        <Collapse in={openInvoices} timeout="auto">
+          <div component="div" disablePadding>
+            <Link
+              to="/salesgrid"
+              style={{ color: "#ffffff", textDecoration: "none" }}
+            >
+              <ListItemButton sx={{ pl: 6 }}>
+                <span className="fontsize">All</span>
+              </ListItemButton>
+            </Link>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Open</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Late</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Paid</span>
+            </ListItemButton>
+          </div>
+        </Collapse>
+        <div className="item" onClick={handleClickContracts}>
+          <EditOutlinedIcon className="sidebar-icon" />
+          <span className="sidebar-text">Contracts</span>
+          {openContracts ? " " : " "}
+        </div>
+        <Collapse in={openContracts} timeout="auto">
+          <div component="div" disablePadding>
+            <Link
+              to="/salesgrid"
+              style={{ color: "#ffffff", textDecoration: "none" }}
+            >
+              <ListItemButton sx={{ pl: 6 }}>
+                <span className="fontsize">Active</span>
+              </ListItemButton>
+            </Link>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Inactive</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">Mine</span>
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 6 }}>
+              <span className="fontsize">All</span>
+            </ListItemButton>
+          </div>
+        </Collapse>
+
+        <div className="item">
+          <PersonOutlineOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">People</span>{" "}
+        </div>
+        <div className="item">
+          <BusinessOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Facilities</span>{" "}
+        </div>
+        <div className="item">
+          <CachedOutlinedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Supply and Demand</span>{" "}
+        </div>
+        <Divider />
+        <div className="item">
+          <FormatListNumberedIcon className="sidebar-icon" />{" "}
+          <span className="sidebar-text">Recent Items</span>{" "}
+        </div>
+      </div>
     </div>
   );
 }
 
-export default WD_LeftSideBar;
+export default LeftSidebar;

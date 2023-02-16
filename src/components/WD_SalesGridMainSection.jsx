@@ -1,13 +1,12 @@
 import * as React from "react";
-import Table from "@mui/joy/Table";
 import Grid from "@mui/material/Grid";
 import CustomizedTabs from "./WD_Tabs";
-
+import '../styles/WD_Styles.css';
 
 export default function SalesGridMainSection() {
   return (
-      <Grid sx={{ display: 'flex', flexDirection: 'row'}}>
-        <Table sx={{ width: "100%", height: "35%", p: 3 }} borderAxis="both">
+      <Grid className="fontsize" sx={{ display: 'flex', flexDirection: 'row'}}>
+        <table style={{ width: "100%", height: "35%", p: 3 }} borderAxis="both">
           <thead>
             <tr
               style={{
@@ -17,66 +16,66 @@ export default function SalesGridMainSection() {
               }}
             >
               <th
-                rowspan={4}
+                rowSpan={4}
                 style={{ borderLeftWidth: 0, backgroundColor: "white" }}
               ></th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 PROSPERITY
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 DUDLEY
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 ALBANY
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 GP SL WARRENTON II
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 ROME
               </th>
               <th
-                rowspan={4}
-                colspan={3}
+                rowSpan={4}
+                colSpan={3}
                 style={{ borderRightWidth: 0, backgroundColor: "white" }}
               ></th>
             </tr>
             <tr style={{ backgroundColor: "gray", color: "white" }}>
-              <th colspan={2}>WRAP N/A</th>
-              <th colspan={2} style={{ textAlign: "right" }}>
+              <th colSpan={2}>WRAP N/A</th>
+              <th colSpan={2} style={{ textAlign: "right" }}>
                 RAIL N/A
               </th>
-              <th colspan={2}>WRAP N/A</th>
-              <th colspan={2} style={{ textAlign: "right" }}>
+              <th colSpan={2}>WRAP N/A</th>
+              <th colSpan={2} style={{ textAlign: "right" }}>
                 RAIL N/A
               </th>
-              <th colspan={2}>WRAP N/A</th>
-              <th colspan={2} style={{ textAlign: "right" }}>
+              <th colSpan={2}>WRAP N/A</th>
+              <th colSpan={2} style={{ textAlign: "right" }}>
                 RAIL N/A
               </th>
-              <th colspan={2}>WRAP N/A</th>
-              <th colspan={2} style={{ textAlign: "right" }}>
+              <th colSpan={2}>WRAP N/A</th>
+              <th colSpan={2} style={{ textAlign: "right" }}>
                 RAIL N/A
               </th>
-              <th colspan={2}>WRAP N/A</th>
-              <th colspan={2} style={{ textAlign: "right" }}>
+              <th colSpan={2}>WRAP N/A</th>
+              <th colSpan={2} style={{ textAlign: "right" }}>
                 RAIL N/A
               </th>
             </tr>
             <tr style={{ backgroundColor: "#1357a6" }}>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 2X4 SYP #2 PET
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 2X4 SYP #2 PET
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 2X4 SYP #2 PET
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 2X4 SYP #2 PET
               </th>
-              <th colspan={4} style={{ textAlign: "center" }}>
+              <th colSpan={4} style={{ textAlign: "center" }}>
                 2X4 SYP #2 PET
               </th>
             </tr>
@@ -127,7 +126,7 @@ export default function SalesGridMainSection() {
               <td></td>
               <td></td>
               <td colSpan={3} style={{ textAlign: "right" }}>
-                8 x{" "}
+                8 x <input style={{ width:'20px'}}></input>
               </td>
             </tr>
             <tr style={{ backgroundColor: "#E5E4E2" }}>
@@ -153,7 +152,7 @@ export default function SalesGridMainSection() {
               <td></td>
               <td></td>
               <td colSpan={3} style={{ textAlign: "right" }}>
-                8 x{" "}
+                8 x <input style={{ width:'20px'}}></input>
               </td>
             </tr>
             <tr>
@@ -179,7 +178,7 @@ export default function SalesGridMainSection() {
               <td></td>
               <td></td>
               <td colSpan={3} style={{ textAlign: "right" }}>
-                8 x{" "}
+                8 x <input style={{ width:'20px'}}></input>
               </td>
             </tr>
             <tr style={{ backgroundColor: "#E5E4E2" }}>
@@ -205,7 +204,7 @@ export default function SalesGridMainSection() {
               <td></td>
               <td></td>
               <td colSpan={3} style={{ textAlign: "right" }}>
-                8 x{" "}
+                8 x <input style={{ width:'20px'}}></input>
               </td>
             </tr>
             <tr>
@@ -231,11 +230,11 @@ export default function SalesGridMainSection() {
               <td></td>
               <td></td>
               <td colSpan={3} style={{ textAlign: "right" }}>
-                8 x{" "}
+                8 x <input style={{ width:'20px'}}></input>
               </td>
             </tr>
           </tbody>
-        </Table>
+        </table>
       </Grid>
   );
 }
