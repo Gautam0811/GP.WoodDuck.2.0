@@ -101,10 +101,15 @@ function LeftSidebar() {
             </ListItemButton>
           </div>
         </Collapse>
-        <div className="item">
-          <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Master Quotes</span>{" "}
-        </div>
+        <Link
+          to="./orders"
+          style={{ color: "#ffffff", textDecoration: "none" }}
+        >
+          <div className="item">
+            <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Master Quotes</span>{" "}
+          </div>
+        </Link>
         <div className="item">
           <RequestQuoteOutlinedIcon className="sidebar-icon" />{" "}
           <span className="sidebar-text">Quote Management</span>{" "}
