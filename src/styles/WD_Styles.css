@@ -28,6 +28,7 @@
   user-select: none;
 }
 
+
 .sidebar-arrow-icon {
   width: 1.5rem;
   height: 1em;
@@ -81,3 +82,5 @@ Collapsed Sidebar CSS
 .Sidebar.collapsed .sidebar-logo {
   display: none;
 }
+
+
