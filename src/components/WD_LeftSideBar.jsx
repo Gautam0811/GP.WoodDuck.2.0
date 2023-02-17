@@ -110,7 +110,7 @@ function LeftSidebar() {
           <span className="sidebar-text">Quote Management</span>{" "}
         </div>
         <div className="item">
-          <LocalShippingOutlinedIcon className="sidebar-icon" />{" "}
+          <LocalShippingOutlinedIcon className="sidebar-icon"  />{" "}
           <span className="sidebar-text">Shipments</span>{" "}
         </div>
         <div className="arrow-item">
