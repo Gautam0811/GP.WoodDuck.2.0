@@ -72,13 +72,18 @@ function LeftSidebar() {
             <span className="sidebar-text">Salesgrid</span>{" "}
           </div>
         </Link>
-        <div className="item" onClick={handleClickOrders}>
-          <ShoppingCartOutlined className="sidebar-icon" />
-          <span className="sidebar-text">Orders</span>
-          {openOrders ? " " : " "}
-        </div>
+        <Link
+          to="/settings"
+          style={{ color: "#ffffff", textDecoration: "none" }}
+        >
+          <div className="item" onClick={handleClickOrders}>
+            <ShoppingCartOutlined className="sidebar-icon" />
+            <span className="sidebar-text">Orders</span>
+            {openOrders ? " " : " "}
+          </div>
+        </Link>
         <Collapse in={openOrders} timeout="auto">
-          <div component="div" disablePadding>
+          <div className="sidebar-text" component="div" disablePadding>
             <Link
               to="/productgroups"
               style={{ color: "#ffffff", textDecoration: "none" }}
@@ -88,10 +93,10 @@ function LeftSidebar() {
               </ListItemButton>
             </Link>
             <ListItemButton sx={{ pl: 6 }}>
-              <span className="fontsize">Late Fulfillment</span>
+              <span className="fontsize ">Late Fulfillment</span>
             </ListItemButton>
             <ListItemButton sx={{ pl: 6 }}>
-              <span className="fontsize">Late Pickup</span>
+              <span className="fontsize ">Late Pickup</span>
             </ListItemButton>
             <ListItemButton sx={{ pl: 6 }}>
               <span className="fontsize">Today</span>
@@ -125,7 +130,7 @@ function LeftSidebar() {
           {openInvoices ? " " : " "}
         </div>
         <Collapse in={openInvoices} timeout="auto">
-          <div component="div" disablePadding>
+          <div className="sidebar-text" component="div" disablePadding>
             <Link
               to="/salesgrid"
               style={{ color: "#ffffff", textDecoration: "none" }}
@@ -145,15 +150,18 @@ function LeftSidebar() {
             </ListItemButton>
           </div>
         </Collapse>
-        <Link to='/contracts' style={{ color: "#ffffff", textDecoration: "none" }}>
-        <div className="item" onClick={handleClickContracts}>
-          <EditOutlinedIcon className="sidebar-icon" />
-          <span className="sidebar-text">Contracts</span>
-          {openContracts ? " " : " "}
-        </div>
+        <Link
+          to="/contracts"
+          style={{ color: "#ffffff", textDecoration: "none" }}
+        >
+          <div className="item" onClick={handleClickContracts}>
+            <EditOutlinedIcon className="sidebar-icon" />
+            <span className="sidebar-text">Contracts</span>
+            {openContracts ? " " : " "}
+          </div>
         </Link>
         <Collapse in={openContracts} timeout="auto">
-          <div component="div" disablePadding>
+          <div className="sidebar-text" component="div" disablePadding>
             <Link
               to="/salesgrid"
               style={{ color: "#ffffff", textDecoration: "none" }}

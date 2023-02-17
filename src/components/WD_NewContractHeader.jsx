@@ -91,8 +91,8 @@ export default function WD_NewContractHeader() {
             </span>
             <select style={{ width: '130px', height: '30px'}}>
               <option></option>
-              <option>Ananya</option>
-              <option>Rahul</option>
+              <option>DAVID KLEKAMP</option>
+              <option>Hannah</option>
             </select>
           </div>
           <div
@@ -107,8 +107,8 @@ export default function WD_NewContractHeader() {
             </span>
             <select style={{ width: '130px', height: '30px'}}>
               <option></option>
-              <option>Ananya</option>
-              <option>Rahul</option>
+              <option>DAVID KLEKAMP</option>
+              <option>Hannah</option>
             </select>
           </div>
           <div

@@ -22,7 +22,7 @@ export default function SettingsMainSection() {
         <tr></tr>
         <tr></tr>
       </table>
-      <table border="1" style={{ color: "#1357a6", paddingRight: "200px" }}>
+      <table  style={{ color: "#1357a6", paddingRight: "200px" }}>
         <th style={{ color: "black", backgroundColor: "#f1f4fb" }}>
           SITE SETTINGS
         </th>
