@@ -1,67 +1,60 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import TablePagination from "@mui/material/TablePagination";
+
 
 const columns = [
-  { field: "id", headerName: "Order ID", width: 130 },
-  { field: "mill", headerName: "Mill", width: 130 },
+  { id: "orderId", label: "Order ID" },
+  { id: "mill", label: "Mill" },
   {
-    field: "salesperson",
-    headerName: "Salesperson",
-    align: "center",
-    width: 130,
+    id: "salesperson",
+    label: "Salesperson",
+    align: "right",
   },
   {
-    field: "customer",
-    headerName: "Customer",
-    align: "center",
-    width: 130,
+    id: "customer",
+    label: "Customer",
+    align: "right",
   },
   {
-    field: "buyer",
-    headerName: "Buyer",
-    align: "center",
-    width: 130,
+    id: "buyer",
+    label: "Buyer",
+    align: "right",
   },
   {
-    field: "customerPo",
-    headerName: "Customer PO",
-    align: "center",
-    width: 130,
+    id: "customerPo",
+    label: "Customer PO",
+    align: "right",
   },
   {
-    field: "mode",
-    headerName: "Mode",
-    align: "center",
-    width: 130,
+    id: "mode",
+    label: "Mode",
+    align: "right",
   },
   {
-    field: "ordered",
-    headerName: "Ordered",
-    align: "center",
-    width: 130,
+    id: "ordered",
+    label: "Ordered",
+    align: "right",
   },
   {
-    field: "promised",
-    headerName: "Promised",
-    align: "center",
-    width: 130,
+    id: "promised",
+    label: "Promised",
+    align: "right",
   },
   {
-    field: "scheduled",
-    headerName: "Scheduled",
-    align: "center",
-    width: 130,
+    id: "scheduled",
+    label: "Scheduled",
+    align: "right",
   },
   {
-    field: "readied",
-    headerName: "Readied",
-    align: "center",
-    width: 130,
+    id: "readied",
+    label: "Readied",
+    align: "right",
   },
 ];
 
 function createData(
-  id,
+  orderId,
   mill,
   salesperson,
   customer,
@@ -74,7 +67,7 @@ function createData(
   readied
 ) {
   return {
-    id,
+    orderId,
     mill,
     salesperson,
     customer,
@@ -142,7 +135,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135808,
+    465135803,
     "Talladega",
     "MPU",
     "Barnett Co.",
@@ -155,7 +148,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135809,
+    465135802,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -168,7 +161,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135810,
+    365135805,
     "Talladega",
     "NOA",
     "Sunbelt Forest Products",
@@ -181,7 +174,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135811,
+    265135808,
     "Piedmont-R",
     "MPU",
     "Sunbelt Forest Products",
@@ -194,7 +187,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135812,
+    665135809,
     "Talladega",
     "MPU",
     "Barnett Co.",
@@ -207,7 +200,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135813,
+    965135802,
     "Piedmont-R",
     "NOA",
     "Barnett Co.",
@@ -220,7 +213,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135814,
+    865135801,
     "Talladega",
     "MPU",
     "Sunbelt Forest Products",
@@ -233,7 +226,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135815,
+    765135801,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -246,7 +239,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135816,
+    265135500,
     "Talladega",
     "NOA",
     "Sunbelt Forest Products",
@@ -259,7 +252,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135817,
+    165135604,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -272,7 +265,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135818,
+    665135704,
     "Talladega",
     "NOA",
     "Barnett Co.",
@@ -287,16 +280,33 @@ const rows = [
 ];
 
 export default function WD_OrdersGrid() {
-  const [pageSize, setPageSize] = React.useState(10);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div style={{ height: 400, width: "100%" }}>
+        <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
       <DataGrid
-        pageSize={pageSize}
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-        rowsPerPageOptions={[5, 10, 20]}
         rows={rows}
         columns={columns}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
         checkboxSelection
       />
     </div>
