@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Badge from '@mui/material/Badge';
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
@@ -158,8 +159,14 @@ export default function WD_headerMiddleSection() {
                   <SettingsIcon fontSize="small" />
                 </IconButton>
               </Link>
-              <IconButton size="small" color="primary" aria-label="menu">
-                <EmailOutlinedIcon fontSize="small" />
+              <IconButton
+                size="small"
+                color="primary"
+                aria-label="show 8 new mails"
+              >
+                <Badge badgeContent={8} color="error">
+                  <EmailOutlinedIcon fontSize="small" />
+                </Badge>
               </IconButton>
               <IconButton size="small" color="primary" aria-label="menu">
                 <LogoutOutlinedIcon fontSize="small" />
