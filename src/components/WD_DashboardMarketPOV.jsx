@@ -16,7 +16,7 @@ import SignalCellular4BarIcon from '@mui/icons-material/SignalCellular4Bar';
 
 export default function WD_DashboardMarketPOV() {
   return (
-    <Box sx={{ mx: 4,my: 4, width: "100%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
+    <Box sx={{ mx: 4,my: 4, width: "90%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
       <Box sx={{ my: 2.5, mx: 4}}>
         <Grid container alignItems="center" >
           <Grid item xs>
@@ -27,7 +27,7 @@ export default function WD_DashboardMarketPOV() {
         </Grid>
         <Divider variant="middle" />
         <br />
-        <Stack direction="row" spacing={13}>
+        <Stack direction="row" spacing={9}>
           <Typography variant="h7" color={"black"} sx={{ml:4}}>
             WEEK 1
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>

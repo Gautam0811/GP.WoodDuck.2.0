@@ -15,13 +15,13 @@ export default function WD_DasboardHitRate() {
     <Box
       sx={{
         mx: 4,
-        my: 4,
-        width: "100%",
+        my: 1,
+        width: "90%",
         bgcolor: "white",
         boxShadow: "1px 2px 5px grey",
       }}
     >
-      <Box sx={{ my: 2.5, mx: 5 }}>
+      <Box sx={{ my: 2.5, mx: 5,pt:2 }}>
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography gutterBottom variant="h6" component="div">
@@ -47,7 +47,7 @@ export default function WD_DasboardHitRate() {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table style={{ width: "100%"}}>
+        <table style={{ width: "100%",lineHeight:2.5}}>
           <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
             <tr>
               <th style={{ width: "10%"}}></th>
@@ -73,7 +73,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
               <td></td>
               <td></td>
-              <td>9%</td>
+              <td style={{ fontWeight:"bold"}}>9%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x8</th>

@@ -35,7 +35,8 @@ export default function MidBox () {
       <Grid sx={{pt:5,mt:2,ml:-2,}} >
       
       <BasicSelect message={"CUSTOMER"}/>
-      </Grid><Divider sx={{mt:-17}}/>
+      </Grid>
+      <Divider sx={{mt:-17}}/>
 
       <Grid sx={{pt:5,mt:20,ml:-2}} >
    

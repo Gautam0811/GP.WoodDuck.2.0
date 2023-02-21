@@ -12,7 +12,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 export default function WD_DashboardMarketSegment() {
   return (
-    <Box sx={{ mx: 4,my: 4, width: "100%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
+    <Box sx={{ mx: 4,my: 1, width: "90%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
       <Box sx={{ my: 2.5, mx: 5}}>
         <Grid container alignItems="center" >
           <Grid item xs>
@@ -40,7 +40,7 @@ export default function WD_DashboardMarketSegment() {
         </Grid>
         <Divider variant="middle" />
         <br />
-        <Stack direction="row" spacing={9}>
+        <Stack direction="row" spacing={6}>
           <Typography variant="h7" color={"#42a5f5"}>
             Industrial
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>

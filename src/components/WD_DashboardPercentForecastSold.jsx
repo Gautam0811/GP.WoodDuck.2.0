@@ -16,12 +16,12 @@ export default function WD_DasboardPercentForecastSold() {
       sx={{
         mx: 4,
         my: 4,
-        width: "100%",
+        width: "90%",
         bgcolor: "white",
         boxShadow: "1px 2px 5px grey",
       }}
     >
-      <Box sx={{ my: 2.5, mx: 5 }}>
+      <Box sx={{ my: 2.5, mx: 5,pt:2 }}>
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography gutterBottom variant="h6" component="div">
@@ -30,7 +30,7 @@ export default function WD_DasboardPercentForecastSold() {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table style={{ width: "100%"}}>
+        <table style={{ width: "100%",lineHeight:2.5}}>
           <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
             <tr>
               <th style={{ width: "10%"}}></th>
@@ -48,7 +48,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>283%</td>
               <td>137%</td>
               <td>104%</td>
-              <td >190%</td>
+              <td style={{ fontWeight:"bold"}} >190%</td>
             </tr>
             <tr >
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x6</th>
@@ -56,7 +56,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>101%</td>
               <td>78%</td>
               <td>76%</td>
-              <td>80%</td>
+              <td style={{ fontWeight:"bold"}}>80%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x8</th>
@@ -64,7 +64,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>68%</td>
               <td>64%</td>
               <td>47%</td>
-              <td>67%</td>
+              <td style={{ fontWeight:"bold"}}>67%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x10</th>
@@ -72,7 +72,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>36%</td>
               <td>13%</td>
               <td>30%</td>
-              <td>31%</td>
+              <td style={{ fontWeight:"bold"}}>31%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x12</th>
@@ -80,7 +80,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>110%</td>
               <td>14%</td>
               <td>127%</td>
-              <td>102%</td>
+              <td style={{ fontWeight:"bold"}}>102%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x4</th>
@@ -88,7 +88,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>193%</td>
               <td>39%</td>
               <td>29%</td>
-              <td>164%</td>
+              <td style={{ fontWeight:"bold"}}>164%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x6</th>
@@ -96,7 +96,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>229%</td>
               <td>No Production</td>
               <td>59%</td>
-              <td>165%</td>
+              <td style={{ fontWeight:"bold"}}>165%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
               <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>6x6</th>
@@ -104,7 +104,7 @@ export default function WD_DasboardPercentForecastSold() {
               <td>127%</td>
               <td>N/A</td>
               <td>17%</td>
-              <td>88%</td>
+              <td style={{ fontWeight:"bold"}}>88%</td>
             </tr>
           </tbody>
         </table>
