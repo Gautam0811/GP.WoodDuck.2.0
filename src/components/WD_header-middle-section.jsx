@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Badge from '@mui/material/Badge';
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -42,6 +41,10 @@ export default function WD_headerMiddleSection() {
 
   const handleChange = (event) => {
     setId(event.target.value);
+  };
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload(false);
   };
   return (
     // View for header middle section
@@ -168,7 +171,7 @@ export default function WD_headerMiddleSection() {
                   <EmailOutlinedIcon fontSize="small" />
                 </Badge>
               </IconButton>
-              <IconButton size="small" color="primary" aria-label="menu">
+              <IconButton size="small" color="primary" aria-label="menu" onClick={logout}>
                 <LogoutOutlinedIcon fontSize="small" />
               </IconButton>
             </Typography>
