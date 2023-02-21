@@ -46,6 +46,9 @@ export default function WD_headerMiddleSection() {
     localStorage.clear();
     window.location.reload(false);
   };
+  React.useEffect(() => {
+    window.addEventListener("storage", logout);
+  },[logout]);
   return (
     // View for header middle section
     <Box className="fontsize" sx={{ flexGrow: 1 }}>
