@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 
 export default function WD_OrdersHeader() {
   return (
-    //This is the header for settings in components_2.png
+    //This is the header for orders
     <div
       style={{
         alignItems: "center",

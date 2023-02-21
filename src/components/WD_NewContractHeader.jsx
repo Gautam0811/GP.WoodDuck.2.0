@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from "@mui/material/Grid";
 import WD_ExitButton from "../components/Buttons/WD_ExitButton";
-import { FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
+import { ListItemButton, FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
 import '../styles/WD_NewContractHeader.css';
 
@@ -50,7 +50,7 @@ export default function WD_NewContractHeader() {
             flexDirection: "row",
           }}
         >
-          <span>Cancel</span>
+          <ListItemButton>Cancel</ListItemButton>
           <WD_AddContractButton />
         </div>
       </Grid>
