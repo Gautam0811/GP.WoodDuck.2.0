@@ -12,6 +12,29 @@ import LinearWithValueLabel from "./WD_LinearProgressBar";
 import LinearWithValueLabel100 from "./WD_LinearProgressBar100";
 import LinearWithValueLabel50 from "./WD_LinearProgressBar50";
 
+function createData(name, inventory, nextweek) {
+  return { name, inventory, nextweek };
+}
+
+const rows = [
+  createData('ALBANY', 45,'100% sold'),
+  createData('CAMDEN', 40,'118% sold'),
+  createData('DIBOLL', 53,'202% sold'),
+  createData('DUDLEY', 106,'129% sold'),
+  createData('GP SL WARRENTON ll', 112,'95% sold'),
+  createData('GURDON', 72,'119% sold'),
+  createData('PINELAND', 79,'119% sold'),
+  createData('PROSPERITY', 76,'87% sold'),
+  createData('ROCKY CREEK', 50,'117% sold'),
+  createData('ROME', 161,'43% sold'),
+  createData('TALLADEGA', 77,'143% sold'),
+  createData('TAYLORSVILLE', 29,'171% sold'),
+];
+
+
+
+
+
 export default function WD_DasboardMillForecasts() {
   return (
     <Box
@@ -44,66 +67,14 @@ export default function WD_DasboardMillForecasts() {
             </tr>
           </thead>
           <tbody>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>ALBANY</th>
-              <td><LinearWithValueLabel Values={"45"}/></td>
-              <td>100% sold</td>
-            </tr>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>CAMDEN</th>
-              <td><LinearWithValueLabel Values={"40"}/></td>
-              <td>118% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>DIBOLL</th>
-              <td><LinearWithValueLabel Values={"53"}/></td>
-              <td>202% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>DUDLEY</th>
-              <td><LinearWithValueLabel Values={"106"}/></td>
-              <td>129% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>GP SL WARRENTON ll</th>
-              <td><LinearWithValueLabel Values={"112"}/></td>
-              <td>95% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>GURDON</th>
-              <td><LinearWithValueLabel Values={"72"}/></td>
-              <td>119% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>PINELAND</th>
-              <td><LinearWithValueLabel Values={"79"}/></td>
-              <td>119% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>PROSPERITY</th>
-              <td><LinearWithValueLabel Values={"76"}/></td>
-              <td>87% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>ROCKY CREEK</th>
-              <td><LinearWithValueLabel Values={"50"}/></td>
-              <td>117% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>ROME</th>
-              <td><LinearWithValueLabel Values={"161"}/></td>
-              <td>43% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>TALLADEGA</th>
-              <td><LinearWithValueLabel Values={"77"}/></td>
-              <td>143% sold</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5",  fontWeight:"normal"}}>TAYLORSVILLE</th>
-              <td><LinearWithValueLabel  Values={"29"}/></td>
-              <td>171% sold</td>
-            </tr>
+            {rows.map((row) => (
+              <tr key={row.name}>
+                <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>{row.name}</th>
+                <td><LinearWithValueLabel Values={row.inventory}/></td>
+                <td>{row.nextweek}</td>
+              </tr>
+            ))}
+            
           </tbody>
         </table>
         <br />
@@ -112,3 +83,8 @@ export default function WD_DasboardMillForecasts() {
     </Box>
   );
 }
+
+
+
+
+              

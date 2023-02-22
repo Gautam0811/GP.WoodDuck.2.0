@@ -10,6 +10,22 @@ import NativeSelect from "@mui/material/NativeSelect";
 import "../styles/WD_DashboardHitRate.css";
 
 
+function createData(name, one,two,three,four,total ) {
+  return { name, one,two,three,four,total };
+}
+
+const rows = [
+  createData('2x4', '','' ,'','','' ),
+  createData('2x6', '9%','' ,'','','9%' ), 
+  createData('2x8', '','' ,'','','' ),
+  createData('2x10', '','' ,'','','' ),
+  createData('2x12', '','' ,'','','' ),
+  createData('4x4', '','' ,'','','' ),
+  createData('4x6', '','' ,'','','' ),
+  createData('6x6', '','' ,'N/A','','' ),
+  
+  ]
+
 export default function WD_DasboardHitRate() {
   return (
     <Box
@@ -59,70 +75,17 @@ export default function WD_DasboardHitRate() {
             </tr>
           </thead>
           <tbody>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x4</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x6</th>
-              <td>9%</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td style={{ fontWeight:"bold"}}>9%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x8</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x10</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x12</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x4</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x6</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>6x6</th>
-              <td></td>
-              <td></td>
-              <td>N/A</td>
-              <td></td>
-              <td></td>
-            </tr>
+          {rows.map((row) => (
+              <tr key={row.name}>
+                <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>{row.name}</th>
+                <td>{row.one}</td>
+                <td>{row.two}</td>
+                <td>{row.three}</td>
+                <td>{row.four}</td>
+                <td style={{ fontWeight:"bold"}}>{row.total}</td>
+              </tr>
+            ))}
+            
           </tbody>
         </table>
         <br />

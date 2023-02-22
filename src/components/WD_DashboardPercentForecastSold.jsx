@@ -10,6 +10,21 @@ import NativeSelect from "@mui/material/NativeSelect";
 import "../styles/WD_DashboardHitRate.css";
 
 
+function createData(name, one,two,three,four,total ) {
+  return { name, one,two,three,four,total };
+}
+
+const rows = [
+  createData('2x4', '201%','283%','137%','104%','190%'),
+  createData('2x6', '48%','101%','78%','76%','80%'),
+  createData('2x8', '75%','68%','64%','47%','67%'),
+  createData('2x10', '14%','36%','13%','30%','31%'),
+  createData('2x12', 'No Production','110%','14%','127%','102%'),
+  createData('4x4', '24%','193%','39%','29%','164%'),
+  createData('4x6', '105%','229%','No Production','59%','165%'),
+  createData('6x6', '145%','127%','N/A','17%','88%')
+  ]
+
 export default function WD_DasboardPercentForecastSold() {
   return (
     <Box
@@ -42,70 +57,17 @@ export default function WD_DasboardPercentForecastSold() {
             </tr>
           </thead>
           <tbody>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x4</th>
-              <td>201%</td>
-              <td>283%</td>
-              <td>137%</td>
-              <td>104%</td>
-              <td style={{ fontWeight:"bold"}} >190%</td>
-            </tr>
-            <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x6</th>
-              <td>48%</td>
-              <td>101%</td>
-              <td>78%</td>
-              <td>76%</td>
-              <td style={{ fontWeight:"bold"}}>80%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x8</th>
-              <td>75%</td>
-              <td>68%</td>
-              <td>64%</td>
-              <td>47%</td>
-              <td style={{ fontWeight:"bold"}}>67%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x10</th>
-              <td>14%</td>
-              <td>36%</td>
-              <td>13%</td>
-              <td>30%</td>
-              <td style={{ fontWeight:"bold"}}>31%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x12</th>
-              <td>No Production</td>
-              <td>110%</td>
-              <td>14%</td>
-              <td>127%</td>
-              <td style={{ fontWeight:"bold"}}>102%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x4</th>
-              <td>24%</td>
-              <td>193%</td>
-              <td>39%</td>
-              <td>29%</td>
-              <td style={{ fontWeight:"bold"}}>164%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x6</th>
-              <td>105%</td>
-              <td>229%</td>
-              <td>No Production</td>
-              <td>59%</td>
-              <td style={{ fontWeight:"bold"}}>165%</td>
-            </tr>
-            <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>6x6</th>
-              <td>145%</td>
-              <td>127%</td>
-              <td>N/A</td>
-              <td>17%</td>
-              <td style={{ fontWeight:"bold"}}>88%</td>
-            </tr>
+          {rows.map((row) => (
+              <tr key={row.name}>
+                <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>{row.name}</th>
+                <td>{row.one}</td>
+                <td>{row.two}</td>
+                <td>{row.three}</td>
+                <td>{row.four}</td>
+                <td style={{ fontWeight:"bold"}}>{row.total}</td>
+              </tr>
+            ))}
+            
           </tbody>
         </table>
         <br />

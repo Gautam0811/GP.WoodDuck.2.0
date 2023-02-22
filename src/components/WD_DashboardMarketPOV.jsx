@@ -14,6 +14,18 @@ import SouthIcon from '@mui/icons-material/South';
 import { green, red } from "@mui/material/colors";
 import SignalCellular4BarIcon from '@mui/icons-material/SignalCellular4Bar';
 
+function createData(weekvalue, week,change,pricingpower) {
+  return { weekvalue, week,change,pricingpower,key:Math.random()};
+}
+
+const rows = [
+  createData (60,'WEEK 1','decrease',4.4),
+  createData (60,'WEEK 2','increase',4.4),
+  createData (60,'WEEK 3','increase',4.4)];
+
+  
+  
+
 export default function WD_DashboardMarketPOV() {
   return (
     <Box sx={{ mx: 4,my: 4, width: "90%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
@@ -28,24 +40,35 @@ export default function WD_DashboardMarketPOV() {
         <Divider variant="middle" />
         <br />
         <Stack direction="row" spacing={9}>
-          <Typography variant="h7" color={"black"} sx={{ml:4}}>
-            WEEK 1
-            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>
-            <SouthIcon sx={{fontSize:"28px",color: red [400]}}/> 60<Typography sx={{lineHeight:1}}>%</Typography>
+
+        {rows.map((row) => ( row.change === 'decrease'?
+
+              <Typography variant="h7" color={"black"} sx={{ml:4}} key={row.key}>
+              {row.week}
+              
+              <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>
+                
+              <SouthIcon sx={{fontSize:"28px",color: red [400]}}/>
+              
+              
+               {row.weekvalue}<Typography sx={{lineHeight:1}}>%</Typography>
+              </Typography>
             </Typography>
-          </Typography>
-          <Typography variant="h7" color={"black"} >
-            WEEK 2
-            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>
-            <NorthIcon sx={{fontSize:"28px",color: green[400]}}/> 60<Typography sx={{lineHeight:1}}>%</Typography>
-            </Typography>
-          </Typography>
-          <Typography variant="h7" color={"black"} >
-            WEEK 3
-            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>
-            <NorthIcon sx={{fontSize:"28px",color: green[400]}}/>60<Typography sx={{lineHeight:1}}>%</Typography>
-            </Typography>
-          </Typography>
+            :
+            
+            <Typography variant="h7" color={"black"} sx={{ml:4}} key={row.key}>
+              {row.week}
+              
+              <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start',pt:2}}>
+                
+              <NorthIcon sx={{fontSize:"28px",color: green[400]}}/>
+              
+              
+               {row.weekvalue}<Typography sx={{lineHeight:1}}>%</Typography>
+              </Typography>
+            </Typography>))};
+          
+         
           
           <Divider orientation="vertical"  flexItem  />
           
