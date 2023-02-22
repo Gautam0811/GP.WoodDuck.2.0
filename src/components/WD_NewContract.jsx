@@ -14,8 +14,6 @@ export default function NewContract() {
       {/* main section component */}
       <WD_NewContractMainSection />
 
-      {/* footer comes here */}
-      <WD_Footer />
     </Grid>
   );
 }

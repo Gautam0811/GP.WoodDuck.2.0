@@ -14,9 +14,7 @@ export default function ProductGroupsPage() {
 
       {/* the main section component */}
       <WD_ProductGroupsMainSection />
-      
-      {/* footer comes here */}
-      <WD_Footer />
+
     </Grid>
   );
 }

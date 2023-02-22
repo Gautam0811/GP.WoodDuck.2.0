@@ -1,3 +1,5 @@
+/* Style for LeftSideBar */
+
 .Sidebar {
   position: sticky;
   top: 0;
@@ -6,7 +8,7 @@
   display: flex;
   flex-direction: column;
   width: 150px;
-  height: 100%;
+  height: 100vh;
   background-color: #434c56;
   color: #ffffff;
   font-size: 10px;
@@ -81,6 +83,15 @@ Collapsed Sidebar CSS
 .Sidebar.collapsed .sidebar-text,
 .Sidebar.collapsed .sidebar-logo {
   display: none;
+}
+
+/* Style for New ContractHeader */
+.NewContractHeaderFontsize{
+  font-size: 12px;
+}
+
+.NewContractHeaderFontcolor {
+  color: '#005fa8';
 }
 
 

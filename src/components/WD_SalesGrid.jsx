@@ -17,8 +17,6 @@ export default function SalesGrid() {
         {/* sales grid main section */}
         <WD_SalesGridMainSection />
       </Grid>
-      {/* footer comes here */}
-      <WD_Footer />
     </Grid>
   );
 }

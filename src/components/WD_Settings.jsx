@@ -15,8 +15,6 @@ export default function Settings() {
         {/* settings main section */}
         <WD_SettingsMainSection />
 
-        {/* Footer Part */}
-        <WD_Footer />
     </Grid>
   );
 }

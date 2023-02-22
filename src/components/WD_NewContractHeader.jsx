@@ -5,19 +5,19 @@ import Grid from "@mui/material/Grid";
 import WD_ExitButton from "../components/Buttons/WD_ExitButton";
 import { ListItemButton, FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
-import '../styles/WD_NewContractHeader.css';
+import '../styles/WD_Styles.css';
 
 export default function WD_NewContractHeader() {
   return (
     //for header
-    //<div style={{ width:'1000px',  display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignItems:'center', backgroundColor: '#f1f4fb'}}>
     <Grid
       sx={{
-        width: "100%",
         alignItems: "center",
         backgroundColor: "#f1f4fb",
       }}
     >
+      
+      {/* Top grid */}
       <Grid
         sx={{
           display: "flex",
@@ -54,6 +54,8 @@ export default function WD_NewContractHeader() {
           <WD_AddContractButton />
         </div>
       </Grid>
+
+      {/* bottom grid */}
       <Grid
         sx={{
           display: "flex",
@@ -86,7 +88,7 @@ export default function WD_NewContractHeader() {
               flexDirection: "column",
             }}
           >
-            <span style={{ color: "#005fa8" }} className="fontsize fontcolor">
+            <span style={{ color: "#005fa8" }} className="NewContractHeaderFontsize NewContractHeaderFontcolor">
               CUSTOMER <span style={{ color: "red" }}>*</span>
             </span>
             <select style={{ width: '130px', height: '30px'}}>

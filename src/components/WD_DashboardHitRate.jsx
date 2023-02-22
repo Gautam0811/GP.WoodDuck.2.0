@@ -9,8 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
 import "../styles/WD_DashboardHitRate.css";
 
-
-export default function WD_DasboardHitRate() {
+export default function WD_DashboardHitRate() {
   return (
     <Box
       sx={{
@@ -60,7 +59,7 @@ export default function WD_DasboardHitRate() {
           </thead>
           <tbody>
             <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x4</th>
+              <th>2x4</th>
               <td></td>
               <td></td>
               <td></td>
@@ -68,7 +67,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr >
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x6</th>
+              <th>2x6</th>
               <td>9%</td>
               <td></td>
               <td></td>
@@ -76,7 +75,7 @@ export default function WD_DasboardHitRate() {
               <td>9%</td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x8</th>
+              <th>2x8</th>
               <td></td>
               <td></td>
               <td></td>
@@ -84,7 +83,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x10</th>
+              <th>2x10</th>
               <td></td>
               <td></td>
               <td></td>
@@ -92,7 +91,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>2x12</th>
+              <th>2x12</th>
               <td></td>
               <td></td>
               <td></td>
@@ -100,7 +99,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x4</th>
+              <th>4x4</th>
               <td></td>
               <td></td>
               <td></td>
@@ -108,7 +107,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>4x6</th>
+              <th>4x6</th>
               <td></td>
               <td></td>
               <td></td>
@@ -116,7 +115,7 @@ export default function WD_DasboardHitRate() {
               <td></td>
             </tr>
             <tr style={{textAlign:"center"}}>
-              <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>6x6</th>
+              <th>6x6</th>
               <td></td>
               <td></td>
               <td>N/A</td>

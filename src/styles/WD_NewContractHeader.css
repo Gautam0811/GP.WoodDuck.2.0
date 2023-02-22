@@ -1,12 +1,8 @@
-.fontsize {
+.NewContractHeaderFontsize{
     font-size: 12px;
 }
 
-.fontcolor {
+.NewContractHeaderFontcolor {
     color: '#005fa8';
 }
 
-.heightwidth{
-    width: '130px';
-    height: '30px';
-}
