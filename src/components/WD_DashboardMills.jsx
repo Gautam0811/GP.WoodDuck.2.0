@@ -10,6 +10,16 @@ import NativeSelect from "@mui/material/NativeSelect";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
+
+function createData(onhandvalue, orderfilevalue,orderreadyvalue,shipmentsvalue,productionvalue,onhandchange, orderfilechange,orderreadychange,shipmentschange,productionchange,onhandchangevalue, orderfilechangevalue,orderreadychangevalue,shipmentschangevalue,productionchangevalue) {
+  return { onhandvalue, orderfilevalue,orderreadyvalue,shipmentsvalue,productionvalue,onhandchange, orderfilechange,orderreadychange,shipmentschange,productionchange,onhandchangevalue, orderfilechangevalue,orderreadychangevalue,shipmentschangevalue,productionchangevalue,key:Math.random()};
+}
+
+const rows = [
+  createData ('49643k','294404k','13%','0k','0.00007911318k','noChange','increase','increase','noChange','noChange','0%','0.1%','0.5%','0%','0%'),
+  ];
+
+
 export default function WD_DasboardMills() {
   return (
     <Box sx={{ mx: 4,my: 4, width: "90%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
@@ -43,52 +53,174 @@ export default function WD_DasboardMills() {
         <Stack direction="row" spacing={4}>
           <Typography variant="h7" color={"#42a5f5"}>
             On-hand
+
+            {rows.map((row) => ( row.onhandchange === 'decrease' &&
+            <Typography key={row.key}>
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
-                49643k
+               {row.onhandvalue}
+            </Typography>
+            <Typography variant="caption" color={"red"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowDownwardIcon style={{fontSize:"medium"}}/>{row.onhandchangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.onhandchange === 'increase' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.onhandvalue}
+            </Typography>
+            <Typography variant="caption" color={"green"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowUpwardIcon style={{fontSize:"medium"}}/>{row.onhandchangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.onhandchange === 'noChange' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.onhandvalue}
             </Typography>
             <Typography variant="caption" color={"#42a5f5"} sx={{display: 'flex', justifyContent: 'start'}}>
-                0%
-            </Typography>
+            {row.onhandchangevalue}
+            </Typography></Typography>))}
+
           </Typography>
+
+
+
           <Typography variant="h7" color={"#42a5f5"}>
             Order File
+            {rows.map((row) => ( row.orderfilechange === 'decrease' &&
+            <Typography key={row.key}>
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
-                294404k
+               {row.orderfilevalue}
+            </Typography>
+            <Typography variant="caption" color={"red"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowDownwardIcon style={{fontSize:"medium"}}/>{row.orderfilechangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.orderfilechange === 'increase' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.orderfilevalue}
             </Typography>
             <Typography variant="caption" color={"green"} sx={{display: 'flex', justifyContent: 'start'}}>
-                <ArrowUpwardIcon style={{fontSize:"medium"}}/>0.1%
+            <ArrowUpwardIcon style={{fontSize:"medium"}}/>{row.orderfilechangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.orderfilechange === 'noChange' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.orderfilevalue}
             </Typography>
+            <Typography variant="caption" color={"#42a5f5"} sx={{display: 'flex', justifyContent: 'start'}}>
+            {row.orderfilechangevalue}
+            </Typography></Typography>))}
           </Typography>
+
           <Typography variant="h7" color={"#42a5f5"}>
             Order Ready
+            {rows.map((row) => ( row.orderreadychange === 'decrease' &&
+            <Typography key={row.key}>
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
-                13%
+               {row.orderreadyvalue}
+            </Typography>
+            <Typography variant="caption" color={"red"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowDownwardIcon style={{fontSize:"medium"}}/>{row.orderreadychangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.orderreadychange === 'increase' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.orderreadyvalue}
             </Typography>
             <Typography variant="caption" color={"green"} sx={{display: 'flex', justifyContent: 'start'}}>
-                <ArrowUpwardIcon style={{fontSize:"medium"}}/>0.5%
+            <ArrowUpwardIcon style={{fontSize:"medium"}}/>{row.orderreadychangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.orderreadychange === 'noChange' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.orderreadyvalue}
             </Typography>
+            <Typography variant="caption" color={"#42a5f5"} sx={{display: 'flex', justifyContent: 'start'}}>
+            {row.orderreadychangevalue}
+            </Typography></Typography>))}
           </Typography>
+
           <Typography variant="h7" color={"#42a5f5"}>
             Shipments
+            {rows.map((row) => ( row.shipmentschange === 'decrease' &&
+            <Typography key={row.key}>
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
-                0k
+               {row.shipmentsvalue}
+            </Typography>
+            <Typography variant="caption" color={"red"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowDownwardIcon style={{fontSize:"medium"}}/>{row.shipmentschangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.shipmentschange === 'increase' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.shipmentsvalue}
+            </Typography>
+            <Typography variant="caption" color={"green"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowUpwardIcon style={{fontSize:"medium"}}/>{row.shipmentschangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.shipmentschange === 'noChange' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.shipmentsvalue}
             </Typography>
             <Typography variant="caption" color={"#42a5f5"} sx={{display: 'flex', justifyContent: 'start'}}>
-                0%
-            </Typography>
+            {row.shipmentschangevalue}
+            </Typography></Typography>))}
           </Typography>
+
+
           <Typography variant="h7" color={"#42a5f5"}>
             Production
+            {rows.map((row) => ( row.productionchange === 'decrease' &&
+            <Typography key={row.key}>
             <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
-                0.00007911318k
+               {row.productionvalue}
+            </Typography>
+            <Typography variant="caption" color={"red"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowDownwardIcon style={{fontSize:"medium"}}/>{row.productionchangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.productionchange === 'increase' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.productionvalue}
+            </Typography>
+            <Typography variant="caption" color={"green"} sx={{display: 'flex', justifyContent: 'start'}}>
+            <ArrowUpwardIcon style={{fontSize:"medium"}}/>{row.productionchangevalue}
+            </Typography></Typography>))}
+
+            {rows.map((row) => ( row.productionchange === 'noChange' &&
+            <Typography key={row.key}>
+            <Typography variant="h5" color={"black"} sx={{display: 'flex', justifyContent: 'start'}}>
+               {row.productionvalue}
             </Typography>
             <Typography variant="caption" color={"#42a5f5"} sx={{display: 'flex', justifyContent: 'start'}}>
-                0%
-            </Typography>
+            {row.productionchangevalue}
+            </Typography></Typography>))}
           </Typography>
+
+
         </Stack>
         <br/>
       </Box>
     </Box>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
