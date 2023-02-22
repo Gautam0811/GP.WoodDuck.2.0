@@ -109,7 +109,7 @@ export default function CustomizedTabs() {
 
  
   return (
-  <Grid container justifyContent={"flex-end"} sx={{ position:'relative'}}>
+  <Grid container justifyContent="flex-end" sx={{ position:'relative'}}>
     
    
     <Box sx={{  width: '30%' ,height: '80px'}}>

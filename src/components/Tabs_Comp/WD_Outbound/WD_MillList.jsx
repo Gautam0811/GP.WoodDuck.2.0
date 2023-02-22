@@ -63,8 +63,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('a')}
+          checked={checked.indexOf('a') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}
@@ -76,8 +76,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('b')}
+          checked={checked.indexOf('b') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}
@@ -89,8 +89,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('c')}
+          checked={checked.indexOf('c') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}
@@ -102,8 +102,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('d')}
+          checked={checked.indexOf('d') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}
@@ -115,8 +115,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('e')}
+          checked={checked.indexOf('e') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}
@@ -128,8 +128,8 @@ export default function SwitchListSecondary() {
         <Switch
         size='small'
           edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.indexOf('bluetooth') !== -1}
+          onChange={handleToggle('f')}
+          checked={checked.indexOf('f') !== -1}
           inputProps={{
             'aria-labelledby': 'switch-list-label-bluetooth',
           }}

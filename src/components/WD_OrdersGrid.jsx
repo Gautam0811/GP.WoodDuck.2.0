@@ -1,77 +1,67 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
-import TableRow from "@mui/material/TableRow";
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor:"#e3f2fd",
-    color: "#42a5f5"
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
+import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
-  { id: "orderId", label: "Order ID" },
-  { id: "mill", label: "Mill" },
+  { field: "id", headerName: "Order ID", width: 130 },
+  { field: "mill", headerName: "Mill", width: 130 },
   {
-    id: "salesperson",
-    label: "Salesperson",
-    align: "right",
+    field: "salesperson",
+    headerName: "Salesperson",
+    align: "center",
+    width: 130,
   },
   {
-    id: "customer",
-    label: "Customer",
-    align: "right",
+    field: "customer",
+    headerName: "Customer",
+    align: "center",
+    width: 130,
   },
   {
-    id: "buyer",
-    label: "Buyer",
-    align: "right",
+    field: "buyer",
+    headerName: "Buyer",
+    align: "center",
+    width: 130,
   },
   {
-    id: "customerPo",
-    label: "Customer PO",
-    align: "right",
+    field: "customerPo",
+    headerName: "Customer PO",
+    align: "center",
+    width: 130,
   },
   {
-    id: "mode",
-    label: "Mode",
-    align: "right",
+    field: "mode",
+    headerName: "Mode",
+    align: "center",
+    width: 130,
   },
   {
-    id: "ordered",
-    label: "Ordered",
-    align: "right",
+    field: "ordered",
+    headerName: "Ordered",
+    align: "center",
+    width: 130,
   },
   {
-    id: "promised",
-    label: "Promised",
-    align: "right",
+    field: "promised",
+    headerName: "Promised",
+    align: "center",
+    width: 130,
   },
   {
-    id: "scheduled",
-    label: "Scheduled",
-    align: "right",
+    field: "scheduled",
+    headerName: "Scheduled",
+    align: "center",
+    width: 130,
   },
   {
-    id: "readied",
-    label: "Readied",
-    align: "right",
+    field: "readied",
+    headerName: "Readied",
+    align: "center",
+    width: 130,
   },
 ];
 
 function createData(
-  orderId,
+  id,
   mill,
   salesperson,
   customer,
@@ -84,7 +74,7 @@ function createData(
   readied
 ) {
   return {
-    orderId,
+    id,
     mill,
     salesperson,
     customer,
@@ -152,7 +142,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135803,
+    465135808,
     "Talladega",
     "MPU",
     "Barnett Co.",
@@ -165,7 +155,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    465135802,
+    465135809,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -178,7 +168,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    365135805,
+    465135810,
     "Talladega",
     "NOA",
     "Sunbelt Forest Products",
@@ -191,7 +181,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    265135808,
+    465135811,
     "Piedmont-R",
     "MPU",
     "Sunbelt Forest Products",
@@ -204,7 +194,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    665135809,
+    465135812,
     "Talladega",
     "MPU",
     "Barnett Co.",
@@ -217,7 +207,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    965135802,
+    465135813,
     "Piedmont-R",
     "NOA",
     "Barnett Co.",
@@ -230,7 +220,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    865135801,
+    465135814,
     "Talladega",
     "MPU",
     "Sunbelt Forest Products",
@@ -243,7 +233,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    765135801,
+    465135815,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -256,7 +246,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    265135500,
+    465135816,
     "Talladega",
     "NOA",
     "Sunbelt Forest Products",
@@ -269,7 +259,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    165135604,
+    465135817,
     "Piedmont-R",
     "MPU",
     "Barnett Co.",
@@ -282,7 +272,7 @@ const rows = [
     "02/14/2023"
   ),
   createData(
-    665135704,
+    465135818,
     "Talladega",
     "NOA",
     "Barnett Co.",
@@ -297,66 +287,18 @@ const rows = [
 ];
 
 export default function WD_OrdersGrid() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
+  const [pageSize, setPageSize] = React.useState(10);
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
+    <div style={{ height: "100vh", width: "100%" }}>
+      <DataGrid
+        pageSize={pageSize}
+        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+        rowsPerPageOptions={[5, 10, 20]}
+        rows={rows}
+        columns={columns}
+        checkboxSelection
       />
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <StyledTableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </StyledTableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number"
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Paper>
+    </div>
   );
 }

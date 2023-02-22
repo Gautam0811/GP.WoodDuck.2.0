@@ -7,13 +7,13 @@ import "../styles/WD_Styles.css";
 export default function SalesGridMainSection() {
   return (
     <Grid className="fontsize" sx={{ display: "flex", flexDirection: "row" }}>
-      <table style={{ width: "70%", height: "35%", p: 3 }} borderAxis="both">
+      <table style={{ width: "100%", height: "35%", p: 3, }} borderAxis="both">
         <thead>
           <tr
             style={{
               backgroundColor: "#263238",
-              borderCollapse: "collapse",
               color: "white",
+              borderCollapse:"collapse"
             }}
           >
             <th
@@ -133,7 +133,7 @@ export default function SalesGridMainSection() {
             <th style={{ textAlign: "center" }}>8/29</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{border:"1px solid black"}}>
           <tr>
             <th scope="row">2x4 SYP #2 PET -8(0)</th>
             <td></td>
