@@ -12,7 +12,8 @@ export default function QuoteButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
         <IconButton
           style={{ color: '#005fa8'}}
           aria-label="search"

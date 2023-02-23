@@ -12,8 +12,8 @@ export default function CollapseRightButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
-        
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+        <Box>
         <LoadingButton
           size="small"
           onClick={handleClick}

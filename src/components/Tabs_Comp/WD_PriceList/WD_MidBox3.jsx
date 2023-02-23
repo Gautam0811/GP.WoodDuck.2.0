@@ -8,7 +8,7 @@ import BasicSelectC from "./WD_CPU";
 import LBox from "./WD_LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FBox from "./WD_Footage";
-import OFFERbutton from "../../Buttons/WD_OFFERbutton";
+import OfferButton from "../../Buttons/WD_OfferButton";
 import NextButton from "../../Buttons/WD_NButton";
 import GeTPriceList from "../../Buttons/WD_GetPriceList";
 import CreateTemplate from "../../Buttons/WD_CreateTemplateButton";
@@ -26,7 +26,7 @@ export default function MidBox() {
       sx={{ mt: 0, pt: 1, pr: 0.5, mb: -25 }}
     >
       <Grid>
-        <OFFERbutton />
+        <OfferButton />
       </Grid>
       <Grid>
         <NextButton />

@@ -12,13 +12,13 @@ export default function SaveButton() {
   return (
     <Box>
       <Box>
-          <LoadingButton style={{ color:'#005FA8'}}>
+          <LoadingButton>
           <div >
             <div>
-              <SaveIcon  fontSize='7px'/>
+              <SaveIcon/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>SAVE</span>
+              <span>SAVE</span>
             </div>
           </div>
           </LoadingButton>

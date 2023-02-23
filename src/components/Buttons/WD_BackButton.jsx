@@ -12,13 +12,13 @@ export default function BackButton() {
   return (
     <Box>
       <Box>
-          <LoadingButton style={{ color:'#005FA8' }}>
+          <LoadingButton>
           <div>
             <div>
-              <ArrowBackOutlinedIcon fontSize='7px'/>
+              <ArrowBackOutlinedIcon />
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>BACK</span>
+              <span>BACK</span>
             </div>
           </div>
           </LoadingButton>

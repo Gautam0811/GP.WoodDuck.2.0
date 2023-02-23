@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-import "../styles/WD_Login.css";
+import "../styles/WD_StyleMain.css";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:8080/login", {
@@ -80,17 +80,17 @@ export default function WD_Login({ setToken }) {
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className="login-input-container">
           <label>Username </label>
           <input type="text" className="size-large" name="uname" placeholder="Username" required />
           {renderErrorMessage("uname")}
         </div>
-        <div className="input-container">
+        <div className="login-input-container">
           <label>Password </label>
           <input type="password" name="pass" placeholder="Password" required />
           {renderErrorMessage("pass")}
         </div>
-        <div className="button-container">
+        <div className="login-button-container">
           <input type="submit" />
         </div>
       </form>
@@ -100,7 +100,7 @@ export default function WD_Login({ setToken }) {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Sign In</div>
+        <div className="login-title">Sign In</div>
         {renderForm}
       </div>
     </div>

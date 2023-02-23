@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import WD_ExitButton from "../components/Buttons/WD_ExitButton";
 import { ListItemButton, FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
-import '../styles/WD_Styles.css';
+import '../styles/WD_StyleMain.css';
 
 export default function WD_NewContractHeader() {
   return (
@@ -51,7 +51,7 @@ export default function WD_NewContractHeader() {
           }}
         >
           <ListItemButton>Cancel</ListItemButton>
-          <WD_AddContractButton />
+          <WD_AddContractButton/>
         </div>
       </Grid>
 

@@ -12,8 +12,8 @@ export default function CreateTemplate() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 ,mr:20,mt:3} }}>
-        
+      {/* <Box sx={{ "& > button": { m: 1 ,mr:20,mt:3} }}> */}
+        <Box>
         <LoadingButton
           size='small'
           startIcon={<ContentCopyIcon />}

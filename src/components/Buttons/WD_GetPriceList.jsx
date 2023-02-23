@@ -11,7 +11,8 @@ export default function GetOptionsButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { mt: -52,mr:1,p:0.2  } }}>
+      {/* <Box sx={{ "& > button": { mt: -52,mr:1,p:0.2  } }}> */}
+      <Box>
         <LoadingButton
           size='small'
           checked={loading}
@@ -20,7 +21,6 @@ export default function GetOptionsButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
-          style={{ backgroundColor: '#005FA8'}}
         >
           <span>GET PRICE LIST </span>
         </LoadingButton>  

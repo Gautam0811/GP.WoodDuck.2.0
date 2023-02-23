@@ -12,13 +12,13 @@ export default function DeleteButton() {
   return (
     <Box>
       <Box >
-          <LoadingButton style={{color:'#005FA8'}}>
+          <LoadingButton>
           <div >
             <div>
-              <CloseOutlinedIcon fontSize='7px'/>
+              <CloseOutlinedIcon/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>DELETE</span>
+              <span>DELETE</span>
             </div>
           </div>
           </LoadingButton>

@@ -12,8 +12,8 @@ export default function NextButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { mt: -51.9,mr:5,p:0.2 } }}>
-        
+      {/* <Box sx={{ "& > button": { mt: -51.9,mr:5,p:0.2 } }}> */}
+        <Box>
         <LoadingButton
           size="small"
           onClick={handleClick}

@@ -17,7 +17,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import '../styles/WD_Styles.css';
+import '../styles/WD_StyleMain.css';
 
 export default function WD_headerMiddleSection() {
   const baseURL = "https://localhost:44351/employee/";

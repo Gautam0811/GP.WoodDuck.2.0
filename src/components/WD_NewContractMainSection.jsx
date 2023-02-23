@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import "../styles/WD_Styles.css";
+import "../styles/WD_StyleMain.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -107,311 +107,6 @@ const {theme, themeLoaded, getFonts} = useTheme();
   //     }
   //   });
   // });
-
-
- 
-  // return (
-//     <ThemeProvider theme={theme}>
-//       <Grid
-//       sx={{
-//         width: "100%",
-//         alignItems: "center",
-//       }}
-//     >
-//       {/* div for whole section */}
-//       <div
-//         style={{
-//           padding: "25px",
-//           display: "flex",
-//           flexDirection: "row",
-//         }}
-//       >
-//         {/* div for left side */}
-//         <div>
-//           <div style={{ display: "flex", flexDirection: "column" }}>
-//             <Typography color="primary">SHIP MODE</Typography>
-//             <ButtonGroup
-//               color="primary"
-//               size="small"
-//               aria-label="small button group"
-//             >
-//               <Button key="Truck">Truck</Button>
-//               <Button key="Rail">Rail</Button>
-//               <Button key="CPU">CPU</Button>
-//             </ButtonGroup>
-//           </div>
-
-//           <div
-//             style={{
-//               display: "flex",
-//               flexDirection: "column",
-//               padding: "15px 0px",
-//             }}
-//           >
-//             <Typography color="primary">SHIP OPTIONS</Typography>
-//             <FormGroup>
-//               <StyledFormControlLabel
-//                 control={<Switch color="primary" />}
-//                 label="Truck tarp"
-//               />
-//             </FormGroup>
-//             <FormGroup>
-//               <StyledFormControlLabel
-//                 control={<Switch color="primary" />}
-//                 label="Paper wrap"
-//               />
-//             </FormGroup>
-//             <FormGroup>
-//               <StyledFormControlLabel
-//                 control={<Switch color="primary" />}
-//                 label="Bar code"
-//               />
-//             </FormGroup>
-//           </div>
-//           <div
-//             style={{
-//               display: "flex",
-//               flexDirection: "column",
-//               padding: "15px 0px",
-//             }}
-//           >
-//             <Typography color="primary">
-//               SHIP TOs <Typography color="secondary">*</Typography>
-//             </Typography>
-//             <select style={{ width: "130px", height: "30px" }}>
-//               <option></option>
-//               <option>DAVID KLEKAMP</option>
-//               <option>Hannah</option>
-//             </select>
-//           </div>
-//           <div
-//             style={{
-//               display: "flex",
-//               flexDirection: "column",
-//               padding: "15px 0px",
-//             }}
-//           >
-//             <Typography color="primary">FOB</Typography>
-//             <input
-//               style={{ width: "200px", height: "30px" }}
-//               type="text"
-//               placeholder="4-FOB DESTINATION FREIGHT ALLOWED & PREPAID"
-//             ></input>
-//           </div>
-//           <div
-//             style={{
-//               display: "flex",
-//               flexDirection: "column",
-//               padding: "15px 0px",
-//             }}
-//           >
-//             <Typography color="primary">PRICING TYPE</Typography>
-//             <input
-//               style={{ width: "150px", height: "30px" }}
-//               type="text"
-//               placeholder="PTS"
-//             ></input>
-//           </div>
-//         </div>
-//         {/* div for right part of the ship mode div */}
-//         <div style={{ paddingLeft: "30px" }}>
-//           {/* div for primary vmi and vmi forecast source */}
-//           <div
-//             style={{
-//               display: "flex",
-//               flexDirection: "row",
-//             }}
-//           >
-//             <div
-//               style={{
-//                 display: "flex",
-//                 flexDirection: "column",
-//               }}
-//             >
-//               <Typography
-//                 style={{
-//                   paddingBottom: "15px",
-//                   fontSize: "15px",
-//                   fontWeight: "bold",
-//                 }}
-//               >
-//                 <Typography variant="h3100" display="inline">
-//                   Primary VMI Location{" "}
-//                 </Typography>
-//                 <Typography display="inline" color="secondary">
-//                   *
-//                 </Typography>
-//               </Typography>
-//               <input style={{ width: "170px", height: "30px" }}></input>
-//               <span
-//                 style={{
-//                   paddingTop: "50px",
-//                   fontSize: "15px",
-//                   fontWeight: "bold",
-//                 }}
-//               >
-//                 Monthly Products
-//               </span>
-//             </div>
-//             <div
-//               style={{
-//                 paddingLeft: "50px",
-//                 display: "flex",
-//                 flexDirection: "column",
-//               }}
-//             >
-//               <span
-//                 style={{
-//                   paddingBottom: "15px",
-//                   fontSize: "15px",
-//                   fontWeight: "bold",
-//                 }}
-//               >
-//                 <Typography variant="h3100" display="inline">
-//                   VMI Forecast Source{" "}
-//                 </Typography>
-//                 <Typography display="inline" color="secondary">
-//                   *
-//                 </Typography>
-//               </span>
-//               <FormControl>
-//                 <RadioGroup
-//                   aria-labelledby="demo-radio-buttons-group-label"
-//                   defaultValue="forecast"
-//                   name="radio-buttons-group"
-//                 >
-//                   <FormControlLabel
-//                     value="forecast"
-//                     control={<Radio size="sm" />}
-//                     label="Forecast"
-//                   />
-//                   <FormControlLabel
-//                     value="usage"
-//                     control={<Radio size="sm" />}
-//                     label="Usage"
-//                   />
-//                 </RadioGroup>
-//               </FormControl>
-//             </div>
-//           </div>
-//           <div style={{ paddingTop: "30px" }}>
-//             <TableContainer component={Paper}>
-//               <Table sx={{ minWidth: 650 }} aria-label="simple table">
-//                 <TableHead>
-//                   <TableRow>
-//                     <StyledTableCell>
-//                       <StyledTypography display="inline">MILL</StyledTypography>
-//                       <Typography display="inline" color="secondary">
-//                         *
-//                       </Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography display="inline">PERCENTAGE</Typography>
-//                       <Typography display="inline" color="secondary">
-//                         *
-//                       </Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography display="inline">PRODUCT ID</Typography>
-//                       <Typography display="inline" color="secondary">
-//                         *
-//                       </Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography>PRODUCT DESRCIPTION</Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography display="inline">R/L TAG</Typography>
-//                       <Typography display="inline" color="secondary">
-//                         *
-//                       </Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography>ADDER</Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell>
-//                       <Typography>ADDER</Typography>
-//                       <Typography>+CHARGES</Typography>
-//                     </StyledTableCell>
-//                     <StyledTableCell></StyledTableCell>
-//                   </TableRow>
-//                 </TableHead>
-//                 <TableBody>
-//                   <TableRow
-//                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-//                   >
-//                     <StyledTableCell component="th" scope="row">
-//                       <input></input>
-//                     </StyledTableCell>
-
-//                     <StyledTableCell
-//                       style={{
-//                         display: "flex",
-//                         flexDirection: "row",
-//                         alignItems: "center",
-//                       }}
-//                     >
-//                       <input
-//                         style={{
-//                           backgroundColor: "#ffcbd1",
-//                           width: "50px",
-//                           height: "20px",
-//                         }}
-//                       ></input>
-//                       <ListItemButton>
-//                         <AddCircleIcon />
-//                       </ListItemButton>
-//                     </StyledTableCell>
-//                     <StyledTableCell align="center">
-//                       <input
-//                         placeholder="Product.."
-//                         style={{ backgroundColor: "#dfe5eb", width: "60px" }}
-//                       ></input>
-//                     </StyledTableCell>
-//                     <StyledTableCell align="right"></StyledTableCell>
-//                     <StyledTableCell align="right">
-//                       <FormControl
-//                         variant="standard"
-//                         sx={{ m: 1, minWidth: 120 }}
-//                       >
-//                         <Select
-//                           labelId="demo-simple-select-standard-label"
-//                           id="demo-simple-select-standard"
-//                           value={select}
-//                           onChange={handleChange}
-//                           label="None Selected"
-//                         >
-//                           <MenuItem value="">
-//                             <em>None Selected</em>
-//                           </MenuItem>
-//                           <MenuItem>David Klekamp</MenuItem>
-//                           <MenuItem>Hannah</MenuItem>
-//                         </Select>
-//                       </FormControl>
-//                     </StyledTableCell>
-//                     <StyledTableCell align="right">
-//                       <input style={{ width: "50px" }}></input>
-//                     </StyledTableCell>
-//                     <StyledTableCell align="right"></StyledTableCell>
-//                     <StyledTableCell align="right">
-//                       <ListItemButton>
-//                         <CancelSharpIcon />
-//                       </ListItemButton>
-//                     </StyledTableCell>
-//                   </TableRow>
-//                 </TableBody>
-//               </Table>
-//             </TableContainer>
-//           </div>
-//           <div style={{ paddingTop: "30px" }}>
-//             <WD_ProductButton />
-//           </div>
-//         </div>
-//       </div>
-//     </Grid>
-//     </ThemeProvider>
-//   );
-// }
 
   return (
     <>
@@ -745,6 +440,310 @@ const {theme, themeLoaded, getFonts} = useTheme();
     </>
   );
 }
+
+
+  // return (
+//     <ThemeProvider theme={theme}>
+//       <Grid
+//       sx={{
+//         width: "100%",
+//         alignItems: "center",
+//       }}
+//     >
+//       {/* div for whole section */}
+//       <div
+//         style={{
+//           padding: "25px",
+//           display: "flex",
+//           flexDirection: "row",
+//         }}
+//       >
+//         {/* div for left side */}
+//         <div>
+//           <div style={{ display: "flex", flexDirection: "column" }}>
+//             <Typography color="primary">SHIP MODE</Typography>
+//             <ButtonGroup
+//               color="primary"
+//               size="small"
+//               aria-label="small button group"
+//             >
+//               <Button key="Truck">Truck</Button>
+//               <Button key="Rail">Rail</Button>
+//               <Button key="CPU">CPU</Button>
+//             </ButtonGroup>
+//           </div>
+
+//           <div
+//             style={{
+//               display: "flex",
+//               flexDirection: "column",
+//               padding: "15px 0px",
+//             }}
+//           >
+//             <Typography color="primary">SHIP OPTIONS</Typography>
+//             <FormGroup>
+//               <StyledFormControlLabel
+//                 control={<Switch color="primary" />}
+//                 label="Truck tarp"
+//               />
+//             </FormGroup>
+//             <FormGroup>
+//               <StyledFormControlLabel
+//                 control={<Switch color="primary" />}
+//                 label="Paper wrap"
+//               />
+//             </FormGroup>
+//             <FormGroup>
+//               <StyledFormControlLabel
+//                 control={<Switch color="primary" />}
+//                 label="Bar code"
+//               />
+//             </FormGroup>
+//           </div>
+//           <div
+//             style={{
+//               display: "flex",
+//               flexDirection: "column",
+//               padding: "15px 0px",
+//             }}
+//           >
+//             <Typography color="primary">
+//               SHIP TOs <Typography color="secondary">*</Typography>
+//             </Typography>
+//             <select style={{ width: "130px", height: "30px" }}>
+//               <option></option>
+//               <option>DAVID KLEKAMP</option>
+//               <option>Hannah</option>
+//             </select>
+//           </div>
+//           <div
+//             style={{
+//               display: "flex",
+//               flexDirection: "column",
+//               padding: "15px 0px",
+//             }}
+//           >
+//             <Typography color="primary">FOB</Typography>
+//             <input
+//               style={{ width: "200px", height: "30px" }}
+//               type="text"
+//               placeholder="4-FOB DESTINATION FREIGHT ALLOWED & PREPAID"
+//             ></input>
+//           </div>
+//           <div
+//             style={{
+//               display: "flex",
+//               flexDirection: "column",
+//               padding: "15px 0px",
+//             }}
+//           >
+//             <Typography color="primary">PRICING TYPE</Typography>
+//             <input
+//               style={{ width: "150px", height: "30px" }}
+//               type="text"
+//               placeholder="PTS"
+//             ></input>
+//           </div>
+//         </div>
+//         {/* div for right part of the ship mode div */}
+//         <div style={{ paddingLeft: "30px" }}>
+//           {/* div for primary vmi and vmi forecast source */}
+//           <div
+//             style={{
+//               display: "flex",
+//               flexDirection: "row",
+//             }}
+//           >
+//             <div
+//               style={{
+//                 display: "flex",
+//                 flexDirection: "column",
+//               }}
+//             >
+//               <Typography
+//                 style={{
+//                   paddingBottom: "15px",
+//                   fontSize: "15px",
+//                   fontWeight: "bold",
+//                 }}
+//               >
+//                 <Typography variant="h3100" display="inline">
+//                   Primary VMI Location{" "}
+//                 </Typography>
+//                 <Typography display="inline" color="secondary">
+//                   *
+//                 </Typography>
+//               </Typography>
+//               <input style={{ width: "170px", height: "30px" }}></input>
+//               <span
+//                 style={{
+//                   paddingTop: "50px",
+//                   fontSize: "15px",
+//                   fontWeight: "bold",
+//                 }}
+//               >
+//                 Monthly Products
+//               </span>
+//             </div>
+//             <div
+//               style={{
+//                 paddingLeft: "50px",
+//                 display: "flex",
+//                 flexDirection: "column",
+//               }}
+//             >
+//               <span
+//                 style={{
+//                   paddingBottom: "15px",
+//                   fontSize: "15px",
+//                   fontWeight: "bold",
+//                 }}
+//               >
+//                 <Typography variant="h3100" display="inline">
+//                   VMI Forecast Source{" "}
+//                 </Typography>
+//                 <Typography display="inline" color="secondary">
+//                   *
+//                 </Typography>
+//               </span>
+//               <FormControl>
+//                 <RadioGroup
+//                   aria-labelledby="demo-radio-buttons-group-label"
+//                   defaultValue="forecast"
+//                   name="radio-buttons-group"
+//                 >
+//                   <FormControlLabel
+//                     value="forecast"
+//                     control={<Radio size="sm" />}
+//                     label="Forecast"
+//                   />
+//                   <FormControlLabel
+//                     value="usage"
+//                     control={<Radio size="sm" />}
+//                     label="Usage"
+//                   />
+//                 </RadioGroup>
+//               </FormControl>
+//             </div>
+//           </div>
+//           <div style={{ paddingTop: "30px" }}>
+//             <TableContainer component={Paper}>
+//               <Table sx={{ minWidth: 650 }} aria-label="simple table">
+//                 <TableHead>
+//                   <TableRow>
+//                     <StyledTableCell>
+//                       <StyledTypography display="inline">MILL</StyledTypography>
+//                       <Typography display="inline" color="secondary">
+//                         *
+//                       </Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography display="inline">PERCENTAGE</Typography>
+//                       <Typography display="inline" color="secondary">
+//                         *
+//                       </Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography display="inline">PRODUCT ID</Typography>
+//                       <Typography display="inline" color="secondary">
+//                         *
+//                       </Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography>PRODUCT DESRCIPTION</Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography display="inline">R/L TAG</Typography>
+//                       <Typography display="inline" color="secondary">
+//                         *
+//                       </Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography>ADDER</Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell>
+//                       <Typography>ADDER</Typography>
+//                       <Typography>+CHARGES</Typography>
+//                     </StyledTableCell>
+//                     <StyledTableCell></StyledTableCell>
+//                   </TableRow>
+//                 </TableHead>
+//                 <TableBody>
+//                   <TableRow
+//                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+//                   >
+//                     <StyledTableCell component="th" scope="row">
+//                       <input></input>
+//                     </StyledTableCell>
+
+//                     <StyledTableCell
+//                       style={{
+//                         display: "flex",
+//                         flexDirection: "row",
+//                         alignItems: "center",
+//                       }}
+//                     >
+//                       <input
+//                         style={{
+//                           backgroundColor: "#ffcbd1",
+//                           width: "50px",
+//                           height: "20px",
+//                         }}
+//                       ></input>
+//                       <ListItemButton>
+//                         <AddCircleIcon />
+//                       </ListItemButton>
+//                     </StyledTableCell>
+//                     <StyledTableCell align="center">
+//                       <input
+//                         placeholder="Product.."
+//                         style={{ backgroundColor: "#dfe5eb", width: "60px" }}
+//                       ></input>
+//                     </StyledTableCell>
+//                     <StyledTableCell align="right"></StyledTableCell>
+//                     <StyledTableCell align="right">
+//                       <FormControl
+//                         variant="standard"
+//                         sx={{ m: 1, minWidth: 120 }}
+//                       >
+//                         <Select
+//                           labelId="demo-simple-select-standard-label"
+//                           id="demo-simple-select-standard"
+//                           value={select}
+//                           onChange={handleChange}
+//                           label="None Selected"
+//                         >
+//                           <MenuItem value="">
+//                             <em>None Selected</em>
+//                           </MenuItem>
+//                           <MenuItem>David Klekamp</MenuItem>
+//                           <MenuItem>Hannah</MenuItem>
+//                         </Select>
+//                       </FormControl>
+//                     </StyledTableCell>
+//                     <StyledTableCell align="right">
+//                       <input style={{ width: "50px" }}></input>
+//                     </StyledTableCell>
+//                     <StyledTableCell align="right"></StyledTableCell>
+//                     <StyledTableCell align="right">
+//                       <ListItemButton>
+//                         <CancelSharpIcon />
+//                       </ListItemButton>
+//                     </StyledTableCell>
+//                   </TableRow>
+//                 </TableBody>
+//               </Table>
+//             </TableContainer>
+//           </div>
+//           <div style={{ paddingTop: "30px" }}>
+//             <WD_ProductButton />
+//           </div>
+//         </div>
+//       </div>
+//     </Grid>
+//     </ThemeProvider>
+//   );
+// }
 
 
 

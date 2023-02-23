@@ -1,6 +1,6 @@
 import * as React from 'react';
-import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 export default function ClearAllButton() {
   const [loading, setLoading] = React.useState(false);
@@ -10,19 +10,18 @@ export default function ClearAllButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
-        <LoadingButton
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
+        <Button
           size='small'
           checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"
           variant="contained"
-          style={{ backgroundColor: 'gray'}}
-          
         >
           <span>NO</span>
-        </LoadingButton>  
+        </Button>  
       </Box>
     </Box>
   );

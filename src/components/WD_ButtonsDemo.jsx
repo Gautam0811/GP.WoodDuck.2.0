@@ -1,14 +1,12 @@
 import '../App.css';
 import {Fragment } from 'react';
 
-import WD_headerMiddleSection from './WD_header-middle-section';
-import WD_LeftSideBar from './WD_LeftSideBar';
 import WD_QuoteButton from './Buttons/WD_QuoteButton';
 
 import React from 'react'; 
 import Divider from "@material-ui/core/Divider";
 import WD_GetOptionsButton from './Buttons/WD_GetOptionsButton';
-import WD_NextButton from './Buttons/WD_NButton';
+import WD_NextButton from './Buttons/WD_NextButton';
 import WD_SaveNoQuotesButton from './Buttons/WD_SaveNoQuotes';
 import WD_PlaceOnHoldButton from'./Buttons/WD_PlaceOnHoldButton';
 
@@ -29,31 +27,34 @@ import WD_ToggleSwitchButton from './Buttons/WD_ToggleSwitchButton';
 import WD_SearchButton from './Buttons/WD_SearchButton';
 import WD_WarningIcon from './WD_WarningIcon';
 
+import WD_AddContractButton from './Buttons/WD_AddContractButton';
+import WD_ExitButton from './Buttons/WD_ExitButton';
+import WD_GetPriceList from './Buttons/WD_GetPriceList';
+import WD_OfferButton from './Buttons/WD_OfferButton';
+import WD_ProductButton from './Buttons/WD_ProductButton';
+
+
 function ButtonsDemo() {
   return (
     <Fragment>
-
-      {/* < WD_headerMiddleSection />
-      <WD_LeftSideBar />
-      <WD_SaveButton /> */}
-      {/* <WD_ComponentsList /> */}
       <Divider /> 
       <div style={{ padding:'20px'}}>
       </div>
       <div style={{ display: "flex", flexDirection: "row",}}>
-        <WD_QuoteButton />
+        <WD_GetPriceList />
         <WD_GetOptionsButton />
-        <WD_NextButton />
         <WD_SaveNoQuotesButton />
-        <WD_PlaceOnHoldButton />
+        <WD_GetOptionsButton />
       </div>
       <Divider />
       <div style={{ display: "flex", flexDirection: "row",}}>
-        <WD_CreateTemplateButton/>
+        
         <WD_FindButton />
         <WD_ClearAllButton />
         <WD_YesButton />
         <WD_NoButton />
+        <WD_AddContractButton/>
+        <WD_PlaceOnHoldButton />
       </div>
       <Divider />
       <div style={{display: 'flex', flexDirection: 'row' }}>
@@ -65,15 +66,23 @@ function ButtonsDemo() {
         <WD_AddButton />
         <WD_ImportButton />
         <WD_CloseButton />
+        <WD_ExitButton />
+      </div>
+      <Divider />
+      <div style={{display: 'flex', flexDirection: 'row' }}>
+        <WD_OfferButton />
+        <WD_ProductButton />
+        <WD_QuoteButton />
+        <WD_NextButton />
+        <WD_CreateTemplateButton/>
+        <WD_CollapseRightButton/>
       </div>
       <Divider />
       <div style={{ display: "flex", flexDirection: "row",}}>
-        <WD_CollapseRightButton/>
         <WD_ToggleSwitchButton />
         <WD_SearchButton />
         <WD_WarningIcon />
       </div>
-      {/* < WD_DemoLeftSideBar1 /> */}
     </Fragment>
   );
 }

@@ -10,15 +10,16 @@ export default function PlaceOnHoldButton() {
 
   return (
     <Box >
-      <Box sx={{ "& > button": { m: 1 } }}>
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
         <LoadingButton
           size='small'
           checked={loading}
           onClick={handleClick}
-          // loading={loading}
+          //loading={loading}
           loadingPosition="end"
           variant="contained"
-          style={{backgroundColor:'#39ac8f'}}
+          className="placeonhold"
         >
           <span>PLACE ON HOLD</span>
         </LoadingButton>  

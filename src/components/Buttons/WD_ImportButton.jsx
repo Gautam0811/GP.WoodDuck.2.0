@@ -11,14 +11,13 @@ export default function ImportButton() {
 
   return (
     <Box>
-          <LoadingButton style={{ color:'#005FA8' }}>
-          <div style={{padding: '10px',}}>
+          <LoadingButton >
+          <div >
             <div>
-              <CachedOutlinedIcon fontSize='7px'/>
-
+              <CachedOutlinedIcon/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>IMPORT</span>
+              <span>IMPORT</span>
             </div>
           </div>
           </LoadingButton>

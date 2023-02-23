@@ -38,7 +38,8 @@
         "id": "T_003",
         "name": "Dark",
         "colors": {
-          "text": "#ff0000",
+          "body": "#000000",
+          "text": "#ffffff",
 
           "button": {
             "text": "#ffffff",

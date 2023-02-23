@@ -7,8 +7,7 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-import "../styles/WD_DashboardHitRate.css";
-
+import "../styles/WD_StyleMain.css";
 
 function createData(name, one,two,three,four,total ) {
   return { name, one,two,three,four,total };
@@ -23,9 +22,9 @@ const rows = [
   createData('4x4', '24%','193%','39%','29%','164%'),
   createData('4x6', '105%','229%','No Production','59%','165%'),
   createData('6x6', '145%','127%','N/A','17%','88%')
-  ]
+]
 
-export default function WD_DasboardPercentForecastSold() {
+export default function WD_DashboardPercentForecastSold() {
   return (
     <Box
       sx={{

@@ -10,7 +10,8 @@ export default function ClearAllButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
         <LoadingButton
           size='small'
           checked={loading}
@@ -18,8 +19,6 @@ export default function ClearAllButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
-          style={{ backgroundColor: '#005FA8'}}
-          
         >
           <span>CLEAR ALL </span>
         </LoadingButton>  

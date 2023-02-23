@@ -10,7 +10,8 @@ export default function YesButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
         <LoadingButton
           size='small'
           checked={loading}
@@ -18,8 +19,6 @@ export default function YesButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
-          style={{ backgroundColor: '#005FA8'}}
-          
         >
           <span>YES</span>
         </LoadingButton>  

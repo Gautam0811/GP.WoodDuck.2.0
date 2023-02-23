@@ -11,13 +11,13 @@ export default function CloseButton() {
 
   return (
     <Box>
-          <LoadingButton style={{ color:'#005FA8' }}>
-          <div style={{padding: '10px'}}>
+          <LoadingButton >
+          <div>
             <div>
-              <CloseOutlinedIcon fontSize='7px'/>
+              <CloseOutlinedIcon/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>CLOSE</span>
+              <span>CLOSE</span>
             </div>
           </div>
           </LoadingButton>

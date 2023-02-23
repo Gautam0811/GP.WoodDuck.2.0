@@ -7,8 +7,7 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-import "../styles/WD_DashboardHitRate.css";
-
+import "../styles/WD_StyleMain.css";
 
 function createData(name, one,two,three,four,total ) {
   return { name, one,two,three,four,total };
@@ -23,7 +22,6 @@ const rows = [
   createData('4x4', '','' ,'','','' ),
   createData('4x6', '','' ,'','','' ),
   createData('6x6', '','' ,'N/A','','' ),
-  
   ]
 
 export default function WD_DasboardHitRate() {

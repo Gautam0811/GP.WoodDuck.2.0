@@ -11,13 +11,13 @@ export default function ExitButton() {
 
   return (
     <Box>
-          <LoadingButton style={{ color:'#005FA8'}}>
+          <LoadingButton >
           <div>
             <div>
-              <WestIcon fontSize='7px'/>
+              <WestIcon/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>EXIT</span>
+              <span>EXIT</span>
             </div>
           </div>
           </LoadingButton>

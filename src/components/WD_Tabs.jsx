@@ -13,7 +13,7 @@ import MidBox from './Tabs_Comp/WD_Inbound/WD_MidBox';
 import MidBox2 from './Tabs_Comp/WD_Outbound/WD_MidBox2';
 import MidBox3 from './Tabs_Comp/WD_PriceList/WD_MidBox3';
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import "../styles/WD_Styles.css";
+import "../styles/WD_StyleMain.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

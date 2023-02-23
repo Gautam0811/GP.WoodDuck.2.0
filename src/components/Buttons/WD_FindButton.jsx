@@ -10,16 +10,15 @@ export default function FindButton() {
 
   return (
     <Box>
-      <Box sx={{ "& > button": { m: 1 } }}>
+      {/* <Box sx={{ "& > button": { m: 1 } }}> */}
+      <Box>
         <LoadingButton
           size='small'
           checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"
-          variant="contained"
-          style={{ backgroundColor: '#005FA8'}}
-          
+          variant="contained"          
         >
           <span> FIND </span>
         </LoadingButton>  

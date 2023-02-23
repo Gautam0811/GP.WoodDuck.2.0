@@ -8,7 +8,6 @@ export default function QuoteButton() {
   function handleClick() {
     setLoading(true);
   }
-  
 
   return (
     <div>
