@@ -1,39 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
 import "../styles/WD_DashboardHitRate.css";
 import LinearWithValueLabel from "./WD_LinearProgressBar";
-import LinearWithValueLabel100 from "./WD_LinearProgressBar100";
-import LinearWithValueLabel50 from "./WD_LinearProgressBar50";
-
-function createData(name, inventory, nextweek) {
-  return { name, inventory, nextweek };
-}
-
-const rows = [
-  createData('ALBANY', 45,'100% sold'),
-  createData('CAMDEN', 40,'118% sold'),
-  createData('DIBOLL', 53,'202% sold'),
-  createData('DUDLEY', 106,'129% sold'),
-  createData('GP SL WARRENTON ll', 112,'95% sold'),
-  createData('GURDON', 72,'119% sold'),
-  createData('PINELAND', 79,'119% sold'),
-  createData('PROSPERITY', 76,'87% sold'),
-  createData('ROCKY CREEK', 50,'117% sold'),
-  createData('ROME', 161,'43% sold'),
-  createData('TALLADEGA', 77,'143% sold'),
-  createData('TAYLORSVILLE', 29,'171% sold'),
-];
-
-
-
-
+import {WD_DasboardMillForecastsrows} from "../services/data"
 
 export default function WD_DasboardMillForecasts() {
   return (
@@ -67,7 +39,7 @@ export default function WD_DasboardMillForecasts() {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
+            {WD_DasboardMillForecastsrows.map((row) => (
               <tr key={row.name}>
                 <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>{row.name}</th>
                 <td><LinearWithValueLabel Values={row.inventory}/></td>

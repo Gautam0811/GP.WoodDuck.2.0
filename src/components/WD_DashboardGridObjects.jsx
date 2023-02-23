@@ -9,29 +9,12 @@ import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
 import "../styles/WD_DashboardHitRate.css";
 
-
-function createData(name, one,two,three,four,total ) {
-  return { name, one,two,three,four,total };
-}
-
-const rows = [
-  createData('2x4', '','' ,'','','' ),
-  createData('2x6', '9%','' ,'','','9%' ), 
-  createData('2x8', '','' ,'','','' ),
-  createData('2x10', '','' ,'','','' ),
-  createData('2x12', '','' ,'','','' ),
-  createData('4x4', '','' ,'','','' ),
-  createData('4x6', '','' ,'','','' ),
-  createData('6x6', '','' ,'N/A','','' ),
-  
-  ]
-
-export default function WD_DasboardHitRate() {
+export default function WD_DasboardGridObjects(props) {
   return (
     <Box
       sx={{
         mx: 4,
-        my: 1,
+        my: 4,
         width: "90%",
         bgcolor: "white",
         boxShadow: "1px 2px 5px grey",
@@ -41,25 +24,8 @@ export default function WD_DasboardHitRate() {
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography gutterBottom variant="h6" component="div">
-              Hit Rate
+              {props.title}
             </Typography>
-          </Grid>
-          <Grid item>
-            <FormControl fullWidth sx={{ color: "blue" }}>
-              <NativeSelect
-                defaultValue={10}
-                inputProps={{
-                  name: "age",
-                  id: "uncontrolled-native",
-                }}
-              >
-                <option value={10}>24 hours</option>
-                <option value={20}>7 days</option>
-                <option value={30}>30 days</option>
-                <option value={40}>6 months</option>
-                <option value={50}>12 months</option>
-              </NativeSelect>
-            </FormControl>
           </Grid>
         </Grid>
         <Divider variant="middle" />
@@ -75,7 +41,7 @@ export default function WD_DasboardHitRate() {
             </tr>
           </thead>
           <tbody>
-          {rows.map((row) => (
+          {props.data.map((row) => (
               <tr key={row.name}>
                 <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>{row.name}</th>
                 <td>{row.one}</td>
