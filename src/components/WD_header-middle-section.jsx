@@ -17,7 +17,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import getCustomerData from "../services/WD_header-middle-section_API";
+import getCustomerData from "../services/WD_API";
 import '../styles/WD_Styles.css';
 
 export default function WD_headerMiddleSection() {
