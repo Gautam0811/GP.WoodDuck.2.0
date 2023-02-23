@@ -24,6 +24,10 @@ export default function WD_Login({ setToken }) {
   // User Login info
   const database = [
     {
+      username:"admin",
+      password:"admin@123",
+  },
+    {
       username: "Ananya",
       password: "password@123",
     },
