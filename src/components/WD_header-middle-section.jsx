@@ -17,24 +17,14 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import '../styles/WD_StyleMain.css';
+import '../styles/WD_Styles.css';
 
 export default function WD_headerMiddleSection() {
-  const baseURL = "https://localhost:44351/employee/";
-  const [name, setName] = React.useState("");
   const [post, setPost] = React.useState({});
   const [id, setId] = React.useState(1001);
 
-  function getCustomerData() {
-    return axios.get(baseURL+id)
-      .then((response) => {
-        const customerList = response.data;
-        return customerList;
-      })
-  }
-
   React.useEffect(() => {
-    getCustomerData().then((customerData) => {
+    getCustomerData(id).then((customerData) => {
       setPost(customerData);
     });
   }, [id]);
