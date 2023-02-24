@@ -27,7 +27,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{bgcolor: '#d1eaff',py: 25,height:'410%'}}>
+        <Box sx={{bgcolor: '#d1eaff',py: 30,height:'410%'}}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -109,7 +109,7 @@ export default function CustomizedTabs() {
 
  
   return (
-  <Grid container justifyContent="flex-end" sx={{ position:'relative'}}>
+  <div className='groo'>
     
    
     <Box sx={{  width: '30%' ,height: '80px'}}>
@@ -132,7 +132,7 @@ export default function CustomizedTabs() {
       </TabPanel>
     </Box>
     
-    </Grid>
+    </div>
     
   );
 }

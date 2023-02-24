@@ -1,22 +1,23 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { Divider, Grid } from "@mui/material";
-import BasicSelect from "./WD_InsideBoxes";
+import BasicSelect from "./WD_DropdownBox";
 import BasicSelectP from "./WD_ProductsDialog";
 import BasicSelectL from "./WD_LoadsDialog";
 import BasicSelectC from "./WD_CPU";
 import LBox from "./WD_LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FBox from "./WD_Footage";
-import OfferButton from "../../Buttons/WD_OfferButton";
-import NextButton from "../../Buttons/WD_NButton";
-import GeTPriceList from "../../Buttons/WD_GetPriceList";
+import OfferButton from "../../Buttons/WD_OFFERbutton";
+import NextButton from "../../Buttons/WD_NextButton";
+import GeTPriceList from "../../Buttons/WD_GetPriceListButton";
 import CreateTemplate from "../../Buttons/WD_CreateTemplateButton";
 import CustomizedSwitches from "../../Buttons/WD_ToggleSwitchButton";
 import PlaceOnHoldButton from "../../Buttons/WD_PlaceOnHoldButton";
-import SaveNoQuotesButton from "../../Buttons/WD_SaveNoQuotes";
+import SaveNoQuotesButton from "../../Buttons/WD_SaveNoQuotesButton";
 import BasicTextFields from "./WD_Mill";
 import SwitchListSecondary from "./WD_MillList";
+import WD_GetPriceListButton from "../../Buttons/WD_GetPriceListButton";
 export default function MidBox() {
   return (
     <Grid
@@ -25,15 +26,11 @@ export default function MidBox() {
       size='small'
       sx={{ mt: 0, pt: 1, pr: 0.5, mb: -25 }}
     >
-      <Grid>
-        <OfferButton />
-      </Grid>
-      <Grid>
-        <NextButton />
-      </Grid>
-      <Grid>
-        <GeTPriceList />
-      </Grid>
+        <div style={{display:'flex',flexDirection:'row',marginTop:'-225px'}}>
+      <div style={{paddingRight:'17px'}}><OfferButton/></div>
+      <div style={{paddingRight:'27px'}}><NextButton/></div>
+      <div><WD_GetPriceListButton/></div>
+     </div>
 
       <Grid sx={{ pb:2.5,mt:2,mr:1 }}>
         <BasicSelect message={"Template"} />
@@ -90,15 +87,15 @@ export default function MidBox() {
       </Box>
       
 
-      <Grid sx={{ mt: 0 }}>
+      <Grid sx={{ mt: 3 }}>
         <Grid>
           <CreateTemplate />
         </Grid>
 
-        <Grid sx={{ mr: 21.4, mb: 1.8 }}>
+        <Grid sx={{ mr: 21.4, mt: 2 }}>
           <PlaceOnHoldButton />
         </Grid>
-        <Grid sx={{ mt: -7.8, ml: 22 }}>
+        <Grid sx={{ mt: -3.9, ml: 22 }}>
           <SaveNoQuotesButton />
         </Grid>
       </Grid>

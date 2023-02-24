@@ -15,7 +15,7 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="1" variant="outlined" size='small'/>
+      <TextField id="outlined-basic" defaultValue="1" variant="outlined" size='small'/>
     </Box>
     
     </Grid>

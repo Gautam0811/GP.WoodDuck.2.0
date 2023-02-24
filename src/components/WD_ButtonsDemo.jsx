@@ -30,7 +30,7 @@ import WD_WarningIcon from './WD_WarningIcon';
 import WD_AddContractButton from './Buttons/WD_AddContractButton';
 import WD_ExitButton from './Buttons/WD_ExitButton';
 import WD_GetPriceListButton from './Buttons/WD_GetPriceListButton';
-import WD_OfferButton from './Buttons/WD_OfferButton';
+import WD_OfferButton from './Buttons/WD_OFFERbutton';
 import WD_ProductButton from './Buttons/WD_ProductButton';
 
 
