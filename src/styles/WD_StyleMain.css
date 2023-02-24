@@ -1,4 +1,11 @@
 /* Style for LeftSideBar */
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root.padding-left{
+  padding-left: 48px;
+}
+
+.link-text{
+  color: #ffffff; text-decoration: none;
+}
 
 .Sidebar {
   position: sticky;
@@ -240,6 +247,7 @@ tbody>tr>:nth-child(1){
   flex-direction: row;
 }
 
+
 /* settings */
 /* for settings header */
 .settings-header{
@@ -284,6 +292,38 @@ tbody>tr>:nth-child(1){
   border:none;
 }
 
+/* for products page */
+.product-main-grid{
+  padding: 16px 32px !important;
+}
+
+
+.product-grid{
+  padding-top: 16px !important;
+}
+
+.product-text-color{
+  color: #005fa8;
+}
+
+/* for products header */
+.product-typography{
+  justify-content: center; 
+  padding-left: 20px;
+}
+
+.css-ahj2mt-MuiTypography-root.font-bold{
+  font-weight: bold;
+}
+
+.product-page-grid{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f4fb;
+}
 
 
 
