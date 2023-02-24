@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 
-export default function BackButton() {
+export default function WD_BackButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -12,10 +12,10 @@ export default function BackButton() {
   return (
     <Box>
       <Box>
-          <LoadingButton>
+          <LoadingButton className="buttontype4">
           <div>
             <div>
-              <ArrowBackOutlinedIcon />
+              <ArrowBackOutlinedIcon className="icontype1" />
             </div>
             <div>
               <span>BACK</span>

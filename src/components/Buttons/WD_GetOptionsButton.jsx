@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
 
-export default function GetOptionsButton() {
+export default function WD_GetOptionsButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -22,6 +22,7 @@ export default function GetOptionsButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
+          className="buttontype1"
         >
           <span>GET OPTIONS </span>
         </LoadingButton>  

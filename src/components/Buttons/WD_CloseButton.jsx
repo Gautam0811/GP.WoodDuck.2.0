@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-export default function CloseButton() {
+export default function WD_CloseButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -11,10 +11,10 @@ export default function CloseButton() {
 
   return (
     <Box>
-          <LoadingButton >
+          <LoadingButton className="buttontype4">
           <div>
             <div>
-              <CloseOutlinedIcon/>
+              <CloseOutlinedIcon className="icontype1" />
             </div>
             <div>
               <span>CLOSE</span>

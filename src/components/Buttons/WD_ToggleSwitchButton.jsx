@@ -40,7 +40,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 //   },
 }));
 
-export default function CustomizedSwitches(props) {
+export default function WD_ToggleSwitchButton(props) {
   return (
     <FormGroup style={{padding:'1px'}}>
       <Stack direction="row" spacing={1} alignItems="center">

@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-export default function CreateTemplate() {
+export default function WD_CreateTemplateButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -21,7 +21,8 @@ export default function CreateTemplate() {
           // loading={loading}
           loadingIndicator="Loading…"
           variant="outlined"
-          style={{ border: '2px solid', borderColor: '#005FA8', color: '#005FA8' }}        >
+          className="buttontype5"
+          >
           <span>CREATE TEMPLATE</span>
         </LoadingButton>
       </Box>

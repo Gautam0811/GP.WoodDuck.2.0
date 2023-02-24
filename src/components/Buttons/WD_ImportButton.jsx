@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 
-export default function ImportButton() {
+export default function WD_ImportButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -11,10 +11,10 @@ export default function ImportButton() {
 
   return (
     <Box>
-          <LoadingButton >
+          <LoadingButton className="buttontype4">
           <div >
             <div>
-              <CachedOutlinedIcon/>
+              <CachedOutlinedIcon className="icontype1"/>
             </div>
             <div>
               <span>IMPORT</span>

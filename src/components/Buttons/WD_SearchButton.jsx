@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function QuoteButton() {
+export default function WD_QuoteButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);

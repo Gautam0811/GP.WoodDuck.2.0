@@ -2,7 +2,7 @@ import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 
-export default function PlaceOnHoldButton() {
+export default function WD_PlaceOnHoldButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -19,7 +19,7 @@ export default function PlaceOnHoldButton() {
           //loading={loading}
           loadingPosition="end"
           variant="contained"
-          className="placeonhold"
+          className="buttontype3"
         >
           <span>PLACE ON HOLD</span>
         </LoadingButton>  

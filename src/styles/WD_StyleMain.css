@@ -95,25 +95,41 @@ Collapsed Sidebar CSS
 
 /* for buttons with only text*/
 .css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
+}
+
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype1{
   background-color: #005FA8 !important;
 }
 
-/* place on hold button */
-.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.placeonhold{
-  background-color: green !important;
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype2{
+  background-color: gray !important;
 }
 
+/* place on hold button */
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype3{
+  background-color: rgb(62, 159, 62) !important;
+}
+
+
 /* for buttons with icons*/
-.css-1vqlznj-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
+/* this button has different class than the above ones */
+.css-1vqlznj-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype4{
   color: #005FA8 !important;
   font-size:10px !important;
 }
 
-/* for no and Add contract button */
-.css-11qr2p8-MuiButtonBase-root-MuiButton-root {
-  background-color: gray !important;
-}
+/* for buttons with variant outline */
+.css-1u5rjc5-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype5{
 
+  border: 2px solid !important;
+  border-color: #005FA8 !important;
+  color: #005FA8 !important;
+} 
+
+/* for icons in the buttons */
+.css-i4bv87-MuiSvgIcon-root.icontype1{
+  font-size: 18px !important;
+}
 
 
 /* Login page part */
@@ -224,6 +240,49 @@ tbody>tr>:nth-child(1){
   flex-direction: row;
 }
 
+/* settings */
+/* for settings header */
+.settings-header{
+  align-items: center;
+  background-color: #f1f4fb;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+/* for settings header text*/
+.settings-header-text{
+  padding-left:25px;
+  font-weight: bold;
+}
+
+/* for setting mainsection */
+.css-vj1n65-MuiGrid-root.settings-mainsection-grid{
+    padding-top: 50px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+}
+
+/* for box-shadow */
+.box-shad{
+  box-shadow: 5px 5px 5px gray;
+}
+
+.settings-table{
+  color: #1357a6; 
+}
+
+.settings-table th{
+  color: black;
+  background-color: #f1f4fb;
+  padding:10px;
+}
+
+.settings-table tr{
+  text-align:left;
+  border:none;
+}
 
 
 

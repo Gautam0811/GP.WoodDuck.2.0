@@ -2,7 +2,7 @@ import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 
-export default function ClearAllButton() {
+export default function WD_ClearAllButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -19,6 +19,7 @@ export default function ClearAllButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
+          className="buttontype1"
         >
           <span>CLEAR ALL </span>
         </LoadingButton>  

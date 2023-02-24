@@ -7,7 +7,7 @@ import React from 'react';
 import Divider from "@material-ui/core/Divider";
 import WD_GetOptionsButton from './Buttons/WD_GetOptionsButton';
 import WD_NextButton from './Buttons/WD_NextButton';
-import WD_SaveNoQuotesButton from './Buttons/WD_SaveNoQuotes';
+import WD_SaveNoQuotesButton from './Buttons/WD_SaveNoQuotesButton';
 import WD_PlaceOnHoldButton from'./Buttons/WD_PlaceOnHoldButton';
 
 import WD_SaveButton from './Buttons/WD_SaveButton';
@@ -29,7 +29,7 @@ import WD_WarningIcon from './WD_WarningIcon';
 
 import WD_AddContractButton from './Buttons/WD_AddContractButton';
 import WD_ExitButton from './Buttons/WD_ExitButton';
-import WD_GetPriceList from './Buttons/WD_GetPriceList';
+import WD_GetPriceListButton from './Buttons/WD_GetPriceListButton';
 import WD_OfferButton from './Buttons/WD_OfferButton';
 import WD_ProductButton from './Buttons/WD_ProductButton';
 
@@ -41,10 +41,9 @@ function ButtonsDemo() {
       <div style={{ padding:'20px'}}>
       </div>
       <div style={{ display: "flex", flexDirection: "row",}}>
-        <WD_GetPriceList />
+        <WD_GetPriceListButton />
         <WD_GetOptionsButton />
         <WD_SaveNoQuotesButton />
-        <WD_GetOptionsButton />
       </div>
       <Divider />
       <div style={{ display: "flex", flexDirection: "row",}}>

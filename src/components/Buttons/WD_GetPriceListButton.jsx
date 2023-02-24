@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
-export default function GetOptionsButton() {
+export default function WD_GetPriceListButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -21,6 +21,7 @@ export default function GetOptionsButton() {
           // loading={loading}
           loadingPosition="end"
           variant="contained"
+          className="buttontype1"
         >
           <span>GET PRICE LIST </span>
         </LoadingButton>  

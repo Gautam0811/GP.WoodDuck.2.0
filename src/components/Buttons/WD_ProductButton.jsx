@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 
-export default function QuoteButton() {
+export default function WD_QuoteButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -18,7 +18,7 @@ export default function QuoteButton() {
           startIcon={<AddOutlinedIcon />}
           loadingIndicator="Loading…"
           variant="outlined"
-          style={{ border: '2px solid', borderColor: '#005FA8', color: '#005FA8' }}
+          className="buttontype5"
         >
           <span>PRODUCT</span>
         </LoadingButton>

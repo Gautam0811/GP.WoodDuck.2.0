@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 
-export default function SaveButton() {
+export default function WD_SaveButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -12,10 +12,10 @@ export default function SaveButton() {
   return (
     <Box>
       <Box>
-          <LoadingButton>
-          <div >
+          <LoadingButton className="buttontype4">
+          <div>
             <div>
-              <SaveIcon/>
+              <SaveIcon className="icontype1"/>
             </div>
             <div>
               <span>SAVE</span>
