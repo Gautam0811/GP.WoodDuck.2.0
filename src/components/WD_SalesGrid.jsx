@@ -9,7 +9,7 @@ export default function SalesGrid() {
     <Grid sx={{ width: "100%" }}>
       {/* sales grid header part */}
       <WD_SalesGridHeader />
-      <WD_Tabs />
+      {/* <WD_Tabs /> */}
       <Grid
         sx={{ width: "100%", flexDirection: "column", px: "5px", py: "5px" }}
       >
