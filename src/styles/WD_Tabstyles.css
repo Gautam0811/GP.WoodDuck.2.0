@@ -1,5 +1,5 @@
 
-.gru {
+.box {
    width: 325px !important;
    height: 490px !important;
    background-color: #fff !important;
@@ -13,7 +13,7 @@
    
 }
 
-.groot{
+.dropdownbox{
    padding-top: 40px;;
    margin-top: -224px;;
    margin-left: 40px;
@@ -22,3 +22,24 @@
    font-size:12px;
    font-weight:Bold;
 }
+
+.Coverall{
+   display:flex;
+   flex-direction:row;
+   font-size:12px;
+   font-weight:Bold;
+}
+
+.midbox{
+   padding-top: 8px;
+   padding-right: 4px;
+   margin-bottom: -208px;
+   display:flex;
+  size: small;
+  justify-content: flex-end;}
+
+  .topbuttons{
+   display:flex;
+   flex-direction:row;
+   margin-top:-235px;
+  }

@@ -16,7 +16,7 @@ export default function BasicSelect(props) {
     setAge(event.target.value);
   };
 
-  return (<div className='groot'>
+  return (<div className='dropdownbox'>
     
     <Grid sx={{pr:6,ml:-2}}>{props.message}</Grid>
     <Grid>
@@ -31,10 +31,9 @@ export default function BasicSelect(props) {
           value={age}
           // label="Age"
           onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+        >{props.data.map((row) => (
+          <MenuItem value={row.value}>{row.value}</MenuItem>))}
+          
         </Select>
       </FormControl></ListItemText>
     </Box></Grid></div>
