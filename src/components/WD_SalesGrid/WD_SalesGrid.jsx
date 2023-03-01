@@ -2,6 +2,7 @@ import * as React from "react";
 import WD_SalesGridHeader from "./WD_SalesGridHeader";
 import WD_SalesGridMainSection from "./WD_SalesGridMainSection";
 import Grid from "@mui/material/Grid";
+import WD_Tabs from './WD_Tabs';
 
 export default function SalesGrid() {
   return (

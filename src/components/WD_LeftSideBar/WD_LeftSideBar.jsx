@@ -57,25 +57,19 @@ function LeftSidebar() {
   return (
     <div className={isExpanded ? "Sidebar" : "Sidebar collapsed"}>
       <div className="sidebar-items">
-        <Link to="./" style={{ color: "#ffffff", textDecoration: "none" }}>
+        <Link to="./" className="link-text">
           <div className="item">
             <SpeedIcon className="sidebar-icon" />{" "}
             <span className="sidebar-text">Dashboard</span>{" "}
           </div>
         </Link>
-        <Link
-          to="./salesgrid"
-          style={{ color: "#ffffff", textDecoration: "none" }}
-        >
+        <Link to="./salesgrid" className="link-text">
           <div className="item">
             <GridOnIcon className="sidebar-icon" />{" "}
             <span className="sidebar-text">Salesgrid</span>{" "}
           </div>
         </Link>
-        <Link
-          to="/settings"
-          style={{ color: "#ffffff", textDecoration: "none" }}
-        >
+        <Link to="/settings" className="link-text">
           <div className="item" onClick={handleClickOrders}>
             <ShoppingCartOutlined className="sidebar-icon" />
             <span className="sidebar-text">Orders</span>
@@ -84,32 +78,26 @@ function LeftSidebar() {
         </Link>
         <Collapse in={openOrders} timeout="auto">
           <div className="sidebar-text" component="div" disablePadding>
-            <Link
-              to="/productgroups"
-              style={{ color: "#ffffff", textDecoration: "none" }}
-            >
-              <ListItemButton sx={{ pl: 6 }}>
+            <Link to="/productgroups" className="link-text">
+              <ListItemButton className="padding-left">
                 <span className="fontsize">Open</span>
               </ListItemButton>
             </Link>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize ">Late Fulfillment</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize ">Late Pickup</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Today</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">All</span>
             </ListItemButton>
           </div>
         </Collapse>
-        <Link
-          to="./orders"
-          style={{ color: "#ffffff", textDecoration: "none" }}
-        >
+        <Link to="./orders" className="link-text">
           <div className="item">
             <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
             <span className="sidebar-text">Master Quotes</span>{" "}
@@ -120,7 +108,7 @@ function LeftSidebar() {
           <span className="sidebar-text">Quote Management</span>{" "}
         </div>
         <div className="item">
-          <LocalShippingOutlinedIcon className="sidebar-icon"  />{" "}
+          <LocalShippingOutlinedIcon className="sidebar-icon" />{" "}
           <span className="sidebar-text">Shipments</span>{" "}
         </div>
         <div className="arrow-item">
@@ -136,29 +124,23 @@ function LeftSidebar() {
         </div>
         <Collapse in={openInvoices} timeout="auto">
           <div className="sidebar-text" component="div" disablePadding>
-            <Link
-              to="/salesgrid"
-              style={{ color: "#ffffff", textDecoration: "none" }}
-            >
-              <ListItemButton sx={{ pl: 6 }}>
+            <Link to="/salesgrid" className="link-text">
+              <ListItemButton className="padding-left">
                 <span className="fontsize">All</span>
               </ListItemButton>
             </Link>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Open</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Late</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Paid</span>
             </ListItemButton>
           </div>
         </Collapse>
-        <Link
-          to="/contracts"
-          style={{ color: "#ffffff", textDecoration: "none" }}
-        >
+        <Link to="/contracts" className="link-text">
           <div className="item" onClick={handleClickContracts}>
             <EditOutlinedIcon className="sidebar-icon" />
             <span className="sidebar-text">Contracts</span>
@@ -167,43 +149,48 @@ function LeftSidebar() {
         </Link>
         <Collapse in={openContracts} timeout="auto">
           <div className="sidebar-text" component="div" disablePadding>
-            <Link
-              to="/salesgrid"
-              style={{ color: "#ffffff", textDecoration: "none" }}
-            >
-              <ListItemButton sx={{ pl: 6 }}>
+            <Link to="/salesgrid" className="link-text">
+              <ListItemButton className="padding-left">
                 <span className="fontsize">Active</span>
               </ListItemButton>
             </Link>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Inactive</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">Mine</span>
             </ListItemButton>
-            <ListItemButton sx={{ pl: 6 }}>
+            <ListItemButton className="padding-left">
               <span className="fontsize">All</span>
             </ListItemButton>
           </div>
         </Collapse>
+        <Link to="/contracts" className="link-text">
+          <div className="item">
+            <PersonOutlineOutlinedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">People</span>{" "}
+          </div>
+        </Link>
+        <Link to="/contracts" className="link-text">
+          <div className="item">
+            <BusinessOutlinedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Facilities</span>{" "}
+          </div>
+        </Link>
+        <Link to="/settings" className="link-text">
+          <div className="item">
+            <CachedOutlinedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Supply and Demand</span>{" "}
+          </div>
+        </Link>
 
-        <div className="item">
-          <PersonOutlineOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">People</span>{" "}
-        </div>
-        <div className="item">
-          <BusinessOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Facilities</span>{" "}
-        </div>
-        <div className="item">
-          <CachedOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Supply and Demand</span>{" "}
-        </div>
         <Divider />
-        <div className="item">
-          <FormatListNumberedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Recent Items</span>{" "}
-        </div>
+        <Link to="/contracts" className="link-text">
+          <div className="item">
+            <FormatListNumberedIcon className="sidebar-icon" />{" "}
+            <span className="sidebar-text">Recent Items</span>{" "}
+          </div>
+        </Link>
       </div>
     </div>
   );

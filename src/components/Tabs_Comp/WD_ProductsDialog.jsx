@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 
 export default function BasicTextFields() {
-  return (<Grid sx={{display:"flex",flexDirection:"row",fontSize:12,fontWeight:"Bold"}}>
+  return (<Grid className='Coverall'>
   <Grid sx={{mt:1}}>PRODUCTS</Grid>
     <Box
       component="form"

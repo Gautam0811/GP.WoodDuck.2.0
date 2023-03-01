@@ -4,17 +4,18 @@ import Grid from '@mui/material/Grid';
 import { TextField } from '@mui/material';
 import Switch from '@mui/material/Switch';
 
-export default function ProductGroupsMainSection() {
+export default function WD_ProductGroupsMainSection() {
 
+  //for the
   const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
   return (
     //the main product groups component
-      <Grid sx={{ px: 4, py: 2 }}>
+      <div className="product-main-grid">
         <Typography fontSize="large">Selected Product Groups</Typography>
-        <Grid sx={{ pt: 2, display: "flex", flexDirection: "column" }}>
-          <div style={{ pr: 3 }}>
-            <Typography fontSize="small" style={{ color: "#005fa8" }}>
+        <Grid className="product-grid">
+          <div>
+            <Typography fontSize="small" className="product-text-color">
               NAME
             </Typography>
           </div>
@@ -22,9 +23,9 @@ export default function ProductGroupsMainSection() {
             <input placeholder="New" style={{ padding: "5px" }}></input>
           </div>
         </Grid>
-        <Grid sx={{ pt: 2, display: "flex", flexDirection: "column" }}>
+        <Grid className="product-grid">
           <div>
-            <Typography fontSize="small" style={{ color: "#005fa8" }}>
+            <Typography fontSize="small" className="product-text-color">
               DEFAULT
             </Typography>
           </div>
@@ -32,9 +33,9 @@ export default function ProductGroupsMainSection() {
             <Switch {...label} />
           </div>
         </Grid>
-        <Grid sx={{ pt: 2, display: "flex", flexDirection: "column" }}>
-          <Grid sx={{ pr: 3 }}>
-            <Typography fontSize="small" style={{ color: "#005fa8" }}>
+        <Grid className="product-grid">
+          <Grid>
+            <Typography fontSize="small" className="product-text-color">
               PRODUCTS
             </Typography>
           </Grid>
@@ -45,7 +46,7 @@ export default function ProductGroupsMainSection() {
             style={{ width: 500 }}
           />
         </Grid>
-      </Grid>
+      </div>
   );
 }
 

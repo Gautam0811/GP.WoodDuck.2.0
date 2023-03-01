@@ -1,42 +1,40 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { Divider, Grid } from "@mui/material";
-import BasicSelect from "./WD_InsideBoxes";
-import BasicSelectP from "./WD_ProductsDialog";
-import BasicSelectL from "./WD_LoadsDialog";
-import BasicSelectC from "./WD_CPU";
-import LBox from "./WD_LoadComponent";
+import BasicSelect from "../WD_DropdownBox";
+import BasicSelectP from "../WD_ProductsDialog";
+import BasicSelectL from "../WD_LoadsDialog";
+import BasicSelectC from '../WD_CPU';
+import LBox from "../WD_LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
-import FBox from "./WD_Footage";
+import FBox from "../WD_Footage";
 import QuoteButton from "../../Buttons/WD_QuoteButton";
-import NextButton from "../../Buttons/WD_NButton";
+import NextButton from "../../Buttons/WD_NextButton";
 import GetOptionsButton from "../../Buttons/WD_GetOptionsButton";
 import CreateTemplate from "../../Buttons/WD_CreateTemplateButton";
 import CustomizedSwitches from "../../Buttons/WD_ToggleSwitchButton";
 import PlaceOnHoldButton from "../../Buttons/WD_PlaceOnHoldButton";
-import SaveNoQuotesButton from "../../Buttons/WD_SaveNoQuotes";
-import BasicTextFields from "./WD_Mill";
-import SwitchListSecondary from "./WD_MillList";
+import SaveNoQuotesButton from "../../Buttons/WD_SaveNoQuotesButton";
+import BasicTextFields from "../WD_Mill";
+import SwitchListSecondary from "../WD_MillList";
+import {WD_CPUrows} from "../../../services/Tab";
+import {WD_Templaterows,WD_Buyerrows,WD_Customerrows,WD_Staterows,WD_Shiptorows,WD_Shiptosrows,WD_Buyersgrouprows,WD_MBFrows} from "../../../services/Tab";
+
+
 export default function MidBox() {
   return (
     <Grid
       container
-      justifyContent='flex-end'
-      size='small'
-      sx={{ mt: 0, pt: 1, pr: 0.5, mb: -25 }}
+      className='midbox'
     >
-      <Grid>
-        <QuoteButton />
-      </Grid>
-      <Grid>
-        <NextButton />
-      </Grid>
-      <Grid>
-        <GetOptionsButton />
-      </Grid>
+      <div className = 'topbuttons'>
+      <div style={{paddingRight:'10px'}}><QuoteButton/></div>
+      <div style={{paddingRight:'20px'}}><NextButton/></div>
+      <div><GetOptionsButton/></div>
+     </div>
 
       <Grid sx={{ pb:2.5,mt:2,mr:1 }}>
-        <BasicSelect message={"Template"} />
+        <BasicSelect message={"Template"} data={WD_Templaterows}/>
       </Grid>
       <Box
         component='span'
@@ -46,19 +44,22 @@ export default function MidBox() {
           <LBox />
         </Grid>
         <Grid sx={{ pt: 5, mt: 26, ml: 0.5 }}>
-          <BasicSelect message={"BUYER"} />
+          <BasicSelect message={"BUYER"} data={WD_Buyerrows} />
         </Grid>
         <Grid sx={{ pt: 5, mt: 2, ml: -2.5 }}>
-          <BasicSelect message={"CUSTOMER"} />
+          <BasicSelect message={"CUSTOMER"} data={WD_Customerrows}/>
         </Grid>
         <Divider sx={{ mt: -17 }} />
 
         <Grid sx={{ pt: 5, mt: 20, ml: -1 }}>
-          <BasicSelect message={"SHIP TOS"} />
+          <BasicSelect message={"SHIP TOS"} data={WD_Shiptosrows}/>
         </Grid>
         <Grid sx={{ pt: 5, mt: 2, ml: 0 }}>
-          <BasicSelect message={"SHIP TO"} />
+          <BasicSelect message={"SHIP TO"} data={WD_Shiptorows}/>
+          <Grid sx={{  ml: 19,pt:4 }}><CustomizedSwitches  Text={"Average Freight"}/></Grid>
         </Grid>
+
+       
         <Divider sx={{ mt: -11 }} />
 
         <Grid sx={{ pt: 1, mt: 1, ml: 1 }}>
@@ -78,29 +79,25 @@ export default function MidBox() {
           </Grid>
 
           <Grid container sx={{ pt: 0, mt: -5, ml: 18 }}>
-            <BasicSelectC />
+            <BasicSelectC space={3} message={"TRUCK"} data={WD_CPUrows}/>
           </Grid>
 
-          <Grid>
-            <FBox />
+          <Grid >
+            <FBox space={3} message={"LINEAL"} data={WD_MBFrows} />
           </Grid>
         </Grid>
       </Box>
-
-      <Grid sx={{ mt: -69, ml: 18 }}>
-        <CustomizedSwitches Text={"Average Freight"}/>
-      </Grid>
       
 
-      <Grid sx={{ mt: 0 }}>
+      <Grid sx={{ mt: 3 }}>
         <Grid>
           <CreateTemplate />
         </Grid>
 
-        <Grid sx={{ mr: 21.4, mb: 1.8 }}>
+        <Grid sx={{ mr: 21.4, mt:2 }}>
           <PlaceOnHoldButton />
         </Grid>
-        <Grid sx={{ mt: -7.8, ml: 22 }}>
+        <Grid sx={{ mt: -3.9, ml: 22 }}>
           <SaveNoQuotesButton />
         </Grid>
       </Grid>
