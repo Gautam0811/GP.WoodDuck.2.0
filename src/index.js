@@ -2,32 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import axios from "axios";
 import * as themes from '../src/theme/schema.json';
-import { setToLS } from '../src/utils/storage'
-import { BrowserRouter } from "react-router-dom";
+import { setToLS } from '../src/utils/storage';
+import {axiosRequest,axiosResponse} from './services/WD_Interceptors';
 
-axios.interceptors.request.use(
-  (request) => {
-    console.log(request);
-    request.headers.genericKey = "Request_gpWoodDUCK2.0";
-    return request;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
-
-axios.interceptors.response.use(
-  (response) => {
-    console.log(response);
-    response.headers.className = "Response_gpWoodDUCK2.0";
-    return response;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+axiosRequest();
+axiosResponse();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 console.log(themes.default);
@@ -38,15 +18,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// const Index = () => {
-//   console.log(themes.default);
-//   setToLS("all-themes", themes.default);
-
-//   return <App />;
-// };
-
-// ReactDOM.render(<Index />, document.getElementById("root"));
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

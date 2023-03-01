@@ -208,34 +208,34 @@ input[type="submit"]:hover {
 
  
 /* DashboardHitRate */
-table {
+table.DashboardGrid {
   border:none;
   border-collapse: collapse;
 }
 
-table tr {
+table.DashboardGrid tr {
   border-bottom: 1px solid #000;
   border-top: 1px solid #000;
   text-align: center;
   
 }
-table th {
+table.DashboardGrid th {
   border: none;
 }
-table tr:first-child {
+table.DashboardGrid tr:first-child {
   border-top: none;
 }
 
-table tr:last-child {
+table.DashboardGrid tr:last-child {
   border-bottom: none;
 }
 
-tr.dashboard {
+table.DashboardGrid tr.dashboard {
   color: "#42a5f5";
   background-color: "#eeeeee";
 }
 
-tbody>tr>:nth-child(1){
+table.DashboardGrid tbody>tr>:nth-child(1){
   color: #42a5f5;
   background-color: #eeeeee;
 }

@@ -1,3 +1,7 @@
+// WD_Api
+// Component Utility : This contains all the APIs used by the project WoodDuck 2.0
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import axios from "axios";
 import * as React from "react";
 
