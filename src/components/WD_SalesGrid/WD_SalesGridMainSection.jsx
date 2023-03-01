@@ -1,6 +1,6 @@
 // WD_SalesGridMainSection
 // Component Utility : The Component is created to render the sales grid data table on the sales grid page in woodDuck
-// Author Gautam Malhotra on 1-3-2023
+// Author Ananya Dhar on 1-3-2023
 // -------------------------
 import * as React from "react";
 import Grid from "@mui/material/Grid";

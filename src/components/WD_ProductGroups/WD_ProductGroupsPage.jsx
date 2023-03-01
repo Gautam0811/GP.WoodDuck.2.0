@@ -1,6 +1,6 @@
 // WD_ProductGroupsPage
 // Component Utility : The Component is created to render the product groups header and table on the app
-// Author Gautam Malhotra on 1-3-2023
+// Author Ananya Dhar on 1-3-2023
 // -------------------------
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
