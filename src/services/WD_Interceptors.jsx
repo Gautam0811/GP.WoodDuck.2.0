@@ -1,3 +1,7 @@
+// WD_Interceptors
+// Component Utility : These are the request and response interceptors used to add headers to API calls
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import axios from "axios";
 import WD_UseToken from "../components/Admin/WD_UseToken";
 

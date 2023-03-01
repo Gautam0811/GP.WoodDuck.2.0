@@ -1,3 +1,7 @@
+// WD_LeftSideBar
+// Component Utility : The Component is created for rendering the left collapsable navigation bar in the app
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import { Link } from "react-router-dom";
 import SpeedIcon from "@mui/icons-material/Speed";

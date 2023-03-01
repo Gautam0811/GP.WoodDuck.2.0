@@ -1,3 +1,7 @@
+// WD_SiteSettings
+// Component Utility : The Component is created to render site settings tab in the Settings page
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";

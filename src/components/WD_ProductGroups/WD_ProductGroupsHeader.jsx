@@ -1,3 +1,7 @@
+// WD_ProductGroupsHeader
+// Component Utility : The Component is created to for the displaying the header of the Products group page
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -7,7 +11,7 @@ import WD_BackButton from "../Buttons/WD_BackButton";
 
 export default function WD_ProductGroupsHeader() {
   return (
-    
+
       <Grid
         className="product-page-grid"
       >

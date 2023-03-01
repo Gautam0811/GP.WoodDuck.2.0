@@ -1,3 +1,7 @@
+// WD_Midbox
+// Component Utility : The Component created to price list tabs component on salesgrid
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { Divider, Grid } from "@mui/material";

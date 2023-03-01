@@ -1,3 +1,7 @@
+// WD_UseToken
+// Component Utility : The Component is Created for creating Token Generation for login functionality and Authentication 
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import { useState } from 'react';
 
 export default function WD_UseToken() {

@@ -1,3 +1,8 @@
+// WD2.0
+// Component Utility : The Component is created as a parent component for all the children components and is used to
+//                     render all the components on app.js
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import { Fragment } from "react";
 import Grid from "@mui/material/Grid";
 import WD_headerMiddleSection from "./components/WD_header/WD_header-middle-section";

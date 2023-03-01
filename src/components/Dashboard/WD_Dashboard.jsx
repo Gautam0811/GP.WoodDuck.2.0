@@ -1,3 +1,7 @@
+// WD_Dashboard
+// Component Utility : The Component is the main Dashboard component which has all the reusable components and is rendered on the app 
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import Grid from "@mui/material/Grid";
 import WD_DashboardMarketPOV from "./WD_DashboardMarketPOV";
 import WD_DashboardObjects from "../Common/WD_DashboardObjects";

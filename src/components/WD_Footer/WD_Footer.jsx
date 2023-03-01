@@ -1,3 +1,7 @@
+// WD_Footer
+// Component Utility : The Component is created to render a footer on each page in the app
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 
 export default function Footer() {

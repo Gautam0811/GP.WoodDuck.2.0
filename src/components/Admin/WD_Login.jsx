@@ -1,3 +1,7 @@
+// WD_Login
+// Component Utility : The Component is Created for the Login Functionality and having a Login landing page 
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { loginUser } from "../../services/WD_API";

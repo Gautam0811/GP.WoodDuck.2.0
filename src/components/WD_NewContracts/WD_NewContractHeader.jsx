@@ -1,3 +1,7 @@
+// WD_NewContractHeader
+// Component Utility : The Component is created to provide a header for the New Contracts page
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';

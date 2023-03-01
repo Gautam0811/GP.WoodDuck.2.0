@@ -1,3 +1,7 @@
+// WD_LinearProgressBar50
+// Component Utility : The Component created to display the linear progress bar on the Mills Forecast in the Dashboard 
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import LinearProgress from '@mui/material/LinearProgress';

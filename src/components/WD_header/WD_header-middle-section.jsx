@@ -1,3 +1,7 @@
+// WD_header-middle-section
+// Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";

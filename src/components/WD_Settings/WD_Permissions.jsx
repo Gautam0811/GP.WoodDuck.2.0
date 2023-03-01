@@ -1,3 +1,7 @@
+// WD_Permissions
+// Component Utility : The Component is created to render permissions sets and controls page in Administration settings
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";

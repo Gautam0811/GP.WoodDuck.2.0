@@ -1,3 +1,7 @@
+// WD_LinearProgressBar
+// Component Utility : The Component created to display the linear progress bar on the Mills Forecast in the Dashboard 
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -46,38 +50,3 @@ export default function LinearWithValueLabel(propst) {
     </Box>
   );
 }
-
-
-
-
-
-
-
-// function LinearProgressWithLabel(props) {
-//   return (
-//     <Box sx={{ display: 'flex', alignItems: 'center',width:"10%",ml:3 }}>
-//       <Box sx={{ width: '821%', mr: 1 }}>
-//         <LinearProgress variant="determinate" {...props} />
-//       </Box>
-//       <Box sx={{ minWidth: 15 }}>
-//         <Typography variant="body2" sx={{fontSize:10}} color="black">{`${Math.round(
-//           props.value,
-//         )}%`}</Typography>
-//       </Box>
-//     </Box>
-//   );
-// }
-
-
-
-// export default function LinearWithValueLabel(propst) {
-    
-
-//   const [progress, setProgress] = React.useState(10);
-
-//   return (
-//     <Box sx={{ width: '100%' }}>
-//       <LinearProgressWithLabel color="success" sx={{width:70,height:10,bgcolor:'lightgrey'}} value={propst.Values} />
-//     </Box>
-//   );
-// }

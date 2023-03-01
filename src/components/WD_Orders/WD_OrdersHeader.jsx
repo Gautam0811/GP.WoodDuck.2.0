@@ -1,3 +1,7 @@
+// WD_OrdersHeader
+// Component Utility : The Component is created to render the header of the Orders page
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";

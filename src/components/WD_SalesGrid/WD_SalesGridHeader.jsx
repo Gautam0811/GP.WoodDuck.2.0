@@ -1,3 +1,7 @@
+// WD_SalesGridHeader
+// Component Utility : The Component is created to render the header of Sales grid on the sales grid page
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
 import {
   FormGroup,
   FormControlLabel,
@@ -19,10 +23,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
 export default function WD_SalesGridHeader() {
-  // const [ setName] = React.useState("");
-  // const handleChange = (event) => {
-  //   setName(event.target.value);
-  // };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);

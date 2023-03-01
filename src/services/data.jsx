@@ -1,3 +1,7 @@
+// data
+// Component Utility : This is the data page which has all the data in Json format which is used by all the components
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
  //Dashboard Data Starts
  function WD_DashboardMarketPOVcreateData(week, weekvalue, trend) {
   return { week, weekvalue, trend, key: Math.random() };
