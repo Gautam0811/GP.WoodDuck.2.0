@@ -9,11 +9,11 @@ import { Grid } from '@mui/material';
 import PhoneCallbackRoundedIcon from '@mui/icons-material/PhoneCallbackRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import EmailIcon from '@mui/icons-material/Email';
-import MidBox from './Tabs_Comp/WD_Inbound/WD_MidBox';
-import MidBox2 from './Tabs_Comp/WD_Outbound/WD_MidBox2';
-import MidBox3 from './Tabs_Comp/WD_PriceList/WD_MidBox3';
+import MidBox from './WD_Inbound/WD_MidBox';
+import MidBox2 from './WD_Outbound/WD_MidBox2';
+import MidBox3 from './WD_PriceList/WD_MidBox3';
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import "../styles/WD_StyleMain.css";
+import "../../styles/WD_StyleMain.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

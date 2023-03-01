@@ -2,9 +2,9 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import WD_SaveButton from "../components/Buttons/WD_SaveButton";
-import WD_DeleteButton from "../components/Buttons/WD_DeleteButton";
-import WD_BackButton from "../components/Buttons/WD_BackButton";
+import WD_SaveButton from "../Buttons/WD_SaveButton";
+import WD_DeleteButton from "../Buttons/WD_DeleteButton";
+import WD_BackButton from "../Buttons/WD_BackButton";
 
 export default function WD_ProductGroupsHeader() {
   return (

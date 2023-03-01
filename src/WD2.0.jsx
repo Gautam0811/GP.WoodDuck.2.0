@@ -1,19 +1,21 @@
 import { Fragment } from "react";
 import Grid from "@mui/material/Grid";
-import WD_headerMiddleSection from "./components/WD_header-middle-section";
-import WD_LeftSideBar from "./components/WD_LeftSideBar";
+import WD_headerMiddleSection from "./components/WD_header/WD_header-middle-section";
+import WD_LeftSideBar from "./components/WD_LeftSideBar/WD_LeftSideBar";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import WD_ProductGroupsPage from "./components/WD_ProductGroupsPage";
-import WD_SalesGrid from "./components/WD_SalesGrid";
-import WD_Settings from "./components/WD_Settings";
-import WD_NewContract from "./components/WD_NewContract";
-import WD_Dashboard from "./components/WD_Dashboard";
-import WD_Orders from "./components/WD_Orders";
-import WD_Login from "./components/WD_Login";
-import WD_UseToken from "./components/WD_UseToken";
-import WD_Footer from "./components/WD_Footer";
-import WD_ButtonsDemo from"./components/WD_ButtonsDemo";
+import WD_ProductGroupsPage from "./components/WD_ProductGroups/WD_ProductGroupsPage";
+import WD_SalesGrid from "./components/WD_SalesGrid/WD_SalesGrid";
+import WD_Settings from "./components/WD_Settings/WD_Settings";
+import WD_NewContract from "./components/WD_NewContracts/WD_NewContract";
+import WD_Dashboard from "./components/Dashboard/WD_Dashboard";
+import WD_Orders from "./components/WD_Orders/WD_Orders";
+import WD_Login from "./components/Admin/WD_Login";
+import WD_UseToken from "./components/Admin/WD_UseToken";
+import WD_Footer from "./components/WD_Footer/WD_Footer";
+import WD_ButtonsDemo from"./components/Buttons/WD_ButtonsDemo";
+import WD_Permissions from "./components/WD_Settings/WD_Permissions";
+import {WD_PermissionsData} from "./services/data";
 
 
 export default function WD_App() {
@@ -41,6 +43,7 @@ export default function WD_App() {
                 <Route path="/settings" element={<WD_Settings/>} > </Route>   
                 <Route path="/orders" element={<WD_Orders/>} > </Route> 
                 <Route path="/contracts" element={<WD_NewContract/>} > </Route>
+                <Route path="/Adminpermissions" element={<WD_Permissions data={WD_PermissionsData}/>} > </Route>
               </Routes>
               <WD_Footer />
             </Grid>

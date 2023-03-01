@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import "../styles/WD_StyleMain.css";
+import "../../styles/WD_StyleMain.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -27,12 +27,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 import Paper from '@mui/material/Paper';
-import WD_ProductButton from '../components/Buttons/WD_ProductButton';
+import WD_ProductButton from '../../components/Buttons/WD_ProductButton';
 import { createTheme} from '@mui/material/styles';
 import styled, { ThemeProvider } from "styled-components";
 import WebFont from 'webfontloader';
-import { GlobalStyles } from '../theme/GlobalStyles';
-import {useTheme} from '../theme/useTheme';
+import { GlobalStyles } from '../../theme/GlobalStyles';
+import {useTheme} from '../../theme/useTheme';
 
 export default function WD_NewContractMainSection() {
 

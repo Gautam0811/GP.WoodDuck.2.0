@@ -1,14 +1,14 @@
 import Grid from "@mui/material/Grid";
 import WD_DashboardMarketPOV from "./WD_DashboardMarketPOV";
-import WD_DashboardObjects from "./WD_DashboardObjects";
-import WD_DashboardGridObjects from "./WD_DashboardGridObjects";
+import WD_DashboardObjects from "../Common/WD_DashboardObjects";
+import WD_DashboardGridObjects from "../Common/WD_DashboardGridObjects";
 import WD_DasboardMillForecasts from "./WD_DashboardMillForecast";
-import {WD_DashboardMarketPOVrows} from "../services/data";
-import {WD_DashboardMarketSegmentrows} from "../services/data";
-import {WD_DashboardSalesrows} from "../services/data";
-import {WD_DasboardMillsrows} from "../services/data";
-import {WD_DasboardHitRaterows} from "../services/data";
-import {WD_DasboardPercentForecastSoldrows} from "../services/data";
+import {WD_DashboardMarketPOVrows} from "../../services/data";
+import {WD_DashboardMarketSegmentrows} from "../../services/data";
+import {WD_DashboardSalesrows} from "../../services/data";
+import {WD_DasboardMillsrows} from "../../services/data";
+import {WD_DasboardHitRaterows} from "../../services/data";
+import {WD_DasboardPercentForecastSoldrows} from "../../services/data";
 
 
 export default function WD_Dashboard() {

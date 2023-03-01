@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-import "../styles/WD_StyleMain.css";
+import "../../styles/WD_StyleMain.css";
 
 export default function WD_DasboardGridObjects(props) {
   return (
@@ -29,7 +29,7 @@ export default function WD_DasboardGridObjects(props) {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table style={{ width: "100%",lineHeight:2.5}}>
+        <table class="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
           <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
             <tr>
               <th style={{ width: "10%"}}></th>

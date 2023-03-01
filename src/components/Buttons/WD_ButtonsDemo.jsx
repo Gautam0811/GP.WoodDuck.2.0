@@ -1,37 +1,37 @@
-import '../App.css';
+import '../../App.css';
 import {Fragment } from 'react';
 
-import WD_QuoteButton from './Buttons/WD_QuoteButton';
+import WD_QuoteButton from './WD_QuoteButton';
 
 import React from 'react'; 
 import Divider from "@material-ui/core/Divider";
-import WD_GetOptionsButton from './Buttons/WD_GetOptionsButton';
-import WD_NextButton from './Buttons/WD_NextButton';
-import WD_SaveNoQuotesButton from './Buttons/WD_SaveNoQuotesButton';
-import WD_PlaceOnHoldButton from'./Buttons/WD_PlaceOnHoldButton';
+import WD_GetOptionsButton from './WD_GetOptionsButton';
+import WD_NextButton from './WD_NextButton';
+import WD_SaveNoQuotesButton from './WD_SaveNoQuotesButton';
+import WD_PlaceOnHoldButton from'./WD_PlaceOnHoldButton';
 
-import WD_SaveButton from './Buttons/WD_SaveButton';
-import WD_DeleteButton from './Buttons/WD_DeleteButton';
-import WD_BackButton from './Buttons/WD_BackButton';
-import WD_AddButton from './Buttons/WD_AddButton';
-import WD_ImportButton from './Buttons/WD_ImportButton';
-import WD_CloseButton from './Buttons/WD_CloseButton';
-import WD_CreateTemplateButton from './Buttons/WD_CreateTemplateButton';
-import WD_FindButton from './Buttons/WD_FindButton';
-import WD_ClearAllButton from './Buttons/WD_ClearAllButton';
-import WD_YesButton from './Buttons/WD_YesButton';
-import WD_NoButton from './Buttons/WD_NoButton';
+import WD_SaveButton from './WD_SaveButton';
+import WD_DeleteButton from './WD_DeleteButton';
+import WD_BackButton from './WD_BackButton';
+import WD_AddButton from './WD_AddButton';
+import WD_ImportButton from './WD_ImportButton';
+import WD_CloseButton from './WD_CloseButton';
+import WD_CreateTemplateButton from './WD_CreateTemplateButton';
+import WD_FindButton from './WD_FindButton';
+import WD_ClearAllButton from './WD_ClearAllButton';
+import WD_YesButton from './WD_YesButton';
+import WD_NoButton from './WD_NoButton';
 
-import WD_CollapseRightButton from './Buttons/WD_CollapseRightButton';
-import WD_ToggleSwitchButton from './Buttons/WD_ToggleSwitchButton';
-import WD_SearchButton from './Buttons/WD_SearchButton';
+import WD_CollapseRightButton from './WD_CollapseRightButton';
+import WD_ToggleSwitchButton from './WD_ToggleSwitchButton';
+import WD_SearchButton from './WD_SearchButton';
 import WD_WarningIcon from './WD_WarningIcon';
 
-import WD_AddContractButton from './Buttons/WD_AddContractButton';
-import WD_ExitButton from './Buttons/WD_ExitButton';
-import WD_GetPriceListButton from './Buttons/WD_GetPriceListButton';
-import WD_OfferButton from './Buttons/WD_OfferButton';
-import WD_ProductButton from './Buttons/WD_ProductButton';
+import WD_AddContractButton from './WD_AddContractButton';
+import WD_ExitButton from './WD_ExitButton';
+import WD_GetPriceListButton from './WD_GetPriceListButton';
+import WD_OfferButton from './WD_OFFERbutton';
+import WD_ProductButton from './WD_ProductButton';
 
 
 function ButtonsDemo() {

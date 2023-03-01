@@ -18,7 +18,7 @@ import { Divider } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import Collapse from "@mui/material/Collapse";
 import { ShoppingCartOutlined } from "@mui/icons-material";
-import "../styles/WD_StyleMain.css";
+import "../../styles/WD_StyleMain.css";
 import { useState } from "react";
 
 function LeftSidebar() {

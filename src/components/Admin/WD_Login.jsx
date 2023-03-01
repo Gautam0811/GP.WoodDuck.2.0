@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { loginUser } from "../services/WD_API";
+import { loginUser } from "../../services/WD_API";
 import PropTypes from "prop-types";
 
-import "../styles/WD_StyleMain.css";
+import "../../styles/WD_StyleMain.css";
 
 
 export default function WD_Login({ setToken }) {
@@ -32,6 +32,24 @@ export default function WD_Login({ setToken }) {
         password:"password@789",
     },
   ];
+  const userclaim=[
+    {
+      username:"admin",
+      isAdmin: true,
+  },
+    {
+      username: "Ananya",
+      isAdmin: false,
+    },
+    {
+      username: "Gautam",
+      isAdmin: false,
+    },
+    {
+        username:"Abhishek",
+        isAdmin: false,
+      },
+  ]
 
   const errors = {
     uname: "invalid username",
@@ -45,7 +63,7 @@ export default function WD_Login({ setToken }) {
     var { uname, pass } = document.forms[0];
 
     // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+    const userData = database.find((user) => user.username === uname.value); //put it in LocalStore
 
     // Compare user info
     if (userData) {
