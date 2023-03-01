@@ -1,3 +1,9 @@
+// WD_CPU
+// Component Utility : The Component created to provide Load dialog box at top of inbound,outbound,pricelist
+// Author Manas Dixit on 1-3-2023
+// -------------------------
+
+
 import { Divider, Grid, Typography } from "@mui/material";
 import * as React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";

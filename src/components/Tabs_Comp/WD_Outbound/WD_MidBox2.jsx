@@ -1,6 +1,6 @@
 // WD_Midbox
 // Component Utility : The Component created to outbound tabs component on salesgrid
-// Author Gautam Malhotra on 1-3-2023
+// Author Manas Dixit on 1-3-2023
 // -------------------------
 import * as React from "react";
 import Box from "@mui/material/Box";

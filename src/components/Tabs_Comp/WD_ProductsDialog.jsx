@@ -1,3 +1,10 @@
+// WD_CPU
+// Component Utility : The Component created to provide post in tabs
+// Author Manas Dixit on 1-3-2023
+// -------------------------
+
+
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';

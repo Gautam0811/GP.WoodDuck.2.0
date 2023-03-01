@@ -1,3 +1,9 @@
+// WD_CPU
+// Component Utility : The Component created to provide Footage value in tabs
+// Author Manas Dixit on 1-3-2023
+// -------------------------
+
+
 import { Divider, Grid, Typography } from "@mui/material";
 import * as React from "react";
 

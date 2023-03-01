@@ -1,3 +1,12 @@
+// WD_CPU
+// Component Utility : The Component created to provide all the tab components
+// Author Manas Dixit on 1-3-2023
+// -------------------------
+
+
+
+
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
