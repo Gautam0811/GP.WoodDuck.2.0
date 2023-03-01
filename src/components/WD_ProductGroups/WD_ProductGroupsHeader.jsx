@@ -7,7 +7,7 @@ import WD_BackButton from "../Buttons/WD_BackButton";
 
 export default function WD_ProductGroupsHeader() {
   return (
-    //for header
+    
       <Grid
         className="product-page-grid"
       >
