@@ -58,7 +58,6 @@ export default function WD_headerMiddleSection() {
             }}
             style={{ background: "white" }}
           >
-            <InputLabel id="demo-select-small">Name</InputLabel>
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
