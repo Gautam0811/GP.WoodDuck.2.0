@@ -16,44 +16,33 @@ export default function WD_Login({ setToken }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-
   // User Login info
   const database = [
     {
+      id:"1001",
       username:"admin",
       password:"admin@123",
-  },
-    {
-      username: "Ananya",
-      password: "password@123",
-    },
-    {
-      username: "Gautam",
-      password: "password@456",
-    },
-    {
-        username:"Abhishek",
-        password:"password@789",
-    },
-  ];
-  const userclaim=[
-    {
-      username:"admin",
       isAdmin: true,
   },
     {
+      id:"1002",
       username: "Ananya",
+      password: "password@123",
       isAdmin: false,
     },
     {
+      id:"1003",
       username: "Gautam",
+      password: "password@456",
       isAdmin: false,
     },
     {
-        username:"Abhishek",
-        isAdmin: false,
-      },
-  ]
+      id:"1004",
+      username:"Abhishek",
+      password:"password@789",
+      isAdmin: false,
+    },
+  ];
 
   const errors = {
     uname: "invalid username",
@@ -80,6 +69,8 @@ export default function WD_Login({ setToken }) {
         });
         setToken(token);
         setIsLoggedin(true);
+        const status = {name:userData.username, isAdmin:userData.isAdmin, id:userData.id};
+        localStorage.setItem("status", JSON.stringify(status));
       }
     } else {
       // Username not found

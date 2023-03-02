@@ -10,7 +10,11 @@ import WD_SiteSettings from "./WD_SiteSettings";
 import WD_AdminSettings from "./WD_AdminSettings";
 
 export default function WD_Settings() {
-  // const userData = database.find((user) => user.username === uname.value) add it to redux
+  const [data,setData] = React.useState({});
+  React.useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("status")));
+  }, []);
+  console.log(data);
   return (
     <Grid sx={{ width: "100%" }}>
       {/* settings header part */}
@@ -19,9 +23,9 @@ export default function WD_Settings() {
       {/* settings main section */}
       <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
         <WD_UserSettings />
-        {/* {(userClaim.isAdmin)?
+        {(data.isAdmin)?
           (<WD_AdminSettings/>):(<div></div>)
-        } */}
+        } 
         <WD_SiteSettings />
       </Grid>
     </Grid>

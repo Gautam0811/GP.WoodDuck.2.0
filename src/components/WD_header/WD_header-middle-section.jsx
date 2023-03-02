@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
-import Badge from '@mui/material/Badge';
+import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
@@ -21,29 +21,30 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import '../../styles/WD_StyleMain.css';
+import "../../styles/WD_StyleMain.css";
 import getCustomerData from "../../services/WD_API";
 
 export default function WD_headerMiddleSection() {
   const [post, setPost] = React.useState({});
-  const [id, setId] = React.useState(1001);
+  const [name, setName] = React.useState({});
 
   React.useEffect(() => {
-    getCustomerData(id).then((customerData) => {
+    setName(JSON.parse(localStorage.getItem("status")));
+  }, []);
+
+  React.useEffect(() => {
+    getCustomerData(name.id).then((customerData) => {
       setPost(customerData);
     });
-  }, [id]);
-
-  const handleChange = (event) => {
-    setId(event.target.value);
-  };
+  }, [name]);
+  
   const logout = () => {
     localStorage.clear();
     window.location.reload(false);
   };
   React.useEffect(() => {
     window.addEventListener("storage", logout);
-  },[logout]);
+  }, [logout]);
   return (
     // View for header middle section
     <Box className="fontsize" sx={{ flexGrow: 1 }}>
@@ -61,13 +62,10 @@ export default function WD_headerMiddleSection() {
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
-              value={id}
+              value={parseInt(name.id, 10)}
               label="Name"
-              onChange={handleChange}
             >
-              <MenuItem value=""></MenuItem>
-              <MenuItem value="1001">DAVID KLEKAMP</MenuItem>
-              <MenuItem value="1002">HANNAH </MenuItem>
+              <MenuItem value={name.id}>{name.name}</MenuItem>
             </Select>
           </FormControl>
           <Typography
@@ -143,7 +141,7 @@ export default function WD_headerMiddleSection() {
             align="center"
             sx={{ flexGrow: 1, position: "absolute", right: 10 }}
           >
-            {post.name}
+            {name.name}
             <Typography variant="caption" component="div" color={"black"}>
               <IconButton size="small" color="primary" aria-label="menu">
                 <MenuIcon fontSize="small" />
@@ -168,7 +166,12 @@ export default function WD_headerMiddleSection() {
                   <EmailOutlinedIcon fontSize="small" />
                 </Badge>
               </IconButton>
-              <IconButton size="small" color="primary" aria-label="menu" onClick={logout}>
+              <IconButton
+                size="small"
+                color="primary"
+                aria-label="menu"
+                onClick={logout}
+              >
                 <LogoutOutlinedIcon fontSize="small" />
               </IconButton>
             </Typography>
