@@ -14,7 +14,6 @@ export default function WD_Settings() {
   React.useEffect(() => {
     setData(JSON.parse(localStorage.getItem("status")));
   }, []);
-  console.log(data);
   return (
     <Grid sx={{ width: "100%" }}>
       {/* settings header part */}
