@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as themes from '../src/theme/schema.json';
 import { setToLS } from '../src/utils/storage';
-import {axiosRequest,axiosResponse} from './services/WD_Interceptors';
+import {axiosRequest,axiosResponse} from './services/WoodDuck_Interceptors';
 import { store } from './state/store/store';
 import { Provider } from 'react-redux';
 

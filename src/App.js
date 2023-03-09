@@ -1,5 +1,5 @@
 import "./App.css";
-import WD_App from "./WD2.0";
+import WD_App from "./WoodDuck2.0";
 import WDState from "./context/claim/WD_State";
 
 function App() {
