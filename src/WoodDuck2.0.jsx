@@ -19,7 +19,7 @@ import WD_Login from "./components/Admin/Login";
 import WD_UseToken from "./components/Admin/UseToken";
 import WD_Footer from "./components/Footer/Footer";
 import WD_Permissions from "./components/Settings/Permissions";
-import {WD_PermissionsData} from "./services/data";
+import {PermissionsData} from "./services/data";
 
 
 export default function WD_App() {
@@ -47,7 +47,7 @@ export default function WD_App() {
                 <Route path="/settings" element={<WD_Settings/>} > </Route>   
                 <Route path="/orders" element={<WD_Orders/>} > </Route> 
                 <Route path="/contracts" element={<WD_NewContract/>} > </Route>
-                <Route path="/Adminpermissions" element={<WD_Permissions data={WD_PermissionsData}/>} > </Route>
+                <Route path="/Adminpermissions" element={<WD_Permissions data={PermissionsData}/>} > </Route>
               </Routes>
               <WD_Footer />
             </Grid>

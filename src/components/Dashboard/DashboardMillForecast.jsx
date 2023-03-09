@@ -11,7 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
 import "../../styles/WD_StyleMain.css";
 import LinearWithValueLabel from "./LinearProgressBar";
-import {WD_DasboardMillForecastsrows} from "../../services/data"
+import {DasboardMillForecastsrows} from "../../services/data"
 
 export default function DasboardMillForecasts() {
   return (
@@ -45,7 +45,7 @@ export default function DasboardMillForecasts() {
             </tr>
           </thead>
           <tbody>
-            {WD_DasboardMillForecastsrows.map((row) => (
+            {DasboardMillForecastsrows.map((row) => (
               <tr key={row.name}>
                 <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>{row.name}</th>
                 <td><LinearWithValueLabel Values={row.inventory}/></td>

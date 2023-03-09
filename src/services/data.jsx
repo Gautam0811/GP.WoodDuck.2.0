@@ -10,7 +10,7 @@
   return { week, weekvalue, trend, key: Math.random() };
 }
 
-export const WD_DashboardMarketPOVrows = [
+export const DashboardMarketPOVrows = [
     WD_DashboardMarketPOVcreateData("Week 1", 60, "+"),
     WD_DashboardMarketPOVcreateData("Week 2", 60, "-"),
     WD_DashboardMarketPOVcreateData("Week 3", 60, "-"),
@@ -20,7 +20,7 @@ export const WD_DashboardMarketPOVrows = [
     return { header, value, growth, trend, key: Math.random() };
 }
 
-export const WD_DashboardMarketSegmentrows = [
+export const DashboardMarketSegmentrows = [
     WD_DashboardMarketSegmentcreateData("Industrial","0%","0%","0"),
     WD_DashboardMarketSegmentcreateData("National","0%","0%","0"),
     WD_DashboardMarketSegmentcreateData("Retail","0%","0%","0"),
@@ -34,7 +34,7 @@ export const WD_DashboardMarketSegmentrows = [
     return { name, inventory, nextweek };
 }
   
-export const WD_DasboardMillForecastsrows = [
+export const DasboardMillForecastsrows = [
     WD_DasboardMillForecastscreateData('ALBANY', 45,'100% sold'),
     WD_DasboardMillForecastscreateData('CAMDEN', 40,'118% sold'),
     WD_DasboardMillForecastscreateData('DIBOLL', 53,'202% sold'),
@@ -52,7 +52,7 @@ export const WD_DasboardMillForecastsrows = [
  function WD_DasboardMillscreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
-export const WD_DasboardMillsrows = [
+export const DasboardMillsrows = [
     WD_DasboardMillscreateData("On-hand","49643k","0%","0"),
     WD_DasboardMillscreateData("Order File","294404k","0.1%","+"),
     WD_DasboardMillscreateData("Order Ready","13%","0.5%","+"),
@@ -64,7 +64,7 @@ function WD_DasboardHitRatecreateData(name, one,two,three,four,total ) {
     return { name, one,two,three,four,total };
 }
   
-export const WD_DasboardHitRaterows = [
+export const DasboardHitRaterows = [
     WD_DasboardHitRatecreateData('2x4', '','' ,'','','' ),
     WD_DasboardHitRatecreateData('2x6', '9%','' ,'','','9%' ), 
     WD_DasboardHitRatecreateData('2x8', '','' ,'','','' ),
@@ -79,7 +79,7 @@ function WD_DasboardPercentForecastSoldcreateData(name, one,two,three,four,total
     return { name, one,two,three,four,total };
 }
   
-export const WD_DasboardPercentForecastSoldrows = [
+export const DasboardPercentForecastSoldrows = [
     WD_DasboardPercentForecastSoldcreateData('2x4', '201%','283%','137%','104%','190%'),
     WD_DasboardPercentForecastSoldcreateData('2x6', '48%','101%','78%','76%','80%'),
     WD_DasboardPercentForecastSoldcreateData('2x8', '75%','68%','64%','47%','67%'),
@@ -93,7 +93,7 @@ export const WD_DasboardPercentForecastSoldrows = [
 function WD_DasboardSalescreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
-export const WD_DashboardSalesrows = [
+export const DashboardSalesrows = [
     WD_DasboardSalescreateData("Quotes",895,"0.8%","+"),
     WD_DasboardSalescreateData("Sales Ave","$376","-0.1%","-"),
     WD_DasboardSalescreateData("Sales Vol",396,"4.1%","+"),
@@ -108,7 +108,7 @@ export const WD_DashboardSalesrows = [
 
 // Orders Grid Data Starts
 
-export const WD_OrdersGridcolumns = [
+export const OrdersGridcolumns = [
     { field: "id", headerName: "Order ID", width: 130 },
     { field: "mill", headerName: "Mill", width: 130 },
     {
@@ -195,7 +195,7 @@ export function WD_OrdersGridcreateData(
     };
   }
   
-export const WD_OrdersGridrows = [
+export const OrdersGridrows = [
     WD_OrdersGridcreateData(
       465135804,
       "Talladega",
@@ -399,7 +399,7 @@ export const WD_OrdersGridrows = [
 function WD_PermissionsSetData(Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess) {
   return { Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess, key: Math.random() };
 }
-export const WD_PermissionsData = [
+export const PermissionsData = [
   WD_PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
   WD_PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
 ];

@@ -4,8 +4,8 @@
 // -------------------------
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import {WD_OrdersGridrows} from "../../services/data";
-import {WD_OrdersGridcolumns} from "../../services/data";
+import {OrdersGridrows} from "../../services/data";
+import {OrdersGridcolumns} from "../../services/data";
 
 export default function OrdersGrid() {
   const [pageSize, setPageSize] = React.useState(10);
@@ -16,8 +16,8 @@ export default function OrdersGrid() {
         pageSize={pageSize}
         onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
         rowsPerPageOptions={[5, 10, 20]}
-        rows={WD_OrdersGridrows}
-        columns={WD_OrdersGridcolumns}
+        rows={OrdersGridrows}
+        columns={OrdersGridcolumns}
         checkboxSelection
       />
     </div>
