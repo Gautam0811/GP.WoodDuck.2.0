@@ -4,9 +4,8 @@
 // -------------------------
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import WD_ProductGroupsHeader from './ProductGroupsHeader';
-import WD_ProductGroupsMainSection from './ProductGroupsMainSection';
-import WD_Footer from '../footer/Footer';
+import ProductGroupsHeader from './ProductGroupsHeader';
+import ProductGroupsMainSection from './ProductGroupsMainSection';
 
 export default function ProductGroupsPage() {
 
@@ -14,10 +13,10 @@ export default function ProductGroupsPage() {
     <Grid sx={{width:"100%"}}>
 
       {/* the header component */}
-      <WD_ProductGroupsHeader />
+      <ProductGroupsHeader />
 
       {/* the main section component */}
-      <WD_ProductGroupsMainSection />
+      <ProductGroupsMainSection />
 
     </Grid>
   );

@@ -4,14 +4,10 @@
 // -------------------------
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import "../../styles/WD_StyleMain.css";
+import "../../styles/styleMain.css";
 
 export default function DasboardGridObjects(props) {
   return (

@@ -6,7 +6,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import SettingsIcon from "@mui/icons-material/Settings";
 import IconButton from "@mui/material/IconButton";
-import "../../styles/WD_StyleMain.css";
+import "../../../styles/styleMain.css";
 
 export default function SalesGridMainSection() {
   return (

@@ -7,9 +7,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import "../../../styles/WD_StyleMain.css";
+import "../../../styles/styleMain.css";
 import LinearWithValueLabel from "./LinearProgressBar";
 import {DasboardMillForecastsrows} from "../../../services/Data"
 

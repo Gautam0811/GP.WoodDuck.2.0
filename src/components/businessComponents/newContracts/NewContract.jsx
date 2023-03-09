@@ -6,7 +6,6 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import NewContractHeader from './NewContractHeader';
 import NewContractMainSection from './NewContractMainSection';
-import Footer from '../footer/Footer';
 
 export default function NewContract() {
 

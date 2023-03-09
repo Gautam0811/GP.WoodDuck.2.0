@@ -1,13 +1,13 @@
 import "./App.css";
-import WD_App from "./Main";
-import WDState from "./context/claim/State";
+import MainApp from "./Main";
+import Context from "./context/claim/State";
 
 function App() {
   return (
     <>
-<WDState>
-    <WD_App/> 
-    </WDState>
+    <Context>
+    <MainApp/> 
+    </Context>
     </>
   );
 }

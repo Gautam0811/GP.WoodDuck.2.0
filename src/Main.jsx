@@ -3,53 +3,53 @@
 //                     render all the components on app.js
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import { Fragment } from "react";
+
 import Grid from "@mui/material/Grid";
-import WD_headerMiddleSection from "./components/header/Header";
-import WD_LeftSideBar from "./components/leftSideBar/LeftSideBar";
+import HeaderMiddleSection from "./components/header/Header";
+import LeftSideBar from "./components/leftSideBar/LeftSideBar";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import WD_ProductGroupsPage from "./components/productGroups/ProductGroupsPage";
-import WD_SalesGrid from "./components/salesGrid/SalesGrid";
-import WD_Settings from "./components/settings/Settings";
-import WD_NewContract from "./components/newContracts/NewContract";
-import WD_Dashboard from "./components/businessComponents/dashboard/Dashboard";
-import WD_Orders from "./components/orders/Orders";
-import WD_Login from "./components/admin/Login";
-import WD_UseToken from "./components/admin/UseToken";
-import WD_Footer from "./components/footer/Footer";
-import WD_Permissions from "./components/settings/Permissions";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import ProductGroupsPage from "./components/businessComponents/productGroups/ProductGroupsPage";
+import SalesGrid from "./components/businessComponents/salesGrid/SalesGrid";
+import Settings from "./components/settings/Settings";
+import NewContract from "./components/businessComponents/newContracts/NewContract";
+import Dashboard from "./components/businessComponents/dashboard/Dashboard";
+import Orders from "./components/businessComponents/orders/Orders";
+import Login from "./components/admin/Login";
+import UseToken from "./components/admin/UseToken";
+import Footer from "./components/footer/Footer";
+import Permissions from "./components/settings/Permissions";
 import {PermissionsData} from "./services/Data";
 
 
 export default function WD_App() {
-    const {token, setToken} = WD_UseToken();
+    const {token, setToken} = UseToken();
   
     if (!token) {
-      return <WD_Login setToken={setToken} />;
+      return <Login setToken={setToken} />;
     }
   
-    console.log(token);
+    //console.log(token);
     return (
       <Grid>
         <Router>
           <Grid>
-            <WD_headerMiddleSection />
+            <HeaderMiddleSection />
           </Grid>
           <Grid sx={{ display: "flex", flexDirection: "row" }}>
-            <WD_LeftSideBar />
+            <LeftSideBar />
             
             <Grid sx={{ width: '100%'}}>
               <Routes>
-                <Route path="/" element={<WD_Dashboard/>}> </Route>
-                <Route path="/salesgrid" element={<WD_SalesGrid />}></Route>
-                <Route path="/productgroups" element={<WD_ProductGroupsPage />}></Route>
-                <Route path="/settings" element={<WD_Settings/>} > </Route>   
-                <Route path="/orders" element={<WD_Orders/>} > </Route> 
-                <Route path="/contracts" element={<WD_NewContract/>} > </Route>
-                <Route path="/Adminpermissions" element={<WD_Permissions data={PermissionsData}/>} > </Route>
+                <Route path="/" element={<Dashboard/>}> </Route>
+                <Route path="/salesgrid" element={<SalesGrid />}></Route>
+                <Route path="/productgroups" element={<ProductGroupsPage />}></Route>
+                <Route path="/settings" element={<Settings/>} > </Route>   
+                <Route path="/orders" element={<Orders/>} > </Route> 
+                <Route path="/contracts" element={<NewContract/>} > </Route>
+                <Route path="/Adminpermissions" element={<Permissions data={PermissionsData}/>} > </Route>
               </Routes>
-              <WD_Footer />
+              <Footer />
             </Grid>
           </Grid>
           <Grid>

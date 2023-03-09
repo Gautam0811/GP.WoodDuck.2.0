@@ -12,7 +12,7 @@ axiosRequest();
 axiosResponse();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(themes.default);
+//console.log(themes.default);
   setToLS('all-themes', themes.default);
 root.render(
   

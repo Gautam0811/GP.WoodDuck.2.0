@@ -3,14 +3,9 @@
 // Author Manas Dixit on 1-3-2023
 // -------------------------
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { green, grey, lightGreen } from '@mui/material/colors';
-import { FormLabel } from '@mui/material';
- 
-
 
 export default function LinearWithValueLabel(propst) {
    

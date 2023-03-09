@@ -4,10 +4,10 @@
 // -------------------------
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import WD_SettingsHeader from "./SettingsHeader";
-import WD_UserSettings from "./UserSettings";
-import WD_SiteSettings from "./SiteSettings";
-import WD_AdminSettings from "./AdminSettings";
+import SettingsHeader from "./SettingsHeader";
+import UserSettings from "./UserSettings";
+import SiteSettings from "./SiteSettings";
+import AdminSettings from "./AdminSettings";
 
 export default function WD_Settings() {
   const [data,setData] = React.useState({});
@@ -17,15 +17,15 @@ export default function WD_Settings() {
   return (
     <Grid sx={{ width: "100%" }}>
       {/* settings header part */}
-      <WD_SettingsHeader />
+      <SettingsHeader />
 
       {/* settings main section */}
       <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
-        <WD_UserSettings />
+        <UserSettings />
         {(data.isAdmin)?
-          (<WD_AdminSettings/>):(<div></div>)
+          (<AdminSettings/>):(<div></div>)
         } 
-        <WD_SiteSettings />
+        <SiteSettings />
       </Grid>
     </Grid>
   );

@@ -5,9 +5,9 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import WD_SaveButton from "../buttons/SaveButton";
-import WD_DeleteButton from "../buttons/DeleteButton";
-import WD_BackButton from "../buttons/BackButton";
+import SaveButton from "../../buttons/SaveButton";
+import DeleteButton from "../../buttons/DeleteButton";
+import BackButton from "../../buttons/BackButton";
 
 export default function ProductGroupsHeader() {
   return (
@@ -21,9 +21,9 @@ export default function ProductGroupsHeader() {
           </Typography>
         </div>
         <div className="flexrow">
-          <WD_SaveButton />
-          <WD_DeleteButton />
-          <WD_BackButton />
+          <SaveButton />
+          <DeleteButton />
+          <BackButton />
         </div>
       </Grid>
   );

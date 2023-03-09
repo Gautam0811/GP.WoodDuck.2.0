@@ -11,24 +11,32 @@ const WDState = (props) => {
 
   // Get all claims
   const getClaims = () => {
-    const userclaim=[
-        {
-          username:"admin",
-          isAdmin: true,
+    const userclaim= [
+      {
+        id:"1001",
+        username:"admin",
+        password:"admin@123",
+        isAdmin: true,
+    },
+      {
+        id:"1002",
+        username: "Ananya",
+        password: "password@123",
+        isAdmin: false,
       },
-        {
-          username: "Ananya",
-          isAdmin: false,
-        },
-        {
-          username: "Gautam",
-          isAdmin: false,
-        },
-        {
-            username:"Abhishek",
-            isAdmin: false,
-          },
-      ]
+      {
+        id:"1003",
+        username: "Gautam",
+        password: "password@456",
+        isAdmin: false,
+      },
+      {
+        id:"1004",
+        username:"Abhishek",
+        password:"password@789",
+        isAdmin: false,
+      },
+    ]
     
     setClaims(userclaim)
   }

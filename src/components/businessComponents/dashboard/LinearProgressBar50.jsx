@@ -3,12 +3,9 @@
 // Author Manas Dixit on 1-3-2023
 // -------------------------
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { green, grey, lightGreen } from '@mui/material/colors';
-
 
 function LinearProgressWithLabel50(props) {
   return (
@@ -28,10 +25,6 @@ function LinearProgressWithLabel50(props) {
 
 
 export default function LinearWithValueLabel50(propst) {
-    
-
-  const [progress, setProgress] = React.useState(10);
-
   return (
     <Box sx={{ width: '100%' }}>
       <LinearProgressWithLabel50 color="primary" sx={{width:70,height:10,bgcolor:'lightgrey'}} value={propst.Values} />

@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import CommentIcon from '@mui/icons-material/Comment';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 
 export default function OrdersHeader() {

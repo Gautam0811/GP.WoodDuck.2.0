@@ -13,7 +13,6 @@ export default function AddButton() {
   function handleClick() {
     setLoading(true);
   }
-
   return (
     <Box>
           <LoadingButton className="buttontype4">

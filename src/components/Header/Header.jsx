@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import axios from "axios";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
@@ -17,11 +16,10 @@ import CalculateTwoToneIcon from "@mui/icons-material/CalculateTwoTone";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import "../../styles/WD_StyleMain.css";
+import "../../styles/styleMain.css";
 import getCustomerData from "../../services/Api";
 
 export default function Header() {
@@ -64,7 +62,7 @@ export default function Header() {
               id="demo-select-small"
               value={parseInt(name.id, 10)}
               label="Name"
-            >
+              >
               <MenuItem value={name.id}>{name.name}</MenuItem>
             </Select>
           </FormControl>

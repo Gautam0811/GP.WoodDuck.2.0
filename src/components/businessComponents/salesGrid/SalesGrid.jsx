@@ -2,23 +2,23 @@
 // Component Utility : The Component is created to render the Sales grid page on woodDuck
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
+
 import * as React from "react";
-import WD_SalesGridHeader from "./SalesGridHeader";
-import WD_SalesGridMainSection from "./SalesGridMainSection";
+import SalesGridHeader from "./SalesGridHeader";
+import SalesGridMainSection from "./SalesGridMainSection";
 import Grid from "@mui/material/Grid";
-import Tabs from '../tabsComp/Tabs';
 
 export default function SalesGrid() {
   return (
     <Grid sx={{ width: "100%" }}>
       {/* sales grid header part */}
-      <WD_SalesGridHeader />
+      <SalesGridHeader />
       {/* <WD_Tabs /> */}
       <Grid
         sx={{ width: "100%", flexDirection: "column", px: "5px", py: "5px" }}
       >
         {/* sales grid main section */}
-        <WD_SalesGridMainSection />
+        <SalesGridMainSection />
       </Grid>
     </Grid>
   );
