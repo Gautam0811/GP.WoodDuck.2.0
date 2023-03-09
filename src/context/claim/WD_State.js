@@ -1,3 +1,7 @@
+/*Component Name : WDState
+ Utility : This Component is responsible to rendering the state in entire project. 
+ Author Krishna Choudharyn 06-03-2023-------------------------   */
+
 import wdContext from "./WD_Context";
 import { useState } from "react";
 
