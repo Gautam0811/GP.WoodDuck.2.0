@@ -16,7 +16,9 @@ export default function WD_Login({ setToken }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-  // User Login info
+  // User Login info 
+
+  //This is hard coded data for now it will be replaces by API call once the backend architecture is confirmed
   const database = [
     {
       id:"1001",

@@ -33,7 +33,7 @@ export default function WD_DasboardGridObjects(props) {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table class="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
+        <table className="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
           <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
             <tr>
               <th style={{ width: "10%"}}></th>
