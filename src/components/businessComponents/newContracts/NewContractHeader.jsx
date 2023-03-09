@@ -6,9 +6,9 @@ import * as React from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from "@mui/material/Grid";
-import WD_ExitButton from "../Buttons/ExitButton";
+import WD_ExitButton from "../buttons/ExitButton";
 import { ListItemButton, FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
-import WD_AddContractButton from "../Buttons/AddContractButton";
+import WD_AddContractButton from "../buttons/AddContractButton";
 import '../../styles/WD_StyleMain.css';
 
 export default function NewContractHeader() {

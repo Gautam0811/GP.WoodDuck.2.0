@@ -5,9 +5,9 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import WD_SaveButton from "../Buttons/SaveButton";
-import WD_DeleteButton from "../Buttons/DeleteButton";
-import WD_BackButton from "../Buttons/BackButton";
+import WD_SaveButton from "../buttons/SaveButton";
+import WD_DeleteButton from "../buttons/DeleteButton";
+import WD_BackButton from "../buttons/BackButton";
 
 export default function ProductGroupsHeader() {
   return (

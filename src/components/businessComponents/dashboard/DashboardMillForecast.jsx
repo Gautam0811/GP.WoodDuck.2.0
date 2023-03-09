@@ -9,9 +9,9 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-import "../../styles/WD_StyleMain.css";
+import "../../../styles/WD_StyleMain.css";
 import LinearWithValueLabel from "./LinearProgressBar";
-import {DasboardMillForecastsrows} from "../../services/data"
+import {DasboardMillForecastsrows} from "../../../services/Data"
 
 export default function DasboardMillForecasts() {
   return (

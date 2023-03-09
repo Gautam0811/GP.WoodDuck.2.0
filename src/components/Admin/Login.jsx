@@ -4,14 +4,14 @@
 // -------------------------
 import React, { useContext,useState,useEffect } from "react";
 import ReactDOM from "react-dom";
-import { loginUser } from "../../services/WoodDuck_API";
+import { loginUser } from "../../services/Api";
 import PropTypes from "prop-types";
 import "../../styles/WD_StyleMain.css";
-import wdContext from "../../context/claim/WD_Context";
+import wdContext from "../../context/claim/Context";
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actionCreators } from "../../state";
+import { actionCreators } from "../../state/State";
 
 
 

@@ -5,21 +5,21 @@
 // -------------------------
 import { Fragment } from "react";
 import Grid from "@mui/material/Grid";
-import WD_headerMiddleSection from "./components/Header/Header";
-import WD_LeftSideBar from "./components/LeftSideBar/LeftSideBar";
+import WD_headerMiddleSection from "./components/header/Header";
+import WD_LeftSideBar from "./components/leftSideBar/LeftSideBar";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import WD_ProductGroupsPage from "./components/ProductGroups/ProductGroupsPage";
-import WD_SalesGrid from "./components/SalesGrid/SalesGrid";
-import WD_Settings from "./components/Settings/Settings";
-import WD_NewContract from "./components/NewContracts/NewContract";
-import WD_Dashboard from "./components/Dashboard/Dashboard";
-import WD_Orders from "./components/Orders/Orders";
-import WD_Login from "./components/Admin/Login";
-import WD_UseToken from "./components/Admin/UseToken";
-import WD_Footer from "./components/Footer/Footer";
-import WD_Permissions from "./components/Settings/Permissions";
-import {PermissionsData} from "./services/data";
+import WD_ProductGroupsPage from "./components/productGroups/ProductGroupsPage";
+import WD_SalesGrid from "./components/salesGrid/SalesGrid";
+import WD_Settings from "./components/settings/Settings";
+import WD_NewContract from "./components/newContracts/NewContract";
+import WD_Dashboard from "./components/businessComponents/dashboard/Dashboard";
+import WD_Orders from "./components/orders/Orders";
+import WD_Login from "./components/admin/Login";
+import WD_UseToken from "./components/admin/UseToken";
+import WD_Footer from "./components/footer/Footer";
+import WD_Permissions from "./components/settings/Permissions";
+import {PermissionsData} from "./services/Data";
 
 
 export default function WD_App() {

@@ -4,15 +4,15 @@
 // -------------------------
 import Grid from "@mui/material/Grid";
 import DashboardMarketPOV from "./DashboardMarketPOV";
-import DashboardObjects from "../Common/DashboardObjects";
-import DashboardGridObjects from "../Common/DashboardGridObjects";
+import DashboardObjects from "../../common/DashboardObjects";
+import DashboardGridObjects from "../../common/DashboardGridObjects";
 import DasboardMillForecasts from "./DashboardMillForecast";
-import {DashboardMarketPOVrows} from "../../services/data";
-import {DashboardMarketSegmentrows} from "../../services/data";
-import {DashboardSalesrows} from "../../services/data";
-import {DasboardMillsrows} from "../../services/data";
-import {DasboardHitRaterows} from "../../services/data";
-import {DasboardPercentForecastSoldrows} from "../../services/data";
+import {DashboardMarketPOVrows} from "../../../services/Data";
+import {DashboardMarketSegmentrows} from "../../../services/Data";
+import {DashboardSalesrows} from "../../../services/Data";
+import {DasboardMillsrows} from "../../../services/Data";
+import {DasboardHitRaterows} from "../../../services/Data";
+import {DasboardPercentForecastSoldrows} from "../../../services/Data";
 
 // eslint-disable-next-line
 export default function Dashboard() {

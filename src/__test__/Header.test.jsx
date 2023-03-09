@@ -8,9 +8,9 @@ import user from '@testing-library/user-event';
 import axios from "axios";
 import '@testing-library/jest-dom'
 import { BrowserRouter } from 'react-router-dom';
-import WD_headerMiddleSection from '../components/WD_header/WD_header-middle-section';
+import WD_headerMiddleSection from '../components/header/Header';
 import userEvent from '@testing-library/user-event';
-import getCustomerData from '../services/WD_API'
+import getCustomerData from '../services/Api'
 
 
 describe('header component', () => {

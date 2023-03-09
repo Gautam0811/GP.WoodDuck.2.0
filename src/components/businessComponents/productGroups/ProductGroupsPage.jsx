@@ -6,7 +6,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import WD_ProductGroupsHeader from './ProductGroupsHeader';
 import WD_ProductGroupsMainSection from './ProductGroupsMainSection';
-import WD_Footer from '../Footer/Footer';
+import WD_Footer from '../footer/Footer';
 
 export default function ProductGroupsPage() {
 

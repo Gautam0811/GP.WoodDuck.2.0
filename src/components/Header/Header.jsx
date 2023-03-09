@@ -22,7 +22,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import "../../styles/WD_StyleMain.css";
-import getCustomerData from "../../services/WoodDuck_API";
+import getCustomerData from "../../services/Api";
 
 export default function Header() {
   const [post, setPost] = React.useState({});

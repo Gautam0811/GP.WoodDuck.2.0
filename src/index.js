@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import * as themes from '../src/theme/schema.json';
-import { setToLS } from '../src/utils/storage';
-import {axiosRequest,axiosResponse} from './services/WoodDuck_Interceptors';
-import { store } from './state/store/store';
+import { setToLS } from './utils/Storage';
+import {axiosRequest,axiosResponse} from './services/Interceptors';
+import { store } from './state/store/Store';
 import { Provider } from 'react-redux';
 
 axiosRequest();

@@ -6,7 +6,7 @@ import * as React from "react";
 import WD_SalesGridHeader from "./SalesGridHeader";
 import WD_SalesGridMainSection from "./SalesGridMainSection";
 import Grid from "@mui/material/Grid";
-import Tabs from '../Tabs_Comp/Tabs';
+import Tabs from '../tabsComp/Tabs';
 
 export default function SalesGrid() {
   return (

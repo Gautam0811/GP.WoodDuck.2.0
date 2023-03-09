@@ -4,8 +4,8 @@
 // -------------------------
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import {OrdersGridrows} from "../../services/data";
-import {OrdersGridcolumns} from "../../services/data";
+import {OrdersGridrows} from "../../services/Data";
+import {OrdersGridcolumns} from "../../services/Data";
 
 export default function OrdersGrid() {
   const [pageSize, setPageSize] = React.useState(10);

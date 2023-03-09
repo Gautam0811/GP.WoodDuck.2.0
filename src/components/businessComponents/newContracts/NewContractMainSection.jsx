@@ -31,7 +31,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 import Paper from '@mui/material/Paper';
-import WD_ProductButton from '../Buttons/ProductButton';
+import WD_ProductButton from '../buttons/ProductButton';
 import { createTheme} from '@mui/material/styles';
 import styled, { ThemeProvider } from "styled-components";
 import WebFont from 'webfontloader';

@@ -2,7 +2,7 @@
  Utility : This Component is responsible to rendering the state in entire project. 
  Author Krishna Choudharyn 06-03-2023-------------------------   */
 
-import wdContext from "./WD_Context";
+import wdContext from "./Context";
 import { useState } from "react";
 
 const WDState = (props) => {

@@ -3,8 +3,8 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import axios from "axios";
-import UseToken from "../components/Admin/UseToken";
-import {logger} from "../utils/helper";
+import UseToken from "../components/admin/UseToken";
+import {logger} from "../utils/Helper";
 
 const tokenString = localStorage.getItem('token');
 const userToken = JSON.parse(tokenString);
