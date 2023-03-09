@@ -1,6 +1,6 @@
 import "./App.css";
 import MainApp from "./Main";
-import Context from "./context/claim/State";
+import Context from "./context/State";
 
 function App() {
   return (

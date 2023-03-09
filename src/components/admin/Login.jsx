@@ -6,7 +6,7 @@ import React, { useContext,useState} from "react";
 import { loginUser } from "../../services/Api";
 import PropTypes from "prop-types";
 import "../../styles/styleMain.css";
-import Context from "../../context/claim/Context";
+import Context from "../../context/Context";
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
