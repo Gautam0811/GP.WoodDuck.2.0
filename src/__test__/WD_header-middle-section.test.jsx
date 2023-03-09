@@ -1,3 +1,8 @@
+/*Component Name : WD_header-middle-section
+ Utility : To test the Component for rendering a header navigation bar for all the pages in the app
+ Author Krishna Choudharyn 06-03-2023-------------------------   */
+
+
 import { findAllByRole, render, screen,waitForElement } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import axios from "axios";
