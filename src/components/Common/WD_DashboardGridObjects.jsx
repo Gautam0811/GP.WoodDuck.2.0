@@ -54,6 +54,7 @@ export default function WD_DasboardGridObjects(props) {
                 <td>{row.four}</td>
                 <td style={{ fontWeight:"bold"}}>{row.total}</td>
               </tr>
+              
             ))}
             
           </tbody>

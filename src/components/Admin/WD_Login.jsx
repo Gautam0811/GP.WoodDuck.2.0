@@ -2,12 +2,17 @@
 // Component Utility : The Component is Created for the Login Functionality and having a Login landing page 
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import React, { useState } from "react";
+import React, { useContext,useState,useEffect } from "react";
 import ReactDOM from "react-dom";
 import { loginUser } from "../../services/WD_API";
 import PropTypes from "prop-types";
-
 import "../../styles/WD_StyleMain.css";
+import wdContext from "../../context/claim/WD_Context";
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from "../../state";
+
 
 
 export default function WD_Login({ setToken }) {
@@ -45,6 +50,35 @@ export default function WD_Login({ setToken }) {
       isAdmin: false,
     },
   ];
+  const dispatch=useDispatch();
+  const {loginData}=bindActionCreators(actionCreators,dispatch);
+  const amount= useSelector(state => state.amount)
+  console.log("amount : " +amount);
+// console.log("amount : " +loginData(100));
+  const context = useContext(wdContext);
+  const {getClaims}=context;
+  console.log("context: "+ getClaims)
+
+  const envValue =process.env.REACT_APP_ENV;
+  console.log("envValue :"+envValue);
+  const userclaim=[
+    {
+      username:"admin",
+      isAdmin: true,
+  },
+    {
+      username: "Ananya",
+      isAdmin: false,
+    },
+    {
+      username: "Gautam",
+      isAdmin: false,
+    },
+    {
+        username:"Abhishek",
+        isAdmin: false,
+      },
+  ]
 
   const errors = {
     uname: "invalid username",

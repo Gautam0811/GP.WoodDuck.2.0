@@ -2,10 +2,6 @@
 // Component Utility : The Component created to provide data to all the tab components
 // Author Manas Dixit on 1-3-2023
 // -------------------------
-
-
-
-
 function WD_CPUcreateData(value) {
     return { value,key: Math.random() };
   }

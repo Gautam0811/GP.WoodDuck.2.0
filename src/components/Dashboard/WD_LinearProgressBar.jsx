@@ -46,7 +46,8 @@ export default function LinearWithValueLabel(propst) {
       backgroundColor: `${color}`
     }
   }}
-/><Typography variant="body2" sx={{fontSize:10,pl:1}} color="black">{value}%</Typography>
+  />
+  <Typography variant="body2" sx={{fontSize:10,pl:1}} color="black">{value}%</Typography>
     </Box>
   );
 }

@@ -1,10 +1,6 @@
-// WD_DashboardObjects
-// Component Utility : The Component is Created as a reusable component in the Dashboard parent component 
-// Author Gautam Malhotra on 1-3-2023
-// -------------------------
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
+// import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
@@ -53,10 +49,10 @@ export default function WD_DashboardObjects(props) {
                 variant="h5"
                 color={"black"}
                 sx={{ display: "flex", justifyContent: "start", pt: 2 }}
-                key={row.key}
+                
               >{row.value}</Typography>
                 {row.trend === "0" ? (
-                  <Typography
+                  <Typography 
                     variant="caption"
                     color={"#42a5f5"}
                     sx={{ display: "flex", justifyContent: "start" }}
@@ -72,7 +68,7 @@ export default function WD_DashboardObjects(props) {
                       <ArrowUpwardIcon style={{ fontSize: "medium" }} />
                     </Typography>
                 ) : (
-                  <Typography
+                  <Typography 
                       variant='caption'
                       color={"red"}
                       sx={{ display: "flex", justifyContent: "start" }}

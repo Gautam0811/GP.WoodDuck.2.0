@@ -11,7 +11,7 @@ import WD_BackButton from "../Buttons/WD_BackButton";
 
 export default function WD_ProductGroupsHeader() {
   return (
-
+    
       <Grid
         className="product-page-grid"
       >

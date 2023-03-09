@@ -7,6 +7,7 @@ import { useState } from 'react';
 export default function WD_UseToken() {
   const getToken = () => {
     const tokenString = localStorage.getItem('token');
+    console.log("tokenString :" +tokenString);
     const userToken = JSON.parse(tokenString);
     return userToken?.token
   };
