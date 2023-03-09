@@ -24,7 +24,7 @@ export const WD_DashboardMarketSegmentrows = [
 ];
 
  function WD_DasboardMillForecastscreateData(name, inventory, nextweek) {
-    return { name, inventory, nextweek };
+    return { name, inventory, nextweek,key: Math.random()};
 }
   
 export const WD_DasboardMillForecastsrows = [
@@ -45,7 +45,8 @@ export const WD_DasboardMillForecastsrows = [
  function WD_DasboardMillscreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
-export const WD_DasboardMillsrows = [
+export const 
+WD_DasboardMillsrows = [
     WD_DasboardMillscreateData("On-hand","49643k","0%","0"),
     WD_DasboardMillscreateData("Order File","294404k","0.1%","+"),
     WD_DasboardMillscreateData("Order Ready","13%","0.5%","+"),

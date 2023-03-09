@@ -75,7 +75,7 @@ export default function WD_headerMiddleSection() {
           >
             Offers
             <Typography variant="caption" component="div" color={"black"}>
-              {post.offers}
+              <h6 title="Display1">{post.offers}</h6>
             </Typography>
           </Typography>
           <Typography
@@ -165,7 +165,7 @@ export default function WD_headerMiddleSection() {
                   <EmailOutlinedIcon fontSize="small" />
                 </Badge>
               </IconButton>
-              <IconButton size="small" color="primary" aria-label="menu" onClick={logout}>
+              <IconButton size="small" color="primary" aria-label="bott" onClick={logout}>
                 <LogoutOutlinedIcon fontSize="small" />
               </IconButton>
             </Typography>

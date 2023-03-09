@@ -1,14 +1,14 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
+//import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+//import FormControl from "@mui/material/FormControl";
+//import NativeSelect from "@mui/material/NativeSelect";
+//import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+//import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import NorthIcon from "@mui/icons-material/North";
 import SouthIcon from "@mui/icons-material/South";
 import { green, red } from "@mui/material/colors";
@@ -37,16 +37,16 @@ export default function WD_DashboardMarketPOV(props) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
           {props.data.map((row) => (
-            <Typography variant="h7" color={"black"} sx={{ ml: 4 }}>
+            <Typography key ={row.key} variant="h7" color={"black"} sx={{ ml: 4 }}>
               {row.week}
-              <Typography
+              <Typography 
                 variant="h5"
                 color={"black"}
                 sx={{ display: "flex", justifyContent: "start", pt: 2 }}
                 key={row.key}
               >
                 {row.trend === "0" ? (
-                  <Typography
+                  <Typography key={row.key}
                     variant="caption"
                     color={"#42a5f5"}
                     sx={{ display: "flex", justifyContent: "start" }}
@@ -62,6 +62,7 @@ export default function WD_DashboardMarketPOV(props) {
                 <Typography sx={{ lineHeight: 1 }}>%</Typography>
               </Typography>
             </Typography>
+            
           ))}
           <Divider orientation="vertical" flexItem />
           <Typography variant="h7" color={"BLACK"}>

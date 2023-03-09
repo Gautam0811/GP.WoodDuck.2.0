@@ -1,12 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
+//import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
+//import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
+//import FormControl from "@mui/material/FormControl";
+//import NativeSelect from "@mui/material/NativeSelect";
 import "../../styles/WD_StyleMain.css";
 
 export default function WD_DasboardGridObjects(props) {
@@ -29,7 +29,7 @@ export default function WD_DasboardGridObjects(props) {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table class="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
+        <table className="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
           <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
             <tr>
               <th style={{ width: "10%"}}></th>
@@ -50,6 +50,7 @@ export default function WD_DasboardGridObjects(props) {
                 <td>{row.four}</td>
                 <td style={{ fontWeight:"bold"}}>{row.total}</td>
               </tr>
+              
             ))}
             
           </tbody>

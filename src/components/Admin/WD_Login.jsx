@@ -25,6 +25,9 @@ export default function WD_Login({ setToken }) {
   const {getClaims}=context;
   console.log("context: "+ getClaims)
 
+  const envValue =process.env.REACT_APP_ENV;
+  console.log("envValue :"+envValue);
+
 //   useEffect((amount) => {
 //     loginData(100);
 //     // eslint-disable-next-line

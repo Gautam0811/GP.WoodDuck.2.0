@@ -126,7 +126,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={text} disablepadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

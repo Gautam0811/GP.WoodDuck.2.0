@@ -10,7 +10,7 @@ import {WD_DasboardMillsrows} from "../../services/data";
 import {WD_DasboardHitRaterows} from "../../services/data";
 import {WD_DasboardPercentForecastSoldrows} from "../../services/data";
 
-
+// eslint-disable-next-line
 export default function WD_Dashboard() {
 return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row',backgroundColor: "#e3f2fd"}}>
 

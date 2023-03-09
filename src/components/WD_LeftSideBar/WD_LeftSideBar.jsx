@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import SpeedIcon from "@mui/icons-material/Speed";
 import GridOnIcon from "@mui/icons-material/GridOn";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+//import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
 import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
@@ -11,7 +11,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+//import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import { Divider } from "@mui/material";
@@ -77,7 +77,7 @@ function LeftSidebar() {
           </div>
         </Link>
         <Collapse in={openOrders} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text" component="div" >
             <Link to="/productgroups" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">Open</span>
@@ -123,7 +123,7 @@ function LeftSidebar() {
           {openInvoices ? " " : " "}
         </div>
         <Collapse in={openInvoices} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text" component="div" >
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">All</span>
@@ -148,7 +148,7 @@ function LeftSidebar() {
           </div>
         </Link>
         <Collapse in={openContracts} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text" component="div" >
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">Active</span>
