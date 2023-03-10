@@ -6,43 +6,45 @@
  import { useState } from "react";
  
  const State = (props) => {
-   const claimsInitial = []
+   const claimsInitial = [{
+    id:"1001",
+    username:"admin",
+    password:"admin@123",
+    isAdmin: true,
+    }]
    const [claims, setClaims] = useState(claimsInitial)
- 
    // Get all claims
-   const getClaims = () => {
-     const userclaim= [
-       {
-         id:"1001",
-         username:"admin",
-         password:"admin@123",
-         isAdmin: true,
-     },
-       {
-         id:"1002",
-         username: "Ananya",
-         password: "password@123",
-         isAdmin: false,
-       },
-       {
-         id:"1003",
-         username: "Gautam",
-         password: "password@456",
-         isAdmin: false,
-       },
-       {
-         id:"1004",
-         username:"Abhishek",
-         password:"password@789",
-         isAdmin: false,
-       },
-     ]
-     
-     setClaims(userclaim)
-   }
+    const ClaimsData = () => {
+  
+      setClaims([{
+        id:"1001",
+        username:"admin",
+        password:"admin@123",
+        isAdmin: true,
+        },
+        {
+        id:"1002",
+        username: "Ananya",
+        password: "password@123",
+        isAdmin: false,
+        },
+        {
+        id:"1003",
+        username: "Gautam",
+        password: "password@456",
+        isAdmin: false,
+        },
+        {
+        id:"1004",
+        username:"Abhishek",
+        password:"password@789",
+        isAdmin: true,
+      }])
+    }
+
  
    return (
-     <Context.Provider value={{ claims, getClaims }}>
+     <Context.Provider value={{ claims, ClaimsData }}>
        {props.children}
      </Context.Provider>
    )
