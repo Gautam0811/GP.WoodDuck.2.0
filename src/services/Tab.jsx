@@ -3,8 +3,8 @@
 // Author Manas Dixit on 1-3-2023
 // -------------------------
 
-
-
+//This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the 
+//backend architecture is confirmed.
 
 function WD_CPUcreateData(value) {
     return { value,key: Math.random() };

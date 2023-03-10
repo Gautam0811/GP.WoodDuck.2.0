@@ -1,9 +1,14 @@
 import "./App.css";
-import WD_App from "./WD2.0";
+import MainApp from "./Main";
+import Context from "./context/State";
 
 function App() {
   return (
-    <WD_App/>
+    <>
+    <Context>
+    <MainApp/> 
+    </Context>
+    </>
   );
 }
 
