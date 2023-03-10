@@ -9,7 +9,7 @@
  function WD_DashboardMarketPOVcreateData(week, weekvalue, trend) {
   return { week, weekvalue, trend, key: Math.random() };
 }
-
+//The actual implementation will have call to a API.
 export const DashboardMarketPOVrows = [
     WD_DashboardMarketPOVcreateData("Week 1", 60, "+"),
     WD_DashboardMarketPOVcreateData("Week 2", 60, "-"),
@@ -19,7 +19,7 @@ export const DashboardMarketPOVrows = [
  function WD_DashboardMarketSegmentcreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
-
+//The actual implementation will have call to a API.
 export const DashboardMarketSegmentrows = [
     WD_DashboardMarketSegmentcreateData("Industrial","0%","0%","0"),
     WD_DashboardMarketSegmentcreateData("National","0%","0%","0"),
@@ -33,7 +33,7 @@ export const DashboardMarketSegmentrows = [
  function WD_DasboardMillForecastscreateData(name, inventory, nextweek) {
     return { name, inventory, nextweek };
 }
-  
+  //The actual implementation will have call to a API.
 export const DasboardMillForecastsrows = [
     WD_DasboardMillForecastscreateData('ALBANY', 45,'100% sold'),
     WD_DasboardMillForecastscreateData('CAMDEN', 40,'118% sold'),
@@ -52,6 +52,7 @@ export const DasboardMillForecastsrows = [
  function WD_DasboardMillscreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
+//The actual implementation will have call to a API.
 export const DasboardMillsrows = [
     WD_DasboardMillscreateData("On-hand","49643k","0%","0"),
     WD_DasboardMillscreateData("Order File","294404k","0.1%","+"),
@@ -63,7 +64,7 @@ export const DasboardMillsrows = [
 function WD_DasboardHitRatecreateData(name, one,two,three,four,total ) {
     return { name, one,two,three,four,total };
 }
-  
+  //The actual implementation will have call to a API.
 export const DasboardHitRaterows = [
     WD_DasboardHitRatecreateData('2x4', '','' ,'','','' ),
     WD_DasboardHitRatecreateData('2x6', '9%','' ,'','','9%' ), 
@@ -78,7 +79,7 @@ export const DasboardHitRaterows = [
 function WD_DasboardPercentForecastSoldcreateData(name, one,two,three,four,total ) {
     return { name, one,two,three,four,total };
 }
-  
+  //The actual implementation will have call to a API.
 export const DasboardPercentForecastSoldrows = [
     WD_DasboardPercentForecastSoldcreateData('2x4', '201%','283%','137%','104%','190%'),
     WD_DasboardPercentForecastSoldcreateData('2x6', '48%','101%','78%','76%','80%'),
@@ -107,7 +108,7 @@ export const DashboardSalesrows = [
 //Dashboard data ends
 
 // Orders Grid Data Starts
-
+//The actual implementation will have call to a API.
 export const OrdersGridcolumns = [
     { field: "id", headerName: "Order ID", width: 130 },
     { field: "mill", headerName: "Mill", width: 130 },
@@ -166,7 +167,7 @@ export const OrdersGridcolumns = [
       width: 130,
     },
   ];
-  
+  //The actual implementation will have call to a API.
 export function WD_OrdersGridcreateData(
     id,
     mill,
@@ -194,7 +195,7 @@ export function WD_OrdersGridcreateData(
       readied,
     };
   }
-  
+  //The actual implementation will have call to a API.
 export const OrdersGridrows = [
     WD_OrdersGridcreateData(
       465135804,
