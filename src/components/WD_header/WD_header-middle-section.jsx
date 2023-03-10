@@ -30,6 +30,7 @@ export default function WD_headerMiddleSection() {
 
   React.useEffect(() => {
     getCustomerData(id).then((customerData) => {
+      console.log(customerData)
       setPost(customerData);
     });
   }, [id]);
@@ -62,7 +63,8 @@ export default function WD_headerMiddleSection() {
               labelId="demo-select-small"
               id="demo-select-small"
               value={id}
-              label="Name"
+              role="combobox"
+              aria-label="selectName"
               onChange={handleChange}
             >
               <MenuItem value=""></MenuItem>
@@ -77,8 +79,8 @@ export default function WD_headerMiddleSection() {
             sx={{ flexGrow: 1, position: "relative", left: 300 }}
           >
             Offers
-            <Typography variant="caption" component="div" color={"black"}>
-              {post.offers}
+            <Typography variant="caption" component="div" color={"black"}  aria-label="aa">
+             {post.offers}
             </Typography>
           </Typography>
           <Typography
@@ -100,7 +102,7 @@ export default function WD_headerMiddleSection() {
           >
             Orders
             <Typography variant="caption" component="div" color={"black"}>
-              {post.orders}
+             {post.orders}
             </Typography>
           </Typography>
           <Typography
@@ -168,7 +170,7 @@ export default function WD_headerMiddleSection() {
                   <EmailOutlinedIcon fontSize="small" />
                 </Badge>
               </IconButton>
-              <IconButton size="small" color="primary" aria-label="menu" onClick={logout}>
+              <IconButton size="small" color="primary" aria-label="logoutbutton" onClick={logout}>
                 <LogoutOutlinedIcon fontSize="small" />
               </IconButton>
             </Typography>
