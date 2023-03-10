@@ -12,7 +12,7 @@ import user from "@testing-library/user-event";
 import axios from "axios";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import WD_headerMiddleSection from "../components/header/Header";
+import Header from "../components/header/Header";
 import userEvent from "@testing-library/user-event";
 import getCustomerData from "../services/Api";
 
@@ -33,14 +33,14 @@ describe("header component", () => {
     render(
       <BrowserRouter>
         <getCustomerData id="1005" />
-        <WD_headerMiddleSection />
+        <Header />
       </BrowserRouter>
     );
 
     const offerElement = await screen.findByText(/offers/i);
     expect(offerElement).toBeInTheDocument();
-    const val = await screen.findByRole("heading");
-    expect(val.textContent).toBe("");
+    const value = await screen.findByRole("heading");
+    expect(value.textContent).toBe("");
     //   const vale = await screen.findByRole('combobox',{name:'Namee'})
     //   expect(vale.textContent).toBe('Max');
   });
@@ -61,10 +61,10 @@ describe("header component", () => {
     user.setup();
     render(
       <BrowserRouter>
-        <WD_headerMiddleSection />
+        <Header />
       </BrowserRouter>
     );
-    const displayValue = screen.getByTitle("Display1");
+    const displayValue = screen.getByTitle("DisplayData");
     expect(displayValue.textContent).toMatch("");
     // expect(axios.get).toHaveBeenCalledTimes(1);
   });
@@ -85,13 +85,13 @@ describe("header component", () => {
     user.setup();
     render(
       <BrowserRouter>
-        <WD_headerMiddleSection />
+        <Header />
       </BrowserRouter>
     );
-    const logoutElements = screen.getByRole("button", { name: "bott" });
+    const logoutElements = screen.getByRole("button", { name: "botton" });
     await user.click(logoutElements);
     // expect(logoutElements).not.toBeInTheDocument();
-    const buttonElement = screen.queryByLabelText("button", { name: "bott" });
+    const buttonElement = screen.queryByLabelText("button", { name: "botton" });
     expect(buttonElement).not.toBeInTheDocument();
     // expect(axios.get).toHaveBeenCalledTimes(1);
   });
