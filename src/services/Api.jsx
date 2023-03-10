@@ -3,7 +3,6 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import axios from "axios";
-import * as React from "react";
 
 export default function getCustomerData(id) {
   const baseURL = "https://localhost:44351/employee/";

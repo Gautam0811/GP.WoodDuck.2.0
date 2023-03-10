@@ -5,11 +5,8 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
 import { Link } from "react-router-dom";
 
 export default function UserSettings() {

@@ -71,7 +71,7 @@ function LeftSidebar() {
             <span className="sidebar-text">Salesgrid</span>{" "}
           </div>
         </Link>
-        <Link to="/settings" className="link-text">
+        <Link to="/orders" className="link-text">
           <div className="item" onClick={handleClickOrders}>
             <ShoppingCartOutlined className="sidebar-icon" />
             <span className="sidebar-text">Orders</span>

@@ -18,7 +18,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import "../../styles/styleMain.css";
 import getCustomerData from "../../services/Api";
 

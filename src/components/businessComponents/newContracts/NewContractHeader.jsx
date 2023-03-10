@@ -6,9 +6,9 @@ import * as React from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from "@mui/material/Grid";
-import WD_ExitButton from "../../buttons/ExitButton";
+import ExitButton from "../../buttons/ExitButton";
 import { ListItemButton, FormGroup, FormControlLabel, Switch } from "@mui/material";
-import WD_AddContractButton from "../../buttons/AddContractButton";
+import AddContractButton from "../../buttons/AddContractButton";
 import '../../../styles/styleMain.css';
 
 export default function NewContractHeader() {
@@ -36,7 +36,7 @@ export default function NewContractHeader() {
             flexDirection: "row",
           }}
         >
-          <WD_ExitButton />
+          <ExitButton />
           <span style={{ fontWeight: "bold" }}>New Contracts</span>
           <FormGroup style={{ paddingLeft: "20px" }}>
             <FormControlLabel
@@ -55,7 +55,7 @@ export default function NewContractHeader() {
           }}
         >
           <ListItemButton>Cancel</ListItemButton>
-          <WD_AddContractButton/>
+          <AddContractButton/>
         </div>
       </Grid>
 
