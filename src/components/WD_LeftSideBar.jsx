@@ -165,7 +165,7 @@ function LeftSidebar() {
             </ListItemButton>
           </div>
         </Collapse>
-        <Link to="/contracts" className="link-text">
+        <Link to="/buttonsdemo" className="link-text">
           <div className="item">
             <PersonOutlineOutlinedIcon className="sidebar-icon" />{" "}
             <span className="sidebar-text">People</span>{" "}

@@ -12,7 +12,7 @@ import {WD_DasboardPercentForecastSoldrows} from "../services/data";
 
 
 export default function WD_Dashboard() {
-return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row',backgroundColor: "#e3f2fd"}}>
+return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row'}}>
 
 <Grid sx={{width:'70%',display:'flex',flexDirection:'column',fontSize:"13px"}}>
     <WD_DashboardMarketPOV title="Market POV" data={WD_DashboardMarketPOVrows} spacing={9}/>

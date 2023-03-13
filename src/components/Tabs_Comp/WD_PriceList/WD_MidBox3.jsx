@@ -8,7 +8,7 @@ import BasicSelectC from "./WD_CPU";
 import LBox from "./WD_LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FBox from "./WD_Footage";
-import OfferButton from "../../Buttons/WD_OFFERbutton";
+import OfferButton from "../../Buttons/WD_OfferButton";
 import NextButton from "../../Buttons/WD_NextButton";
 import GeTPriceList from "../../Buttons/WD_GetPriceListButton";
 import CreateTemplate from "../../Buttons/WD_CreateTemplateButton";

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { loginUser } from "../services/WD_API";
 import PropTypes from "prop-types";
 
-import "../styles/WD_StyleMain.css";
+import "../styles/WD_Login.css";
 
 
 export default function WD_Login({ setToken }) {

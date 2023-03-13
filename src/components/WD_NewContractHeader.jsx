@@ -3,151 +3,94 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from "@mui/material/Grid";
 import WD_ExitButton from "../components/Buttons/WD_ExitButton";
-import { ListItemButton, FormLabel, FormGroup, FormControlLabel, Switch } from "@mui/material";
+import { Paper, Typography, ListItemButton, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
 import '../styles/WD_StyleMain.css';
+import {WD_BuyerDropdown, WD_CustomerDropdown} from "../services/WD_NewContract";
 
 export default function WD_NewContractHeader() {
+  const [select, setSelect] = React.useState('None Selected');
+
+  const handleChange = (event) => {
+    setSelect(event.target.value);
+  };
+
   return (
     //for header
-    <Grid
-      sx={{
-        alignItems: "center",
-        backgroundColor: "#f1f4fb",
-      }}
-    >
-      
+    <Grid className="new-contract-header">
       {/* Top grid */}
-      <Grid
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <div
-          style={{
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
+      <Grid className="flexrow justify-space-between">
+        <div className="flex-row-center">
           <WD_ExitButton />
-          <span style={{ fontWeight: "bold" }}>New Contracts</span>
-          <FormGroup style={{ paddingLeft: "20px" }}>
+          <Typography className="fs-16 font-bold">New Contracts</Typography>
+          <FormGroup color="primary" className="pl-20">
             <FormControlLabel
+              color="primary"
               control={<Switch color="primary" defaultChecked />}
               label="Active"
-              style={{ color: "#005fa8" }}
             />
           </FormGroup>
         </div>
-        <div
-          style={{
-            alignItems: "center",
-            color: "gray",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
+        <div className="flex-row-center gray pr-16">
           <ListItemButton>Cancel</ListItemButton>
-          <WD_AddContractButton/>
+          <WD_AddContractButton className="red" />
         </div>
       </Grid>
 
       {/* bottom grid */}
-      <Grid
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <div
-          style={{
-            alignItems: "center",
-            padding: "25px",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span className="fontsize" style={{ color: "#005fa8" }}>
+      <Grid>
+        <div className="p-24 flex-row-center justify-space-between">
+          <div className="flexcolumn">
+            <Typography className="fontsize" color="primary">
               CONTRACT TYPE
-            </span>
+            </Typography>
             <ButtonGroup size="small" aria-label="small button group">
               <Button key="Monthly">Monthly</Button>
               <Button key="Automatic">Automatic</Button>
               <Button key="VMI">VMI</Button>
             </ButtonGroup>
           </div>
-          <div
-            style={{
-              paddingLeft: "15px",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <span style={{ color: "#005fa8" }} className="NewContractHeaderFontsize NewContractHeaderFontcolor">
+          <div className="pl-16 flexcolumn">
+            <Typography className="fontsize" color="primary">
               CUSTOMER <span style={{ color: "red" }}>*</span>
-            </span>
-            <select style={{ width: '130px', height: '30px'}}>
-              <option></option>
-              <option>DAVID KLEKAMP</option>
-              <option>Hannah</option>
+            </Typography>
+            <select className="w130-h30">
+              {WD_CustomerDropdown.map((row) => (
+                <option value={row.value}>{row.value}</option>
+              ))}
             </select>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              paddingLeft: "15px",
-            }}
-          >
-            <span style={{ color: "#005fa8" }} className="fontsize">
+          <div className="pl-16 flexcolumn">
+            <Typography className="fontsize" color="primary">
               BUYER <span style={{ color: "red" }}>*</span>
-            </span>
-            <select style={{ width: '130px', height: '30px'}}>
-              <option></option>
-              <option>DAVID KLEKAMP</option>
-              <option>Hannah</option>
+            </Typography>
+            <select className="w130-h30">
+              {WD_BuyerDropdown.map((row) => (
+                <option value={row.value}>{row.value}</option>
+              ))}
             </select>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              paddingLeft: "15px",
-            }}
-          >
-            <span style={{ color: "#005fa8" }} className="fontsize">
+          <div className="pl-16 flexcolumn">
+            <Typography className="fontsize" color="primary">
               BEGIN OBLIGATING ON <span style={{ color: "red" }}>*</span>
-            </span>
-            <input style={{ width: '130px', height: '30px'}} type="date"></input>
+            </Typography>
+            <input className="w130-h30" type="date"></input>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              paddingLeft: "15px",
-            }}
-          >
-            <span style={{ color: "#005fa8" }} className="fontsize">
+          <div className="pl-16 flexcolumn">
+            <Typography className="fontsize" color="primary">
               END OBLIGATING ON <span style={{ color: "red" }}>*</span>
-            </span>
-            <input style={{ width: '130px', height: '30px'}} type="date"></input>
+            </Typography>
+            <input className="w130-h30" type="date"></input>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              paddingLeft: "15px",
-            }}
-          >
-            <span style={{ color: "#005fa8" }} className="fontsize">
+          <div className="pl-16 flexcolumn">
+            <Typography className="fontsize" color="primary">
               CONTRACT NAME <span style={{ color: "red" }}>*</span>
-            </span>
-            <input style={{ width: '200px', height: '30px'}} type="text" placeholder="Enter a short description"></input>
+            </Typography>
+            <input
+              className="w200-h50"
+              type="text"
+              placeholder="Enter a short description"
+            ></input>
           </div>
         </div>
       </Grid>

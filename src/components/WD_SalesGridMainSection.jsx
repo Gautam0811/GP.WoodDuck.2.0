@@ -18,7 +18,7 @@ export default function SalesGridMainSection() {
           >
             <th
               rowSpan={4}
-              style={{ borderLeftWidth: 0, backgroundColor: "white" }}
+              style={{ backgroundColor: 'none', borderLeftWidth: 0}}
             ></th>
             <th colSpan={4} style={{ textAlign: "center" }}>
               PROSPERITY
@@ -68,7 +68,7 @@ export default function SalesGridMainSection() {
             <th
               rowSpan={4}
               colSpan={3}
-              style={{ borderRightWidth: 0, backgroundColor: "white" }}
+              style={{ borderRightWidth: 0}}
             ></th>
           </tr>
           <tr style={{ backgroundColor: "gray", color: "white" }}>
@@ -267,7 +267,7 @@ export default function SalesGridMainSection() {
         </tbody>
         <thead>
           <tr style={{ backgroundColor: "#1357a6" }}>
-            <th rowSpan={2} style={{ backgroundColor: "white" }}></th>
+            <th rowSpan={2} ></th>
             <th colSpan={4} style={{ textAlign: "center" }}>
               2X4 SYP SEL STRUC
             </th>
@@ -441,7 +441,7 @@ export default function SalesGridMainSection() {
         </tbody>
         <thead>
           <tr style={{ backgroundColor: "#1357a6" }}>
-            <th rowSpan={2} style={{ backgroundColor: "white" }}></th>
+            <th rowSpan={2} ></th>
             <th colSpan={4} style={{ textAlign: "center" }}>
               2X4 SYP #1
             </th>
