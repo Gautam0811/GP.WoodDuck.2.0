@@ -16,7 +16,7 @@ import {DasboardPercentForecastSoldrows} from "../../../services/Data";
 
 // eslint-disable-next-line
 export default function Dashboard() {
-return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row',backgroundColor: "#e3f2fd"}}>
+return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row'}}>
 
 <Grid sx={{width:'70%',display:'flex',flexDirection:'column',fontSize:"13px"}}>
     <DashboardMarketPOV title="Market POV" data={DashboardMarketPOVrows} spacing={9}/>
