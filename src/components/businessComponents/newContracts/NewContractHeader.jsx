@@ -7,12 +7,8 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from "@mui/material/Grid";
 import { Paper, Typography, ListItemButton, FormGroup, FormControlLabel, Switch } from "@mui/material";
-import WD_AddContractButton from "../components/Buttons/WD_AddContractButton";
-import '../styles/WD_StyleMain.css';
-import {WD_BuyerDropdown, WD_CustomerDropdown} from "../services/WD_NewContract";
-
+import {WD_BuyerDropdown, WD_CustomerDropdown} from "../../../services/Data";
 import ExitButton from "../../buttons/ExitButton";
-import { ListItemButton, FormGroup, FormControlLabel, Switch } from "@mui/material";
 import AddContractButton from "../../buttons/AddContractButton";
 import '../../../styles/styleMain.css';
 
@@ -29,7 +25,7 @@ export default function WD_NewContractHeader() {
       {/* Top grid */}
       <Grid className="flexrow justify-space-between">
         <div className="flex-row-center">
-          <WD_ExitButton />
+          <ExitButton />
           <Typography className="fs-16 font-bold">New Contracts</Typography>
           <FormGroup color="primary" className="pl-20">
             <FormControlLabel
@@ -41,7 +37,7 @@ export default function WD_NewContractHeader() {
         </div>
         <div className="flex-row-center gray pr-16">
           <ListItemButton>Cancel</ListItemButton>
-          <WD_AddContractButton className="red" />
+          {/* <AddContractButton className="red" /> */}
           <AddContractButton/>
         </div>
       </Grid>

@@ -23,8 +23,9 @@ import {
   Paper,
 } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import WD_ProductButton from "../components/Buttons/WD_ProductButton";
-import { WD_RLTag, WD_ShipToDrop } from "../services/WD_NewContract";
+import WD_ProductButton from "../../buttons/ProductButton";
+import { WD_RLTag, WD_ShipToDrop } from "../../../services/Data";
+
 import "../../../styles/styleMain.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { red, deepOrange, blue, grey, pink, purple } from '@mui/material/colors';
-import '../styles/WD_StyleMain.css';
+import '../../src/styles/styleMain.css';
 
 const lightTheme = createTheme({
   palette: {

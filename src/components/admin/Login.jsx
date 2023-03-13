@@ -6,7 +6,7 @@ import React, { useEffect,useContext,useState} from "react";
 import { loginUser } from "../../services/Api";
 import PropTypes from "prop-types";
 
-import "../styles/WD_Login.css";
+import "../../styles/login.css";
 import "../../styles/styleMain.css";
 import Context from "../../context/Context";
 //import { useSelector } from 'react-redux'
