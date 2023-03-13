@@ -13,7 +13,8 @@ import {
 import { ThemeProvider } from "@mui/material/styles";
 import { useState} from 'react';
 
-import WD_App from "./WD2.0";
+import MainApp from "./Main";
+import Context from "./context/State";
 
 function App() {
   const [theme, setTheme] = useState(lightTheme);
@@ -41,6 +42,8 @@ function App() {
   }
   
   return (
+    <>
+    <Context>
     <ThemeProvider theme={theme}>
       <Paper>
         <div>
@@ -52,9 +55,11 @@ function App() {
             <MenuItem value="dark">Dark</MenuItem>
           </Select>
         </div>
-        <WD_App />
+        <MainApp />
       </Paper>
-    </ThemeProvider>
+    </ThemeProvider> 
+    </Context>
+    </>
   );
 }
 

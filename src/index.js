@@ -3,28 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import axios from "axios";
+import {axiosRequest,axiosResponse} from './services/Interceptors';
+import { store } from './state/store/Store';
+import { Provider } from 'react-redux';
 
-axios.interceptors.request.use(
-  (request) => {
-    console.log(request);
-    request.headers.genericKey = "Request_gpWoodDUCK2.0";
-    return request;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
-
-axios.interceptors.response.use(
-  (response) => {
-    console.log(response);
-    response.headers.className = "Response_gpWoodDUCK2.0";
-    return response;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+axiosRequest();
+axiosResponse();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // console.log(themes.default);
@@ -32,7 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
    root.render(
   
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>
 );
 
