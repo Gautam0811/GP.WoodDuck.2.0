@@ -1,9 +1,14 @@
+// WD_Buttons
+// Component Utility : The Component is created to provide all the buttons that are to be used in WoodDuck 2.0
+// Author Ananya Dhar on 1-3-2023
+// -------------------------
 import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-export default function AddButton() {
+
+export default function WD_AddButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -11,13 +16,13 @@ export default function AddButton() {
 
   return (
     <Box>
-          <LoadingButton style={{ color:'#005FA8'}}>
-          <div style={{padding: '10px',}}>
+          <LoadingButton className="buttontype4">
+          <div>
             <div>
-              <AddOutlinedIcon fontSize='7px'/>
+              <AddOutlinedIcon className="icontype1"/>
             </div>
             <div>
-              <span style={{fontSize:'7px'}}>ADD</span>
+              <span>ADD</span>
             </div>
           </div>
           </LoadingButton>
