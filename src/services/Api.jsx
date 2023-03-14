@@ -13,12 +13,7 @@ export default function getCustomerData(id) {
   });
 }
 
-export async function loginUser(credentials) {
-  return fetch("http://localhost:8080/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
+export function loginUser(credentials) {
+  const data ={"token":"test123"};
+  return data;
 }
