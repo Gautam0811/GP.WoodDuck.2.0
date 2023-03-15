@@ -27,7 +27,7 @@ export default function Header() {
   const [name, setName] = React.useState({});
 
   React.useEffect(() => {
-    setName(JSON.parse(localStorage.getItem("status")));
+    setName(JSON.parse(localStorage.getItem(('status') || '{}')));
   }, []);
 
   React.useEffect(() => {
@@ -38,7 +38,7 @@ export default function Header() {
   
   const logout = () => {
     localStorage.clear();
-    window.location.reload(false);
+    window.location.reload();
   };
   React.useEffect(() => {
     window.addEventListener("storage", logout);

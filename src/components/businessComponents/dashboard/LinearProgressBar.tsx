@@ -10,8 +10,8 @@ import Box from '@mui/material/Box';
 export default function LinearWithValueLabel(propst) {
    
 
-  const [color, setColor] = React.useState(0);
-  const [colors, setColors] = React.useState(0);
+  const [color, setColor] = React.useState("");
+  const [colors, setColors] = React.useState("");
   const value = propst.Values
   React.useEffect(() => {
     if (value <= 100) {

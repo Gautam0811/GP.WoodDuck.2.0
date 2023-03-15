@@ -6,7 +6,7 @@ import axios from "axios";
 import {logger} from "../utils/Helper";
 
 const tokenString = localStorage.getItem('token');
-const userToken = JSON.parse(tokenString);
+const userToken = JSON.parse((tokenString) || '{}');
 export function axiosRequest() {
   axios.interceptors.request.use(
     (request) => {

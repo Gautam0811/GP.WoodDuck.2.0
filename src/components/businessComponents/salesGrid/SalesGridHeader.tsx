@@ -107,7 +107,7 @@ export default function SalesGridHeader() {
           <IconButton
             size="large"
             edge="start"
-            color="blue"
+            color="primary"
             aria-label="open drawer"
             sx={{ mr: 10 }}
           >
@@ -123,7 +123,7 @@ export default function SalesGridHeader() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="blue"
+              color="primary"
             >
               <AccountCircle />
               <Typography variant="caption" component="div" color={"blue"}>

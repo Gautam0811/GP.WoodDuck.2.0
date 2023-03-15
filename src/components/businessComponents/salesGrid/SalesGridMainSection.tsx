@@ -11,7 +11,7 @@ import "../../../styles/styleMain.css";
 export default function SalesGridMainSection() {
   return (
     <Grid className="fontsize" sx={{ display: "flex", flexDirection: "row" }}>
-      <table style={{ width: "100%", height: "35%", p: 3, }} borderAxis="both">
+      <table style={{ width: "100%", height: "35%", padding: 3, }} data-borderAxis="both">
         <thead>
           <tr
             style={{

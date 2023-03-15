@@ -255,12 +255,12 @@ const {theme, themeLoaded, getFonts} = useTheme();
                         >
                           <FormControlLabel
                             value="forecast"
-                            control={<Radio size="sm" />}
+                            control={<Radio size="small" />}
                             label="Forecast"
                           />
                           <FormControlLabel
                             value="usage"
-                            control={<Radio size="sm" />}
+                            control={<Radio size="small" />}
                             label="Usage"
                           />
                         </RadioGroup>
