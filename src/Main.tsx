@@ -29,7 +29,7 @@ export default function WD_App() {
       return <Login setToken={setToken} />;
     }
   
-    //console.log(token);
+    console.log(token);
     return (
       <Grid>
         <Router>

@@ -48,7 +48,7 @@ export default function Login({ setToken }) {
         // Invalid password
         setErrorMessages({ name: "pass", message: "invalid password" });
       } else {
-        const token = await loginUser({
+        const token = loginUser({
           userData,
         });
         setToken(token);
