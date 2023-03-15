@@ -46,7 +46,8 @@ export default function Header() {
   return (
     // View for header middle section
     <Box className="fontsize" sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "#ffb74d" }}>
+      {/* <AppBar position="static" style={{ background: "#ffb74d" }}> */}
+      <AppBar position="static">
         <Toolbar>
           <FormControl
             sx={{

@@ -1,13 +1,21 @@
+// Themes
+// Component Utility : The Component is created for providing different themes in the app
+// Author Ananya Dhar on 1-3-2023
+// -------------------------
 import { createTheme } from '@mui/material/styles';
-import { red, deepOrange, blue, grey, pink, purple } from '@mui/material/colors';
+import {deepOrange, orange,  blue, grey, pink, yellow } from '@mui/material/colors';
 import '../../src/styles/styleMain.css';
 
-const lightTheme = createTheme({
+
+const classicTheme = createTheme({
   palette: {
     text: {
       primary: grey[900],
       secondary: grey[800],
     },
+  },
+  customProperty: {
+    backgroundColor: 'gray',
   },
   components: {
     MuiTableCell: {
@@ -26,18 +34,42 @@ const lightTheme = createTheme({
         },
       },
     },
-    MuiFormControlLabel :{
-      styleOverrides :{
+    MuiFormControlLabel: {
+      styleOverrides: {
         root: {
-          color: '#005FA8',
-        }
-      }
+          color: "#005FA8",
+        },
+      },
     },
     MuiTypography: {
+      styleOverrides: {
         root: {
-          color: '#005FA8',
+          color: "#005FA8",
+          fontSize: "12px",
         },
+      },
     },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: "#000000",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#ffb74d",
+        },
+      },
+    },
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#f1f4fb",
+        }
+      }
+    }
   },
 });
 
@@ -45,8 +77,7 @@ const blueTheme = createTheme({
   primary: blue,
   palette: {
     background: {
-      default: deepOrange[900],
-      paper: blue[300],
+      paper: blue[300],      
     },
     text: {
       primary: blue[800],
@@ -70,6 +101,14 @@ const blueTheme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides : {
+        root: {
+          color: blue[900],
+          fontSize: '12px',
+        },
+      }
+  },
     MuiFormControlLabel: {
       styleOverrides: {
         root: {
@@ -77,11 +116,27 @@ const blueTheme = createTheme({
         },
       },
     },
-    MuiTypography: {
-      root: {
-        color: blue[800],
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          backgroundColor: blue[200],
+        }
+      }
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: blue[100],
+        },
       },
     },
+    MuiSvgIcon : {
+      styleOverrides: {
+        root: {
+          color: blue[900],
+        }
+      }
+    }
   },
 });
 
@@ -114,6 +169,21 @@ const pinkTheme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: pink[900],
+          fontSize: "12px",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: pink[100],
+        },
+      },
+    },
     MuiFormControlLabel: {
       styleOverrides: {
         root: {
@@ -121,23 +191,32 @@ const pinkTheme = createTheme({
         },
       },
     },
-    MuiTypography: {
-      root: {
-        color: pink[800],
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          backgroundColor: pink[200],
+        }
+      }
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: pink[900],
+        },
       },
     },
   },
 });
 
-const purpleTheme = createTheme({
+const yellowTheme = createTheme({
   palette: {
-    primary: purple,
+    primary: yellow,
     background: {
       default: deepOrange[300],
-      paper: purple[300],
+      paper: yellow[300],
     },
     text: {
-      primary: purple[800],
+      primary: orange[800],
       secondary: grey[500],
     },
   },
@@ -160,12 +239,43 @@ const purpleTheme = createTheme({
     },
     MuiFormControlLabel: {
       root: {
-        color: purple[800],
+        color: orange[800],
       },
     },
     MuiTypography: {
-      root: {
-        color: purple[800],
+      styleOverrides: {
+        root: {
+          color: orange[900],
+          fontSize: "12px",
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: orange[800],
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: yellow[100],
+        },
+      },
+    },
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          backgroundColor: yellow[200],
+        }
+      }
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: orange[900],
+        },
       },
     },
   },
@@ -175,11 +285,10 @@ const darkTheme = createTheme({
   palette: {
     primary: grey,
     background: {
-      primary: deepOrange[300],
       paper: grey[900],
     },
     text: {
-      primary: grey[500],
+      primary: grey[200],
       secondary: grey[600],
     },
   },
@@ -200,21 +309,44 @@ const darkTheme = createTheme({
         },
       },
     },
-    MuiFormControlLabel :{
-        root: {
-          color: "gray",
-        }
-    },
-    MuiTypography: {
+    MuiFormControlLabel: {
       root: {
-        color: grey[800],
+        color: "gray",
       },
     },
-    
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: grey[500],
+          fontSize: "12px",
+        },
+      },
+    },
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          backgroundColor: grey[200],
+        }
+      }
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: grey[300],
+        },
+      },
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: grey[700],
+        },
+      },
+    },
   },
 });
 
 
 
-export { blueTheme, darkTheme, pinkTheme, purpleTheme, lightTheme };
+export { blueTheme, darkTheme, pinkTheme, yellowTheme, classicTheme };
 

@@ -16,7 +16,7 @@ import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
-import { Divider } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import Collapse from "@mui/material/Collapse";
 import { ShoppingCartOutlined } from "@mui/icons-material";
@@ -62,19 +62,19 @@ function LeftSidebar() {
         <Link to="./" className="link-text">
           <div className="item">
             <SpeedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Dashboard</span>{" "}
+            <Typography className="sidebar-text">Dashboard</Typography>{" "}
           </div>
         </Link>
         <Link to="./salesgrid" className="link-text">
           <div className="item">
             <GridOnIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Salesgrid</span>{" "}
+            <Typography className="sidebar-text">Salesgrid</Typography>{" "}
           </div>
         </Link>
         <Link to="/orders" className="link-text">
           <div className="item" onClick={handleClickOrders}>
             <ShoppingCartOutlined className="sidebar-icon" />
-            <span className="sidebar-text">Orders</span>
+            <Typography className="sidebar-text">Orders</Typography>
             {openOrders ? " " : " "}
           </div>
         </Link>
@@ -82,36 +82,36 @@ function LeftSidebar() {
           <div className="sidebar-text" component="div" disablePadding>
             <Link to="/productgroups" className="link-text">
               <ListItemButton className="padding-left">
-                <span className="fontsize">Open</span>
+                <Typography className="fontsize">Open</Typography>
               </ListItemButton>
             </Link>
             <ListItemButton className="padding-left">
-              <span className="fontsize ">Late Fulfillment</span>
+              <Typography className="fontsize ">Late Fulfillment</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize ">Late Pickup</span>
+              <Typography className="fontsize ">Late Pickup</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Today</span>
+              <Typography className="fontsize">Today</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">All</span>
+              <Typography className="fontsize">All</Typography>
             </ListItemButton>
           </div>
         </Collapse>
         <Link to="./orders" className="link-text">
           <div className="item">
             <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Master Quotes</span>{" "}
+            <Typography className="sidebar-text">Master Quotes</Typography>{" "}
           </div>
         </Link>
         <div className="item">
           <RequestQuoteOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Quote Management</span>{" "}
+          <Typography className="sidebar-text">Quote Management</Typography>{" "}
         </div>
         <div className="item">
           <LocalShippingOutlinedIcon className="sidebar-icon" />{" "}
-          <span className="sidebar-text">Shipments</span>{" "}
+          <Typography className="sidebar-text">Shipments</Typography>{" "}
         </div>
         <div className="arrow-item">
           <ArrowCircleLeftOutlinedIcon
@@ -119,33 +119,35 @@ function LeftSidebar() {
             onClick={handleToggler}
           />
         </div>
-        <div className="item" onClick={handleClickInvoices}>
+        <Link to="/invoices" className="link-text">
+          <div className="item" onClick={handleClickInvoices}>
           <ReceiptOutlinedIcon className="sidebar-icon" />
-          <span className="sidebar-text">Invoices</span>
+          <Typography className="sidebar-text">Invoices</Typography>
           {openInvoices ? " " : " "}
         </div>
+        </Link>
         <Collapse in={openInvoices} timeout="auto">
           <div className="sidebar-text" component="div" disablePadding>
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
-                <span className="fontsize">All</span>
+                <Typography className="fontsize">All</Typography>
               </ListItemButton>
             </Link>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Open</span>
+              <Typography className="fontsize">Open</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Late</span>
+              <Typography className="fontsize">Late</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Paid</span>
+              <Typography className="fontsize">Paid</Typography>
             </ListItemButton>
           </div>
         </Collapse>
         <Link to="/contracts" className="link-text">
           <div className="item" onClick={handleClickContracts}>
             <EditOutlinedIcon className="sidebar-icon" />
-            <span className="sidebar-text">Contracts</span>
+            <Typography className="sidebar-text">Contracts</Typography>
             {openContracts ? " " : " "}
           </div>
         </Link>
@@ -153,36 +155,36 @@ function LeftSidebar() {
           <div className="sidebar-text" component="div" disablePadding>
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
-                <span className="fontsize">Active</span>
+                <Typography className="fontsize">Active</Typography>
               </ListItemButton>
             </Link>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Inactive</span>
+              <Typography className="fontsize">Inactive</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">Mine</span>
+              <Typography className="fontsize">Mine</Typography>
             </ListItemButton>
             <ListItemButton className="padding-left">
-              <span className="fontsize">All</span>
+              <Typography className="fontsize">All</Typography>
             </ListItemButton>
           </div>
         </Collapse>
         <Link to="/buttonsdemo" className="link-text">
           <div className="item">
             <PersonOutlineOutlinedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">People</span>{" "}
+            <Typography className="sidebar-text">People</Typography>{" "}
           </div>
         </Link>
         <Link to="/contracts" className="link-text">
           <div className="item">
             <BusinessOutlinedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Facilities</span>{" "}
+            <Typography className="sidebar-text">Facilities</Typography>{" "}
           </div>
         </Link>
         <Link to="/settings" className="link-text">
           <div className="item">
             <CachedOutlinedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Supply and Demand</span>{" "}
+            <Typography className="sidebar-text">Supply and Demand</Typography>{" "}
           </div>
         </Link>
 
@@ -190,7 +192,7 @@ function LeftSidebar() {
         <Link to="/contracts" className="link-text">
           <div className="item">
             <FormatListNumberedIcon className="sidebar-icon" />{" "}
-            <span className="sidebar-text">Recent Items</span>{" "}
+            <Typography className="sidebar-text">Recent Items</Typography>{" "}
           </div>
         </Link>
       </div>

@@ -5,6 +5,9 @@
 //This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the 
 //backend architecture is confirmed.
 
+//Modified by Ananya on 13-03-2023
+//Added new contracts header and main section data
+
 //WD_Dashboard data starts
  function WD_DashboardMarketPOVcreateData(week, weekvalue, trend) {
   return { week, weekvalue, trend, key: Math.random() };

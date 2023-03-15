@@ -13,16 +13,13 @@ import Divider from '@mui/material/Divider';
 export default function OrdersHeader() {
   return (
     //This is the header for orders
-    <div
-      style={{
+      <Stack style={{
         alignItems: "center",
-        backgroundColor: "#f1f4fb",
         paddingTop: "15px",
         paddingBottom: "15px",
         width: "100%",
-      }}
-    >
-      <Stack direction="row" spacing={6}>
+      }} 
+      direction="row" spacing={6}>
       <Typography style={{ paddingLeft: "25px", fontWeight: "bold" }}>
             Orders
           </Typography>
@@ -45,6 +42,5 @@ export default function OrdersHeader() {
           <Button href="#text-buttons" startIcon={<CommentIcon />}>Custom Standard Views</Button>
         </Stack>
       </Stack>
-    </div>
   );
 }

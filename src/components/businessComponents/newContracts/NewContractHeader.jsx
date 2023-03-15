@@ -46,7 +46,7 @@ export default function WD_NewContractHeader() {
       <Grid>
         <div className="p-24 flex-row-center justify-space-between">
           <div className="flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize" >
               CONTRACT TYPE
             </Typography>
             <ButtonGroup size="small" aria-label="small button group">
@@ -56,7 +56,7 @@ export default function WD_NewContractHeader() {
             </ButtonGroup>
           </div>
           <div className="pl-16 flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize">
               CUSTOMER <span style={{ color: "red" }}>*</span>
             </Typography>
             <select className="w130-h30">
@@ -66,7 +66,7 @@ export default function WD_NewContractHeader() {
             </select>
           </div>
           <div className="pl-16 flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize">
               BUYER <span style={{ color: "red" }}>*</span>
             </Typography>
             <select className="w130-h30">
@@ -76,19 +76,19 @@ export default function WD_NewContractHeader() {
             </select>
           </div>
           <div className="pl-16 flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize">
               BEGIN OBLIGATING ON <span style={{ color: "red" }}>*</span>
             </Typography>
             <input className="w130-h30" type="date"></input>
           </div>
           <div className="pl-16 flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize">
               END OBLIGATING ON <span style={{ color: "red" }}>*</span>
             </Typography>
             <input className="w130-h30" type="date"></input>
           </div>
           <div className="pl-16 flexcolumn">
-            <Typography className="fontsize" color="primary">
+            <Typography className="fontsize" >
               CONTRACT NAME <span style={{ color: "red" }}>*</span>
             </Typography>
             <input

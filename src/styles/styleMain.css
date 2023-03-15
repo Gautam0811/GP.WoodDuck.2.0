@@ -167,7 +167,7 @@
   flex-direction: column;
   width: 150px;
   height: "100vh";
-  background-color: #434c56;
+  /* background-color: #434c56; */
   color: #ffffff;
   font-size: 10px;
 }

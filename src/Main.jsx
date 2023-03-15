@@ -9,6 +9,7 @@ import HeaderMiddleSection from "./components/header/Header";
 import LeftSideBar from "./components/leftSideBar/LeftSideBar";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import ButtonsDemo from "../src/components/ButtonsDemo";
 import ProductGroupsPage from "./components/businessComponents/productGroups/ProductGroupsPage";
 import SalesGrid from "./components/businessComponents/salesGrid/SalesGrid";
 import Settings from "./components/settings/Settings";
@@ -47,6 +48,7 @@ export default function WD_App() {
                 <Route path="/settings" element={<Settings/>} > </Route>   
                 <Route path="/orders" element={<Orders/>} > </Route> 
                 <Route path="/contracts" element={<NewContract/>} > </Route>
+                <Route path="/invoices" element={<ButtonsDemo/>} > </Route>
                 <Route path="/Adminpermissions" element={<Permissions data={PermissionsData}/>} > </Route>
               </Routes>
               <Footer />
