@@ -12,7 +12,7 @@ import AdminSettings from "./AdminSettings";
 export default function WD_Settings() {
   const [data,setData] = React.useState({});
   React.useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("status")));
+    setData(JSON.parse(localStorage.getItem("status")!));
   }, []);
   return (
     <Grid sx={{ width: "100%" }}>
