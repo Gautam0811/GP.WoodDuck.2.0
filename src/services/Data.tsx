@@ -6,103 +6,103 @@
 //backend architecture is confirmed.
 
 //WD_Dashboard data starts
- function WD_DashboardMarketPOVcreateData(week, weekvalue, trend) {
+ function DashboardMarketCreateData(week, weekvalue, trend) {
   return { week, weekvalue, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
 export const DashboardMarketrows = [
-    WD_DashboardMarketPOVcreateData("Week 1", 60, "+"),
-    WD_DashboardMarketPOVcreateData("Week 2", 60, "-"),
-    WD_DashboardMarketPOVcreateData("Week 3", 60, "-"),
+  DashboardMarketCreateData("Week 1", 60, "+"),
+  DashboardMarketCreateData("Week 2", 60, "-"),
+  DashboardMarketCreateData("Week 3", 60, "-"),
 ];
 
- function WD_DashboardMarketSegmentcreateData(header, value, growth,trend) {
+ function DashboardMarketSegmentcreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
 export const DashboardMarketSegmentrows = [
-    WD_DashboardMarketSegmentcreateData("Industrial","0%","0%","0"),
-    WD_DashboardMarketSegmentcreateData("National","0%","0%","0"),
-    WD_DashboardMarketSegmentcreateData("Retail","0%","0%","0"),
-    WD_DashboardMarketSegmentcreateData("Treater","0%","-1%","-"),
-    WD_DashboardMarketSegmentcreateData("Truss","0%","0%","0"),
-    WD_DashboardMarketSegmentcreateData("Wholesale","0%","0%","0"),
-    WD_DashboardMarketSegmentcreateData("Other","0%","100%","+"),
+    DashboardMarketSegmentcreateData("Industrial","0%","0%","0"),
+    DashboardMarketSegmentcreateData("National","0%","0%","0"),
+    DashboardMarketSegmentcreateData("Retail","0%","0%","0"),
+    DashboardMarketSegmentcreateData("Treater","0%","-1%","-"),
+    DashboardMarketSegmentcreateData("Truss","0%","0%","0"),
+    DashboardMarketSegmentcreateData("Wholesale","0%","0%","0"),
+    DashboardMarketSegmentcreateData("Other","0%","100%","+"),
 ];
 
- function WD_DasboardMillForecastscreateData(name, inventory, nextweek) {
+ function DasboardMillForecastscreateData(name, inventory, nextweek) {
     return { name, inventory, nextweek };
 }
   //The actual implementation will have call to a API.
 export const DasboardMillForecastsrows = [
-    WD_DasboardMillForecastscreateData('ALBANY', 45,'100% sold'),
-    WD_DasboardMillForecastscreateData('CAMDEN', 40,'118% sold'),
-    WD_DasboardMillForecastscreateData('DIBOLL', 53,'202% sold'),
-    WD_DasboardMillForecastscreateData('DUDLEY', 106,'129% sold'),
-    WD_DasboardMillForecastscreateData('GP SL WARRENTON ll', 112,'95% sold'),
-    WD_DasboardMillForecastscreateData('GURDON', 72,'119% sold'),
-    WD_DasboardMillForecastscreateData('PINELAND', 79,'119% sold'),
-    WD_DasboardMillForecastscreateData('PROSPERITY', 76,'87% sold'),
-    WD_DasboardMillForecastscreateData('ROCKY CREEK', 50,'117% sold'),
-    WD_DasboardMillForecastscreateData('ROME', 161,'43% sold'),
-    WD_DasboardMillForecastscreateData('TALLADEGA', 77,'143% sold'),
-    WD_DasboardMillForecastscreateData('TAYLORSVILLE', 29,'171% sold'),
+  DasboardMillForecastscreateData('ALBANY', 45,'100% sold'),
+  DasboardMillForecastscreateData('CAMDEN', 40,'118% sold'),
+  DasboardMillForecastscreateData('DIBOLL', 53,'202% sold'),
+  DasboardMillForecastscreateData('DUDLEY', 106,'129% sold'),
+  DasboardMillForecastscreateData('GP SL WARRENTON ll', 112,'95% sold'),
+  DasboardMillForecastscreateData('GURDON', 72,'119% sold'),
+  DasboardMillForecastscreateData('PINELAND', 79,'119% sold'),
+  DasboardMillForecastscreateData('PROSPERITY', 76,'87% sold'),
+  DasboardMillForecastscreateData('ROCKY CREEK', 50,'117% sold'),
+  DasboardMillForecastscreateData('ROME', 161,'43% sold'),
+  DasboardMillForecastscreateData('TALLADEGA', 77,'143% sold'),
+  DasboardMillForecastscreateData('TAYLORSVILLE', 29,'171% sold'),
 ];
   
- function WD_DasboardMillscreateData(header, value, growth,trend) {
+ function DasboardMillscreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
 export const DasboardMillsrows = [
-    WD_DasboardMillscreateData("On-hand","49643k","0%","0"),
-    WD_DasboardMillscreateData("Order File","294404k","0.1%","+"),
-    WD_DasboardMillscreateData("Order Ready","13%","0.5%","+"),
-    WD_DasboardMillscreateData("Shipments","0k","0%","0"),
-    WD_DasboardMillscreateData("Production","0.00007911318k","0%","0"),
+  DasboardMillscreateData("On-hand","49643k","0%","0"),
+  DasboardMillscreateData("Order File","294404k","0.1%","+"),
+  DasboardMillscreateData("Order Ready","13%","0.5%","+"),
+  DasboardMillscreateData("Shipments","0k","0%","0"),
+  DasboardMillscreateData("Production","0.00007911318k","0%","0"),
 ];
 
-function WD_DasboardHitRatecreateData(name, one,two,three,four,total ) {
+function DasboardHitRatecreateData(name, one,two,three,four,total ) {
     return { name, one,two,three,four,total };
 }
   //The actual implementation will have call to a API.
 export const DasboardHitRaterows = [
-    WD_DasboardHitRatecreateData('2x4', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('2x6', '9%','' ,'','','9%' ), 
-    WD_DasboardHitRatecreateData('2x8', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('2x10', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('2x12', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('4x4', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('4x6', '','' ,'','','' ),
-    WD_DasboardHitRatecreateData('6x6', '','' ,'N/A','','' ),
+  DasboardHitRatecreateData('2x4', '','' ,'','','' ),
+  DasboardHitRatecreateData('2x6', '9%','' ,'','','9%' ), 
+  DasboardHitRatecreateData('2x8', '','' ,'','','' ),
+  DasboardHitRatecreateData('2x10', '','' ,'','','' ),
+  DasboardHitRatecreateData('2x12', '','' ,'','','' ),
+  DasboardHitRatecreateData('4x4', '','' ,'','','' ),
+  DasboardHitRatecreateData('4x6', '','' ,'','','' ),
+  DasboardHitRatecreateData('6x6', '','' ,'N/A','','' ),
 ];
 
-function WD_DasboardPercentForecastSoldcreateData(name, one,two,three,four,total ) {
+function DasboardPercentForecastSoldcreateData(name, one,two,three,four,total ) {
     return { name, one,two,three,four,total };
 }
   //The actual implementation will have call to a API.
 export const DasboardPercentForecastSoldrows = [
-    WD_DasboardPercentForecastSoldcreateData('2x4', '201%','283%','137%','104%','190%'),
-    WD_DasboardPercentForecastSoldcreateData('2x6', '48%','101%','78%','76%','80%'),
-    WD_DasboardPercentForecastSoldcreateData('2x8', '75%','68%','64%','47%','67%'),
-    WD_DasboardPercentForecastSoldcreateData('2x10', '14%','36%','13%','30%','31%'),
-    WD_DasboardPercentForecastSoldcreateData('2x12', 'No Production','110%','14%','127%','102%'),
-    WD_DasboardPercentForecastSoldcreateData('4x4', '24%','193%','39%','29%','164%'),
-    WD_DasboardPercentForecastSoldcreateData('4x6', '105%','229%','No Production','59%','165%'),
-    WD_DasboardPercentForecastSoldcreateData('6x6', '145%','127%','N/A','17%','88%')
+    DasboardPercentForecastSoldcreateData('2x4', '201%','283%','137%','104%','190%'),
+    DasboardPercentForecastSoldcreateData('2x6', '48%','101%','78%','76%','80%'),
+    DasboardPercentForecastSoldcreateData('2x8', '75%','68%','64%','47%','67%'),
+    DasboardPercentForecastSoldcreateData('2x10', '14%','36%','13%','30%','31%'),
+    DasboardPercentForecastSoldcreateData('2x12', 'No Production','110%','14%','127%','102%'),
+    DasboardPercentForecastSoldcreateData('4x4', '24%','193%','39%','29%','164%'),
+    DasboardPercentForecastSoldcreateData('4x6', '105%','229%','No Production','59%','165%'),
+    DasboardPercentForecastSoldcreateData('6x6', '145%','127%','N/A','17%','88%')
 ];
   
-function WD_DasboardSalescreateData(header, value, growth,trend) {
+function DasboardSalescreateData(header, value, growth,trend) {
     return { header, value, growth, trend, key: Math.random() };
 }
 export const DashboardSalesrows = [
-    WD_DasboardSalescreateData("Quotes",895,"0.8%","+"),
-    WD_DasboardSalescreateData("Sales Ave","$376","-0.1%","-"),
-    WD_DasboardSalescreateData("Sales Vol",396,"4.1%","+"),
-    WD_DasboardSalescreateData("Inbound",19,"7.3%","+"),
-    WD_DasboardSalescreateData("Outbound",0,"0%","0"),
-    WD_DasboardSalescreateData("Above",69,"0.7%","+"),
-    WD_DasboardSalescreateData("At",3,"100%","+"),
-    WD_DasboardSalescreateData("Below",1291,"1.9%","+"),
+    DasboardSalescreateData("Quotes",895,"0.8%","+"),
+    DasboardSalescreateData("Sales Ave","$376","-0.1%","-"),
+    DasboardSalescreateData("Sales Vol",396,"4.1%","+"),
+    DasboardSalescreateData("Inbound",19,"7.3%","+"),
+    DasboardSalescreateData("Outbound",0,"0%","0"),
+    DasboardSalescreateData("Above",69,"0.7%","+"),
+    DasboardSalescreateData("At",3,"100%","+"),
+    DasboardSalescreateData("Below",1291,"1.9%","+"),
 ];
 
 //Dashboard data ends
@@ -168,7 +168,7 @@ export const OrdersGridcolumns = [
     },
   ];
   //The actual implementation will have call to a API.
-export function WD_OrdersGridcreateData(
+export function OrdersGridcreateData(
     id,
     mill,
     salesperson,
@@ -197,7 +197,7 @@ export function WD_OrdersGridcreateData(
   }
   //The actual implementation will have call to a API.
 export const OrdersGridrows = [
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135804,
       "Talladega",
       "MPU",
@@ -210,7 +210,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135805,
       "Piedmont-R",
       "NOA",
@@ -223,7 +223,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135806,
       "Piedmont-R",
       "NOA",
@@ -236,7 +236,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135807,
       "Piedmont-R",
       "NOA",
@@ -249,7 +249,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135808,
       "Talladega",
       "MPU",
@@ -262,7 +262,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135809,
       "Piedmont-R",
       "MPU",
@@ -275,7 +275,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135810,
       "Talladega",
       "NOA",
@@ -288,7 +288,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135811,
       "Piedmont-R",
       "MPU",
@@ -301,7 +301,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135812,
       "Talladega",
       "MPU",
@@ -314,7 +314,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135813,
       "Piedmont-R",
       "NOA",
@@ -327,7 +327,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135814,
       "Talladega",
       "MPU",
@@ -340,7 +340,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135815,
       "Piedmont-R",
       "MPU",
@@ -353,7 +353,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135816,
       "Talladega",
       "NOA",
@@ -366,7 +366,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135817,
       "Piedmont-R",
       "MPU",
@@ -379,7 +379,7 @@ export const OrdersGridrows = [
       "02/15/2023",
       "02/14/2023"
     ),
-    WD_OrdersGridcreateData(
+    OrdersGridcreateData(
       465135818,
       "Talladega",
       "NOA",
@@ -397,10 +397,10 @@ export const OrdersGridrows = [
 //Orders Grid Data ends
 
 //Permission sets and controls data
-function WD_PermissionsSetData(Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess) {
+function PermissionsSetData(Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess) {
   return { Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess, key: Math.random() };
 }
 export const PermissionsData = [
-  WD_PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
-  WD_PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
+  PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
+  PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
 ];

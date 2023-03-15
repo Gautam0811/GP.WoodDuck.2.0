@@ -22,7 +22,7 @@ export default function Login({ setToken }) {
   // const dispatch=useDispatch();
   //const {loginData}=bindActionCreators(actionCreators,dispatch);
   //const amount= useSelector(state => state.amount)
-   const context = useContext(Context);
+   const context:any = useContext(Context);
    //const {getClaims}=context;
   const envValue =process.env.REACT_APP_ENV;
 
