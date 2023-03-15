@@ -1,6 +1,6 @@
 // WD_SalesGrid
 // Component Utility : The Component is created to render the Sales grid page on woodDuck
-// Author Gautam Malhotra on 1-3-2023
+// Author Mitravardhan Singh Raghav on 1-3-2023
 // -------------------------
 
 import * as React from "react";

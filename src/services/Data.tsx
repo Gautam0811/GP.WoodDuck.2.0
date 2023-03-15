@@ -10,7 +10,7 @@
   return { week, weekvalue, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
-export const DashboardMarketPOVrows = [
+export const DashboardMarketrows = [
     WD_DashboardMarketPOVcreateData("Week 1", 60, "+"),
     WD_DashboardMarketPOVcreateData("Week 2", 60, "-"),
     WD_DashboardMarketPOVcreateData("Week 3", 60, "-"),

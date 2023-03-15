@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import * as themes from '../src/theme/schema.json';
+import * as themes from './theme/schema.json';
 import { setToLS } from './utils/Storage';
 import {axiosRequest,axiosResponse} from './services/Interceptors';
 import { store } from './state/store/Store';
@@ -11,9 +11,12 @@ import { Provider } from 'react-redux';
 axiosRequest();
 axiosResponse();
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root")
+
+// @ts-ignore
+const root = ReactDOM.createRoot(rootElement)
 //console.log(themes.default);
-  setToLS('all-themes', themes.default);
+  // setToLS('all-themes', themes.default);
 root.render(
   
   <React.StrictMode>

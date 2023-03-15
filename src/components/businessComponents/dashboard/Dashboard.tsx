@@ -3,11 +3,11 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import Grid from "@mui/material/Grid";
-import DashboardMarketPOV from "./DashboardMarketPOV";
+import DashboardMarket from "./DashboardMarket";
 import DashboardObjects from "../../common/DashboardObjects";
 import DashboardGridObjects from "../../common/DashboardGridObjects";
 import DasboardMillForecasts from "./DashboardMillForecast";
-import {DashboardMarketPOVrows} from "../../../services/Data";
+import {DashboardMarketrows} from "../../../services/Data";
 import {DashboardMarketSegmentrows} from "../../../services/Data";
 import {DashboardSalesrows} from "../../../services/Data";
 import {DasboardMillsrows} from "../../../services/Data";
@@ -19,7 +19,7 @@ export default function Dashboard() {
 return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row',backgroundColor: "#e3f2fd"}}>
 
 <Grid sx={{width:'70%',display:'flex',flexDirection:'column',fontSize:"13px"}}>
-    <DashboardMarketPOV title="Market POV" data={DashboardMarketPOVrows} spacing={9}/>
+    <DashboardMarket title="Market POV" data={DashboardMarketrows} spacing={9}/>
     <DashboardObjects title="Sales" data={DashboardSalesrows} spacing={3.5}/>
     <DashboardObjects title="Mills" data={DasboardMillsrows} spacing={4}/>
     <DashboardObjects title="Market Segments" data={DashboardMarketSegmentrows} spacing={6}/>

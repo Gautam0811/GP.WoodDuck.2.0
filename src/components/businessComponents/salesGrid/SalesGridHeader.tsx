@@ -1,6 +1,6 @@
 // WD_SalesGridHeader
 // Component Utility : The Component is created to render the header of Sales grid on the sales grid page
-// Author Gautam Malhotra on 1-3-2023
+// Author Mitravardhan Singh Raghav on 1-3-2023
 // -------------------------
 import {
   FormGroup,

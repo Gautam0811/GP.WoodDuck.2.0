@@ -13,7 +13,7 @@ import SouthIcon from "@mui/icons-material/South";
 import { green, red } from "@mui/material/colors";
 import SignalCellular4BarIcon from "@mui/icons-material/SignalCellular4Bar";
 
-export default function DashboardMarketPOV(props) {
+export default function DashboardMarket(props) {
   return (
     <Box
       sx={{

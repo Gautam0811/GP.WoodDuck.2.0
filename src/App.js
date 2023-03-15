@@ -1,16 +1,16 @@
 import "./App.css";
+import * as React from 'react';
 import MainApp from "./Main";
 import Context from "./context/State";
 
 function App() {
   return (
-    <>
-    <Context>
-    <MainApp/> 
-    </Context>
-    </>
+    <div>
+      <Context>
+        <MainApp />
+      </Context>
+    </div>
   );
 }
 
 export default App;
-
