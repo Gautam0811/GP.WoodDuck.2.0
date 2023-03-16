@@ -108,6 +108,5 @@
   "exclude": [
     "./plugins/**/*",
     "./typings/**/*",
-    "./built/**/*" 
   ]
 }

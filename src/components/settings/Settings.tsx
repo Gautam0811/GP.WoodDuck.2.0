@@ -10,7 +10,7 @@ import SiteSettings from "./SiteSettings";
 import AdminSettings from "./AdminSettings";
 
 export default function WD_Settings() {
-  const [data,setData] = React.useState({});
+  const [data,setData]:any = React.useState({});
   React.useEffect(() => {
     setData(JSON.parse(localStorage.getItem("status")!));
   }, []);

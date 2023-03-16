@@ -6,7 +6,7 @@
 //This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the 
 //backend architecture is confirmed.
 
-function CpuCreateData(value) {
+function CpuCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -19,7 +19,7 @@ function CpuCreateData(value) {
 
 
 
-  function TemplateCreateData(value) {
+  function TemplateCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -31,7 +31,7 @@ function CpuCreateData(value) {
 
 
 
-  function BuyerCreateData(value) {
+  function BuyerCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -43,7 +43,7 @@ function CpuCreateData(value) {
 
 
 
-  function CustomercreateData(value) {
+  function CustomercreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -54,7 +54,7 @@ function CpuCreateData(value) {
   ];
 
 
-  function StateCreateData(value) {
+  function StateCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -66,7 +66,7 @@ function CpuCreateData(value) {
 
 
 
-  function ShipCreateData(value) {
+  function ShipCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -79,7 +79,7 @@ function CpuCreateData(value) {
 
 
 
-  function ShipToCreateData(value) {
+  function ShipToCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -92,7 +92,7 @@ function CpuCreateData(value) {
 
 
 
-  function BuyersGroupCreateData(value) {
+  function BuyersGroupCreateData(value: string) {
     return { value,key: Math.random() };
   }
   //The actual implementation will have call to a API.
@@ -104,7 +104,7 @@ function CpuCreateData(value) {
 
 
 
-  function MbfCreateData(value) {
+  function MbfCreateData(value: number) {
     return { value,key: Math.random() };
   }
   
@@ -113,7 +113,7 @@ function CpuCreateData(value) {
   ];
 
 
-  function MillCreateData(value) {
+  function MillCreateData(value: string) {
     return { value,key: Math.random() };
   }
   

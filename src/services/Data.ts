@@ -6,7 +6,7 @@
 //backend architecture is confirmed.
 
 //WD_Dashboard data starts
- function DashboardMarketCreateData(week, weekvalue, trend) {
+ function DashboardMarketCreateData(week: string, weekvalue: number, trend: string) {
   return { week, weekvalue, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
@@ -16,7 +16,7 @@ export const DashboardMarketrows = [
   DashboardMarketCreateData("Week 3", 60, "-"),
 ];
 
- function DashboardMarketSegmentcreateData(header, value, growth,trend) {
+ function DashboardMarketSegmentcreateData(header: string, value: string, growth: string,trend: string) {
     return { header, value, growth, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
@@ -30,7 +30,7 @@ export const DashboardMarketSegmentrows = [
     DashboardMarketSegmentcreateData("Other","0%","100%","+"),
 ];
 
- function DasboardMillForecastscreateData(name, inventory, nextweek) {
+ function DasboardMillForecastscreateData(name: string, inventory: number, nextweek: string) {
     return { name, inventory, nextweek };
 }
   //The actual implementation will have call to a API.
@@ -49,7 +49,7 @@ export const DasboardMillForecastsrows = [
   DasboardMillForecastscreateData('TAYLORSVILLE', 29,'171% sold'),
 ];
   
- function DasboardMillscreateData(header, value, growth,trend) {
+ function DasboardMillscreateData(header: string, value: string, growth: string,trend: string) {
     return { header, value, growth, trend, key: Math.random() };
 }
 //The actual implementation will have call to a API.
@@ -61,7 +61,7 @@ export const DasboardMillsrows = [
   DasboardMillscreateData("Production","0.00007911318k","0%","0"),
 ];
 
-function DasboardHitRatecreateData(name, one,two,three,four,total ) {
+function DasboardHitRatecreateData(name: string, one: string,two: string,three: string,four: string,total: string ) {
     return { name, one,two,three,four,total };
 }
   //The actual implementation will have call to a API.
@@ -76,7 +76,7 @@ export const DasboardHitRaterows = [
   DasboardHitRatecreateData('6x6', '','' ,'N/A','','' ),
 ];
 
-function DasboardPercentForecastSoldcreateData(name, one,two,three,four,total ) {
+function DasboardPercentForecastSoldcreateData(name: string, one: string,two: string,three: string,four: string,total: string ) {
     return { name, one,two,three,four,total };
 }
   //The actual implementation will have call to a API.
@@ -91,7 +91,7 @@ export const DasboardPercentForecastSoldrows = [
     DasboardPercentForecastSoldcreateData('6x6', '145%','127%','N/A','17%','88%')
 ];
   
-function DasboardSalescreateData(header, value, growth,trend) {
+function DasboardSalescreateData(header: string, value: string | number, growth: string,trend: string) {
     return { header, value, growth, trend, key: Math.random() };
 }
 export const DashboardSalesrows = [
@@ -169,17 +169,17 @@ export const OrdersGridcolumns = [
   ];
   //The actual implementation will have call to a API.
 export function OrdersGridcreateData(
-    id,
-    mill,
-    salesperson,
-    customer,
-    buyer,
-    customerPo,
-    mode,
-    ordered,
-    promised,
-    scheduled,
-    readied
+    id: number,
+    mill: string,
+    salesperson: string,
+    customer: string,
+    buyer: string,
+    customerPo: string,
+    mode: string,
+    ordered: string,
+    promised: string,
+    scheduled: string,
+    readied: string
   ) {
     return {
       id,
@@ -397,7 +397,7 @@ export const OrdersGridrows = [
 //Orders Grid Data ends
 
 //Permission sets and controls data
-function PermissionsSetData(Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess) {
+function PermissionsSetData(Role: string, EnterEditQuote: boolean, EnterEditOrder: boolean, SetSalesPlan: boolean, ManageSG: boolean, ReadOnlyQuote: boolean, ReadOnlyOrder: boolean, ManageTweaker: boolean, ManageECommerce: boolean, SetControlsPermissions: boolean, AssignDivisionAccess: boolean) {
   return { Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess, key: Math.random() };
 }
 export const PermissionsData = [

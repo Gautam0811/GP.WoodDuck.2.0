@@ -23,12 +23,10 @@ import "../../styles/styleMain.css";
 import getCustomerData from "../../services/Api";
 
 export default function Header() {
-  const [post, setPost] = React.useState({});
-  const [name, setName] = React.useState({});
+  const [post, setPost]:any = React.useState({});
+  const [name, setName]:any = React.useState({});
 
-  React.useEffect(() => {
-    setName(JSON.parse(localStorage.getItem(('status') || '{}')));
-  }, []);
+  React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
   React.useEffect(() => {
     getCustomerData(name.id).then((customerData) => {

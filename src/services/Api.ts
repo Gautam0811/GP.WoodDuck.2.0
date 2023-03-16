@@ -4,7 +4,7 @@
 // -------------------------
 import axios from "axios";
 
-export default function getCustomerData(id) {
+export default function getCustomerData(id: string) {
   const baseURL = "https://localhost:44351/employee/";
 
   return axios.get(baseURL + id).then((response) => {
@@ -13,7 +13,7 @@ export default function getCustomerData(id) {
   });
 }
 
-export function loginUser(credentials) {
+export function loginUser(credentials: { userData: any; }) {
   const data ={"token":"test123"};
   return data;
 }
