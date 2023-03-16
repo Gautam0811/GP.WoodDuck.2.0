@@ -8,7 +8,7 @@ import { Divider, Grid } from "@mui/material";
 import BasicSelect from "../DropdownBox";
 import BasicSelectP from "../ProductsDialog";
 import BasicSelectL from "../LoadsDialog";
-import BasicSelectC from '../CPU';
+import BasicSelectC from '../Cpu';
 import LBox from "../LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FBox from "../Footage";
