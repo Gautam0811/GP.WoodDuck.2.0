@@ -6,7 +6,7 @@ import React, { useEffect,useContext,useState} from "react";
 import { loginUser } from "../../services/Api";
 import PropTypes from "prop-types";
 import "../../styles/styleMain.css";
-import Context from "../../context/Context";
+import { ClaimContext } from "../../context/Claims";
 //import { useSelector } from 'react-redux'
 //import { useDispatch } from 'react-redux'
 // { bindActionCreators } from 'redux'
@@ -22,7 +22,7 @@ export default function Login({ setToken }) {
   // const dispatch=useDispatch();
   //const {loginData}=bindActionCreators(actionCreators,dispatch);
   //const amount= useSelector(state => state.amount)
-   const context:any = useContext(Context);
+   const context:any = useContext(ClaimContext);
    //const {getClaims}=context;
   const envValue =process.env.REACT_APP_ENV;
 
