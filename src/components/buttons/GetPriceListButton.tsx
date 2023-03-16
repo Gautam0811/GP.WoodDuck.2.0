@@ -19,7 +19,6 @@ export default function GetPriceListButton() {
       <Box>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           endIcon={<ArrowForwardOutlinedIcon />}
           // loading={loading}

@@ -9,7 +9,7 @@ import {OrdersGridcolumns} from "../../../services/Data";
 
 export default function OrdersGrid() {
   const [pageSize, setPageSize] = React.useState(10);
-
+  
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <DataGrid

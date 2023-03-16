@@ -20,7 +20,6 @@ export default function GetOptionsButton() {
       <Box>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           endIcon={<ArrowForwardOutlinedIcon />}
           // loading={loading}

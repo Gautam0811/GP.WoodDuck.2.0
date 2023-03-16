@@ -49,7 +49,7 @@ function LeftSidebar() {
   const handleToggler = () => {
     if (isExpanded) {
       setIsExpanded(false);
-      localStorage.setItem("sidebar-collapsed", true);
+      localStorage.setItem("sidebar-collapsed", true.toString());
       return;
     }
     setIsExpanded(true);
@@ -79,7 +79,7 @@ function LeftSidebar() {
           </div>
         </Link>
         <Collapse in={openOrders} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text">
             <Link to="/productgroups" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">Open</span>
@@ -125,7 +125,7 @@ function LeftSidebar() {
           {openInvoices ? " " : " "}
         </div>
         <Collapse in={openInvoices} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text">
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">All</span>
@@ -150,7 +150,7 @@ function LeftSidebar() {
           </div>
         </Link>
         <Collapse in={openContracts} timeout="auto">
-          <div className="sidebar-text" component="div" disablePadding>
+          <div className="sidebar-text">
             <Link to="/salesgrid" className="link-text">
               <ListItemButton className="padding-left">
                 <span className="fontsize">Active</span>

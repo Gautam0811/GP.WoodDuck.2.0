@@ -13,7 +13,6 @@ export default function SaveNoQuotesButton() {
       <Box sx={{ "& > button": { m: 1 } }}>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"

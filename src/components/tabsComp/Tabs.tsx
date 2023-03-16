@@ -125,9 +125,9 @@ export default function CustomizedTabs() {
     
       <Box sx={{ bgcolor: '#fff',mb:-2 }}>
         <AntTabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <AntTab icon={<PhoneCallbackRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="INBOUND" {...a11yProps(0)} />
-          <AntTab icon={<EmailIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="OUTBOUND"  {...a11yProps(1)} />
-          <AntTab icon={<GroupsRoundedIcon style={{ fontSize: 14 }}/>} iconPosition="start" label="PRICE LIST" {...a11yProps(2)} />
+          <AntTab >INBOUND<PhoneCallbackRoundedIcon style={{ fontSize: 14 }}/></AntTab>
+          <AntTab >OUTBOUND<EmailIcon style={{ fontSize: 14 }}/></AntTab>
+          <AntTab >PRICE LIST<GroupsRoundedIcon style={{ fontSize: 14 }}/></AntTab>
         </AntTabs>
       </Box>
       <TabPanel value={value} index={0}>

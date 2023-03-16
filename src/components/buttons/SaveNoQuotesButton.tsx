@@ -19,7 +19,6 @@ export default function SaveNoQuotesButton() {
       <Box>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"

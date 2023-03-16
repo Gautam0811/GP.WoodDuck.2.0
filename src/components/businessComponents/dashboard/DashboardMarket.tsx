@@ -36,7 +36,7 @@ export default function DashboardMarket(props) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
           {props.data.map((row) => (
-            <Typography variant="h6" color={"black"} sx={{ ml: 4 }}>
+            <Typography variant="subtitle2" color={"black"} sx={{ ml: 4 }}>
               {row.week}
               <Typography
                 variant="h5"
@@ -63,7 +63,7 @@ export default function DashboardMarket(props) {
             </Typography>
           ))}
           <Divider orientation="vertical" flexItem />
-          <Typography variant="h6" color={"BLACK"}>
+          <Typography variant="subtitle2">
             Pricing Power
             <Typography
               variant="caption"
@@ -71,7 +71,7 @@ export default function DashboardMarket(props) {
               sx={{ display: "flex", justifyContent: "start", pt: 2 }}
             >
               <SignalCellular4BarIcon
-                size="large"
+                fontSize="large"
                 sx={{ fontSize: "38px", color: green[400] }}
               />
               <Typography sx={{ pl: 4, fontSize: "24px" }}>4.4</Typography>

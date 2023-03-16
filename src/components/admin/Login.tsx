@@ -12,14 +12,11 @@ import Context from "../../context/Context";
 // { bindActionCreators } from 'redux'
 //import { actionCreators } from "../../state/State";
 
-type AlertMessages = {
-  name: string
-  message: string
-}
+
 
 export default function Login({ setToken }) {
   // React States
-  const [errorMessages, setErrorMessages] = useState<AlertMessages | null >(null);
+  const [errorMessages, setErrorMessages]:any = useState({});
   //const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoggedin, setIsLoggedin] = useState(false);
   // const dispatch=useDispatch();
@@ -36,14 +33,14 @@ export default function Login({ setToken }) {
     const loginInfo= context.claims;
   //This is hard coded data for now it will be replaces by API call once the backend architecture is confirmed
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
     //Prevent page reload
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
 
     // Find user login info
-    const userData = loginInfo.find((user) => user.username === uname.value); //put it in LocalStore
+    const userData = loginInfo.find((user: { username: any; }) => user.username === uname.value); //put it in LocalStore
 
     // Compare user info
     if (userData) {
@@ -66,10 +63,9 @@ export default function Login({ setToken }) {
   };
 
   // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-  
-    name === errorMessages?.name && (
-      <div className="error">{errorMessages?.message}</div>
+  const renderErrorMessage = (name: string) =>
+    name === errorMessages.name && (
+      <div className="error">{errorMessages.message}</div>
     );
 
 

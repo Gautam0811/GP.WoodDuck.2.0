@@ -23,12 +23,10 @@ import "../../styles/styleMain.css";
 import getCustomerData from "../../services/Api";
 
 export default function Header() {
-  const [post, setPost] = React.useState({});
-  const [name, setName] = React.useState({});
+  const [post, setPost]:any = React.useState({});
+  const [name, setName]:any = React.useState({});
 
-  React.useEffect(() => {
-    setName(JSON.parse(localStorage.getItem(('status') || '{}')));
-  }, []);
+  React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
   React.useEffect(() => {
     getCustomerData(name.id).then((customerData) => {
@@ -67,7 +65,7 @@ export default function Header() {
             </Select>
           </FormControl>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"grey"}
             sx={{ flexGrow: 1, position: "relative", left: 300 }}
@@ -78,7 +76,7 @@ export default function Header() {
             </Typography>
           </Typography>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"grey"}
             sx={{ flexGrow: 1, position: "relative", left: 180 }}
@@ -89,7 +87,7 @@ export default function Header() {
             </Typography>
           </Typography>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"grey"}
             sx={{ flexGrow: 1, position: "relative", left: 60 }}
@@ -100,7 +98,7 @@ export default function Header() {
             </Typography>
           </Typography>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"red"}
             sx={{ flexGrow: 1, position: "relative", left: -60 }}
@@ -111,7 +109,7 @@ export default function Header() {
             </Typography>
           </Typography>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"red"}
             sx={{ flexGrow: 1, position: "relative", left: -180 }}
@@ -122,7 +120,7 @@ export default function Header() {
             </Typography>
           </Typography>
           <Typography
-            variant="h10"
+            variant="caption"
             component="div"
             color={"red"}
             sx={{ flexGrow: 1, position: "relative", left: -300 }}

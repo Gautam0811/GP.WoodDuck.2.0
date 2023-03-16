@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import { Divider, Grid } from "@mui/material";
 import BasicSelect from "../DropdownBox";
 import BasicSelectP from "../ProductsDialog";
-import BasicSelectC from '../Cpu';
+import BasicSelectC from '../CPU';
 import LBox from "../LoadComponent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FBox from "../Footage";
@@ -20,9 +20,8 @@ import PlaceOnHoldButton from "../../buttons/PlaceOnHoldButton";
 import SaveNoQuotesButton from "../../buttons/SaveNoQuotesButton";
 import BasicTextFields from "../Mill";
 import SwitchListSecondary from "../MillList";
-import WD_GetPriceListButton from "../../buttons/GetPriceListButton";
-import {WD_CPUrows} from "../../../services/Tab";
-import {WD_Templaterows,WD_Buyerrows,WD_Customerrows,WD_Staterows,WD_Shiptorows,WD_Shiptosrows,WD_Buyersgrouprows,WD_MBFrows} from "../../../services/Tab";
+import GetPriceListButton from "../../buttons/GetPriceListButton";
+import {CpuRows,TemplateRows,BuyersGroupRows,BuyerRows,CustomerRows,StateRows,ShipToRows,MbfRows} from "../../../services/Tab";
 
 
 export default function MidBox() {
@@ -34,11 +33,11 @@ export default function MidBox() {
         <div className = 'topbuttons'>
       <div style={{paddingRight:'5px'}}><OfferButton/></div>
       <div style={{paddingRight:'15px'}}><NextButton/></div>
-      <div><WD_GetPriceListButton/></div>
+      <div><GetPriceListButton/></div>
      </div>
 
       <Grid sx={{ pb:2.5,mt:2,mr:1 }}>
-        <BasicSelect message={"Template"} data={WD_Templaterows} />
+        <BasicSelect message={"Template"} data={TemplateRows} />
       </Grid>
       <Box
         component='span'
@@ -48,23 +47,23 @@ export default function MidBox() {
           <LBox />
         </Grid>
         <Grid sx={{ pt: 5, mt: 26, ml: 0 ,pr:1}}>
-          <BasicSelect message={"BUYER GROUP"} data={WD_Buyersgrouprows} />
+          <BasicSelect message={"BUYER GROUP"} data={BuyersGroupRows} />
         </Grid>
         <Grid sx={{ pt: 5, mt: 2, ml: -2,pl:2.4 }}>
-          <BasicSelect message={"BUYER"} data={WD_Buyerrows} />
+          <BasicSelect message={"BUYER"} data={BuyerRows} />
         </Grid>
         <Divider sx={{ mt: -17 }} />
 
         <Grid sx={{ml:3,fontSize:12,fontWeight:"Bold",mt:2}}><p>BUYERS</p></Grid>
         <Divider sx={{ mt: 2}} />
 
-        <Grid sx={{mt:2,ml:3}}><BasicSelectC space={7} message={"MODES"} data={WD_CPUrows}/></Grid>
+        <Grid sx={{mt:2,ml:3}}><BasicSelectC space={7} message={"MODES"} data={CpuRows}/></Grid>
         <Grid sx={{ pt: 1, mt: 25, ml: -1 }}>
         
-          <BasicSelect message={"SHIP TOS"} data={WD_Shiptosrows}/>
+          <BasicSelect message={"SHIP TOS"} data={ShipToRows}/>
         </Grid>
         <Grid sx={{ pt: 5, mt: 2, ml: 0 }}>
-          <BasicSelect message={"SHIP TO"} data={WD_Shiptorows}/>
+          <BasicSelect message={"SHIP TO"} data={ShipToRows}/>
         </Grid>
         <Divider sx={{ mt: -17 }} />
 
@@ -83,7 +82,7 @@ export default function MidBox() {
 
 
           <Grid>
-            <FBox space={3} message={"LINEAL"} data={WD_MBFrows}/>
+            <FBox space={3} message={"LINEAL"} data={MbfRows}/>
           </Grid>
         </Grid>
         

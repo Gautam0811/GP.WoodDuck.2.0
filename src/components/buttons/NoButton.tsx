@@ -18,7 +18,6 @@ export default function ClearAllButton() {
       <Box>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"

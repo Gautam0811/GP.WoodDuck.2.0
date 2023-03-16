@@ -30,22 +30,22 @@ export default function UserSettings() {
         </Grid>
         <Stack spacing={2}>
         <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="h7" color={"#42a5f5"}>
+          <Typography variant="subtitle1" color={"#42a5f5"}>
             Mill Groups
           </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="h7" color={"#42a5f5"}>
+          <Typography variant="subtitle1" color={"#42a5f5"}>
             Product Groups
           </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="h7" color={"#42a5f5"}>
+          <Typography variant="subtitle1" color={"#42a5f5"}>
             Buyer Groups
           </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="h7" color={"#42a5f5"}>
+          <Typography variant="subtitle1" color={"#42a5f5"}>
             Custom Settings
           </Typography>
           </Link>
