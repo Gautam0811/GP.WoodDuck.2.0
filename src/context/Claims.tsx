@@ -12,9 +12,9 @@
 }
 
 type ClaimContextType = {
-  claims : ClaimType | null
-  setClaims: React.Dispatch<React.SetStateAction<ClaimType | null>>
-  ClaimsData: (claims: ClaimType) => void;
+  claims : ClaimType[] | null
+  setClaims: React.Dispatch<React.SetStateAction<ClaimType[]>>
+  ClaimsData: (claims: ClaimType) => void
 }
  
  type ClaimContextProviderProps = {
@@ -23,13 +23,13 @@ type ClaimContextType = {
 
 export const ClaimContext = createContext({} as ClaimContextType);
 export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) => {
-   const claimsInitial = [{
+   const claimsInitial:ClaimType[] = [{
     id:"1001",
     username:"admin",
     password:"admin@123",
     isAdmin: true,
     }]
-   const [claims, setClaims] = useState<ClaimType | null > (null)
+   const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
    // Get all claims
     const ClaimsData = (claims : ClaimType) => {
   
