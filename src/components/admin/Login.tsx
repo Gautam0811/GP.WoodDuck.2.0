@@ -12,11 +12,14 @@ import Context from "../../context/Context";
 // { bindActionCreators } from 'redux'
 //import { actionCreators } from "../../state/State";
 
-
+type AlertMessages = {
+  name: string
+  message: string
+}
 
 export default function Login({ setToken }) {
   // React States
-  const [errorMessages, setErrorMessages] = useState({});
+  const [errorMessages, setErrorMessages] = useState<AlertMessages | null >(null);
   //const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoggedin, setIsLoggedin] = useState(false);
   // const dispatch=useDispatch();
@@ -64,8 +67,9 @@ export default function Login({ setToken }) {
 
   // Generate JSX code for error message
   const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
+  
+    name === errorMessages?.name && (
+      <div className="error">{errorMessages?.message}</div>
     );
 
 

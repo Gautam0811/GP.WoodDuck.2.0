@@ -36,7 +36,7 @@ export default function DashboardMarket(props) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
           {props.data.map((row) => (
-            <Typography variant="h7" color={"black"} sx={{ ml: 4 }}>
+            <Typography variant="h6" color={"black"} sx={{ ml: 4 }}>
               {row.week}
               <Typography
                 variant="h5"
@@ -63,7 +63,7 @@ export default function DashboardMarket(props) {
             </Typography>
           ))}
           <Divider orientation="vertical" flexItem />
-          <Typography variant="h7" color={"BLACK"}>
+          <Typography variant="h6" color={"BLACK"}>
             Pricing Power
             <Typography
               variant="caption"

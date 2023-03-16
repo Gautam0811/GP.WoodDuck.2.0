@@ -4,6 +4,21 @@
 
  import { createContext } from "react";
 
- const wdContext = createContext();
+ type Claims = {
+    id:string,
+    username:string,
+    password:string,
+    isAdmin: boolean,
+  }
+  
+  type ClaimContextType = {
+    claims : Claims | null
+    setClaims: React.Dispatch<React.SetStateAction<Claims | null>>
+  }
+  
+  
+  
+
+ const wdContext = createContext({} as ClaimContextType);
  
  export default wdContext;

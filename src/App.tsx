@@ -1,7 +1,7 @@
 import "./App.css";
 import * as React from 'react';
 import MainApp from "./Main";
-import Context from "./context/State";
+import Context from "./context/Claims";
 
 function App() {
   return (
