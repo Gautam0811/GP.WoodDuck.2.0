@@ -30,47 +30,47 @@ export default function AdminSettings() {
         </Grid>
         <Stack spacing={2}>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Activity Log
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               API Log
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Data Sync Setup
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Manage Retry Table Records
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Error Log
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Search Status
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               User Activity Logs
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Misc Utilities
             </Typography>
           </Link>
           <Link to="/Adminpermissions" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Permission Sets and Controls
             </Typography>
           </Link>

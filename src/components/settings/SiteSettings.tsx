@@ -30,37 +30,37 @@ export default function SiteSettings() {
         </Grid>
         <Stack spacing={2}>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Mass Price Updates
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Mass Price Mill Groups
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Mass Price Product Groups
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Mill Threat Levels
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Salespersons
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Tweakers
             </Typography>
           </Link>
           <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle1" color={"#42a5f5"}>
               Cross Reference Data
             </Typography>
             </Link>

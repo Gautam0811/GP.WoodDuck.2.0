@@ -87,7 +87,7 @@ export default function QuoteButton() {
         <div style={{display: 'flex', flexDirection: 'row', paddingLeft: '20px'}}>
           <div style={{padding: '10px',}}>
             <div>
-              <SaveIcon fontSize='7px'/>
+              <SaveIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>SAVE</span>
@@ -95,7 +95,7 @@ export default function QuoteButton() {
           </div>
           <div style={{padding: '10px',}}>
             <div>
-              <CloseOutlinedIcon fontSize='7px'/>
+              <CloseOutlinedIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>DELETE</span>
@@ -103,7 +103,7 @@ export default function QuoteButton() {
           </div>
           <div style={{padding: '10px',}}>
             <div>
-              <ArrowBackOutlinedIcon fontSize='7px'/>
+              <ArrowBackOutlinedIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>BACK</span>
@@ -113,7 +113,7 @@ export default function QuoteButton() {
         <div style={{display: 'flex', flexDirection: 'row', paddingLeft: '20px' }}>
           <div style={{padding: '10px',}}>
             <div>
-              <AddOutlinedIcon fontSize='7px'/>
+              <AddOutlinedIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>ADD</span>
@@ -121,7 +121,7 @@ export default function QuoteButton() {
           </div>
           <div style={{padding: '10px',}}>
             <div>
-              <CachedOutlinedIcon fontSize='7px'/>
+              <CachedOutlinedIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>IMPORT</span>
@@ -129,7 +129,7 @@ export default function QuoteButton() {
           </div>
           <div style={{padding: '10px',}}>
             <div>
-              <CloseOutlinedIcon fontSize='7px'/>
+              <CloseOutlinedIcon style={{fontSize:'7px'}}/>
             </div>
             <div>
               <span style={{fontSize:'7px'}}>CLOSE</span>

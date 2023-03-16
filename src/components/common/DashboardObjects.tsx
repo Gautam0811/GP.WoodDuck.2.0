@@ -43,7 +43,7 @@ export default function DashboardObjects(props) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
         {props.data.map((row) => (
-            <Typography variant="h7" color={"#42a5f5"}>
+            <Typography variant="subtitle2" color={"#42a5f5"}>
               {row.header}
               <Typography
                 variant="h5"

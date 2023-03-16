@@ -56,7 +56,7 @@ export default function SalesGridHeader() {
     <Box className="fontsize" sx={{ flexGrow: 1,}}>
       <AppBar position="static" style={{ background: "#ffffff" }}>
         <Toolbar>
-          <font color="blue">Mode</font>
+          <Typography variant="caption" color="blue">Mode</Typography>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Order Entry</InputLabel>
             <Select
@@ -72,13 +72,13 @@ export default function SalesGridHeader() {
           <FormGroup>
             <FormControlLabel
               control={<Switch color="primary" defaultChecked />}
-              // label="Show IDs"
+              label="Show IDs"
             />
           </FormGroup>
-          <div position="relative">
-            <font color="blue">Show IDs</font>
+          <div>
+          <Typography variant="caption" color="blue">Show IDs</Typography>
           </div>
-          <font color="blue">Mills</font>
+          <Typography variant="caption" color="blue">Mills</Typography>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">east</InputLabel>
             <Select
@@ -91,7 +91,7 @@ export default function SalesGridHeader() {
               <MenuItem value={30}>west</MenuItem>
             </Select>
           </FormControl>
-          <font color="blue">Products</font>
+          <Typography variant="caption" color="blue">Products</Typography>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">2x4</InputLabel>
             <Select

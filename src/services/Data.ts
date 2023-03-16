@@ -4,7 +4,7 @@
 // -------------------------
 //This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the 
 //backend architecture is confirmed.
-
+import { GridColDef } from "@mui/x-data-grid";
 //WD_Dashboard data starts
  function DashboardMarketCreateData(week: string, weekvalue: number, trend: string) {
   return { week, weekvalue, trend, key: Math.random() };
@@ -109,7 +109,7 @@ export const DashboardSalesrows = [
 
 // Orders Grid Data Starts
 //The actual implementation will have call to a API.
-export const OrdersGridcolumns = [
+export const OrdersGridcolumns:GridColDef[] = [
     { field: "id", headerName: "Order ID", width: 130 },
     { field: "mill", headerName: "Mill", width: 130 },
     {

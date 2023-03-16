@@ -18,7 +18,6 @@ export default function YesButton() {
       <Box>
         <LoadingButton
           size='small'
-          checked={loading}
           onClick={handleClick}
           // loading={loading}
           loadingPosition="end"

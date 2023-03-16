@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import { Grid, IconButton } from '@mui/material';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import SwitchListSecondary from './MillList';
-import {WD_Millrows} from "../../services/Tab";
+import {MillRows} from "../../services/Tab";
 
 export default function BasicTextFields() {
   const [enteredList, setEnteredList] = React.useState('');
@@ -36,16 +36,12 @@ export default function BasicTextFields() {
 
 
 
-  return (<Grid sx={{display:"flex",flexDirection:"column"}}>
+  return (
+  <Grid sx={{display:"flex",flexDirection:"column"}}>
   <Grid className='Coverall'>
   <Grid sx={{mt:1}}>MILLS</Grid>
     <Box
-      
-      sx={{
-        '& > :not(style)': {  width: '23ch',ml:3,mt:-0.5 },
-      }}
-      noValidate
-      autoComplete="off"
+      sx={{ width: '23ch',ml:3,mt:-0.5 }}
       
     ><form onSubmit={submitHandler} style={{display:'flex',flexDirection:'row',width:'200px'}}>
       <TextField id="outlined-basic" label="Mill Quick Entry" variant="outlined" size='small' value={enteredList} onChange={ListChangeHandler}/>
@@ -53,7 +49,7 @@ export default function BasicTextFields() {
       </form></Box></Grid> 
     
    <Grid >
-    <SwitchListSecondary data={WD_Millrows} List={enteredList}/>
+    <SwitchListSecondary data={MillRows} List={enteredList}/>
    </Grid>
 
     </Grid>
