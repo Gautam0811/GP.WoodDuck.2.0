@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6532dcda.css",
+    "main.js": "/static/js/main.8d2cad06.js",
+    "static/media/lumber.jpg": "/static/media/lumber.d89774909fc766c69602.jpg",
+    "index.html": "/index.html",
+    "main.6532dcda.css.map": "/static/css/main.6532dcda.css.map",
+    "main.8d2cad06.js.map": "/static/js/main.8d2cad06.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6532dcda.css",
+    "static/js/main.8d2cad06.js"
+  ]
+}
