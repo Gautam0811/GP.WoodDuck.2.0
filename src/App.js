@@ -11,7 +11,7 @@ import {
   classicTheme,
 } from "./theme/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 
 import MainApp from "./Main";
 import Context from "./context/State";
@@ -41,6 +41,42 @@ function App() {
         setTheme(classicTheme);
     }
   }
+
+// useEffect(() => {
+//   const themeData = window.localStorage.getItem('themeKey');
+//   console.log(themeData);
+//   setTheme(JSON.parse(themeData));
+// }, []);
+
+// useEffect(() => { 
+//   window.localStorage.setItem('themeKey', JSON.stringify(theme));
+// });
+
+
+// useEffect(() => {
+//   const themeData = window.localStorage.getItem('themeKey');
+//   // console.log('themeData', themeData);
+//   if( themeData !== null ) {
+//     setTheme(JSON.parse(themeData));
+//   }
+// }, []);
+
+// useEffect(() => { 
+//   window.localStorage.setItem('themeKey', JSON.stringify(theme))
+//   console.log(theme)
+// }, [theme]);
+
+  // const setThemeInStorage = (theme) => {
+  //   localStorage.setItem('theme', theme)
+  // }
+
+  // setThemeInStorage('classicTheme')
+
+  // const getThemeInStorage = () => {
+  //   localStorage.getItem('theme')
+  // }
+
+  // const theme1 = getThemeInStorage();
 
   return (
     <>
