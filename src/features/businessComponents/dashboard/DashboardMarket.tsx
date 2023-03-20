@@ -39,7 +39,7 @@ export default function DashboardMarket(props:any) {
             <Typography variant="subtitle2" color={"black"} sx={{ ml: 4 }}>
               {row.week}
               <Typography
-                variant="h5"
+                variant="h6"
                 color={"black"}
                 sx={{ display: "flex", justifyContent: "start", pt: 2 }}
                 key={row.key}
