@@ -1,8 +1,7 @@
 import React from 'react'
 import Grid from "@mui/material/Grid";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-// import Index from "./config/routes/Index"
-import Routers from './config/routes/Router';
+import {Routers} from "../../config/routes/Index"
 
 
 export default function MainApp() {

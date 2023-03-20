@@ -1,1 +1,1 @@
-export * as Routers from "./Router"
+export {Routers} from "./Router"

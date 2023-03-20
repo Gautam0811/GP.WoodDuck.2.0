@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import MainApp from "./Main";
+import MainApp from "./pages/main/Main";
 import { ClaimContextProvider } from "./context/Claims";
 
 function App() {
