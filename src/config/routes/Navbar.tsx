@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Routes, Route} from "react-router-dom";
 import Dashboard from "../../features/businessComponents/dashboard/Dashboard"
 
-export function Routers() {
+export function Navbar() {
     return(
     <Routes>
         <Route path="/" element={<Dashboard/>}> </Route>
