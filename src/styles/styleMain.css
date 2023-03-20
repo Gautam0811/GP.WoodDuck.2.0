@@ -229,7 +229,7 @@
 
 .arrow-item {
   display: flex;
-  justify-content: end;
+  /* justify-content: end; */
   align-items: center;
   padding: 10px 8px;
   border-radius: 5px;
