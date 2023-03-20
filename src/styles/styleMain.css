@@ -1,3 +1,184 @@
+/* Common Styles */
+/* Flex*/
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexcolumn{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+/* Justify space between */
+.justify-space-between{
+  justify-content: space-between;
+}
+
+/* Justify center */
+.justify-center{
+  justify-content: center;
+}
+
+
+/* Font */
+.css-ahj2mt-MuiTypography-root.font-bold {
+  font-weight: bold;
+}
+
+/* For black font */
+.css-ahj2mt-MuiTypography-root.font-black {
+  color: black !important;
+}
+
+/* padding */
+.p-1 {
+  padding: 1px;
+}
+.p-2 {
+  padding: 0.125rem;
+}
+.p-4 {
+  padding: 0.25rem;
+}
+.p-6 {
+  padding: 0.375rem;
+}
+.p-8 {
+  padding: 0.5rem;
+}
+.p-10 {
+  padding: 0.625rem;
+}
+.p-12 {
+  padding: 0.75rem;
+}
+.p-16 {
+  padding: 1rem;
+}
+.p-20 {
+  padding: 1.25rem;
+}
+.p-24 {
+  padding: 1.5rem;
+}
+.p-28 {
+  padding: 1.75rem;
+}
+
+.p-32 {
+  padding: 2rem;
+}
+
+.p-36 {
+  padding: 2.25rem;
+}
+
+.p-40 {
+  padding: 2.5rem;
+}
+
+.pt-28{
+  padding-top: 1.75rem;
+}
+
+.py-40{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.pt-40{
+  padding-top: 2.5rem;
+}
+
+.pl-28{
+  padding-left: 1.75rem;
+}
+
+.pl{
+  padding-left: 1.5rem;
+}
+
+.pr-16{
+  padding-right: 1rem;
+}
+
+.pl-20{
+  padding-left: 1.25rem;
+}
+
+.pb-16{
+  padding-bottom: 1rem;
+}
+
+.p-16-0{
+  padding: 15px 0px;
+}
+
+/* widths */
+
+.w30{
+  width: 30%;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w100{
+  width: 100%;
+}
+
+.w170-h30{
+  width: 170px;
+  height: 30px;
+}
+
+.w150-h30{
+  width: 150px;
+  height: 30px;
+}
+
+.w200-h30{
+  width: 200px;
+  height: 30px;
+}
+
+.w130-h30{
+  width: 130px;
+  height: 30px;
+}
+
+.w200-h50{
+  width: 200px;
+  height: 50px;
+}
+
+/* Font sizes */
+
+.fs-12 {
+  font-size: 12px !important;
+}
+
+/* custom colors */
+
+.gray{
+  color: gray;
+}
+
+
+
 /* Style for LeftSideBar */
 .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root.padding-left{
   padding-left: 48px;
