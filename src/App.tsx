@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './App.css';
-import MainApp from "./Main";
+import Home from "./pages/home/Home";
 import { ClaimContextProvider } from "./context/Claims";
 
 function App() {
   return (
     <div>
       <ClaimContextProvider>
-        <MainApp />
+        <Home />
       </ClaimContextProvider>
     </div>
   );
