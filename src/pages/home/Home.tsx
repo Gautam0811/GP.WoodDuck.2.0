@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Navigator } from "../../config/routes/Index";
+import { Navigator } from "../../config/routes/index";
 import LeftSideBar from "../../pages/common/LeftSideBar";
 import Footer from "../../pages/common/Footer";
 
