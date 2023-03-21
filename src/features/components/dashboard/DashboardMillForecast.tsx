@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import "../../../styles/StyleMain.css";
+import "../../../styles/styleMain.css";
 import LinearWithValueLabel from "./LinearProgressBar";
 import {DasboardMillForecastsrows} from "../../../services/Data"
 

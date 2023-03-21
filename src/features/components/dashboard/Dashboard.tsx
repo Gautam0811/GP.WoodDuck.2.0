@@ -5,8 +5,8 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import DashboardMarket from "./DashboardMarket";
-import DashboardObjects from "../../components/common/DashboardObjects";
-import DashboardGridObjects from "../../components/common/DashboardGridObjects";
+import DashboardObjects from "../../common/dashboard/DashboardObjects";
+import DashboardGridObjects from "../../common/dashboard/DashboardGridObjects";
 import DasboardMillForecasts from "./DashboardMillForecast";
 import {DashboardMarketrows} from "../../../services/Data";
 import {DashboardMarketSegmentrows} from "../../../services/Data";

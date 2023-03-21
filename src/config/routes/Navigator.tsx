@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "../../features/businessComponents/dashboard/Dashboard";
+import Dashboard from "../../features/components/dashboard/Dashboard";
 import LeftSideBar from "../../pages/common/LeftSideBar";
 import Footer from "../../pages/common/Footer";
 
