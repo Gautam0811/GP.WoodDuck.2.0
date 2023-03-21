@@ -1,0 +1,63 @@
+/* DashboardGridObjects.css
+Component Utility : This css file is specifically used for DashboardGridObjects.tsx
+Author Ananya Dhar on 21-3-2023
+------------------------- */
+
+table.DashboardGrid {
+    border:none;
+    border-collapse: collapse;
+    width: 100%;
+    line-height: 2rem;
+  }
+  
+  table.DashboardGrid tr {
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    text-align: center;
+    
+  }
+  table.DashboardGrid th {
+    border: none;
+  }
+  table.DashboardGrid tr:first-child {
+    border-top: none;
+  }
+  
+  table.DashboardGrid tr:last-child {
+    border-bottom: none;
+  }
+  
+  table.DashboardGrid tr.dashboard {
+    color: "#42a5f5";
+    background-color: "#eeeeee";
+  }
+  
+  table.DashboardGrid tbody>tr>:nth-child(1){
+    color: #42a5f5;
+    background-color: #eeeeee;
+  }
+  
+
+  td.font-bold {
+    font-weight: bold;
+  }
+  
+  .td.w10{
+    width: 10%;
+  }
+  
+  .th.w18{
+    width: 18%;
+  }
+  
+  .th.col-42a5f5{
+    color: #42a5f5;
+  } 
+  
+  .th.bg-eeeeee{
+    background-color: #eeeeee;
+  }
+  
+  
+  
+  
