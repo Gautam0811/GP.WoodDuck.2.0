@@ -1,0 +1,10 @@
+.Sidebar {
+    justify-content: flex-end;
+    position: relative;
+  }
+
+
+
+  .Sidebar.collapsed {
+    width: 52px;
+  }

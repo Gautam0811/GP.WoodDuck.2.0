@@ -1,0 +1,510 @@
+/* Common Styles */
+/* Flex*/
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexcolumn{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+/* Justify space between */
+.justify-space-between{
+  justify-content: space-between;
+}
+
+/* Justify center */
+.justify-center{
+  justify-content: center;
+}
+
+
+/* Font */
+.css-ahj2mt-MuiTypography-root.font-bold {
+  font-weight: bold;
+}
+
+/* For black font */
+.css-ahj2mt-MuiTypography-root.font-black {
+  color: black !important;
+}
+
+/* padding */
+.p-1 {
+  padding: 1px;
+}
+.p-2 {
+  padding: 0.125rem;
+}
+.p-4 {
+  padding: 0.25rem;
+}
+.p-6 {
+  padding: 0.375rem;
+}
+.p-8 {
+  padding: 0.5rem;
+}
+.p-10 {
+  padding: 0.625rem;
+}
+.p-12 {
+  padding: 0.75rem;
+}
+.p-16 {
+  padding: 1rem;
+}
+.p-20 {
+  padding: 1.25rem;
+}
+.p-24 {
+  padding: 1.5rem;
+}
+.p-28 {
+  padding: 1.75rem;
+}
+
+.p-32 {
+  padding: 2rem;
+}
+
+.p-36 {
+  padding: 2.25rem;
+}
+
+.p-40 {
+  padding: 2.5rem;
+}
+
+.pt-28{
+  padding-top: 1.75rem;
+}
+
+.py-40{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.pt-40{
+  padding-top: 2.5rem;
+}
+
+.pl-28{
+  padding-left: 1.75rem;
+}
+
+.pl{
+  padding-left: 1.5rem;
+}
+
+.pr-16{
+  padding-right: 1rem;
+}
+
+.pl-20{
+  padding-left: 1.25rem;
+}
+
+.pb-16{
+  padding-bottom: 1rem;
+}
+
+.p-16-0{
+  padding: 15px 0px;
+}
+
+/* widths */
+
+.w30{
+  width: 30%;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w100{
+  width: 100%;
+}
+
+.w170-h30{
+  width: 170px;
+  height: 30px;
+}
+
+.w150-h30{
+  width: 150px;
+  height: 30px;
+}
+
+.w200-h30{
+  width: 200px;
+  height: 30px;
+}
+
+.w130-h30{
+  width: 130px;
+  height: 30px;
+}
+
+.w200-h50{
+  width: 200px;
+  height: 50px;
+}
+
+/* Font sizes */
+
+.fs-12 {
+  font-size: 12px !important;
+}
+
+/* custom colors */
+
+.gray{
+  color: gray;
+}
+
+
+
+/* Style for LeftSideBar */
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root.padding-left{
+  padding-left: 48px;
+}
+
+.link-text{
+  color: #ffffff; text-decoration: none;
+}
+
+.Sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: "100vh";
+  background-color: #434c56;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.fontsize {
+    font-size: 12px;
+}
+
+.sidebar-logo {
+  font-size: 12px;
+}
+
+.sidebar-icon {
+  width: 1rem;
+  height: 1em;
+  margin-right: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar-arrow-icon {
+  width: 1.5rem;
+  height: 1em;
+  margin-right: 10px;
+  cursor: pointer;
+  color:black;
+  user-select: none;
+}
+
+.arrow-item {
+  display: flex;
+  /* justify-content: end; */
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4px;
+}
+.sidebar-items .item {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.sidebar-items .item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/*
+Collapsed Sidebar CSS
+*/
+.Sidebar.collapsed {
+  width: 52px;
+}
+.Sidebar.collapsed .sidebar-icon {
+  margin-right: 0;
+}
+.Sidebar.collapsed .sidebar-text,
+.Sidebar.collapsed .sidebar-logo {
+  display: none;
+}
+
+/* Style for New ContractHeader */
+.NewContractHeaderFontsize{
+  font-size: 12px;
+}
+
+.NewContractHeaderFontcolor {
+  color: '#005fa8';
+}
+
+/* for buttons with only text*/
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
+}
+
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype1{
+  background-color: #005FA8 !important;
+}
+
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype2{
+  background-color: gray !important;
+}
+
+/* place on hold button */
+.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype3{
+  background-color: rgb(62, 159, 62) !important;
+}
+
+
+/* for buttons with icons*/
+/* this button has different class than the above ones */
+.css-1vqlznj-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype4{
+  color: #005FA8 !important;
+  font-size:10px !important;
+}
+
+/* for buttons with variant outline */
+.css-1u5rjc5-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype5{
+
+  border: 2px solid !important;
+  border-color: #005FA8 !important;
+  color: #005FA8 !important;
+} 
+
+/* for icons in the buttons */
+.css-i4bv87-MuiSvgIcon-root.icontype1{
+  font-size: 18px !important;
+}
+
+
+/* Login page part */
+.app {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-image:url('../../lumber.jpg');
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #01d28e;
+  border: 1px solid #01d28e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #6cf0c2;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 95%;
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.login-title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+  max-width: 100%;
+}
+
+ 
+/* DashboardHitRate */
+table.DashboardGrid {
+  border:none;
+  border-collapse: collapse;
+}
+
+table.DashboardGrid tr {
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  text-align: center;
+  
+}
+table.DashboardGrid th {
+  border: none;
+}
+table.DashboardGrid tr:first-child {
+  border-top: none;
+}
+
+table.DashboardGrid tr:last-child {
+  border-bottom: none;
+}
+
+table.DashboardGrid tr.dashboard {
+  color: "#42a5f5";
+  background-color: "#eeeeee";
+}
+
+table.DashboardGrid tbody>tr>:nth-child(1){
+  color: #42a5f5;
+  background-color: #eeeeee;
+}
+
+
+/* Flex and row */
+.flexrow{
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* settings */
+/* for settings header */
+.settings-header{
+  align-items: center;
+  background-color: #f1f4fb;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+/* for settings header text*/
+.settings-header-text{
+  padding-left:25px;
+  font-weight: bold;
+}
+
+/* for setting mainsection */
+.css-vj1n65-MuiGrid-root.settings-mainsection-grid{
+    padding-top: 50px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+}
+
+/* for box-shadow */
+.box-shad{
+  box-shadow: 5px 5px 5px gray;
+}
+
+.settings-table{
+  color: #1357a6; 
+}
+
+.settings-table th{
+  color: black;
+  background-color: #f1f4fb;
+  padding:10px;
+}
+
+.settings-table tr{
+  text-align:left;
+  border:none;
+}
+
+/* for products page */
+.product-main-grid{
+  padding: 16px 32px !important;
+}
+
+
+.product-grid{
+  padding-top: 16px !important;
+}
+
+.product-text-color{
+  color: #005fa8;
+}
+
+/* for products header */
+.product-typography{
+  justify-content: center; 
+  padding-left: 20px;
+}
+
+.css-ahj2mt-MuiTypography-root.font-bold{
+  font-weight: bold;
+}
+
+.product-page-grid{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f4fb;
+}
+
+
+
