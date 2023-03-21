@@ -5,15 +5,15 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import DashboardMarket from "./DashboardMarket";
-import DashboardObjects from "../../common/dashboard/DashboardObjects";
-import DashboardGridObjects from "../../common/dashboard/DashboardGridObjects";
+import DashboardObjects from "../common/DashboardObjects";
+import DashboardGridObjects from "../common/DashboardGridObjects";
 import DasboardMillForecasts from "./DashboardMillForecast";
-import {DashboardMarketrows} from "../../../services/Data";
-import {DashboardMarketSegmentrows} from "../../../services/Data";
-import {DashboardSalesrows} from "../../../services/Data";
-import {DasboardMillsrows} from "../../../services/Data";
-import {DasboardHitRaterows} from "../../../services/Data";
-import {DasboardPercentForecastSoldrows} from "../../../services/Data";
+import {DashboardMarketrows} from "../services/Data";
+import {DashboardMarketSegmentrows} from "../services/Data";
+import {DashboardSalesrows} from "../services/Data";
+import {DasboardMillsrows} from "../services/Data";
+import {DasboardHitRaterows} from "../services/Data";
+import {DasboardPercentForecastSoldrows} from "../services/Data";
 
 // eslint-disable-next-line
 export default function Dashboard() {
