@@ -10,7 +10,6 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import NorthIcon from "@mui/icons-material/North";
 import SouthIcon from "@mui/icons-material/South";
-import { green, red } from "@mui/material/colors";
 import SignalCellular4BarIcon from "@mui/icons-material/SignalCellular4Bar";
 
 export default function DashboardMarket(props:any) {
