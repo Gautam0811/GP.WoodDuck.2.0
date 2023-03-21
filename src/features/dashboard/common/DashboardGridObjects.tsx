@@ -12,15 +12,10 @@ import "../../../styles/StyleMain.css";
 export default function DasboardGridObjects(props:any) {
   return (
     <Box
-      sx={{
-        mx: 4,
-        my: 4,
-        width: "90%",
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-      }}
+      
+      className="mx-32 my-32 w90 bg-white box-shad-125grey"
     >
-      <Box sx={{ my: 2.5, mx: 5,pt:2 }}>
+      <Box className="my-20 mx-40 pt-16">
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography gutterBottom variant="h6" component="div">
@@ -29,26 +24,26 @@ export default function DasboardGridObjects(props:any) {
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table className="DashboardGrid" style={{ width: "100%",lineHeight:2.5}}>
-          <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
+        <table className="DashboardGrid" >
+          <thead className="col-42a5f5 bg-eeeeee">
             <tr>
-              <th style={{ width: "10%"}}></th>
-              <th style={{ width: "18%"}}>#1</th>
-              <th style={{ width: "18%"}}>#2</th>
-              <th style={{ width: "18%"}}>#3</th>
-              <th style={{ width: "18%"}}>#4</th>
-              <th style={{ width: "18%"}}>TOTAL</th>
+              <th className="w10"></th>
+              <th className="w18">#1</th>
+              <th className="w18">#2</th>
+              <th className="w18">#3</th>
+              <th className="w18">#4</th>
+              <th className="w18">TOTAL</th>
             </tr>
           </thead>
           <tbody>
           {props.data.map((row:any) => (
               <tr key={row.name}>
-                <th scope="row" style={{ color: "#42a5f5", backgroundColor: "#eeeeee"}}>{row.name}</th>
+                <th scope="row" className="col-42a5f5 bg-eeeeee"  >{row.name}</th>
                 <td>{row.one}</td>
                 <td>{row.two}</td>
                 <td>{row.three}</td>
                 <td>{row.four}</td>
-                <td style={{ fontWeight:"bold"}}>{row.total}</td>
+                <td className="font-bold">{row.total}</td>
               </tr>
               
             ))}

@@ -21,6 +21,16 @@
   justify-content: center;
 }
 
+.flex-start{
+  display: flex;
+  justify-content: start;
+}
+
+.flex-end{
+  display: flex;
+  justify-content: end;
+}
+
 /* Justify space between */
 .justify-space-between{
   justify-content: space-between;
@@ -31,10 +41,18 @@
   justify-content: center;
 }
 
+/* justify content end */
+.justify-end{
+  justify-content: flex-end;
+}
 
 /* Font */
 .css-ahj2mt-MuiTypography-root.font-bold {
   font-weight: bold;
+}
+
+.font-black {
+  color: black;
 }
 
 /* For black font */
@@ -89,6 +107,10 @@
   padding: 2.5rem;
 }
 
+.pt-16{
+  padding-top: 1rem;
+}
+
 .pt-28{
   padding-top: 1.75rem;
 }
@@ -106,8 +128,24 @@
   padding-left: 1.75rem;
 }
 
+.pl-24{
+  padding-left: 1.5rem;
+}
+
+.pl-32{
+  padding-left: 2rem;
+}
+
 .pl{
   padding-left: 1.5rem;
+}
+
+.pl-8{
+  padding-left: 0.5rem;
+}
+
+.pl-16{
+  padding-left: 1rem;
 }
 
 .pr-16{
@@ -126,18 +164,170 @@
   padding: 15px 0px;
 }
 
+/* margin */
+.m-1 {
+  margin: 1px;
+}
+.m-2 {
+  margin: 0.125rem;
+}
+.m-4 {
+  margin: 0.25rem;
+}
+.m-6 {
+  margin: 0.375rem;
+}
+.m-8 {
+  margin: 0.5rem;
+}
+.m-10 {
+  margin: 0.625rem;
+}
+.m-12 {
+  margin: 0.75rem;
+}
+.m-16 {
+  margin: 1rem;
+}
+.m-20 {
+  margin: 1.25rem;
+}
+.m-24 {
+  margin: 1.5rem;
+}
+.m-28 {
+  margin: 1.75rem;
+}
+
+.m-32 {
+  margin: 2rem;
+}
+
+.m-36 {
+  margin: 2.25rem;
+}
+
+.m-40 {
+  margin: 2.5rem;
+}
+
+.mx-0{
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+.mt-28{
+  margin-top: 1.75rem;
+}
+
+.my-40{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.my-4{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.my-8{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.mt-40{
+  margin-top: 2.5rem;
+}
+
+.ml-28{
+  margin-left: 1.75rem;
+}
+
+.ml{
+  margin-left: 1.5rem;
+}
+
+.mr-8{
+  margin-right: 0.5rem;
+}
+
+.mr-16{
+  margin-right: 1rem;
+}
+
+.ml-20{
+  margin-left: 1.25rem;
+}
+
+.ml-32{
+  margin-left: 2rem;
+}
+
+.mb-16{
+  margin-bottom: 1rem;
+}
+
+.m-16-0{
+  margin: 15px 0px;
+}
+
+.mx-32{
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.mx-40{
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
+}
+
+.my-32{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-20{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 /* widths */
+
+.w10{
+  width: 10%;
+}
+.w18{
+  width: 18%;
+}
 
 .w30{
   width: 30%;
+}
+
+.w32{
+  width: 32%;
+}
+
+.w38{
+  width: 38%;
 }
 
 .w70 {
   width: 70%;
 }
 
+.w90{
+  width: 90%;
+}
+
 .w100{
   width: 100%;
+}
+
+.w70-h10{
+  width: 70px;
+  height: 10px;
 }
 
 .w170-h30{
@@ -167,9 +357,38 @@
 
 /* Font sizes */
 
+.fs-11{
+  font-size: 11px !important;
+}
+
 .fs-12 {
   font-size: 12px !important;
 }
+
+
+
+.fs-24{
+  font-size: 24px !important;
+}
+
+.fs-28 {
+  font-size: 28px !important; 
+}
+
+.fs-med{
+  font-size: medium !important;
+}
+
+/* font weight */
+.font-weight-normal{
+  font-weight: normal;
+}
+
+/* headings */
+
+
+
+
 
 /* custom colors */
 
@@ -177,6 +396,58 @@
   color: gray;
 }
 
+.col-42a5f5{
+  color: #42a5f5;
+}
+
+.col-blue{
+  color: blue;
+}
+
+.col-green{
+  color: green;
+}
+
+.col-red{
+  color: red;
+}
+
+
+
+.bg-e3f2fd {
+  background-color: #e3f2fd;
+}
+
+.bg-eeeeee{
+  background-color: #eeeeee;
+}
+
+.bg-42a5f5{
+  background-color: #42a5f5;
+}
+
+.bg-white{
+  background-color: white;
+}
+
+.green-3cb043{
+  color: #3CB043;
+}
+
+.red-d0312d{
+  color: #D0312D;
+}
+
+/* box shadows */
+
+.box-shad-125grey{
+  box-shadow: 1px 2px 5px grey;
+}
+
+/* line heights */
+.lh-28{
+  line-height: 1.75rem;
+}
 
 
 /* Style for LeftSideBar */
@@ -392,6 +663,8 @@ input[type="submit"]:hover {
 table.DashboardGrid {
   border:none;
   border-collapse: collapse;
+  width: 100%;
+  line-height: 2rem;
 }
 
 table.DashboardGrid tr {
@@ -422,11 +695,32 @@ table.DashboardGrid tbody>tr>:nth-child(1){
 }
 
 
-/* Flex and row */
-.flexrow{
-  display: flex;
-  flex-direction: row;
+/* DashboardGridObjects */
+td.font-bold {
+  font-weight: bold;
 }
+
+.td.w10{
+  width: 10%;
+}
+
+.th.w18{
+  width: 18%;
+}
+
+.th.col-42a5f5{
+  color: #42a5f5;
+} 
+
+.th.bg-eeeeee{
+  background-color: #eeeeee;
+}
+
+
+
+
+
+
 
 
 /* settings */

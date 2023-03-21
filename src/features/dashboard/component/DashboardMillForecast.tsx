@@ -14,43 +14,33 @@ import {DasboardMillForecastsrows} from "../services/Data"
 export default function DasboardMillForecasts() {
   return (
     <Box
-    
-      sx={{
-       mr:1,
-        my: 4,
-        
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-        justifyContent:"flex-end",
-        
-      }}
+    className="mr-8 my-32 bg-white box-shad-125grey justify-end"
     >
-      <Box sx={{ my: 0.5, mx: 0 }}>
+      <Box className="mx-0 my-4">
         <Grid container alignItems="center">
-          <Grid item xs sx={{pl:2}}>
+          <Grid item xs className="pl-16">
             <Typography gutterBottom variant="h6" component="div">
               Mill Forecasts
             </Typography>
           </Grid>
         </Grid>
         <Divider variant="middle" />
-        <table style={{ width: "100%",fontSize: "11px",lineHeight:2.5}}>
-          <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
+        <table className="w100 fs-11 lh-28" >
+          <thead className="col-42a5f5 bg-eeeeee">
             <tr>
-              <th style={{ width: "32%"}}></th>
-              <th style={{ width: "38%"}}>INVENTORY</th>
-              <th style={{ width: "30%"}}>NEXT 3 WEEKS</th>
+              <th className="w32"></th>
+              <th className="w38">INVENTORY</th>
+              <th className="w30">NEXT 3 WEEKS</th>
             </tr>
           </thead>
           <tbody>
             {DasboardMillForecastsrows.map((row) => (
               <tr key={row.name}>
-                <th scope="row" style={{ color: "#42a5f5", fontWeight:"normal"}}>{row.name}</th>
+                <th className="col-42a5f5 font-weight-normal" scope="row" >{row.name}</th>
                 <td><LinearWithValueLabel Values={row.inventory}/></td>
                 <td>{row.nextweek}</td>
               </tr>
             ))}
-            
           </tbody>
         </table>
         <br />
@@ -59,8 +49,3 @@ export default function DasboardMillForecasts() {
     </Box>
   );
 }
-
-
-
-
-              

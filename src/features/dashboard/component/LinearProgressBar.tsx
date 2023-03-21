@@ -7,6 +7,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+
 export default function LinearWithValueLabel(props:any) {
    
 
@@ -30,19 +31,21 @@ export default function LinearWithValueLabel(props:any) {
       setColor("red");
     } }, [value]);
   return (
-    <Box sx={{ width: '100%',pl:3,display:'flex',flexDirection:'row' , alignItems: 'center'}}>
-      
+    <Box className="flex-row-center pl-24 w100">
       <LinearProgress
-  variant="determinate"
-  value={props.Values}
-  sx={{height:10,width:70,
-    backgroundColor: `${colors}`,
-    "& .MuiLinearProgress-bar": {
-      backgroundColor: `${color}`
-    }
-  }}
-  />
-  <Typography variant="body2" sx={{fontSize:10,pl:1}} color="black">{value}%</Typography>
+        variant="determinate"
+        value={props.Values}
+        sx={{
+          backgroundColor: `${colors}`,
+          "& .MuiLinearProgress-bar": {
+            backgroundColor: `${color}`,
+          },
+        }}
+        className="w70-h10"
+      />
+      <Typography variant="body2" className="fs-11 pl-8" color="black">
+        {value}%
+      </Typography>
     </Box>
   );
 }

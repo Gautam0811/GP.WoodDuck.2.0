@@ -16,18 +16,12 @@ import SignalCellular4BarIcon from "@mui/icons-material/SignalCellular4Bar";
 export default function DashboardMarket(props:any) {
   return (
     <Box
-      sx={{
-        mx: 4,
-        my: 4,
-        width: "90%",
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-      }}
+      className="mx-32 my-32 w90 bg-white box-shad-125grey"
     >
-      <Box sx={{ my: 2.5, mx: 4 }}>
+      <Box className="my-20 mx-32">
         <Grid container alignItems="center">
           <Grid item xs>
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography gutterBottom className="pt-16" variant="h6" component="div">
               {props.title}
             </Typography>
           </Grid>
@@ -36,29 +30,27 @@ export default function DashboardMarket(props:any) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
           {props.data.map((row:any) => (
-            <Typography variant="subtitle2" color={"black"} sx={{ ml: 4 }}>
+            <Typography variant="subtitle2" className="font-black ml-32">
               {row.week}
               <Typography
                 variant="h6"
-                color={"black"}
-                sx={{ display: "flex", justifyContent: "start", pt: 2 }}
                 key={row.key}
+                className="pt-16 flex-start font-black"
               >
                 {row.trend === "0" ? (
                   <Typography
                     variant="caption"
-                    color={"#42a5f5"}
-                    sx={{ display: "flex", justifyContent: "start" }}
+                    className="flex-start bg-42a5f5"
                   >
                     {row.trend}
                   </Typography>
                 ) : row.trend === "+" ? (
-                  <NorthIcon sx={{ fontSize: "28px", color: green[400] }} />
+                  <NorthIcon className="fs-28 green-3cb043"  />
                 ) : (
-                  <SouthIcon sx={{ fontSize: "28px", color: red[400] }} />
+                  <SouthIcon className="fs-28 red-d0312d"  />
                 )}
                 {row.weekvalue}
-                <Typography sx={{ lineHeight: 1 }}>%</Typography>
+                <Typography>%</Typography>
               </Typography>
             </Typography>
           ))}
@@ -68,13 +60,13 @@ export default function DashboardMarket(props:any) {
             <Typography
               variant="caption"
               color={"black"}
-              sx={{ display: "flex", justifyContent: "start", pt: 2 }}
+              className="flex-start pt-16"
             >
               <SignalCellular4BarIcon
                 fontSize="large"
-                sx={{ fontSize: "38px", color: green[400] }}
+                className="fs-28 green-3cb043"
               />
-              <Typography sx={{ pl: 4, fontSize: "24px" }}>4.4</Typography>
+              <Typography className="fs-24 pl-32">4.4</Typography>
             </Typography>
           </Typography>
         </Stack>

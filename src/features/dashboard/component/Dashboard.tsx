@@ -17,20 +17,20 @@ import {DasboardPercentForecastSoldrows} from "../services/Data";
 
 // eslint-disable-next-line
 export default function Dashboard() {
-return (<Grid sx={{width:'100%',display:'flex',flexDirection:'row',backgroundColor: "#e3f2fd"}}>
-
-<Grid sx={{width:'70%',display:'flex',flexDirection:'column',fontSize:"13px"}}>
-    <DashboardMarket title="Market " data={DashboardMarketrows} spacing={9}/>
-    <DashboardObjects title="Sales" data={DashboardSalesrows} spacing={3.5}/>
-    <DashboardObjects title="Mills" data={DasboardMillsrows} spacing={4}/>
-    <DashboardObjects title="Market Segments" data={DashboardMarketSegmentrows} spacing={6}/>
-    <DashboardGridObjects title="Percent Forecast Sold" data={DasboardPercentForecastSoldrows} spacing={6}/>
-    <DashboardGridObjects title="Hit Rate" data={DasboardHitRaterows} spacing={6}/>
-</Grid>
-
-<Grid sx={{width:'30%'}}>
-<DasboardMillForecasts />
-</Grid>
-
-</Grid>
-)}
+    return (<Grid className="flexrow w100 bg-e3f2fd">
+    
+    <Grid className="w70 fs-12">
+        <DashboardMarket title="Market" data={DashboardMarketrows} spacing={9}/>
+        <DashboardObjects title="Sales" data={DashboardSalesrows} spacing={3.5}/>
+        <DashboardObjects title="Mills" data={DasboardMillsrows} spacing={4}/>
+        <DashboardObjects title="Market Segments" data={DashboardMarketSegmentrows} spacing={6}/>
+        <DashboardGridObjects title="Percent Forecast Sold" data={DasboardPercentForecastSoldrows} spacing={6}/>
+        <DashboardGridObjects title="Hit Rate" data={DasboardHitRaterows} spacing={6}/>
+    </Grid>
+    
+    <Grid className="w30">
+    <DasboardMillForecasts />
+    </Grid>
+    
+    </Grid>
+    )}

@@ -9,19 +9,18 @@ import NativeSelect from "@mui/material/NativeSelect";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
-
 export default function DashboardObjects(props:any) {
   return (
-    <Box sx={{ mx: 4,my: 1, width: "90%", bgcolor: "white", boxShadow: '1px 2px 5px grey'}}>
-      <Box sx={{ my: 2.5, mx: 5}}>
+    <Box className="mx-32 my-8 w90 bg-white box-shad-125grey">
+      <Box className="my-20 mx-40">
         <Grid container alignItems="center" >
           <Grid item xs>
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography gutterBottom className="pt-16" variant="h6" component="div">
               {props.title}
             </Typography>
           </Grid>
           <Grid item>
-            <FormControl fullWidth sx={{ color: "blue" }}>
+            <FormControl fullWidth className="col-blue">
               <NativeSelect
                 defaultValue={10}
                 inputProps={{
@@ -42,37 +41,35 @@ export default function DashboardObjects(props:any) {
         <br />
         <Stack direction="row" spacing={props.spacing}>
         {props.data.map((row:any) => (
-            <Typography variant="subtitle2" color={"#42a5f5"}>
+            <Typography variant="subtitle2" className="col-42a5f5">
               {row.header}
               <Typography
                 variant="h5"
-                color={"black"}
-                sx={{ display: "flex", justifyContent: "start", pt: 2 }}
+                className="font-black flex-start pt-16"
                 
               >{row.value}</Typography>
                 {row.trend === "0" ? (
                   <Typography 
                     variant="caption"
                     color={"#42a5f5"}
-                    sx={{ display: "flex", justifyContent: "start" }}
+                    className="flex-start col-42a5f5"
                   >
                     {row.growth}
                   </Typography>
                 ) : row.trend === "+" ? (
                   <Typography
                       variant='caption'
-                      color={"green"}
-                      sx={{ display: "flex", justifyContent: "start" }}
+                      className="col-green flex-start"
                     >{row.growth}
-                      <ArrowUpwardIcon style={{ fontSize: "medium" }} />
+                      <ArrowUpwardIcon className="fs-med" />
                     </Typography>
                 ) : (
                   <Typography 
                       variant='caption'
-                      color={"red"}
-                      sx={{ display: "flex", justifyContent: "start" }}
+                      className="col-red flex-start"
+                      
                     >{row.growth}
-                      <ArrowDownwardIcon style={{ fontSize: "medium" }} />
+                      <ArrowDownwardIcon className="fs-med" />
                     </Typography>
                 )}
             </Typography>
