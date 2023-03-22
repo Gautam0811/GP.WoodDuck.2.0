@@ -23,12 +23,12 @@
 
 .flex-start{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .flex-end{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 /* Justify space between */
