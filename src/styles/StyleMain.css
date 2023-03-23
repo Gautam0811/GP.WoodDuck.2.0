@@ -31,6 +31,10 @@
   justify-content: flex-end;
 }
 
+.flex-grow{
+  flex-grow: 1;
+}
+
 /* Justify space between */
 .justify-space-between{
   justify-content: space-between;
@@ -292,7 +296,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* widths */
+/* widths and heights*/
 
 .w10{
   width: 10%;
@@ -323,6 +327,11 @@
 
 .w100{
   width: 100%;
+}
+
+.w25-h25{
+  width: 25px !important;
+  height: 25px !important;
 }
 
 .w70-h10{
@@ -365,6 +374,10 @@
   font-size: 12px !important;
 }
 
+.fs-16{
+  font-size: 16px !important;
+}
+
 
 
 .fs-24{
@@ -396,6 +409,8 @@
   color: gray;
 }
 
+
+
 .col-42a5f5{
   color: #42a5f5;
 }
@@ -416,6 +431,10 @@
 
 .bg-e3f2fd {
   background-color: #e3f2fd;
+}
+
+.bg-ffb74d {
+  background-color: #ffb74d !important;
 }
 
 .bg-eeeeee{
@@ -453,6 +472,12 @@
 /* line heights */
 .lh-28{
   line-height: 1.75rem;
+}
+
+/* positions */
+
+.position-static{
+  position: static !important;
 }
 
 
@@ -752,4 +777,25 @@ input[type="submit"]:hover {
   justify-content: space-between;
   align-items: center;
   background-color: #f1f4fb;
+}
+
+
+/* Header Right Section */
+.header-right{
+  align-items: center;
+  flex-grow: 1;
+  position: absolute;
+  right: 20px;
+}
+
+.modal-header-right{
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    width: 120px;
+    height: 100px;
+    /* // border: '2px solid #000', */
+    background-color: white;
+    box-shadow: 24px;
+    padding: 20px;
 }
