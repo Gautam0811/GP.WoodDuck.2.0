@@ -87,7 +87,7 @@ export  function RightHeader() {
                 >
                   <Box className="modal-header-right">
                   <div className="flex-end">
-                  <Button><LogoutIcon /></Button>
+                  <Button onClick={logout}><LogoutIcon /></Button>
                   </div>
                     <Typography
                       variant="h6"
