@@ -6,7 +6,7 @@ import React, { useEffect, useContext, useState } from "react";
 import "../../styles/StyleMain.css";
 import { ClaimContext } from "../../context/claim/Claims";
 
-export default function Login() {
+export function Login() {
   const [errorMessages, setErrorMessages]: any = useState({});
   const context: any = useContext(ClaimContext);
 
