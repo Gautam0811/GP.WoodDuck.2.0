@@ -5,17 +5,19 @@ import { Navigator } from "../../routes/index";
 import LeftSideBar from "../../globalPages/common/LeftSideBar";
 import Footer from "../../globalPages/common/Footer";
 import Login from "../login/Login";
-
+import Header from "../../features/header/Header";
 
 export default function Home() {
-
-  const token:any = localStorage.getItem("token");
+  const token: any = localStorage.getItem("token");
   if (!token) {
-    return <Login/>;
-  } 
+    return <Login />;
+  }
   return (
     <Grid>
       <Router>
+        <Grid>
+          <Header />
+        </Grid>
         <div className="flexrow">
           <LeftSideBar />
           <Grid sx={{ width: "100%" }}>
