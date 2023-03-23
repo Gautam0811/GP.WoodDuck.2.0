@@ -6,9 +6,12 @@ import { PermissionsData } from "../services/Data";
 export function SettingsRoute() {
   return (
     <div>
-      <Routes>
-        <Route path="/settings/adminpermissions" element={<Permissions data={PermissionsData} />}></Route>
-      </Routes>
+        <Routes>
+          <Route
+            path="/settings/adminpermissions"
+            element={<Permissions data={PermissionsData} />}
+          ></Route>
+        </Routes>
     </div>
   );
 }

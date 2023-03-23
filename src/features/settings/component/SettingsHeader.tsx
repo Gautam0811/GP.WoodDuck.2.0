@@ -4,7 +4,7 @@
 // -------------------------
 import * as React from "react";
 
-export default function SettingsSectionHeader() {
+export function SettingsHeader() {
   return (
     //This is the header for settings in components_2.png
     <div className="settings-header">

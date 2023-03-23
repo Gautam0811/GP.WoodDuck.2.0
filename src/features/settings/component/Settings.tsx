@@ -4,12 +4,12 @@
 // -------------------------
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import SettingsHeader from "./SettingsHeader";
-import UserSettings from "./UserSettings";
-import SiteSettings from "./SiteSettings";
-import AdminSettings from "./AdminSettings";
-import { BrowserRouter as Router } from "react-router-dom";
-import { SettingsRoute } from "../routes/SettingsRoute";
+import {SettingsHeader, UserSettings, SiteSettings, AdminSettings} from "./index";
+import { Route, Routes} from "react-router-dom";
+import { SettingsRoute } from "../routes";
+import { PermissionsData } from "../services/Data";
+import Permissions from "./adminPermissions/Permissions";
+
 
 export function Settings() {
   const [data, setData]: any = React.useState({});
@@ -25,7 +25,12 @@ export function Settings() {
       <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
         <UserSettings />
         {data.isAdmin ? <AdminSettings /> : <div></div>}
-          <SettingsRoute />
+        <Routes>
+        <Route
+            path="/settings/adminpermissions"
+            element={<Permissions data={PermissionsData} />}
+          ></Route>
+          </Routes>
         <SiteSettings />
       </Grid>
     </Grid>
