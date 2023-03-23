@@ -2,10 +2,10 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Navigator } from "../../routes/index";
-import {LeftSideBar} from "../../globalPages/common/leftSideBar/index";
-import {Footer} from "../../globalPages/common/footer/index";
-import {Login} from "../login/index";
-import {Header} from "../../globalPages/common/header/index";
+import {LeftSideBar} from "../../globalPages/common/leftSideBar";
+import {Footer} from "../../globalPages/common/footer";
+import {Login} from "../login";
+import {Header} from "../../globalPages/common/header";
 
 export function Home() {
   const token: any = localStorage.getItem("token");
