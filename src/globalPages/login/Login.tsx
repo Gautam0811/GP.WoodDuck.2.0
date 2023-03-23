@@ -17,6 +17,7 @@ export function Login() {
   // User Login info
   useEffect(() => {
     context.ClaimsData();
+    // eslint-disable-next-line
   }, []);
   //This is hard coded data for now it will be replaces by API call once the backend architecture is confirmed
   const loginInfo = context.claims;

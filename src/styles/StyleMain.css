@@ -481,6 +481,13 @@
 
 .fontsize {
     font-size: 12px;
+   
+
+}
+.appBar {
+  position:static;
+  background: #ffb74d;
+
 }
 
 .sidebar-logo {
@@ -609,6 +616,13 @@ Collapsed Sidebar CSS
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-image:url('../../lumber.jpg');
 }
+
+.leftHeader {
+  width:25%;
+  background-image:url('../globalPages/common/header/images/logo-gp.svg');
+
+}
+
 
 input[type="text"],
 input[type="password"] {

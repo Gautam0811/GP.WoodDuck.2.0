@@ -1,10 +1,11 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Navigator } from "../../routes/index";
-import {LeftSideBar} from "../common/leftSideBar/index";
-import {Footer} from "../common/footer/index";
-import {Login} from "../login/index";
+import { Navigator } from "../../routes";
+import {LeftSideBar} from "../common/leftSideBar";
+import {Footer} from "../common/footer";
+import {Login} from "../login";
+import { Header } from "../common/header";
 
 
 export  function Home() {
@@ -16,6 +17,9 @@ export  function Home() {
   return (
     <Grid>
       <Router>
+        <Grid>
+          <Header/>
+        </Grid>
         <div className="flexrow">
           <LeftSideBar />
           <Grid sx={{ width: "100%" }}>
