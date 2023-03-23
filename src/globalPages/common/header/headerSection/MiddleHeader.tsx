@@ -20,7 +20,7 @@ export  function MiddleHeader() {
   React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
   React.useEffect(() => {
-    getCustomerData(name.id).then((customerData) => {
+    getCustomerData(name.id).then((customerData:any) => {
       setPost(customerData);
     });
   }, [name]);
@@ -31,13 +31,11 @@ export  function MiddleHeader() {
       <AppBar position="static" style={{ background: "#ffb74d" }}>
         <Toolbar>
           <FormControl
-            // sx={{
-            //   m: 1,
-            //   minWidth: 120,
-            //   position: "relative",
-            //   left: 300,
-            // }}
-            // style={{ background: "white" }}
+            sx={{
+            minWidth: 120,
+            position: "relative",
+            }}
+            style={{ background: "white" }}
           >
             <Select
               labelId="demo-select-small"
@@ -52,7 +50,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"grey"}
-            sx={{ flexGrow: 1, position: "relative", left: 300 }}
+            sx={{ flexGrow: 1, position: "relative",left:10 }}
           >
             Offers
             <Typography variant="caption" component="div" color={"black"}  aria-label="aa">
@@ -63,7 +61,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"grey"}
-            sx={{ flexGrow: 1, position: "relative", left: 180 }}
+            sx={{ flexGrow: 1, position: "relative"}}
           >
             Quotes
             <Typography variant="caption" component="div" color={"black"}>
@@ -74,7 +72,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"grey"}
-            sx={{ flexGrow: 1, position: "relative", left: 60 }}
+            sx={{ flexGrow: 1, position: "relative"}}
           >
             Orders
             <Typography variant="caption" component="div" color={"black"}>
@@ -85,7 +83,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"red"}
-            sx={{ flexGrow: 1, position: "relative", left: -60 }}
+            sx={{ flexGrow: 1, position: "relative"}}
           >
             Fullfilments
             <Typography variant="caption" component="div" color={"black"}>
@@ -96,7 +94,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"red"}
-            sx={{ flexGrow: 1, position: "relative", left: -180 }}
+            sx={{ flexGrow: 1, position: "relative"}}
           >
             Pickups
             <Typography variant="caption" component="div" color={"black"}>
@@ -107,7 +105,7 @@ export  function MiddleHeader() {
             variant="caption"
             component="div"
             color={"red"}
-            sx={{ flexGrow: 1, position: "relative", left: -300 }}
+            sx={{ flexGrow: 1, position: "relative" }}
           >
             A/R
             <Typography variant="caption" component="div" color={"black"}>
