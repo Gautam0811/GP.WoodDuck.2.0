@@ -5,7 +5,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Checkbox from '@mui/material/Checkbox';
-import "../../../../styles/StyleMain.css";
+import "../../../../../styles/StyleMain.css";
 
 export default function Permissions(props:any) {
   return (

@@ -4,11 +4,7 @@
 // -------------------------
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import {SettingsHeader, UserSettings, SiteSettings, AdminSettings} from "./index";
-import { Route, Routes} from "react-router-dom";
-import { SettingsRoute } from "../routes";
-import { PermissionsData } from "../services/Data";
-import Permissions from "./adminPermissions/Permissions";
+import {UserSettings, SiteSettings, AdminSettings} from "./index";
 
 
 export function Settings() {
@@ -17,20 +13,17 @@ export function Settings() {
     setData(JSON.parse(localStorage.getItem("status")!));
   }, []);
   return (
+    
     <Grid sx={{ width: "100%" }}>
       {/* settings header part */}
-      <SettingsHeader />
+      <div className="settings-header">
+      <span className="settings-header-text">Settings</span>
+    </div>
 
       {/* settings main section */}
       <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
         <UserSettings />
         {data.isAdmin ? <AdminSettings /> : <div></div>}
-        <Routes>
-        <Route
-            path="/settings/adminpermissions"
-            element={<Permissions data={PermissionsData} />}
-          ></Route>
-          </Routes>
         <SiteSettings />
       </Grid>
     </Grid>

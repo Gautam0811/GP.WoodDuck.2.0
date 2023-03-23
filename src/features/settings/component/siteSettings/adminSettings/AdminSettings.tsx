@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { SettingsRoute } from "../../../routes";
 
 export function AdminSettings() {
   return (

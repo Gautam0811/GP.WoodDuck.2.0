@@ -1,4 +1,4 @@
-export {AdminSettings} from "./AdminSettings";
-export {SiteSettings} from "./SiteSettings";
-export {UserSettings} from "./UserSettings";
-export {SettingsHeader} from "./SettingsHeader";
+export {AdminSettings} from "./adminSettings/AdminSettings";
+export {SiteSettings} from "./siteSettings/SiteSettings";
+export {UserSettings} from "./userSettings/UserSettings";
+
