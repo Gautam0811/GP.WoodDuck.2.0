@@ -16,7 +16,7 @@ import {DasboardHitRaterows} from "../services/Data";
 import {DasboardPercentForecastSoldrows} from "../services/Data";
 
 // eslint-disable-next-line
-export default function Dashboard() {
+export function Dashboard() {
     return (<Grid className="flexrow w100 bg-e3f2fd">
     
     <Grid className="w70 fs-12">

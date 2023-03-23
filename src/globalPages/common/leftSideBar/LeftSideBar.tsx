@@ -20,10 +20,10 @@ import { Divider, Typography } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import Collapse from "@mui/material/Collapse";
 import { ShoppingCartOutlined } from "@mui/icons-material";
-import "../../styles/StyleMain.css";
+import "../../../styles/StyleMain.css";
 import { useState } from "react";
 
-function LeftSidebar() {
+export function LeftSideBar() {
   const [openOrders, setOpenOrders] = React.useState(false);
 
   const handleClickOrders = () => {
@@ -198,4 +198,3 @@ function LeftSidebar() {
   );
 }
 
-export default LeftSidebar;
