@@ -47,6 +47,8 @@ export function Login() {
           name: userData.username,
           isAdmin: userData.isAdmin,
           id: userData.id,
+          firstname: userData.firstname,
+          lastname: userData.lastname,
         };
         localStorage.setItem("status", JSON.stringify(status));
         window.location.reload();

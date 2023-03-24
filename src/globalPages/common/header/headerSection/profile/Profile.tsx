@@ -32,9 +32,9 @@ export function Profile() {
     fetchName();
   }, []);
 
-  var nameByChar = JSON.parse(
-    localStorage.getItem("status") || "{}"
-  ).name.charAt(0);
+  var nameByChar =
+    JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
+    JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
 
   const logout = () => {
     localStorage.clear();
@@ -60,7 +60,7 @@ export function Profile() {
             </Button>
           </div>
           <Typography component="h2" color="primary">
-            {name.name}
+            {name.firstname + " " + name.lastname}
           </Typography>
           <Typography color="primary">ananyadhar123@gmail.com</Typography>
           <Typography color="primary">Permission Set: Sales Administrator</Typography>
