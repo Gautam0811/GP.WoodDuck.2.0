@@ -30,6 +30,8 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
     username:"admin",
     password:"admin@123",
     isAdmin: true,
+    firstname: "",
+    lastname: "",
     }]
    const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
    // Get all claims
@@ -40,6 +42,8 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username:"admin",
         password:"admin@123",
         isAdmin: true,
+        firstname: "",
+        lastname: "",
         },
         {
         id:"1002",
