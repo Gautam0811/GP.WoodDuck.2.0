@@ -62,8 +62,8 @@ export function Profile() {
           <Typography component="h2" color="primary">
             {name.name}
           </Typography>
-          <Typography color="primary">Email: ananydhar@gapac.com</Typography>
-          <Typography color="primary">Permission Set: Administrator</Typography>
+          <Typography color="primary">Email: ananyadhar123@gmail.com</Typography>
+          <Typography color="primary">Permission Set: Sales Administrator</Typography>
         </Box>
       </Modal>
     </Grid>
