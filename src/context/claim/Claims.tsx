@@ -9,6 +9,8 @@
   username:string,
   password:string,
   isAdmin: boolean,
+  firstname: string,
+  lastname: string,
 }
 
 type ClaimContextType = {
@@ -28,6 +30,8 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
     username:"admin",
     password:"admin@123",
     isAdmin: true,
+    firstname: "",
+    lastname: "",
     }]
    const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
    // Get all claims
@@ -38,24 +42,32 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username:"admin",
         password:"admin@123",
         isAdmin: true,
+        firstname: "",
+        lastname: "",
         },
         {
         id:"1002",
         username: "Ananya",
         password: "password@123",
         isAdmin: false,
+        firstname: "Ananya",
+        lastname: "Dhar",
         },
         {
         id:"1003",
         username: "Gautam",
         password: "password@456",
         isAdmin: false,
+        firstname: "Gautam",
+        lastname: "Malhotra",
         },
         {
         id:"1004",
         username:"Abhishek",
         password:"password@789",
         isAdmin: true,
+        firstname: "Abhishek",
+        lastname: "Bhatt",
       }])
     }
 

@@ -19,19 +19,21 @@ export  function LeftHeader() {
   return (
     // View for Left header section section
    
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "#ffb74d" }}>
+    <Box className="flex-grow">
+      <AppBar className="bg-ffb74d position-static" >
         <Toolbar className ="leftHeader">
          
+        <div className="mr-64">
         <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 8 }}
+            
           >
          </IconButton>
-          <Typography color={"black"} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        </div>
+          <Typography className="flex-grow font-black" variant="h6" component="div" >
          {envValue}
           </Typography>
         </Toolbar>
