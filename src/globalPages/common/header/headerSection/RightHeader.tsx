@@ -29,7 +29,6 @@ import {Profile} from "../../profile/Profile";
 
 
 export  function RightHeader() {
-  const [post, setPost]:any = React.useState({});
   const [name, setName]:any = React.useState({});
 
 
