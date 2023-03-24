@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-import "../../../styles/StyleMain.css";
+import "../../../../../styles/StyleMain.css";
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 
