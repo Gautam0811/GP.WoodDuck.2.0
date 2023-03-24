@@ -27,15 +27,12 @@ export  function MiddleHeader() {
   
   return (
     // View for header middle section
-    <Box className="fontsize" sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "#ffb74d" }}>
+    <Box className="fs-12 flex-grow" >
+      <AppBar className="bg-ffb74d position-static">
         <Toolbar>
           <FormControl
-            sx={{
-            minWidth: 120,
-            position: "relative",
-            }}
-            style={{ background: "white" }}
+            
+            className="bg-white position-relative min-width-120"
           >
             <Select
               labelId="demo-select-small"
@@ -47,68 +44,58 @@ export  function MiddleHeader() {
             </Select>
           </FormControl>
           <Typography
-            variant="caption"
             component="div"
-            color={"grey"}
-            sx={{ flexGrow: 1, position: "relative",left:10 }}
+            className="gray fs-12 flex-grow position-relative left-16"
           >
             Offers
-            <Typography variant="caption" component="div" color={"black"}  aria-label="aa">
+            <Typography className="font-black" component="div">
              {post.offers}
             </Typography>
           </Typography>
           <Typography
-            variant="caption"
             component="div"
-            color={"grey"}
-            sx={{ flexGrow: 1, position: "relative"}}
+            className="gray fs-12 flex-grow position-relative"
           >
             Quotes
-            <Typography variant="caption" component="div" color={"black"}>
+            <Typography className="font-black" component="div">
               {post.quotes}
             </Typography>
           </Typography>
           <Typography
-            variant="caption"
             component="div"
-            color={"grey"}
-            sx={{ flexGrow: 1, position: "relative"}}
+            className="gray fs-12 flex-grow position-relative"
           >
             Orders
-            <Typography variant="caption" component="div" color={"black"}>
+            <Typography className="font-black" component="div">
              {post.orders}
             </Typography>
           </Typography>
           <Typography
-            variant="caption"
             component="div"
-            color={"red"}
-            sx={{ flexGrow: 1, position: "relative"}}
+            className="col-red fs-12 flex-grow position-relative"
+
           >
             Fullfilments
-            <Typography variant="caption" component="div" color={"black"}>
+            <Typography className="font-black" component="div" >
               {post.fullfilments}
             </Typography>
           </Typography>
           <Typography
-            variant="caption"
             component="div"
-            color={"red"}
-            sx={{ flexGrow: 1, position: "relative"}}
+            className="col-red fs-12 flex-grow position-relative"
+
           >
             Pickups
-            <Typography variant="caption" component="div" color={"black"}>
+            <Typography className="font-black" component="div">
               {post.pickups}
             </Typography>
           </Typography>
           <Typography
-            variant="caption"
             component="div"
-            color={"red"}
-            sx={{ flexGrow: 1, position: "relative" }}
+            className="col-red fs-12 flex-grow position-relative"
           >
             A/R
-            <Typography variant="caption" component="div" color={"black"}>
+            <Typography className="font-black"  component="div" >
               {post.ar}
             </Typography>
           </Typography>
