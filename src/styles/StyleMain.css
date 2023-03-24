@@ -822,6 +822,6 @@ input[type="submit"]:hover {
     width: 240px;
     height: 150px;
     background-color: white;
-    box-shadow: 24px;
+    box-shadow: 30px;
     padding: 20px;
 }

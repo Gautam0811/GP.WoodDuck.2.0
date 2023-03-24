@@ -1,15 +1,14 @@
-// WD_header-middle-section
-// Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
-// Author Gautam Malhotra on 1-3-2023
+// Profile Modal component
+// Component Utility : This Component is created for displaying profile information after a user clicks on his/her Profile Avatar
+// Author Ananya Dhar on 24-3-2023
 // -------------------------
 
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-import "../../../styles/StyleMain.css";
+import "../../../../../styles/StyleMain.css";
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -63,8 +62,8 @@ export function Profile() {
           <Typography component="h2" color="primary">
             {name.name}
           </Typography>
-          <Typography color="primary">Email: ananydhar@gapac.com</Typography>
-          <Typography color="primary">Permission Set: Administrator</Typography>
+          <Typography color="primary">ananyadhar123@gmail.com</Typography>
+          <Typography color="primary">Permission Set: Sales Administrator</Typography>
         </Box>
       </Modal>
     </Grid>
