@@ -14,14 +14,14 @@ export function Settings() {
   }, []);
   return (
     
-    <Grid sx={{ width: "100%" }}>
+    <Grid className="w100">
       {/* settings header part */}
       <div className="settings-header">
       <span className="settings-header-text">Settings</span>
     </div>
 
       {/* settings main section */}
-      <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
+      <Grid className="w100 flexrow">
         <UserSettings />
         {data.isAdmin ? <AdminSettings /> : <div></div>}
         <SiteSettings />

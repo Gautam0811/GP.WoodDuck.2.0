@@ -17,12 +17,12 @@ import PermissionsHeader from "./PermissionsHeader";
 export function Permissions(props: any) {
   console.log(props.data);
   return (
-    <Grid sx={{ width: "100%" }}>
-      <PermissionsHeader/>
+    <Grid className="w85">
+      <PermissionsHeader />
       <br/>
-      <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
+      <Grid className="w100 flexrow">
         <TableContainer component={Paper}>
-          <Table sx={{ width: "100%" }} size="small" aria-label="a dense table">
+          <Table className="w100" size="small">
             <TableHead>
               <TableRow>
                 <TableCell>Permission Sets</TableCell>

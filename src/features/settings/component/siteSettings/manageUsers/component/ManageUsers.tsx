@@ -4,7 +4,7 @@ import { ManageUserHeader, ManageUsersGrid } from "./index";
 
 export  function ManageUsers() {
   return (
-    <Grid sx={{ width: "100%" }}>
+    <Grid className="w100">
       <ManageUserHeader />
       <br />
       <br />

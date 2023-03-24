@@ -15,10 +15,10 @@ export  function Header() {
   <Grid item xs={2}>
     <LeftHeader/>
   </Grid>
-  <Grid item xs={6}>
+  <Grid item xs={7}>
    <MiddleHeader/>
   </Grid>
-  <Grid item xs={4}>
+  <Grid item xs={3}>
   <RightHeader/>
   </Grid>
 </Grid>

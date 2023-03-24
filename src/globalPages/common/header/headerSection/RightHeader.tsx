@@ -49,7 +49,7 @@ export  function RightHeader() {
     <Box className="fs-12 flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
-          <Grid className="flexrow pl-128">
+          <Grid className="flexrow pl-16">
             <Grid >
               <Grid className="flex-end" >
                 <Typography color="primary">{name.firstname + " " + name.lastname}</Typography>

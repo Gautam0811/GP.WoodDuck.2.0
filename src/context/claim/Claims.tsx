@@ -42,7 +42,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username:"admin",
         password:"admin@123",
         isAdmin: true,
-        firstname: "",
+        firstname: "admin",
         lastname: "",
         },
         {
