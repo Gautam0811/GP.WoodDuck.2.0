@@ -9,6 +9,8 @@
   username:string,
   password:string,
   isAdmin: boolean,
+  firstname: string,
+  lastname: string,
 }
 
 type ClaimContextType = {
