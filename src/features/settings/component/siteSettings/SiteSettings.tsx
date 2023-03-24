@@ -8,8 +8,19 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import ListItemButton from "@mui/material/ListItemButton";
+import Collapse from "@mui/material/Collapse";
+import { ShoppingCartOutlined } from "@mui/icons-material";
+import { useState } from "react";
 
 export function SiteSettings() {
+  const [manageUsers, setmanageUsers] = React.useState(false);
+  const sidebarCollapsed = localStorage.getItem("sidebar-collapsed");
+  const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
+
+  const handleClickManageUsers = () => {
+    setmanageUsers(!manageUsers);
+  };
   return (
     <Box
       sx={{
@@ -44,11 +55,27 @@ export function SiteSettings() {
               Mass Price Product Groups
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
+          <div className={isExpanded ? "Sidebar" : "Sidebar collapsed"} >
+            <div style={{  backgroundColor: 'white' }}>
+          <Link to="#"  style={{ textDecoration: "none" }}>
+          <div onClick={handleClickManageUsers}>
             <Typography variant="subtitle1" color={"#42a5f5"}>
               Mill Threat Levels
             </Typography>
+            {manageUsers ? " " : " "}
+          </div>
           </Link>
+        <Collapse in={manageUsers} timeout="auto">
+            <Link to="/manageUsers" className="link-text">
+              <ListItemButton>
+                <Typography variant="subtitle1" color={"#42a5f5"}>
+                  Manage Users
+                  </Typography>
+              </ListItemButton>
+            </Link>
+            </Collapse>
+            </div>
+            </div>
           <Link to="#" style={{ textDecoration: "none" }}>
             <Typography variant="subtitle1" color={"#42a5f5"}>
               Salespersons

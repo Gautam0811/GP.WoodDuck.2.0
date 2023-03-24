@@ -97,10 +97,10 @@ export  function RightHeader() {
                       {name.name}
                     </Typography>
                     <Typography color="primary">
-                      Email
+                      Email :
                     </Typography>
                     <Typography color="primary">
-                      Permission Set
+                      Permission Set : 
                     </Typography>
                   </Box>
                 </Modal>
