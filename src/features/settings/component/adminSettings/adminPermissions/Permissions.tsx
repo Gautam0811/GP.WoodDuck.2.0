@@ -3,62 +3,110 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Checkbox from '@mui/material/Checkbox';
-import '../../../../../styles/StyleMain.css';
+import Grid from "@mui/material/Grid";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Checkbox from "@mui/material/Checkbox";
+import Paper from "@mui/material/Paper";
+import PermissionsHeader from "./PermissionsHeader";
 
-export  function Permissions(props:any) {
+export function Permissions(props: any) {
   console.log(props.data);
   return (
-    <Box
-      sx={{
-        mx: 4,
-        my: 4,
-        width: "95%",
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-      }}
-    >
-      <table style={{ width: "100%", lineHeight: 2.5 }}>
-        <thead style={{ color: "#42a5f5", backgroundColor: "#eeeeee" }}>
-          <tr>
-            <th>Role</th>
-            <th>Enter/Edit Quote</th>
-            <th>Enter/Edit Order</th>
-            <th>Set Sales Plan</th>
-            <th>Manage SG</th>
-            <th>Read-Only Quote</th>
-            <th>Read-Only Order</th>
-            <th>Manage Tweaker</th>
-            <th>Manage E-Commerce</th>
-            <th>Set Controls/Permissions</th>
-            <th>Assign Division Access</th>
-          </tr>
-        </thead>
-        <tbody>
-          {props.data.map((row:any) => (
-            <tr key={row.Role}>
-              <th
-              >
-                {row.Role}
-              </th>
-              {/* <td>{row.EnterEditQuote === true? &#10004:&times}</td> */}
-              <td><Checkbox checked={row.EnterEditQuote}/></td>
-              <td><Checkbox checked={row.EnterEditOrder}/></td>
-              <td><Checkbox checked={row.SetSalesPlan}/></td>
-              <td><Checkbox checked={row.ManageSG}/></td>
-              <td><Checkbox checked={row.ReadOnlyQuote}/></td>
-              <td><Checkbox checked={row.ReadOnlyOrder}/></td>
-              <td><Checkbox checked={row.ManageTweaker}/></td>
-              <td><Checkbox checked={row.ManageECommerce}/></td>
-              <td><Checkbox checked={row.SetControlsPermissions}/></td>
-              <td><Checkbox checked={row.AssignDivisionAccess}/></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <br />
-      <br />
-    </Box>
+    <Grid sx={{ width: "100%" }}>
+      <PermissionsHeader/>
+      <br/>
+      <Grid sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
+        <TableContainer component={Paper}>
+          <Table sx={{ width: "100%" }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Permission Sets</TableCell>
+                <TableCell align="right">Create/Edit Quote</TableCell>
+                <TableCell align="right">Create/Edit Order</TableCell>
+                <TableCell align="right">Set Sales Plan</TableCell>
+                <TableCell align="right">Manage Sales Grids</TableCell>
+                <TableCell align="right">Read-Only Quote</TableCell>
+                <TableCell align="right">Read-Only Order</TableCell>
+                <TableCell align="right">Manage Tweaker</TableCell>
+                <TableCell align="right">Manage E-Commerce</TableCell>
+                <TableCell align="right">Set/Controls Permissions</TableCell>
+                <TableCell align="right">Assign Division Access</TableCell>
+                <TableCell align="right">Dashboard</TableCell>
+                <TableCell align="right">Managing Default List Views</TableCell>
+                <TableCell align="right">
+                  Managing Integration Mapping Mills to Products
+                </TableCell>
+                <TableCell align="right">Send DCX Info</TableCell>
+                <TableCell align="right">
+                  Price Experimentation (Lumber Only)
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.data.map((row: any) => (
+                <TableRow
+                  key={row.Role}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.Role}
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.EnterEditQuote} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.EnterEditOrder} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.SetSalesPlan} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ManageSG} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ReadOnlyQuote} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ReadOnlyOrder} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ManageTweaker} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ManageECommerce} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.SetControlsPermissions} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.AssignDivisionAccess} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.Dashboard} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ManagingDefaultListViews} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.ManagingIntegrationMappingMills} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.SendDcxInfo} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <Checkbox checked={row.PriceExperimentation} />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+    </Grid>
   );
 }
