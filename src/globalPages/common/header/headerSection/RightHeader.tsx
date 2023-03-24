@@ -28,7 +28,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 export  function RightHeader() {
-  const [post, setPost]:any = React.useState({});
   const [name, setName]:any = React.useState({});
 
   const [open, setOpen] = React.useState(false);

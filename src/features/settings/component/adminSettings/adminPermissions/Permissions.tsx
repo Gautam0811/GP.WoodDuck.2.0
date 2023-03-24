@@ -8,6 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import '../../../../../styles/StyleMain.css';
 
 export  function Permissions(props:any) {
+  console.log(props.data);
   return (
     <Box
       sx={{

@@ -44,18 +44,24 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username: "Ananya",
         password: "password@123",
         isAdmin: false,
+        firstname: "Ananya",
+        lastname: "Dhar",
         },
         {
         id:"1003",
         username: "Gautam",
         password: "password@456",
         isAdmin: false,
+        firstname: "Gautam",
+        lastname: "Malhotra",
         },
         {
         id:"1004",
         username:"Abhishek",
         password:"password@789",
         isAdmin: true,
+        firstname: "Abhishek",
+        lastname: "Bhatt",
       }])
     }
 
