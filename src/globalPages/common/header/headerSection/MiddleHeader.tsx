@@ -40,7 +40,7 @@ export  function MiddleHeader() {
               value={parseInt(name.id, 10)}
               label="Name"
               >
-              <MenuItem value={name.id}>{name.name}</MenuItem>
+              <MenuItem value={name.id}>{name.firstname + " " + name.lastname}</MenuItem>
             </Select>
           </FormControl>
           <Typography

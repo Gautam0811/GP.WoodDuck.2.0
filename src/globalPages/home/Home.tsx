@@ -35,8 +35,10 @@ export  function Home() {
           <Header/>
         </Grid>
         <div className="flexrow">
-          <LeftSideBar />
-          <Grid sx={{ width: "100%" }}>
+          <Grid >
+            <LeftSideBar />
+          </Grid>
+          <Grid className="w100">
             <Navigator />
           </Grid>
         </div>
