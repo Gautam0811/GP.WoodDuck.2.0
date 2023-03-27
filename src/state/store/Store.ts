@@ -8,3 +8,4 @@ import thunk from "redux-thunk";
 import reducers from "../reducers/Reducer";
 
 export const store = createStore(reducers,{},applyMiddleware(thunk))
+

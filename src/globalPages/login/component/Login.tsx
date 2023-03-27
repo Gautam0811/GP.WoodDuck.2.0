@@ -3,8 +3,8 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import React, { useEffect, useContext, useState } from "react";
-import "../../styles/StyleMain.css";
-import { ClaimContext } from "../../context/claim/Claims";
+import "../../../styles/StyleMain.css";
+import { ClaimContext } from "../../../context/claim/Claims";
 
 export function Login() {
   const [errorMessages, setErrorMessages]: any = useState({});
@@ -49,6 +49,7 @@ export function Login() {
           id: userData.id,
         };
         localStorage.setItem("status", JSON.stringify(status));
+        
         window.location.reload();
       }
     } else {

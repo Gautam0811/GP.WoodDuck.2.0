@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import "../../../../../styles/StyleMain.css";
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-
+import { useSelector } from 'react-redux';
 
 
 export function Profile() {
@@ -21,6 +21,7 @@ export function Profile() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const userInfo= useSelector((state:any) => state.loginInfo);
 
   // React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
@@ -46,6 +47,7 @@ export function Profile() {
   }, [logout]);
 
   return (
+    
     <Grid>
       <Button onClick={handleOpen}>
         <Stack spacing={2}>
@@ -60,12 +62,13 @@ export function Profile() {
             </Button>
           </div>
           <Typography component="h2" color="primary">
-            {name.name}
+            Name: {name.name}
           </Typography>
-          <Typography color="primary">ananyadhar123@gmail.com</Typography>
+          <Typography color="primary">Email : ananyadhar123@gmail.com</Typography>
           <Typography color="primary">Permission Set: Sales Administrator</Typography>
         </Box>
       </Modal>
     </Grid>
+   
   );
 }
