@@ -24,7 +24,7 @@ import "../../../../styles/StyleMain.css";
 
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {Profile} from "./profile/Profile";
+import {Profile} from "../index";
 
 
 
