@@ -18,6 +18,8 @@ export function Settings() {
       {/* settings header part */}
       <div className="bg-grey-white p-16 w100">
       <span className="settings-header-text">Settings</span>
+      <br/>
+      <br/>
     </div>
 
       {/* settings main section */}

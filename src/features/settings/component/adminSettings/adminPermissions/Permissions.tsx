@@ -25,6 +25,7 @@ export function Permissions(props: any) {
           <Table className="w100" size="small">
             <TableHead>
               <TableRow>
+                <TableCell></TableCell>
                 <TableCell>Permission Sets</TableCell>
                 <TableCell className="text-right">Create/Edit Quote</TableCell>
                 <TableCell className="text-right">Create/Edit Order</TableCell>
@@ -53,6 +54,7 @@ export function Permissions(props: any) {
                   key={row.Role}
                   // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
+                  <TableCell component="th" scope="row">Edit/Delete</TableCell>
                   <TableCell component="th" scope="row">
                     {row.Role}
                   </TableCell>
