@@ -13,71 +13,63 @@ import { Link } from "react-router-dom";
 export function AdminSettings() {
   return (
     <Box
-      sx={{
-        mx: 4,
-        my: 1,
-        width: "30%",
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-      }}
+      className="border-radius-5 box-shad-125grey w30 bg-white mx-32 my-8"
     >
-      <Box sx={{ my: 2.5, mx: 5 }}>
-        <Grid container alignItems="center">
+        <Grid container >
           <Grid item xs>
-            <Typography gutterBottom variant="h6" component="div">
-              Administration Settings
+            <Typography className="p-4 pl-16 fs-16 bg-grey-white font-bold" component="div">
+              ADMINISTRATION
             </Typography>
           </Grid>
         </Grid>
-        <Stack spacing={2}>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+        <Stack spacing={0.2} className="p-8">
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Activity Log
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               API Log
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Data Sync Setup
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Manage Retry Table Records
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Error Log
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Search Status
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               User Activity Logs
             </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#" className="text-dec-none">
+            <Typography className="col-005fa8">
               Misc Utilities
             </Typography>
           </Link>
-          <Link to="/settings/adminpermissions" style={{ textDecoration: "none" }}>
-            <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="/settings/adminpermissions" className="text-dec-none">
+            <Typography className="col-005fa8">
               Permission Sets and Controls
             </Typography>
           </Link>
         </Stack>
         <br />
       </Box>
-    </Box>
   );
 }

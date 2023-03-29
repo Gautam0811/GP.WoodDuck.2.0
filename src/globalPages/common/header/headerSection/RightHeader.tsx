@@ -1,4 +1,4 @@
-// WD_header-middle-section
+// RightHeaderSection
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
@@ -45,14 +45,14 @@ export  function RightHeader() {
 
 
   return (
-    // View for header middle section
+    // View for Right Header section
     <Box className="fs-12 flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
           <Grid className="flexrow pl-16">
             <Grid >
               <Grid className="flex-end" >
-                <Typography color="primary">{name.firstname + " " + name.lastname}</Typography>
+                <Typography className="col-005fa8">{name.firstname + " " + name.lastname}</Typography>
               </Grid>
               <Grid className="font-black" component="div">
                 <IconButton size="small" color="primary" aria-label="menu">

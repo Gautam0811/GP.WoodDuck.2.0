@@ -50,6 +50,16 @@
   justify-content: flex-end;
 }
 
+/* justify space evenly */
+.justify-space-evenly{
+  justify-content: space-evenly;
+}
+
+/* justify space around */
+.justify-space-around{
+  justify-content: space-around;
+}
+
 /* Font */
 .css-ahj2mt-MuiTypography-root.font-bold {
   font-weight: bold;
@@ -117,6 +127,16 @@
 
 .pt-28{
   padding-top: 1.75rem;
+}
+
+.px-16{
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.py-16{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-40{
@@ -228,6 +248,10 @@
   margin-top: 1.75rem;
 }
 
+.mt-32{
+  margin-top: 2rem;
+}
+
 .my-40{
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -333,6 +357,10 @@
   width: 38%;
 }
 
+.w50{
+  width: 50%;
+}
+
 .w70 {
   width: 70%;
 }
@@ -384,6 +412,10 @@
   height: 50px;
 }
 
+.h-400{
+  height: 400px;
+}
+
 /* Font sizes */
 
 .fs-11{
@@ -398,7 +430,9 @@
   font-size: 16px !important;
 }
 
-
+.fs-20{
+  font-size: 20px !important;
+}
 
 .fs-24{
   font-size: 24px !important;
@@ -420,6 +454,12 @@
 /* headings */
 
 
+/* text */
+
+.text-dec-none {
+  text-decoration: none;
+}
+
 /* left */
 .left-16{
   left: 1rem;
@@ -430,6 +470,15 @@
   right: 4rem;
 }
 
+/* align */
+.align-items-center{
+  align-items: center;
+}
+
+.text-right{
+  text-align: right !important;
+}
+
 /* custom colors */
 
 .gray{
@@ -437,6 +486,10 @@
 }
 
 
+
+.col-005fa8{
+  color: #005FA8;
+}
 
 .col-42a5f5{
   color: #42a5f5;
@@ -468,11 +521,33 @@
   background-color: #eeeeee;
 }
 
+.bg-005fa8{
+  background-color: #005fa8 !important;
+}
+
 .bg-42a5f5{
   background-color: #42a5f5;
 }
 
+.bg-f1f4fb {
+  background-color: #f1f4fb;
+}
+
 .bg-white{
+  background-color: white;
+}
+
+.bg-grey-white{
+  background-image: linear-gradient(180deg, white, #f1f4fb);
+}
+
+/* on click */
+
+.bg-white-onclick:focus{
+  background-color: white;
+}
+
+.bg-white-onclick{
   background-color: white;
 }
 
@@ -494,7 +569,11 @@
   box-shadow: 1px 2px 5px grey;
 }
 
+/* border radius */
 
+.border-radius-5{
+  border-radius: 5px;
+}
 
 /* line heights */
 .lh-28{
@@ -512,105 +591,8 @@
 }
 
 
-/* Style for LeftSideBar */
-.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root.padding-left{
-  padding-left: 48px;
-}
 
-.link-text{
-  color: #ffffff; text-decoration: none;
-}
 
-.Sidebar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
-  height: "100vh";
-  background-color: #434c56;
-  color: #ffffff;
-  font-size: 10px;
-}
-
-.fontsize {
-    font-size: 12px;
-   
-
-}
-.appBar {
-  position:static;
-  background: #ffb74d;
-
-}
-
-.sidebar-logo {
-  font-size: 12px;
-}
-
-.sidebar-icon {
-  width: 1rem;
-  height: 1em;
-  margin-right: 10px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.sidebar-arrow-icon {
-  width: 1.5rem;
-  height: 1em;
-  margin-right: 10px;
-  cursor: pointer;
-  color:black;
-  user-select: none;
-}
-
-.arrow-item {
-  display: flex;
-  /* justify-content: end; */
-  align-items: center;
-  padding: 10px 8px;
-  border-radius: 5px;
-  transition: background-color 0.2s;
-  cursor: pointer;
-}
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-}
-.sidebar-items {
-  display: flex;
-  flex-direction: column;
-  padding: 0 4px;
-}
-.sidebar-items .item {
-  display: flex;
-  align-items: center;
-  padding: 10px 8px;
-  border-radius: 5px;
-  transition: background-color 0.2s;
-  cursor: pointer;
-}
-.sidebar-items .item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-/*
-Collapsed Sidebar CSS
-*/
-.Sidebar.collapsed {
-  width: 52px;
-}
-.Sidebar.collapsed .sidebar-icon {
-  margin-right: 0;
-}
-.Sidebar.collapsed .sidebar-text,
-.Sidebar.collapsed .sidebar-logo {
-  display: none;
-}
 
 /* Style for New ContractHeader */
 .NewContractHeaderFontsize{
@@ -735,8 +717,6 @@ input[type="submit"]:hover {
 }
 
 
-
-
 /* settings */
 /* for settings header */
 .settings-header{
@@ -822,10 +802,12 @@ input[type="submit"]:hover {
 .modal-header-right{
     position: absolute;
     top: 70px;
-    right: 50px;
-    width: 240px;
-    height: 150px;
-    background-color: white;
+    right: 30px;
+    border-radius: 5px;
+    background-image: linear-gradient(180deg, white, #f1f4fb);
     box-shadow: 30px;
     padding: 20px;
 }
+
+
+

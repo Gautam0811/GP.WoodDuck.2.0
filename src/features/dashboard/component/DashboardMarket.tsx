@@ -15,7 +15,7 @@ import SignalCellular4BarIcon from "@mui/icons-material/SignalCellular4Bar";
 export default function DashboardMarket(props:any) {
   return (
     <Box
-      className="mx-32 my-32 w90 bg-white box-shad-125grey"
+      className="mx-32 mt-32 w90 bg-white box-shad-125grey"
     >
       <Box className="my-20 mx-32">
         <Grid container alignItems="center">

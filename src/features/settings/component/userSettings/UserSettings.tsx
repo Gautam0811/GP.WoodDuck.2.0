@@ -12,46 +12,38 @@ import { Link } from "react-router-dom";
 export function UserSettings() {
   return (
     <Box
-      sx={{
-        mx: 4,
-        my: 1,
-        width: "30%",
-        bgcolor: "white",
-        boxShadow: "1px 2px 5px grey",
-      }}
+    className="border-radius-5 box-shad-125grey w30 bg-white mx-32 my-8"
     >
-      <Box sx={{ my: 2.5, mx: 5 }}>
-        <Grid container alignItems="center">
+        <Grid >
           <Grid item xs>
-            <Typography gutterBottom variant="h6" component="div">
-              User Settings
+            <Typography className="font-bold p-4 pl-16 fs-16 bg-grey-white" component="div">
+              USER SETTINGS
             </Typography>
           </Grid>
         </Grid>
-        <Stack spacing={2}>
-        <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="subtitle1" color={"#42a5f5"}>
+        <Stack spacing={0.2} className="p-8">
+        <Link to="#"className="text-dec-none">
+          <Typography className="col-005fa8">
             Mill Groups
           </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#"className="text-dec-none">
+          <Typography className="col-005fa8">
             Product Groups
           </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#"className="text-dec-none">
+          <Typography className="col-005fa8">
             Buyer Groups
           </Typography>
           </Link>
-          <Link to="#" style={{ textDecoration: "none"}}>
-          <Typography variant="subtitle1" color={"#42a5f5"}>
+          <Link to="#"className="text-dec-none">
+          <Typography className="col-005fa8">
             Custom Settings
           </Typography>
           </Link>
         </Stack>
         <br />
       </Box>
-    </Box>
   );
 }

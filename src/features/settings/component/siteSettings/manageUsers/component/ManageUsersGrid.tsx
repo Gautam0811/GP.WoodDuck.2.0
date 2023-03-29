@@ -15,7 +15,7 @@ export  function ManageUsersGrid() {
     React.useState<GridRowSelectionModel>([]);
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div className="w100 h-400">
       <DataGrid
         checkboxSelection
         onRowSelectionModelChange={(newRowSelectionModel) => {

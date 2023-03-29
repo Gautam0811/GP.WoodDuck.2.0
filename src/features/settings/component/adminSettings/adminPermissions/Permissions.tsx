@@ -26,23 +26,23 @@ export function Permissions(props: any) {
             <TableHead>
               <TableRow>
                 <TableCell>Permission Sets</TableCell>
-                <TableCell align="right">Create/Edit Quote</TableCell>
-                <TableCell align="right">Create/Edit Order</TableCell>
-                <TableCell align="right">Set Sales Plan</TableCell>
-                <TableCell align="right">Manage Sales Grids</TableCell>
-                <TableCell align="right">Read-Only Quote</TableCell>
-                <TableCell align="right">Read-Only Order</TableCell>
-                <TableCell align="right">Manage Tweaker</TableCell>
-                <TableCell align="right">Manage E-Commerce</TableCell>
-                <TableCell align="right">Set/Controls Permissions</TableCell>
-                <TableCell align="right">Assign Division Access</TableCell>
-                <TableCell align="right">Dashboard</TableCell>
-                <TableCell align="right">Managing Default List Views</TableCell>
-                <TableCell align="right">
+                <TableCell className="text-right">Create/Edit Quote</TableCell>
+                <TableCell className="text-right">Create/Edit Order</TableCell>
+                <TableCell className="text-right">Set Sales Plan</TableCell>
+                <TableCell className="text-right">Manage Sales Grids</TableCell>
+                <TableCell className="text-right">Read-Only Quote</TableCell>
+                <TableCell className="text-right">Read-Only Order</TableCell>
+                <TableCell className="text-right">Manage Tweaker</TableCell>
+                <TableCell className="text-right">Manage E-Commerce</TableCell>
+                <TableCell className="text-right">Set/Controls Permissions</TableCell>
+                <TableCell className="text-right">Assign Division Access</TableCell>
+                <TableCell className="text-right">Dashboard</TableCell>
+                <TableCell className="text-right">Managing Default List Views</TableCell>
+                <TableCell className="text-right">
                   Managing Integration Mapping Mills to Products
                 </TableCell>
-                <TableCell align="right">Send DCX Info</TableCell>
-                <TableCell align="right">
+                <TableCell className="text-right">Send DCX Info</TableCell>
+                <TableCell className="text-right">
                   Price Experimentation (Lumber Only)
                 </TableCell>
               </TableRow>
@@ -51,54 +51,54 @@ export function Permissions(props: any) {
               {props.data.map((row: any) => (
                 <TableRow
                   key={row.Role}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     {row.Role}
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.EnterEditQuote} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.EnterEditOrder} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.SetSalesPlan} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ManageSG} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ReadOnlyQuote} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ReadOnlyOrder} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ManageTweaker} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ManageECommerce} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.SetControlsPermissions} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.AssignDivisionAccess} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.Dashboard} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ManagingDefaultListViews} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.ManagingIntegrationMappingMills} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.SendDcxInfo} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className="text-right">
                     <Checkbox checked={row.PriceExperimentation} />
                   </TableCell>
                 </TableRow>

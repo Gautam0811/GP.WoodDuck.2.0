@@ -1,8 +1,7 @@
 // Profile Modal component
-// Component Utility : This Component is created for displaying profile information after a user clicks on his/her Profile Avatar
+// Component Utility : This Component is created for displaying profile information after a user clicks on his/her Profile Avatar.
 // Author Ananya Dhar on 24-3-2023
 // -------------------------
-
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
@@ -11,7 +10,6 @@ import Box from "@mui/material/Box";
 import "../../../../../styles/StyleMain.css";
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-
 
 
 export function Profile() {
@@ -48,22 +46,22 @@ export function Profile() {
   return (
     <Grid>
       <Button onClick={handleOpen}>
-        <Stack spacing={2}>
-          <Avatar className="fs-16">{nameByChar}</Avatar>
+        <Stack spacing={1}>
+          <Avatar className="bg-005fa8 fs-16">{nameByChar}</Avatar>
         </Stack>
       </Button>
       <Modal open={open} onClose={handleClose}>
-        <Box className="modal-header-right">
-          <div className="flex-end">
-            <Button onClick={logout}>
+        <Box className="modal-header-right ">
+          <div className="flex-end ">
+            <Button className="col-005fa8" onClick={logout}>
               <LogoutIcon />
             </Button>
           </div>
-          <Typography component="h2" color="primary">
+          <Typography component="h2" className="col-005fa8">
             {name.firstname + " " + name.lastname}
           </Typography>
-          <Typography color="primary">ananyadhar123@gmail.com</Typography>
-          <Typography color="primary">Permission Set: Sales Administrator</Typography>
+          <Typography className="col-005fa8">ananyadhar123@gmail.com</Typography>
+          <Typography className="col-005fa8">Permission Set: Sales Administrator</Typography>
         </Box>
       </Modal>
     </Grid>
