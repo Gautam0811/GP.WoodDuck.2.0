@@ -3,8 +3,8 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import React, { useEffect, useContext, useState } from "react";
-import "../../styles/Login.css";
-import { ClaimContext } from "../../context/claim/Claims";
+import "../../../styles/Login.css";
+import { ClaimContext } from "../../../context/claim/Claims";
 
 export function Login() {
   const [errorMessages, setErrorMessages]: any = useState({});
