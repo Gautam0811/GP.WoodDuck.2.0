@@ -9,6 +9,7 @@
   username:string,
   password:string,
   isAdmin: boolean,
+  subdivision:string,
   firstname: string,
   lastname: string,
 }
@@ -30,6 +31,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
     username:"admin",
     password:"admin@123",
     isAdmin: true,
+    subdivision:"",
     firstname: "",
     lastname: "",
     }]
@@ -42,6 +44,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username:"admin",
         password:"admin@123",
         isAdmin: true,
+        subdivision: "SL",
         firstname: "admin",
         lastname: "",
         },
@@ -50,6 +53,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username: "Ananya",
         password: "password@123",
         isAdmin: false,
+        subdivision:"",
         firstname: "Ananya",
         lastname: "Dhar",
         },
@@ -58,6 +62,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username: "Gautam",
         password: "password@456",
         isAdmin: false,
+        subdivision:"",
         firstname: "Gautam",
         lastname: "Malhotra",
         },
@@ -66,6 +71,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         username:"Abhishek",
         password:"password@789",
         isAdmin: true,
+        subdivision: "SP",
         firstname: "Abhishek",
         lastname: "Bhatt",
       }])
