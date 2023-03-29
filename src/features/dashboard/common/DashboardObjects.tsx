@@ -11,7 +11,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 export default function DashboardObjects(props:any) {
   return (
-    <Box className="mx-32 my-8 w90 bg-white box-shad-125grey">
+    <Box className="mx-32 w90 bg-white box-shad-125grey">
       <Box className="my-20 mx-40">
         <Grid container alignItems="center" >
           <Grid item xs>
@@ -52,7 +52,7 @@ export default function DashboardObjects(props:any) {
                   <Typography 
                     variant="caption"
                     color={"#42a5f5"}
-                    className="flex-start col-42a5f5"
+                    className="flex-start "
                   >
                     {row.growth}
                   </Typography>

@@ -1,4 +1,4 @@
-// WD_LeftSideBar
+// LeftSideBar
 // Component Utility : The Component is created for rendering the left collapsable navigation bar in the app
 // Author Ananya Dhar on 1-3-2023
 // -------------------------
@@ -15,11 +15,13 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import { Divider, Typography } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import Collapse from "@mui/material/Collapse";
 import { ShoppingCartOutlined } from "@mui/icons-material";
+import "../../../styles/LeftSideBar.css";
 import "../../../styles/StyleMain.css";
 import { useState } from "react";
 
@@ -102,23 +104,36 @@ export function LeftSideBar() {
         <Link to="./orders" className="link-text">
           <div className="item">
             <RateReviewOutlinedIcon className="sidebar-icon" />{" "}
-            <Typography className="sidebar-text fs-12">Master Quotes</Typography>{" "}
+            <Typography className="sidebar-text fs-12">
+              Master Quotes
+            </Typography>{" "}
           </div>
         </Link>
         <div className="item">
           <RequestQuoteOutlinedIcon className="sidebar-icon" />{" "}
-          <Typography className="sidebar-text fs-12">Quote Management</Typography>{" "}
+          <Typography className="sidebar-text fs-12">
+            Quote Management
+          </Typography>{" "}
         </div>
         <div className="item">
           <LocalShippingOutlinedIcon className="sidebar-icon" />{" "}
           <Typography className="sidebar-text fs-12">Shipments</Typography>{" "}
         </div>
-        <div className="arrow-item">
-          <ArrowCircleLeftOutlinedIcon
-            className="sidebar-arrow-icon"
-            onClick={handleToggler}
-          />
-        </div>
+        {isExpanded ? (
+          <div className="flex-end arrow-item">
+            <ArrowCircleLeftOutlinedIcon
+              className="sidebar-arrow-icon"
+              onClick={handleToggler}
+            />
+          </div>
+        ) : (
+          <div className="arrow-item">
+            <ArrowCircleRightOutlinedIcon
+              className="sidebar-arrow-icon"
+              onClick={handleToggler}
+            />
+          </div>
+        )}
         <div className="item" onClick={handleClickInvoices}>
           <ReceiptOutlinedIcon className="sidebar-icon" />
           <Typography className="sidebar-text fs-12">Invoices</Typography>
@@ -182,7 +197,9 @@ export function LeftSideBar() {
         <Link to="/settings" className="link-text">
           <div className="item">
             <CachedOutlinedIcon className="sidebar-icon" />{" "}
-            <Typography className="sidebar-text fs-12">Supply and Demand</Typography>{" "}
+            <Typography className="sidebar-text fs-12">
+              Supply and Demand
+            </Typography>{" "}
           </div>
         </Link>
 

@@ -13,8 +13,7 @@ import "../../dashboard/styles/DashboardGridObjects.css"
 export default function DasboardGridObjects(props:any) {
   return (
     <Box
-      
-      className="mx-32 my-32 w90 bg-white box-shad-125grey"
+      className="mx-32 w90 bg-white box-shad-125grey"
     >
       <Box className="my-20 mx-40 pt-16">
         <Grid container alignItems="center">
@@ -46,7 +45,6 @@ export default function DasboardGridObjects(props:any) {
                 <td>{row.four}</td>
                 <td className="font-bold">{row.total}</td>
               </tr>
-              
             ))}
             
           </tbody>

@@ -1,4 +1,4 @@
-// WD_header-middle-section
+// LeftHeaderSection
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Krishna Choudhary on 3-23-2023
 // -------------------------

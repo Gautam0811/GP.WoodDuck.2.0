@@ -40,12 +40,13 @@ export  function Home() {
           </Grid>
           <Grid className="w100">
             <Navigator />
+            <Footer />
           </Grid>
         </div>
       </Router>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </Grid>
     // </div>
   );

@@ -14,12 +14,12 @@ import {DasboardMillForecastsrows} from "../services/Data"
 export default function DasboardMillForecasts() {
   return (
     <Box
-    className="mr-8 my-32 bg-white box-shad-125grey justify-end"
+    className="mr-16 my-32 bg-white box-shad-125grey justify-end"
     >
       <Box className="mx-0 my-4">
         <Grid container alignItems="center">
-          <Grid item xs className="pl-16">
-            <Typography gutterBottom variant="h6" component="div">
+          <Grid item xs className="pl-8">
+            <Typography className="p-8 fs-20" component="div">
               Mill Forecasts
             </Typography>
           </Grid>

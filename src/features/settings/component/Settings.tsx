@@ -16,12 +16,14 @@ export function Settings() {
     
     <Grid className="w100">
       {/* settings header part */}
-      <div className="settings-header">
+      <div className="bg-grey-white p-16 w100">
       <span className="settings-header-text">Settings</span>
+      <br/>
+      <br/>
     </div>
 
       {/* settings main section */}
-      <Grid className="w100 flexrow">
+      <Grid className="w100 flexrow justify-space-evenly">
         <UserSettings />
         {data.isAdmin ? <AdminSettings /> : <div></div>}
         <SiteSettings />
