@@ -9,10 +9,10 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Link } from "react-router-dom";
 
 export default function CloseButton() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
+  // const [loading, setLoading] = React.useState(false);
+  // function handleClick() {
+  //   setLoading(true);
+  // }
 
   return (
     <Box>

@@ -21,7 +21,10 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color:"blue",
   },
 }));
-
+const promise = fetchPermissionData();
+function fetchPermissionData() {
+  
+}
 export function Permissions(props: any) {
   console.log(props.data);
   return (
@@ -33,7 +36,7 @@ export function Permissions(props: any) {
           <Table className="w100" size="small">
             <TableHead>
               <TableRow>
-                <StyledTableCell>Permission Sets</StyledTableCell>
+                <StyledTableCell className="text-right">Permission Sets</StyledTableCell>
                 <StyledTableCell className="text-right">Create/Edit Quote</StyledTableCell>
                 <StyledTableCell className="text-right">Create/Edit Order</StyledTableCell>
                 <StyledTableCell className="text-right">Set Sales Plan</StyledTableCell>

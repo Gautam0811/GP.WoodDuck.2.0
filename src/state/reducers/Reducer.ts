@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import loginreducer from "./Loginreducer";
+import loginReducer from "./LoginReducer"
+import permissionReducer from "./PermissionReducer";
+
 
 const reducers= combineReducers({
-    loginInfo:loginreducer
+    loginInfo:loginReducer,
+    permissionInfo:permissionReducer
    
 
 })
