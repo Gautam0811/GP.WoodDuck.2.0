@@ -20,7 +20,7 @@ import "../../../../styles/StyleMain.css";
 
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {Profile} from "../index";
+import {Profile, Subdivision} from "../index";
 
 export function RightHeader() {
   const [name, setName]: any = React.useState({});
