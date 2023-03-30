@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Link } from "react-router-dom";
 
-export default function CloseButton() {
+export function CloseButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -16,7 +16,7 @@ export default function CloseButton() {
 
   return (
     <Box>
-      <Link to="/settings">
+      <Link className="text-dec-none" to="/settings">
         <LoadingButton className="buttontype4">
           <div>
             <div>

@@ -5,10 +5,10 @@
 import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import RocketIcon from '@mui/icons-material/Rocket';
 
 
-export function AddButton() {
+export function SetTemporaryPermissionsButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
@@ -18,13 +18,14 @@ export function AddButton() {
           <LoadingButton className="buttontype4">
           <div>
             <div>
-              <AddOutlinedIcon className="icontype1"/>
+              <RocketIcon className="icontype1"/>
             </div>
             <div>
-              <span>ADD</span>
+              <span>Set Temporary Permissions</span>
             </div>
           </div>
           </LoadingButton>
     </Box>
   );
 }
+
