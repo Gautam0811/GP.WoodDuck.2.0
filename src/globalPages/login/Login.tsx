@@ -49,6 +49,7 @@ export function Login() {
           id: userData.id,
           firstname: userData.firstname,
           lastname: userData.lastname,
+          subdivision: userData.subdivision,
         };
         localStorage.setItem("status", JSON.stringify(status));
         window.location.reload();
