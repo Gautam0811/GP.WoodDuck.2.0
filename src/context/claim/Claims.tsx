@@ -60,7 +60,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         {
         id:"1003",
         username: "Gautam",
-        password: "password@456",
+        password: "password@123",
         isAdmin: false,
         subdivision:"",
         firstname: "Gautam",
@@ -69,7 +69,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
         {
         id:"1004",
         username:"Abhishek",
-        password:"password@789",
+        password:"password@123",
         isAdmin: true,
         subdivision: "SP",
         firstname: "Abhishek",

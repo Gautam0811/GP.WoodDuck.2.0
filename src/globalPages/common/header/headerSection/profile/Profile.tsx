@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import "../../../../../styles/StyleMain.css";
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useSelector } from 'react-redux';
 
 
 export function Profile() {
@@ -19,6 +20,15 @@ export function Profile() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const userInfo= useSelector((state:any) => state.loginInfo);
+  console.log("userInfo"+userInfo);
+  const userData = userInfo.find(
+    (user: { userName: any }) => user.userName === JSON.parse(localStorage.getItem("status") || "{}").name
+    
+    // console.log("user.userName"+user.userName)
+    
+  );
+  console.log("userData :"+userData.email);
 
   // React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
@@ -60,8 +70,8 @@ export function Profile() {
           <Typography component="h2" className="col-005fa8">
             {name.firstname + " " + name.lastname}
           </Typography>
-          <Typography className="col-005fa8">ananyadhar123@gmail.com</Typography>
-          <Typography className="col-005fa8">Permission Set: Sales Administrator</Typography>
+          <Typography className="col-005fa8">{userData.email}</Typography>
+          <Typography className="col-005fa8">Permission Set: {userData.permissionSet}</Typography>
         </Box>
       </Modal>
     </Grid>
