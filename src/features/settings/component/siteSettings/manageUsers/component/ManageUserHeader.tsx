@@ -4,15 +4,13 @@
 // -------------------------
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { IconButton } from "@mui/material";
+import {AddButton, CloseButton, EditButton, SaveButton, DeleteButton, CancelButton, InactivateButton, SetTemporaryPermissionsButton} from "../../../../common/index";
 
 export function ManageUserHeader() {
   return (
@@ -23,18 +21,14 @@ export function ManageUserHeader() {
         <Grid className="flexrow justify-space-between">
           <Typography className="pl-16 font-bold">Manage Users</Typography>
           <Grid className="flexrow pr-16">
-            <Grid>
-              <Button className="flexcolumn">
-                <AddIcon className="fs-16" />
-                <Typography className="fs-12">Add</Typography>
-              </Button>
-            </Grid>
-            <Grid>
-              <Button className="flexcolumn">
-                <CloseIcon className="fs-16" />
-                <Typography className="fs-12">Close</Typography>
-              </Button>
-            </Grid>
+            <AddButton />
+            <CloseButton />
+            <CancelButton />
+            <EditButton />
+            <SetTemporaryPermissionsButton />
+            <SaveButton />
+            <DeleteButton />
+            <InactivateButton />
           </Grid>
         </Grid>
       </Grid>

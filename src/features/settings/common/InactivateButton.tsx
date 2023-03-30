@@ -5,23 +5,23 @@
 import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-
-export function AddButton() {
+export function InactivateButton() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
   }
+
   return (
     <Box>
           <LoadingButton className="buttontype4">
           <div>
             <div>
-              <AddOutlinedIcon className="icontype1"/>
+              <CloseOutlinedIcon className="icontype1" />
             </div>
             <div>
-              <span>ADD</span>
+              <span>Inactivate</span>
             </div>
           </div>
           </LoadingButton>

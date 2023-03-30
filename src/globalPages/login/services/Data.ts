@@ -11,7 +11,7 @@
 //The actual implementation will have call to a API.
 export const UserInfo = [
   UserDetails("1001", "admin", true,"Admin","Admin","admin@gapac.com", "Admin"),
-  UserDetails("1002", "Ananya", false,"Ananya","Dhar", "anantadhar@gapac.com","Advisior"),
+  UserDetails("1002", "Ananya", false,"Ananya","Dhar", "ananyadhar@gapac.com","Advisor"),
   UserDetails("1003", "Gautam", false,"Gautam","Malhotra","gautammalhotra@gapac.com","Sales Admin"),
   UserDetails("1004", "Abhishek", true,"Abhishek","Bhatt","abhishekbhatt@gapac.com","Admin")
 

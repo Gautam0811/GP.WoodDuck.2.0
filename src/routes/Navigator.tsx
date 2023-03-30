@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "../features/dashboard";
 import { Settings,ManageUsers } from "../features/settings";
-import {Permissions,PermissionsData} from "../features/settings";
+import {ViewPermissions,PermissionsData} from "../features/settings";
 
 
 export function Navigator() {
@@ -11,7 +11,7 @@ export function Navigator() {
         <Routes>
           <Route path="/" element={<Dashboard />}/>
           <Route path="/settings" element={<Settings />}/>
-          <Route path="/settings/adminpermissions" element={<Permissions data={PermissionsData} />} />
+          <Route path="/settings/adminpermissions" element={<ViewPermissions data={PermissionsData} />} />
           <Route path="/manageUsers" element={<ManageUsers/>} />
       
           {/* <Route path="/salesgrid" element={<SalesGrid />}></Route>

@@ -18,6 +18,11 @@ export function SiteSettings() {
   const sidebarCollapsed = localStorage.getItem("sidebar-collapsed");
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
 
+  const [data, setData]: any = React.useState({});
+  React.useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("status")!));
+  }, []);
+
   const handleClickManageUsers = () => {
     setmanageUsers(!manageUsers);
   };
@@ -57,9 +62,9 @@ export function SiteSettings() {
             </Link>
             <Collapse in={manageUsers} timeout="auto">
               <Link to="/manageUsers" className="link-text">
-                <ListItemButton>
+                {data.isAdmin ? <ListItemButton>
                   <Typography className="col-005fa8">Manage Users</Typography>
-                </ListItemButton>
+                </ListItemButton> : <div></div>}
               </Link>
             </Collapse>
           </div>
