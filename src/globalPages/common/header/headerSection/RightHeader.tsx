@@ -18,9 +18,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import "../../../../styles/StyleMain.css";
 
-import { Grid } from "@mui/material";
-import { Profile } from "./profile/Profile";
-import { Subdivision } from "./subdivision/Subdivision";
+import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
+import {Profile} from "../index";
 
 export function RightHeader() {
   const [name, setName]: any = React.useState({});

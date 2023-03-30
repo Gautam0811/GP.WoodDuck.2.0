@@ -6,13 +6,21 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Checkbox from "@mui/material/Checkbox";
+import { styled } from '@mui/material/styles';
+import CheckIcon from '@mui/icons-material/Check';
 import Paper from "@mui/material/Paper";
 import PermissionsHeader from "./PermissionsHeader";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#eeeeee" ,
+    color:"blue",
+  },
+}));
 
 export function Permissions(props: any) {
   console.log(props.data);
@@ -25,27 +33,26 @@ export function Permissions(props: any) {
           <Table className="w100" size="small">
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
-                <TableCell>Permission Sets</TableCell>
-                <TableCell className="text-right">Create/Edit Quote</TableCell>
-                <TableCell className="text-right">Create/Edit Order</TableCell>
-                <TableCell className="text-right">Set Sales Plan</TableCell>
-                <TableCell className="text-right">Manage Sales Grids</TableCell>
-                <TableCell className="text-right">Read-Only Quote</TableCell>
-                <TableCell className="text-right">Read-Only Order</TableCell>
-                <TableCell className="text-right">Manage Tweaker</TableCell>
-                <TableCell className="text-right">Manage E-Commerce</TableCell>
-                <TableCell className="text-right">Set/Controls Permissions</TableCell>
-                <TableCell className="text-right">Assign Division Access</TableCell>
-                <TableCell className="text-right">Dashboard</TableCell>
-                <TableCell className="text-right">Managing Default List Views</TableCell>
-                <TableCell className="text-right">
+                <StyledTableCell>Permission Sets</StyledTableCell>
+                <StyledTableCell className="text-right">Create/Edit Quote</StyledTableCell>
+                <StyledTableCell className="text-right">Create/Edit Order</StyledTableCell>
+                <StyledTableCell className="text-right">Set Sales Plan</StyledTableCell>
+                <StyledTableCell className="text-right">Manage Sales Grids</StyledTableCell>
+                <StyledTableCell className="text-right">Read-Only Quote</StyledTableCell>
+                <StyledTableCell className="text-right">Read-Only Order</StyledTableCell>
+                <StyledTableCell className="text-right">Manage Tweaker</StyledTableCell>
+                <StyledTableCell className="text-right">Manage E-Commerce</StyledTableCell>
+                <StyledTableCell className="text-right">Set/Controls Permissions</StyledTableCell>
+                <StyledTableCell className="text-right">Assign Division Access</StyledTableCell>
+                <StyledTableCell className="text-right">Dashboard</StyledTableCell>
+                <StyledTableCell className="text-right">Managing Default List Views</StyledTableCell>
+                <StyledTableCell className="text-right">
                   Managing Integration Mapping Mills to Products
-                </TableCell>
-                <TableCell className="text-right">Send DCX Info</TableCell>
-                <TableCell className="text-right">
+                </StyledTableCell>
+                <StyledTableCell className="text-right">Send DCX Info</StyledTableCell>
+                <StyledTableCell className="text-right">
                   Price Experimentation (Lumber Only)
-                </TableCell>
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -54,54 +61,53 @@ export function Permissions(props: any) {
                   key={row.Role}
                   // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">Edit/Delete</TableCell>
                   <TableCell component="th" scope="row">
                     {row.Role}
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.EnterEditQuote} />
+                    {row.EnterEditQuote ? <CheckIcon color="success"/>:<div></div>}
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.EnterEditOrder} />
+                    {row.EnterEditOrder ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.SetSalesPlan} />
+                    {row.SetSalesPlan ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ManageSG} />
+                    {row.ManageSG ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ReadOnlyQuote} />
+                    {row.ReadOnlyQuote ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ReadOnlyOrder} />
+                    {row.ReadOnlyOrder ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ManageTweaker} />
+                    {row.ManageTweaker ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ManageECommerce} />
+                    {row.ManageECommerce ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.SetControlsPermissions} />
+                    {row.SetControlsPermissions ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.AssignDivisionAccess} />
+                    {row.AssignDivisionAccess ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.Dashboard} />
+                    {row.Dashboard ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ManagingDefaultListViews} />
+                    {row.ManagingDefaultListViews ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.ManagingIntegrationMappingMills} />
+                    {row.ManagingIntegrationMappingMills ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.SendDcxInfo} />
+                    {row.SendDcxInfo ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                   <TableCell className="text-right">
-                    <Checkbox checked={row.PriceExperimentation} />
+                    {row.PriceExperimentation ? <CheckIcon color="success"/>:<div></div>} 
                   </TableCell>
                 </TableRow>
               ))}

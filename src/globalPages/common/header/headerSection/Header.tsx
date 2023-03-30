@@ -5,7 +5,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import "../../../../styles/StyleMain.css";
-import { LeftHeader, MiddleHeader, RightHeader } from "./index";
+import { LeftHeader, MiddleHeader, RightHeader } from "../index";
 
 export function Header() {
   return (

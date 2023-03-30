@@ -3,5 +3,7 @@ function PermissionsSetData(Role: string, EnterEditQuote: boolean, EnterEditOrde
 }
 export const PermissionsData = [
   PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true,true,true,true,true,true),
-  PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true,true,true,true,true,true),
+  PermissionsSetData("Read-Only",false,false,false,false,true,true,false,false,false,false,false,false,false,false,false),
+  PermissionsSetData("Panel Trader",true,true,false,false,false,false,false,false,false,false,true,false,false,false,false),
+
 ];

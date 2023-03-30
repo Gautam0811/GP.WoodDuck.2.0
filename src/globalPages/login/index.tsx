@@ -1,1 +1,2 @@
-export {Login} from "./Login";
+export {Login} from "./component/Login";
+export {UserInfo} from "./services/Data";
