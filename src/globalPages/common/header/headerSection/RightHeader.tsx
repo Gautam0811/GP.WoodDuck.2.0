@@ -24,7 +24,7 @@ import "../../../../styles/StyleMain.css";
 
 import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {Profile} from "./profile/Profile";
+import {Profile} from "../index";
 
 
 
@@ -50,10 +50,10 @@ export  function RightHeader() {
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
           <Grid className="flexrow pl-16">
-            <Grid >
-              <Grid className="flex-end" >
+            {/* <Grid > */}
+              {/* <Grid className="flex-end" >
                 <Typography className="col-005fa8">{name.firstname + " " + name.lastname}</Typography>
-              </Grid>
+              </Grid> */}
               <Grid className="font-black" component="div">
                 <IconButton size="small" color="primary" aria-label="menu">
                   <MenuIcon fontSize="small" />
@@ -83,7 +83,7 @@ export  function RightHeader() {
             <Grid>
               <Profile />
             </Grid>
-          </Grid>
+          {/* </Grid> */}
         </Toolbar>
       </AppBar>
     </Box>

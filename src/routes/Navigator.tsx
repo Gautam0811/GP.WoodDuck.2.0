@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "../features/dashboard";
 import { Settings,ManageUsers } from "../features/settings";
-import {Permissions} from "../features/settings";
-import { PermissionsData } from "../features/settings/services/Data";
+import {Permissions,PermissionsData} from "../features/settings";
+
 
 export function Navigator() {
   return (
