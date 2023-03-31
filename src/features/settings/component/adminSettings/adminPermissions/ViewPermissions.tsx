@@ -1,120 +1,155 @@
-// WD_Permissions
-// Component Utility : The Component is created to render permissions sets and controls page in Administration settings
-// Author Gautam Malhotra on 1-3-2023
-// -------------------------
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import { styled } from '@mui/material/styles';
-import CheckIcon from '@mui/icons-material/Check';
-import Paper from "@mui/material/Paper";
-import PermissionsHeader from "./PermissionsHeader";
+// // WD_Permissions
+// // Component Utility : The Component is created to render permissions sets and controls page in Administration settings
+// // Author Gautam Malhotra on 1-3-2023
+// // -------------------------
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#eeeeee" ,
-    color:"blue",
-  },
-}));
+import * as React from 'react';
+import { DataGrid, GridRowSelectionModel, GridRowId, GridCellModes, GridCellModesModel, GridEventListener} from '@mui/x-data-grid';
+import { PermissionsDatacolumns, PermissionsData } from '../../../services/Data';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
-export function ViewPermissions(props: any) {
-  console.log(props.data);
+interface SelectedCellParams {
+  id: GridRowId;
+  field: string;
+}
+
+interface EditToolbarProps {
+  selectedCellParams?: SelectedCellParams;
+  cellModesModel: GridCellModesModel;
+  setCellModesModel: (value: GridCellModesModel) => void;
+  cellMode: 'view' | 'edit';
+}
+
+function EditToolbar(props: EditToolbarProps) {
+  const { selectedCellParams, cellMode, cellModesModel, setCellModesModel } = props;
+
+  const handleSaveOrEdit = () => {
+    if (!selectedCellParams) {
+      return;
+    }
+    const { id, field } = selectedCellParams;
+    if (cellMode === 'edit') {
+      setCellModesModel({
+        ...cellModesModel,
+        [id]: { ...cellModesModel[id], [field]: { mode: GridCellModes.View } },
+      });
+    } else {
+      setCellModesModel({
+        ...cellModesModel,
+        [id]: { ...cellModesModel[id], [field]: { mode: GridCellModes.Edit } },
+      });
+    }
+  };
+
+  const handleCancel = () => {
+    if (!selectedCellParams) {
+      return;
+    }
+    const { id, field } = selectedCellParams;
+    setCellModesModel({
+      ...cellModesModel,
+      [id]: {
+        ...cellModesModel[id],
+        [field]: { mode: GridCellModes.View, ignoreModifications: true },
+      },
+    });
+  };
+
+  const handleMouseDown = (event: React.MouseEvent) => {
+    // Keep the focus in the cell
+    event.preventDefault();
+  };
+
   return (
-    <Grid className="w85">
-      <PermissionsHeader />
-      <br/>
-      <Grid className="w100 flexrow">
-        <TableContainer component={Paper}>
-          <Table className="w100" size="small">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>Permission Sets</StyledTableCell>
-                <StyledTableCell className="text-right">Create/Edit Quote</StyledTableCell>
-                <StyledTableCell className="text-right">Create/Edit Order</StyledTableCell>
-                <StyledTableCell className="text-right">Set Sales Plan</StyledTableCell>
-                <StyledTableCell className="text-right">Manage Sales Grids</StyledTableCell>
-                <StyledTableCell className="text-right">Read-Only Quote</StyledTableCell>
-                <StyledTableCell className="text-right">Read-Only Order</StyledTableCell>
-                <StyledTableCell className="text-right">Manage Tweaker</StyledTableCell>
-                <StyledTableCell className="text-right">Manage E-Commerce</StyledTableCell>
-                <StyledTableCell className="text-right">Set/Controls Permissions</StyledTableCell>
-                <StyledTableCell className="text-right">Assign Division Access</StyledTableCell>
-                <StyledTableCell className="text-right">Dashboard</StyledTableCell>
-                <StyledTableCell className="text-right">Managing Default List Views</StyledTableCell>
-                <StyledTableCell className="text-right">
-                  Managing Integration Mapping Mills to Products
-                </StyledTableCell>
-                <StyledTableCell className="text-right">Send DCX Info</StyledTableCell>
-                <StyledTableCell className="text-right">
-                  Price Experimentation (Lumber Only)
-                </StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {props.data.map((row: any) => (
-                <TableRow
-                  key={row.Role}
-                  // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.Role}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.EnterEditQuote ? <CheckIcon color="success"/>:<div></div>}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.EnterEditOrder ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.SetSalesPlan ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ManageSG ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ReadOnlyQuote ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ReadOnlyOrder ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ManageTweaker ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ManageECommerce ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.SetControlsPermissions ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.AssignDivisionAccess ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.Dashboard ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ManagingDefaultListViews ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.ManagingIntegrationMappingMills ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.SendDcxInfo ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {row.PriceExperimentation ? <CheckIcon color="success"/>:<div></div>} 
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-    </Grid>
+    <Box
+      sx={{
+        borderBottom: 1,
+        borderColor: 'divider',
+        p: 1,
+      }}
+    >
+      <Button
+        onClick={handleSaveOrEdit}
+        onMouseDown={handleMouseDown}
+        disabled={!selectedCellParams}
+        variant="outlined"
+      >
+        {cellMode === 'edit' ? 'Save' : 'Edit'}
+      </Button>
+      <Button
+        onClick={handleCancel}
+        onMouseDown={handleMouseDown}
+        disabled={cellMode === 'view'}
+        variant="outlined"
+        sx={{ ml: 1 }}
+      >
+        Cancel
+      </Button>
+    </Box>
   );
 }
+
+export function ViewPermissions() {
+
+  const [selectedCellParams, setSelectedCellParams] =
+    React.useState<SelectedCellParams | null>(null);
+  const [cellModesModel, setCellModesModel] = React.useState<GridCellModesModel>({});
+
+  const handleCellFocus = React.useCallback(
+    (event: React.FocusEvent<HTMLDivElement>) => {
+      const row = event.currentTarget.parentElement;
+      const id = row!.dataset.id!;
+      const field = event.currentTarget.dataset.field!;
+      setSelectedCellParams({ id, field });
+    },
+    [],
+  );
+
+  const cellMode = React.useMemo(() => {
+    if (!selectedCellParams) {
+      return 'view';
+    }
+    const { id, field } = selectedCellParams;
+    return cellModesModel[id]?.[field]?.mode || 'view';
+  }, [cellModesModel, selectedCellParams]);
+
+  const handleCellKeyDown = React.useCallback<GridEventListener<'cellKeyDown'>>(
+    (params, event) => {
+      if (cellMode === 'edit') {
+        // Prevents calling event.preventDefault() if Tab is pressed on a cell in edit mode
+        event.defaultMuiPrevented = true;
+      }
+    },
+    [cellMode],
+  );
+
+  return (
+    <div className="w85 h-400">
+      <DataGrid
+        rows={PermissionsData}
+        columns={PermissionsDatacolumns}
+        onCellKeyDown={handleCellKeyDown}
+        cellModesModel={cellModesModel}
+        onCellModesModelChange={(model) => setCellModesModel(model)}
+        editMode="row"
+        slots={{
+          toolbar: EditToolbar,
+        }}
+        slotProps={{
+          toolbar: {
+            cellMode,
+            selectedCellParams,
+            setSelectedCellParams,
+            cellModesModel,
+            setCellModesModel,
+          },
+          cell: {
+            onFocus: handleCellFocus,
+          },
+        }}
+      />
+    </div>
+  );
+}
+

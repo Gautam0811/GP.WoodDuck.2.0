@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import {AddButton, CloseButton } from "../../../common/index";
 
 
-export default function PermissionsHeader() {
+export function PermissionsHeader() {
   return (
     <Grid className="settings-header">
         <span className="settings-header-text">Manage Permission Sets</span>
