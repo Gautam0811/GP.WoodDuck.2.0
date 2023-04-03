@@ -4,59 +4,25 @@
 // // // -------------------------
 
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
 import CheckIcon from "@mui/icons-material/Check";
+import { AddPermissions } from './AddPermissions';
 import { PermissionsDatacolumns, PermissionsData } from '../../../services/Data';
 import {
-  GridRowsProp,
   GridRowModesModel,
   GridRowModes,
   DataGrid,
   GridColDef,
   GridRowParams,
   MuiEvent,
-  GridToolbarContainer,
   GridActionsCellItem,
   GridEventListener,
   GridRowId,
   GridRowModel,
 } from '@mui/x-data-grid';
-import {
-  randomId,
-} from '@mui/x-data-grid-generator';
-
-interface EditToolbarProps {
-  setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
-  setRowModesModel: (
-    newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-  ) => void;
-}
-
-function EditToolbar(props: EditToolbarProps) {
-  const { setRows, setRowModesModel } = props;
-
-  const handleClick = () => {
-    const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, Role:'', isNew: true }]);
-    setRowModesModel((oldModel) => ({
-      ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'Role' },
-    }));
-  };
-
-  return (
-    <GridToolbarContainer>
-      <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
-      </Button>
-    </GridToolbarContainer>
-  );
-}
 
 
 export function ViewPermissions() {
@@ -323,6 +289,7 @@ export function ViewPermissions() {
 
   return (
     <div className="w100 h-400">
+      <AddPermissions setRows={setRows} setRowModesModel={setRowModesModel}/>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -332,12 +299,6 @@ export function ViewPermissions() {
         onRowEditStart={handleRowEditStart}
         onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
-        slots={{
-          toolbar: EditToolbar,
-        }}
-        slotProps={{
-          toolbar: { setRows, setRowModesModel },
-        }}
       />
     </div>
   );
