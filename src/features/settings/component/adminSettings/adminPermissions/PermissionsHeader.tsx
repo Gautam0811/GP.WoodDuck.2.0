@@ -1,16 +1,15 @@
-import * as React from 'react'
+import * as React from "react";
 import Grid from "@mui/material/Grid";
-import {AddButton, CloseButton } from "../../../common/index";
+import { AddButton, CloseButton } from "../../../common/index";
 
-
-export default function PermissionsHeader() {
+export function PermissionsHeader() {
   return (
     <Grid className="settings-header">
-        <span className="settings-header-text">Manage Permission Sets</span>
-        <div className="flexrow">
-          <AddButton/>
-          <CloseButton/>
-        </div>
+      <span className="settings-header-text">Manage Permission Sets</span>
+      <div className="flexrow">
+        <AddButton/>
+        <CloseButton />
+      </div>
     </Grid>
-  )
+  );
 }
