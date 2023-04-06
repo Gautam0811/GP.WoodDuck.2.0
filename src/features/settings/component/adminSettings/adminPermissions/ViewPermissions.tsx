@@ -136,7 +136,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 160,
+  //  width: 160,
   },
 
   {
@@ -148,7 +148,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+   // width: 100,
   },
   {
     field: "ReadOnlyQuote",
@@ -159,7 +159,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+    //width: 100,
   },
   {
     field: "ReadOnlyOrder",
@@ -170,7 +170,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+   // width: 100,
   },
   {
     field: "ManageTweaker",
@@ -181,7 +181,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+    //width: 100,
   },
   {
     field: "ManageECommerce",

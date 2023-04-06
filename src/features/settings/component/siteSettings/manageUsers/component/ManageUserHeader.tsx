@@ -9,14 +9,22 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { IconButton } from "@mui/material";
+import { IconButton, Tabs, Tab, } from "@mui/material";
 import {AddButton, CloseButton, EditButton, SaveButton, DeleteButton, CancelButton, InactivateButton, SetTemporaryPermissionsButton} from "../../../../common/index";
 
 export function ManageUserHeader() {
-  return (
-    //This is the header for ManageUsers
 
-    <Grid>
+  const [value, setValue] = React.useState("Active");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
+
+  return (
+    //This is the header for Manage Users
+
+    <Box>
       <Grid className="bg-grey-white py-16 pl-16 w100 align-items-center">
         <Grid className="flexrow justify-space-between">
           <Typography className="pl-16 font-bold">Manage Users</Typography>
@@ -33,12 +41,21 @@ export function ManageUserHeader() {
         </Grid>
       </Grid>
       <Grid className="bg-grey-white pl-16 w100 align-items-center">
+        <Box>
+          <Tabs value={value} onChange={handleChange}>
+            <Tab value="Active" label="Active" />
+            <Tab value="Inactive" label="Inactive" />
+            <Tab icon={<RefreshIcon />} />
+          </Tabs>
+        </Box>
+      </Grid>
+      {/* <Grid className="bg-grey-white pl-16 w100 align-items-center">
         <Box className="flexcolumn font-black">
           <ButtonGroup variant="text">
             <Grid className="bg-white-onclick">
-            <IconButton >
-              <Typography className="p-16">Active</Typography>
-            </IconButton>{" "}
+              <IconButton>
+                <Typography className="p-16">Active</Typography>
+              </IconButton>{" "}
             </Grid>
             <Divider orientation="vertical" flexItem />
             <IconButton>
@@ -46,11 +63,13 @@ export function ManageUserHeader() {
             </IconButton>{" "}
             <Divider orientation="vertical" flexItem />
             <IconButton>
-              <Typography className="p-16"><RefreshIcon /></Typography>
+              <Typography className="p-16">
+                <RefreshIcon />
+              </Typography>
             </IconButton>{" "}
           </ButtonGroup>
         </Box>
-      </Grid>
-    </Grid>
+      </Grid> */}
+    </Box>
   );
 }

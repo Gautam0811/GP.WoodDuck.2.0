@@ -1,5 +1,9 @@
 /* Common Styles */
 /* Flex*/
+.flex{
+  display: flex;
+}
+
 .flexrow {
   display: flex;
   flex-direction: row;
@@ -122,6 +126,10 @@
   padding: 2.5rem;
 }
 
+.pt-8{
+  padding-top: 0.5rem;
+}
+
 .pt-16{
   padding-top: 1rem;
 }
@@ -179,6 +187,10 @@
 
 .pr-16{
   padding-right: 1rem;
+}
+
+.pr-32{
+  padding-right: 2rem;
 }
 
 .pl-20{
@@ -333,10 +345,20 @@
   margin-bottom: 1.25rem;
 }
 
+/* scroll */
+
+.overflow-scroll{
+  overflow: scroll;
+}
+
 /* widths and heights*/
 
 .min-width-120{
   min-width: 120;
+}
+
+.w-auto{
+  width: auto;
 }
 
 .w10{
@@ -421,7 +443,15 @@
   height: 400px;
 }
 
+.w-1000 {
+  width: 1000px;
+}
+
 /* Font sizes */
+
+.fs-10{
+  font-size: 10px !important;
+}
 
 .fs-11{
   font-size: 11px !important;
@@ -465,6 +495,10 @@
   text-decoration: none;
 }
 
+.text-align-center{
+  text-align: center;
+}
+
 /* left */
 .left-16{
   left: 1rem;
@@ -493,7 +527,7 @@
 
 
 .col-005fa8{
-  color: #005FA8;
+  color: #005FA8 !important;
 }
 
 .col-42a5f5{
@@ -512,10 +546,18 @@
   color: red;
 }
 
+.col-white{
+  color: white !important;
+}
+
 
 
 .bg-e3f2fd {
   background-color: #e3f2fd;
+}
+
+.bg-grey{
+  background-color: gray !important;
 }
 
 .bg-ffb74d {
@@ -820,6 +862,17 @@ input[type="submit"]:hover {
   position: absolute;
   top: 35px;
   right: 140px;
+  border-radius: 5px;
+  background-image: linear-gradient(180deg, white, #f1f4fb);
+  box-shadow: 30px;
+  padding: 10px;
+}
+
+/* edit permission modal */
+.edit-permissions-modal{
+  position: absolute;
+  top: 150px;
+  right: 450px;
   border-radius: 5px;
   background-image: linear-gradient(180deg, white, #f1f4fb);
   box-shadow: 30px;

@@ -15,7 +15,7 @@ export function InactivateButton() {
 
   return (
     <Box>
-          <LoadingButton className="buttontype4">
+          <LoadingButton className="fs-10 col-005fa8">
           <div>
             <div>
               <CloseOutlinedIcon className="icontype1" />

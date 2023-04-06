@@ -13,7 +13,7 @@ export function Navigator() {
           <Route path="/settings" element={<Settings />}/>
           <Route path="/settings/adminpermissions" element={<Permissions/>} />
           <Route path="/manageUsers" element={<ManageUsers/>} />
-      
+          
           {/* <Route path="/salesgrid" element={<SalesGrid />}></Route>
         <Route path="/productgroups" element={<ProductGroupsPage />}></Route>
         <Route path="/orders" element={<Orders/>} > </Route> 
