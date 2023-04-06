@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-
+import { SettingsRoute } from "../../routes";
 export function UserSettings() {
   return (
     <Box
@@ -37,10 +37,11 @@ export function UserSettings() {
             Buyer Groups
           </Typography>
           </Link>
-          <Link to="#"className="text-dec-none">
+          <Link to="customSetting"className="text-dec-none">
           <Typography className="col-005fa8">
             Custom Settings
           </Typography>
+          <SettingsRoute/>
           </Link>
         </Stack>
         <br />

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import { AddButton, CloseButton } from "../../../common/index";
+import { AddButton, CloseButton } from "../../../../../common/button";
 
 export function PermissionsHeader() {
   return (

@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { IconButton, Tabs, Tab, } from "@mui/material";
-import {AddButton, CloseButton, EditButton, SaveButton, DeleteButton, CancelButton, InactivateButton, SetTemporaryPermissionsButton} from "../../../../common/index";
+import {AddButton, CloseButton, EditButton, SaveButton, DeleteButton, CancelButton, InactivateButton, SetTemporaryPermissionsButton} from "../../../../../../common/button";
 
 export function ManageUserHeader() {
 
