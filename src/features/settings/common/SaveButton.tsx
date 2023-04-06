@@ -16,7 +16,7 @@ export function SaveButton() {
   return (
     <Box>
       <Box>
-          <LoadingButton className="buttontype4">
+          <LoadingButton disabled className="fs-10">
           <div>
             <div>
               <SaveIcon className="icontype1"/>

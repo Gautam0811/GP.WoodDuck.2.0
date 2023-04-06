@@ -1,4 +1,4 @@
-import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 import CheckIcon from "@mui/icons-material/Check";
 import {
   GridRowsProp

@@ -12,8 +12,8 @@ export function CancelButton() {
   const [loading, setLoading] = React.useState(false);
   const handleClick = () => setLoading(true);
   return (
-    <Box className="gray">
-          <LoadingButton className="buttontype4">
+    <Box>
+          <LoadingButton disabled className="fs-10">
           <div>
             <div>
               <CloseOutlinedIcon className="icontype1" />

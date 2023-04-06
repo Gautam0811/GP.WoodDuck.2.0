@@ -10,16 +10,13 @@ import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
 import CheckIcon from "@mui/icons-material/Check";
 import { AddPermissions } from './AddPermissions';
-import { PermissionsDatacolumns, PermissionsData } from '../../../services/Data';
+import {PermissionsData } from '../../../services/Data';
 import {
   GridRowModesModel,
   GridRowModes,
   DataGrid,
   GridColDef,
-  GridRowParams,
-  MuiEvent,
   GridActionsCellItem,
-  GridEventListener,
   GridRowId,
   GridRowModel,
 } from '@mui/x-data-grid';
@@ -29,17 +26,6 @@ export function ViewPermissions() {
   console.log(PermissionsData);
   const [rows, setRows] = React.useState(PermissionsData);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
-
-  const handleRowEditStart = (
-    params: GridRowParams,
-    event: MuiEvent<React.SyntheticEvent>,
-  ) => {
-    event.defaultMuiPrevented = true;
-  };
-
-  const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
-    event.defaultMuiPrevented = true;
-  };
 
   const handleEditClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -150,7 +136,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 160,
+  //  width: 160,
   },
 
   {
@@ -162,7 +148,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+   // width: 100,
   },
   {
     field: "ReadOnlyQuote",
@@ -173,7 +159,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+    //width: 100,
   },
   {
     field: "ReadOnlyOrder",
@@ -184,7 +170,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+   // width: 100,
   },
   {
     field: "ManageTweaker",
@@ -195,7 +181,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    width: 100,
+    //width: 100,
   },
   {
     field: "ManageECommerce",
@@ -296,8 +282,6 @@ export function ViewPermissions() {
         editMode="row"
         rowModesModel={rowModesModel}
         onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStart={handleRowEditStart}
-        onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
       />
     </div>
