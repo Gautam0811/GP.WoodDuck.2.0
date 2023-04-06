@@ -5,7 +5,7 @@
 
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import { CloseButton } from "../../../common/index";
+import { CloseButton } from "../../../../../common/button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
