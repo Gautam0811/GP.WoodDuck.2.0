@@ -3,14 +3,16 @@
 // // // Author Gautam Malhotra on 1-3-2023
 // // // -------------------------
 
-import * as React from 'react';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import CancelIcon from '@mui/icons-material/Close';
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import { CloseButton } from "../../../common/index";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Close";
 import CheckIcon from "@mui/icons-material/Check";
-import { AddPermissions } from './AddPermissions';
-import {PermissionsData } from '../../../services/Data';
+import { AddPermissions } from "./AddPermissions";
+import { PermissionsData } from "../../../services/Data";
 import {
   GridRowModesModel,
   GridRowModes,
@@ -19,13 +21,14 @@ import {
   GridActionsCellItem,
   GridRowId,
   GridRowModel,
-} from '@mui/x-data-grid';
-
+} from "@mui/x-data-grid";
 
 export function ViewPermissions() {
   console.log(PermissionsData);
   const [rows, setRows] = React.useState(PermissionsData);
-  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
+  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
+    {}
+  );
 
   const handleEditClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -63,14 +66,13 @@ export function ViewPermissions() {
 
   const columns: GridColDef[] = [
     {
-      field: 'actions',
-      type: 'actions',
-      headerName: '',
+      field: "actions",
+      type: "actions",
+      headerName: "",
       width: 100,
-      cellClassName: 'actions',
+      cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-
         if (isInEditMode) {
           return [
             <GridActionsCellItem
@@ -105,39 +107,51 @@ export function ViewPermissions() {
         ];
       },
     },
-  { field: "Role", headerName: "Role", width: 100, editable:true },
-  {
-    field: "EnterEditQuote",
-    headerName: "Enter Edit Quote",
-    width: 100,
-    type: "boolean",
-    editable: true,
-    renderCell(params) {
-      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
+    { field: "Role", headerName: "Role", width: 100, editable: true },
+    {
+      field: "EnterEditQuote",
+      headerName: "Enter Edit Quote",
+      width: 100,
+      type: "boolean",
+      editable: true,
+      renderCell(params) {
+        return params.value ? (
+          <CheckIcon color="success"></CheckIcon>
+        ) : (
+          <div></div>
+        );
+      },
     },
-  },
-  {
-    field: "EnterEditOrder",
-    headerName: "Enter Edit Order",
-    align: "center",
-    type: "boolean",
-    editable: true,
-    renderCell(params) {
-      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
+    {
+      field: "EnterEditOrder",
+      headerName: "Enter Edit Order",
+      align: "center",
+      type: "boolean",
+      editable: true,
+      renderCell(params) {
+        return params.value ? (
+          <CheckIcon color="success"></CheckIcon>
+        ) : (
+          <div></div>
+        );
+      },
+      width: 100,
     },
-    width: 100,
-  },
-  {
-    field: "SetSalesPlan",
-    headerName: "Set Sales Plan",
-    align: "center",
-    type: "boolean",
-    editable: true,
-    renderCell(params) {
-      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
+    {
+      field: "SetSalesPlan",
+      headerName: "Set Sales Plan",
+      align: "center",
+      type: "boolean",
+      editable: true,
+      renderCell(params) {
+        return params.value ? (
+          <CheckIcon color="success"></CheckIcon>
+        ) : (
+          <div></div>
+        );
+      },
+      width: 160,
     },
-  //  width: 160,
-  },
 
   {
     field: "ManageSG",
@@ -148,7 +162,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-   // width: 100,
+    width: 100,
   },
   {
     field: "ReadOnlyQuote",
@@ -159,7 +173,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    //width: 100,
+    width: 100,
   },
   {
     field: "ReadOnlyOrder",
@@ -170,7 +184,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-   // width: 100,
+    width: 100,
   },
   {
     field: "ManageTweaker",
@@ -181,7 +195,7 @@ export function ViewPermissions() {
     renderCell(params) {
       return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    //width: 100,
+    width: 100,
   },
   {
     field: "ManageECommerce",
@@ -274,16 +288,27 @@ export function ViewPermissions() {
   ];
 
   return (
-    <div className="w100 h-400">
-      <AddPermissions setRows={setRows} setRowModesModel={setRowModesModel}/>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        editMode="row"
-        rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        processRowUpdate={processRowUpdate}
-      />
+    <div>
+      <Grid className="settings-header">
+        <span className="settings-header-text">Manage Permission Sets</span>
+        <div className="flexrow">
+          <AddPermissions setRows={setRows} setRowModesModel={setRowModesModel} />
+          <CloseButton />
+        </div>
+      </Grid>
+      <br />
+      <br />
+      <div className="w100 h-400">
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          editMode="row"
+          isCellEditable={(params)=>params.row.Role!=="Admin"}
+          rowModesModel={rowModesModel}
+          onRowModesModelChange={handleRowModesModelChange}
+          processRowUpdate={processRowUpdate}
+        />
+      </div>
     </div>
   );
 }

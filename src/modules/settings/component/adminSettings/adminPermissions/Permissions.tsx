@@ -1,13 +1,10 @@
 import Grid from "@mui/material/Grid";
-import { PermissionsHeader, ViewPermissions } from "./index";
+import { ViewPermissions } from "./index";
 
 
 export  function Permissions() {
   return (
-    <Grid className="w100">
-      <PermissionsHeader />
-      <br />
-      <br />
+    <Grid className="w85">
       <ViewPermissions />
     </Grid>
   )

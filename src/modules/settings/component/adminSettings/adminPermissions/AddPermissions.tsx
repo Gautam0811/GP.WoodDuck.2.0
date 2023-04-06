@@ -1,5 +1,6 @@
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
+import LoadingButton from '@mui/lab/LoadingButton';
+import Box from '@mui/material/Box';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import {
   GridRowsProp,
   GridRowModesModel,
@@ -29,11 +30,18 @@ export function AddPermissions(props: EditToolbarProps) {
     };
   
     return (
-      <div>
-        <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        <span>ADD</span>
-        </Button>
-      </div>
+      <Box>
+          <LoadingButton className="buttontype4" onClick={handleClick}>
+          <div>
+            <div>
+              <AddOutlinedIcon className="icontype1"/>
+            </div>
+            <div>
+              <span>ADD</span>
+            </div>
+          </div>
+          </LoadingButton>
+    </Box>
     );
   }
   
