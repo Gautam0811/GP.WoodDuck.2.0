@@ -15,7 +15,7 @@ export function AddButton() {
   }
   return (
     <Box>
-          <LoadingButton className="buttontype4">
+          <LoadingButton className="fs-10 col-005fa8">
           <div>
             <div>
               <AddOutlinedIcon className="icontype1"/>

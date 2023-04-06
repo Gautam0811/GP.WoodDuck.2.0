@@ -8,7 +8,7 @@ export  function ManageUsers() {
       <ManageUserHeader />
       <br />
       <br />
-      <ManageUsersGrid />
+      <ManageUsersGrid /> 
     </Grid>
   )
 }

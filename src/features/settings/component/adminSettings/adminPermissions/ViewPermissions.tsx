@@ -153,186 +153,138 @@ export function ViewPermissions() {
       width: 160,
     },
 
-    {
-      field: "ManageSG",
-      headerName: "Manage Sales Grids",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+  {
+    field: "ManageSG",
+    headerName: "Manage Sales Grids",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ReadOnlyQuote",
-      headerName: "Read-Only Quote",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ReadOnlyQuote",
+    headerName: "Read-Only Quote",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ReadOnlyOrder",
-      headerName: "Read-Only Order",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ReadOnlyOrder",
+    headerName: "Read-Only Order",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ManageTweaker",
-      headerName: "Manage Tweaker",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ManageTweaker",
+    headerName: "Manage Tweaker",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ManageECommerce",
-      headerName: "Manage E-Commerce",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ManageECommerce",
+    headerName: "Manage E-Commerce",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "SetControlsPermissions",
-      headerName: "Set/Controls Permissions",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "SetControlsPermissions",
+    headerName: "Set/Controls Permissions",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "AssignDivisionAccess",
-      headerName: "Assign Division Access",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "AssignDivisionAccess",
+    headerName: "Assign Division Access",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "Dashboard",
-      headerName: "Dashboard",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "Dashboard",
+    headerName: "Dashboard",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ManagingDefaultListViews",
-      headerName: "Managing Default List Views",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ManagingDefaultListViews",
+    headerName: "Managing Default List Views",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "ManagingIntegrationMappingMills",
-      headerName: "Managing Integration Mapping Mills to Products",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "ManagingIntegrationMappingMills",
+    headerName: "Managing Integration Mapping Mills to Products",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "SendDcxInfo",
-      headerName: "Send DCX Info",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "SendDcxInfo",
+    headerName: "Send DCX Info",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
-    {
-      field: "PriceExperimentation",
-      headerName: "Price Experimentation (Lumber Only)",
-      align: "center",
-      type: "boolean",
-      editable: true,
-      renderCell(params) {
-        return params.value ? (
-          <CheckIcon color="success"></CheckIcon>
-        ) : (
-          <div></div>
-        );
-      },
-      width: 100,
+    width: 100,
+  },
+  {
+    field: "PriceExperimentation",
+    headerName: "Price Experimentation (Lumber Only)",
+    align: "center",
+    type: "boolean",
+    editable: true,
+    renderCell(params) {
+      return params.value? <CheckIcon color="success"></CheckIcon>:<div></div>
     },
+    width: 100,
+  },
   ];
 
   return (
