@@ -12,11 +12,20 @@ export function ManageUsersGrid() {
   //   rowLength: 10,
   //   maxColumns: 6,
   // });
-
+//alert(String(localStorage.getItem("IsActive")))
   const [rowSelectionModel, setRowSelectionModel] =
-    React.useState<GridRowSelectionModel>([]);
-
+    React.useState<GridRowSelectionModel>([String(localStorage.getItem("IsActive"))]);
     
+  const [orderFilterGridRow, setOrderFilterGridRow] : any = React.useState({});
+
+
+  const val = localStorage.getItem("IsActive");
+
+    React.useEffect(() => {
+      console.log(localStorage.getItem("IsActive"));
+      setOrderFilterGridRow(OrdersGridrows.filter(a => a.activeUser === Boolean(localStorage.getItem("IsActive"))));
+      // OrdersGridrows.filter(a => a.activeUser === Boolean(localStorage.getItem("IsActive")));;
+    }, [val]);
 
   return (
     <Grid className="h-400 w-1000">
@@ -27,7 +36,7 @@ export function ManageUsersGrid() {
         }}
         rowSelectionModel={rowSelectionModel}
         //{...data}
-        rows={OrdersGridrows}
+        rows={orderFilterGridRow}
         columns={OrdersGridcolumns}
       />
     </Grid>
