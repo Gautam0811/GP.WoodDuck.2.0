@@ -70,8 +70,8 @@ export function Profile() {
           <Typography component="h2" className="col-005fa8">
             {name.firstname + " " + name.lastname}
           </Typography>
-          <Typography className="col-005fa8">{userData.email}</Typography>
-          <Typography className="col-005fa8">Permission Set: {userData.permissionSet}</Typography>
+          <Typography className="col-005fa8">{userData && userData.email?userData.email:""}</Typography>
+          <Typography className="col-005fa8">Permission Set: {userData && userData.permissionSet ? userData.permissionSet:""}</Typography>
         </Box>
       </Modal>
     </Grid>

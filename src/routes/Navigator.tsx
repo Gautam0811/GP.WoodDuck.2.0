@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "../features/dashboard";
-import { Settings,ManageUsers } from "../features/settings";
-import {Permissions} from "../features/settings";
+import { Dashboard } from "../modules/dashboard";
+import { Settings,ManageUsers } from "../modules/settings";
+import {Permissions} from "../modules/settings";
 
 
 export function Navigator() {
@@ -10,7 +10,7 @@ export function Navigator() {
     <div>
         <Routes>
           <Route path="/" element={<Dashboard />}/>
-          <Route path="/settings" element={<Settings />}/>
+          <Route path="/settings/*" element={<Settings />}/>
           <Route path="/settings/adminpermissions" element={<Permissions/>} />
           <Route path="/manageUsers" element={<ManageUsers/>} />
           

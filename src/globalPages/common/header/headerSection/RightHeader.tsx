@@ -18,7 +18,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import "../../../../styles/StyleMain.css";
 
-import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
+import {Grid} from '@mui/material';
 import {Profile, Subdivision} from "../index";
 
 export function RightHeader() {

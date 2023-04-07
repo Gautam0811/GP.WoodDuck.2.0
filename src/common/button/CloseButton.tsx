@@ -8,11 +8,11 @@ import Box from "@mui/material/Box";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { Link } from "react-router-dom";
 
-export function CloseButton() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
+export  function CloseButton() {
+  // const [loading, setLoading] = React.useState(false);
+  // function handleClick() {
+  //   setLoading(true);
+  // }
 
   return (
     <Box>

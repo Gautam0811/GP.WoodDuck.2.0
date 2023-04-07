@@ -12,6 +12,16 @@ export const loginData = (userDetails:any) => {
     })
   };
 };
+export const permissionData = (permissionSet:any) => {
+
+  return (dispatch:any) => {
+
+    dispatch({
+        type: 'permissionSet',
+        payload : permissionSet
+    })
+  };
+};
 
 
 

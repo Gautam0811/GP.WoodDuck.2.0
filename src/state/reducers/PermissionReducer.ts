@@ -2,13 +2,14 @@
  Utility : This Component is used for Redux implementation and helps to process the request based on action and payload. 
  Author Krishna Choudharyn 06-03-2023-------------------------   */
 
-const reducer = (state = [], action:any) => {
+ const permissionReducer = (state = [], action:any) => {
 
-  if (action.type === "login") {
-    return action.payload;
-  } 
-  else{
-    return state;
-  }
-};
-export default reducer;
+    if (action.type === "permissionSet") {
+      return action.payload;
+    } 
+    else{
+      return state;
+    }
+  };
+  export default permissionReducer;
+  

@@ -9,24 +9,25 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from "../../state";
-import { UserInfo } from "../login";;
+import { UserInfo,permissionSetData } from "../login";;
 
 export  function Home() {
   const dispatch=useDispatch();
   const {loginData}=bindActionCreators(actionCreators,dispatch);
-  // const userInfo= useSelector((state:any) => state.loginInfo);
+  // const permissionInfo= useSelector((state:any) => state.permissionInfo);
   const token:any = localStorage.getItem("token");
   if (!token) {
     return <Login/>;
   } 
   else{
     loginData(UserInfo);
+    // permissionData(permissionSetData);
   }
   return (
     // <div>
-    // {userInfo.map((userInfo:any) => (
-    //   <p key={userInfo.firstName}>
-    //     {userInfo.firstName} : {userInfo.lastName}
+    // {permissionInfo.map((permissionInfo:any) => (
+    //   <p key={permissionInfo.PermissionSets}>
+    //     {permissionInfo.PermissionSets} : 
     //   </p>
     // ))}
     <Grid>
