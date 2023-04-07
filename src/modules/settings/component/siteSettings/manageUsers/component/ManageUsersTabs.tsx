@@ -17,7 +17,7 @@ import AppBar from '@mui/material/AppBar';
 export function ManageUsersTabs() {
 
   const [value, setValue] = React.useState(0);
-  //const [ActivePassive, setActivePassive] = React.useState(true);
+  const [isActive, setIsActive]:any=React.useState(true);
 
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -25,15 +25,13 @@ export function ManageUsersTabs() {
   };
 function setValueActive()
 {
-    alert(`1`);
-    localStorage.setItem("IsActive", "true");
-    alert(localStorage.getItem("IsActive"));
+    setIsActive(true); 
 }
 function setValueInactive()
 {
-    alert(`2`);
-    localStorage.setItem("IsActive", "false");
-    alert(localStorage.getItem("IsActive"));
+    
+    setIsActive(false);
+   
 }
 
   interface TabPanelProps {
@@ -120,10 +118,10 @@ function setValueInactive()
         </Box>
       </Grid>
       <TabPanel value={value} index={0}>
-        <ManageUsersGrid />
+        <ManageUsersGrid isAcitve={isActive} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ManageUsersGrid />
+        <ManageUsersGrid isAcitve={isActive}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <RefreshIcon />

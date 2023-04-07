@@ -6,7 +6,7 @@ import {OrdersGridcolumns,OrdersGridrows} from "../services/Data";
 import { GifBoxTwoTone } from '@mui/icons-material';
 import { Grid } from '@mui/material';
 
-export function ManageUsersGrid() {
+export function ManageUsersGrid(props : any) {
   // const { data } = useDemoData({
   //   dataSet: 'Commodity',
   //   rowLength: 10,
@@ -14,18 +14,14 @@ export function ManageUsersGrid() {
   // });
 //alert(String(localStorage.getItem("IsActive")))
   const [rowSelectionModel, setRowSelectionModel] =
-    React.useState<GridRowSelectionModel>([String(localStorage.getItem("IsActive"))]);
-    
+    React.useState<GridRowSelectionModel>();
   const [orderFilterGridRow, setOrderFilterGridRow] : any = React.useState({});
 
-
-  const val = localStorage.getItem("IsActive");
+  
 
     React.useEffect(() => {
-      console.log(localStorage.getItem("IsActive"));
-      setOrderFilterGridRow(OrdersGridrows.filter(a => a.activeUser === Boolean(localStorage.getItem("IsActive"))));
-      // OrdersGridrows.filter(a => a.activeUser === Boolean(localStorage.getItem("IsActive")));;
-    }, [val]);
+      setOrderFilterGridRow(OrdersGridrows.filter(a => a.activeUser ===props.isAcitve));
+    }, [props.isAcitve]);
 
   return (
     <Grid className="h-400 w-1000">
