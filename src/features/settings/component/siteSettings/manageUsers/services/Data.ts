@@ -6,7 +6,6 @@
 //backend architecture is confirmed.
 import { GridColDef } from "@mui/x-data-grid";
 
-
 // Manage Users Grid Data 
 //The actual implementation will have call to a API.
 export const OrdersGridcolumns:GridColDef[] = [
@@ -58,7 +57,7 @@ export function OrdersGridcreateData(
     lastName: string,
     id: string,
     permissionset: string,
-    activeUser: string,
+    activeUser: boolean,
     temporaryPermission: string,
     temporaryPermissiondate: string
   ) {
@@ -81,17 +80,17 @@ export const OrdersGridrows = [
       "MPU",
       "raj@gapac.com",
       "Jess Abell",
-      "TBD",
+      false,
       "C",
       "02/14/2023"
     ),
     OrdersGridcreateData(
-      "SPL",
+      "SL",
       "Piedmont-R",
       "NOA",
       "john@gapac.com",
       "Mark Jennings",
-      "040",
+      false,
       "T",
       "02/14/2023",
     
@@ -102,58 +101,58 @@ export const OrdersGridrows = [
       "NOA",
       "rama@gapac.com",
       "Mark Jennings",
-      "039",
+      false,
       "T",
       "02/14/2023"
     ),
    
     OrdersGridcreateData(
-      "SPL",
+      "SP",
       "Piedmont-R",
       "NOA",
       "Kri6@gapac.com",
       "Mark Jennings",
-      "TBD",
+      true,
       "C",
       "02/14/2023"
     ),
     OrdersGridcreateData(
-      "SLX",
+      "SL",
       "Talladega",
       "MPU",
       "Kri5@gapac.com",
       "Mark Jennings",
-      "038",
+      false,
       "C",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      "SLP",
-      "Piedmont-R",
-      "MPU",
-      "gautam@gapac.com",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-    ),
-    OrdersGridcreateData(
-      "SLXX",
-      "Talladega",
-      "NOA",
-      "rohan@gapac.com",
-      "Jess Abell",
-      "TBD",
-      "T",
       "02/14/2023"
     ),
     OrdersGridcreateData(
       "SL",
       "Piedmont-R",
       "MPU",
+      "gautam@gapac.com",
+      "Jess Abell",
+      true,
+      "C",
+      "02/14/2023",
+    ),
+    OrdersGridcreateData(
+      "SP",
+      "Talladega",
+      "NOA",
+      "rohan@gapac.com",
+      "Jess Abell",
+      false,
+      "T",
+      "02/14/2023"
+    ),
+    OrdersGridcreateData(
+      "SP",
+      "Piedmont-R",
+      "MPU",
       "raja@gapac.com",
       "Jess Abell",
-      "TBD",
+      true,
       "C",
       "02/14/2023"
     ),
@@ -163,7 +162,7 @@ export const OrdersGridrows = [
       "MPU",
       "madan@gapac.com",
       "Mark Jennings",
-      "037",
+      false,
       "C",
       "02/14/2023"
     ),
@@ -173,7 +172,7 @@ export const OrdersGridrows = [
       "NOA",
       "Kri3@gapac.com",
       "Jess Abell",
-      "TBD",
+      true,
       "T",
       "02/14/2023"
     ),
@@ -183,7 +182,7 @@ export const OrdersGridrows = [
       "MPU",
       "dilip@gapac.com",
       "Jess Abell",
-      "TBD",
+      false,
       "C",
       "02/14/2023"
     ),
@@ -193,9 +192,9 @@ export const OrdersGridrows = [
       "MPU",
       "Kris@gapac.com",
       "Jess Abell",
-      "036",
+      true,
       "T",
       "02/14/2023"
     ),
-  ];
+  ]
 

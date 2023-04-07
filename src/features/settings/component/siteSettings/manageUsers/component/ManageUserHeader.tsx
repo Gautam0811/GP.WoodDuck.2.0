@@ -9,16 +9,17 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { IconButton, Tabs, Tab, } from "@mui/material";
 import {AddButton, CloseButton, EditButton, SaveButton, DeleteButton, CancelButton, InactivateButton, SetTemporaryPermissionsButton} from "../../../../common/index";
 
 export function ManageUserHeader() {
 
-  const [value, setValue] = React.useState("Active");
+  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  
 
 
   return (
@@ -40,36 +41,6 @@ export function ManageUserHeader() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid className="bg-grey-white pl-16 w100 align-items-center">
-        <Box>
-          <Tabs value={value} onChange={handleChange}>
-            <Tab value="Active" label="Active" />
-            <Tab value="Inactive" label="Inactive" />
-            <Tab icon={<RefreshIcon />} />
-          </Tabs>
-        </Box>
-      </Grid>
-      {/* <Grid className="bg-grey-white pl-16 w100 align-items-center">
-        <Box className="flexcolumn font-black">
-          <ButtonGroup variant="text">
-            <Grid className="bg-white-onclick">
-              <IconButton>
-                <Typography className="p-16">Active</Typography>
-              </IconButton>{" "}
-            </Grid>
-            <Divider orientation="vertical" flexItem />
-            <IconButton>
-              <Typography className="p-16">Inactive</Typography>
-            </IconButton>{" "}
-            <Divider orientation="vertical" flexItem />
-            <IconButton>
-              <Typography className="p-16">
-                <RefreshIcon />
-              </Typography>
-            </IconButton>{" "}
-          </ButtonGroup>
-        </Box>
-      </Grid> */}
     </Box>
   );
 }
