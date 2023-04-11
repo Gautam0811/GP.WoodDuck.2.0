@@ -7,48 +7,30 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import "../../../../../styles/StyleMain.css";
 import { Grid, Modal, Button, Box, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from "@mui/material";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 export function Subdivision() {
   const [name, setName]: any = React.useState({});
+  const [subdivision, setSubdivision] = React.useState("");
   React.useEffect(() => {
     function fetchName() {
       let nameFetch = JSON.parse(localStorage.getItem("status") || "{}");
       setName(nameFetch);
+      setSubdivision(nameFetch.subdivision)
+      //on first time load
+      window.localStorage.setItem("subdivisionValue",nameFetch.subdivision);
     }
     fetchName();
   }, []);
 
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
-  const [subdivision, setSubdivision] = React.useState('name.subdivision');
-
   const handleChange = (event: SelectChangeEvent) => {
     setSubdivision(event.target.value);
+    //on select of subdivision load
+    window.localStorage.setItem("subdivisionValue",event.target.value);
   };
-
-
   return (
     // View for Subdivision section
     <Grid className="flex-end col-005fa8">
-      {/* <Button onClick={handleOpen}>
-        <Typography className="col-005fa8">{name.subdivision}</Typography>
-        {open ? (
-          <ArrowDropUpIcon className="col-005fa8" />
-        ) : (
-          <ArrowDropDownIcon className="col-005fa8" />
-        )}
-      </Button> */}
       <Grid>
-        {/* <Modal open={open} onClose={handleClose}>
-          <Box className="flexcolumn modal-header-subdivision ">
-            <Button className="col-005fa8">SL</Button>
-            <Button className="col-005fa8">SP</Button>
-          </Box>
-        </Modal> */}
         <FormControl variant="standard" className="col-005fa8">
         {/* <InputLabel id="demo-simple-select-standard-label">{name.subdivision}</InputLabel> */}
         <Select
@@ -57,10 +39,12 @@ export function Subdivision() {
           onChange={handleChange}
           className="col-005fa8"
         >
-          <MenuItem value={10} className="col-005fa8">SL</MenuItem>
-          <MenuItem value={20} className="col-005fa8">SP</MenuItem>
+          <MenuItem value={"SL"} className="col-005fa8">SL</MenuItem>
+          <MenuItem value={"SP"} className="col-005fa8">SP</MenuItem>
         </Select>
+        
       </FormControl>
+      
       </Grid>
     </Grid>
   );
