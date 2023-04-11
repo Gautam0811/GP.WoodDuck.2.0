@@ -22,7 +22,7 @@ export function UserSettings() {
           </Grid>
         </Grid>
         <Stack spacing={0.2} className="p-8">
-        <Link to="#"className="text-dec-none">
+        <Link to="/millGroups"className="text-dec-none">
           <Typography className="col-005fa8">
             Mill Groups
           </Typography>
