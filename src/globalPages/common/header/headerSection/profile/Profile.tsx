@@ -40,9 +40,16 @@ export function Profile() {
     fetchName();
   }, []);
 
-  var nameByChar =
-    JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
-    JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
+  // var nameByChar =
+  //   JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
+  //   JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
+
+  var nameByChar;
+    if(nameByChar !== null && nameByChar !== '') {
+      nameByChar =
+      JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
+      JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
+   }
 
   const logout = () => {
     localStorage.clear();

@@ -3,7 +3,6 @@ import { DataGrid, GridRowSelectionModel } from '@mui/x-data-grid';
 
 
 import {OrdersGridcolumns,OrdersGridrows} from "../services/Data";
-import { GifBoxTwoTone } from '@mui/icons-material';
 import { Grid } from '@mui/material';
 
 export function ManageUsersGrid(props : any) {
@@ -12,16 +11,14 @@ export function ManageUsersGrid(props : any) {
   //   rowLength: 10,
   //   maxColumns: 6,
   // });
-//alert(String(localStorage.getItem("IsActive")))
   const [rowSelectionModel, setRowSelectionModel] =
     React.useState<GridRowSelectionModel>();
-  const [orderFilterGridRow, setOrderFilterGridRow] : any = React.useState({});
-
-  
+    const [orderFilterGridRow, setOrderFilterGridRow] : any = React.useState(OrdersGridrows.filter(a => (a.activeUser === props.isActive) && (a.businessLine === props.selectedDivision)));
 
     React.useEffect(() => {
-      setOrderFilterGridRow(OrdersGridrows.filter(a => a.activeUser ===props.isAcitve));
-    }, [props.isAcitve]);
+      setOrderFilterGridRow(OrdersGridrows.filter(a => (a.activeUser === props.isActive) && (a.businessLine === props.selectedDivision)));
+
+    }, [props.isActive]);
 
   return (
     <Grid className="h-400 w-1000">
