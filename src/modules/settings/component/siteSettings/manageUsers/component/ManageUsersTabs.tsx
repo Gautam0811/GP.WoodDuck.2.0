@@ -12,6 +12,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import { IconButton, Tabs, Tab } from "@mui/material";
 import { ManageUsersGrid } from "./index";
 import AppBar from "@mui/material/AppBar";
+import { OrdersGridcolumns, OrdersGridrows } from "../services/Data";
 
 export function ManageUsersTabs() {
   const [value, setValue] = React.useState(0);
@@ -19,7 +20,6 @@ export function ManageUsersTabs() {
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
-   
   };
   function setValueActive() {
     setIsActive(true);
@@ -27,6 +27,24 @@ export function ManageUsersTabs() {
   function setValueInactive() {
     setIsActive(false);
   }
+
+  const [orderFilterGridRow, setOrderFilterGridRow]: any = React.useState(
+    OrdersGridrows.filter(
+      (a) =>
+        a.activeUser === isActive &&
+        a.businessLine === window.localStorage.getItem("subdivisionValue")
+    )
+  );
+
+  React.useEffect(() => {
+    setOrderFilterGridRow(
+      OrdersGridrows.filter(
+        (a) =>
+          a.activeUser === isActive &&
+          a.businessLine === window.localStorage.getItem("subdivisionValue")
+      )
+    );
+  }, [isActive]);
 
   interface TabPanelProps {
     children: React.ReactNode;
@@ -69,7 +87,7 @@ export function ManageUsersTabs() {
       <Grid className="bg-grey-white pl-16 w100 align-items-center">
         <Box></Box>
       </Grid>
-      <Grid className="bg-grey-white pl-16 w100 align-items-center">
+      <Grid className="bg-grey-white flexrow  justify-space-between pl-16 w100 align-items-center">
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={value}
@@ -85,12 +103,27 @@ export function ManageUsersTabs() {
             <Tab icon={<RefreshIcon />} {...a11yProps(2)} />
           </Tabs>
         </Box>
+        {orderFilterGridRow.length > 1 ? (
+          <Typography className="pr-16 gray">
+            {orderFilterGridRow.length} Users
+          </Typography>
+        ) : (
+          <Typography className="pr-16 gray">
+            {orderFilterGridRow.length} User
+          </Typography>
+        )}
       </Grid>
       <TabPanel value={value} index={0}>
-        <ManageUsersGrid isActive={isActive} selectedDivision={ window.localStorage.getItem("subdivisionValue")} />
+        <ManageUsersGrid
+          isActive={isActive}
+          selectedDivision={window.localStorage.getItem("subdivisionValue")}
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ManageUsersGrid isActive={isActive} selectedDivision={ window.localStorage.getItem("subdivisionValue")}/>
+        <ManageUsersGrid
+          isActive={isActive}
+          selectedDivision={window.localStorage.getItem("subdivisionValue")}
+        />
       </TabPanel>
       <TabPanel value={value} index={2}>
         <RefreshIcon />

@@ -6,27 +6,106 @@ import * as React from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
+import Modal from "@mui/material/Modal";
+import { Typography, Button, Grid, MenuItem, Alert, AlertTitle } from "@mui/material";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Link } from "react-router-dom";
+import { EditPermissions } from "../../modules/settings/component/adminSettings/adminPermissions/EditPermissions";
+import {
+  GridRowId,
+  GridRowModesModel,
+  GridRowModes,
+} from '@mui/x-data-grid';
 
-export function SaveButton() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
+interface SaveButtonProps {
+  onClick: () => void;
+}
+
+interface SelectedRowParams {
+  id: GridRowId;
+}
+
+interface EditToolbarProps {
+  selectedRowParams?: SelectedRowParams;
+  rowModesModel: GridRowModesModel;
+  setRowModesModel: (value: GridRowModesModel) => void;
+  rowMode: "view" | "edit";
+}
+
+
+export function SaveButton(props: EditToolbarProps) {
+  const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } = props;
+ 
+  const handleSaveOrEdit = () => {
+    if (!selectedRowParams) {
+      return;
+    }
+    const { id } = selectedRowParams;
+    if (rowMode === "edit") {
+      setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+    } else {
+      setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+    }
+
+    // if (rowMode === "view"){
+    //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+    // }
+  };
+
+  const handleCancel = () => {
+    if (!selectedRowParams) {
+      return;
+    }
+    const { id } = selectedRowParams;
+    setRowModesModel({
+      ...rowModesModel,
+      [id]: { mode: GridRowModes.View, ignoreModifications: true },
+    });
+  };
+
+
+  const [post, setPost]: any = React.useState({});
+  const [name, setName]: any = React.useState({});
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+
+
+  React.useEffect(() => {
+    function fetchName() {
+      let nameFetch = JSON.parse(localStorage.getItem("status") || "{}");
+      setName(nameFetch);
+    }
+    fetchName();
+  }, []);
 
   return (
-    <Box>
       <Box>
-          <LoadingButton disabled className="fs-10">
+      <LoadingButton onClick={handleOpen} disabled={!selectedRowParams} className="fs-10 col-005fa8">
+        <div>
           <div>
-            <div>
-              <SaveIcon className="icontype1"/>
-            </div>
-            <div>
-              <span>SAVE</span>
-            </div>
+            <SaveIcon className="icontype1" />
           </div>
-          </LoadingButton>
-      </Box>
+          <div>
+            <span>Save</span>
+          </div>
+        </div>
+      </LoadingButton>
+      <Modal open={open} >
+        <Box className="edit-permissions-modal">
+          <Grid className="p-8 pr-32">
+            <Typography className="fs-24 text-align-center col-005fa8">
+              Save Permissions Set Edits?
+            </Typography>
+            <p>Are you sure you want to save the permission sets?</p>
+          </Grid>
+          <Grid className="flexrow pt-16 justify-space-evenly">
+            <Button onClick={handleSaveOrEdit}  variant="contained">Yes</Button>
+            <Button onClick={handleCancel} className="bg-grey col-white">No</Button>
+          </Grid>
+        </Box>
+      </Modal>
     </Box>
   );
 }

@@ -3,7 +3,7 @@ import { DataGrid, GridRowSelectionModel } from '@mui/x-data-grid';
 
 
 import {OrdersGridcolumns,OrdersGridrows} from "../services/Data";
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 export function ManageUsersGrid(props : any) {
   // const { data } = useDemoData({

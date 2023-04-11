@@ -34,7 +34,7 @@ export function ManageUserHeader() {
             <CancelButton />
             <EditButton />
             <SetTemporaryPermissionsButton />
-            <SaveButton />
+            {/* <SaveButton /> */}
             <DeleteButton />
             <InactivateButton />
           </Grid>

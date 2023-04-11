@@ -1,6 +1,7 @@
 export {AddButton} from "./AddButton";
 export {CloseButton }from "./CloseButton";
 export {EditButton} from "./EditButton";
+export {EditPermissionsButton} from "./EditPermissionsButton";
 export {SaveButton} from "./SaveButton";
 export {DeleteButton} from "./DeleteButton";
 export {CancelButton} from "./CancelButton";

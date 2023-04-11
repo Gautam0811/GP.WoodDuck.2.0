@@ -1,11 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Button, Alert, AlertTitle} from '@mui/material';
 import {
   GridRowId,
   GridRowModesModel,
   GridRowModes,
 } from '@mui/x-data-grid';
+import { SaveButton, EditPermissionsButton } from '../../../../../common/button';
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -26,24 +27,31 @@ export function EditPermissions(props: EditToolbarProps) {
       return;
     }
     const { id } = selectedRowParams;
-    if (rowMode === "edit") {
-      setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-    } else {
+    // if (rowMode === "edit") {
+    //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+    // } else {
+    //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+    // }
+
+    if (rowMode === "view"){
       setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
     }
   };
 
-  const handleCancel = () => {
-    if (!selectedRowParams) {
-      return;
-    }
-    const { id } = selectedRowParams;
-    setRowModesModel({
-      ...rowModesModel,
-      [id]: { mode: GridRowModes.View, ignoreModifications: true },
-    });
-  };
+  
 
+  // const handleCancel = () => {
+  //   if (!selectedRowParams) {
+  //     return;
+  //   }
+  //   const { id } = selectedRowParams;
+  //   setRowModesModel({
+  //     ...rowModesModel,
+  //     [id]: { mode: GridRowModes.View, ignoreModifications: true },
+  //   });
+  // };
+
+  // alert(rowMode);
 
   return (
     <Box
@@ -56,18 +64,21 @@ export function EditPermissions(props: EditToolbarProps) {
       <Button
         onClick={handleSaveOrEdit}
         disabled={!selectedRowParams}
-        variant="outlined"
+        // variant="outlined"
       >
-        {rowMode === "edit" ? "Save" : "Edit"}
+        {rowMode === "edit" ? <SaveButton selectedRowParams={selectedRowParams}
+            rowMode={rowMode}
+            rowModesModel={rowModesModel}
+            setRowModesModel={setRowModesModel}/> : <EditPermissionsButton />}
       </Button>
-      <Button
+      {/* <Button
         onClick={handleCancel}
         disabled={rowMode === "view"}
         variant="outlined"
         sx={{ ml: 1 }}
       >
         Cancel
-      </Button>
+      </Button> */}
     </Box>
   );
 }

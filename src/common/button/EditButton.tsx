@@ -11,7 +11,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Link } from "react-router-dom";
 
-export function EditButton() {
+export function EditButton(props: any) {
   const [post, setPost]: any = React.useState({});
   const [name, setName]: any = React.useState({});
 
