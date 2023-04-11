@@ -28,7 +28,7 @@ export function Profile() {
     // console.log("user.userName"+user.userName)
     
   );
-  console.log("userData :"+userData.email);
+
 
   // React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
