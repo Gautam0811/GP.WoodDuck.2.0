@@ -1,12 +1,19 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import { Button, Alert, AlertTitle} from '@mui/material';
+import * as React from "react";
+import Box from "@mui/material/Box";
 import {
-  GridRowId,
-  GridRowModesModel,
-  GridRowModes,
-} from '@mui/x-data-grid';
-import { SaveButton, EditPermissionsButton } from '../../../../../common/button';
+  Button,
+  Alert,
+  AlertTitle,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+
+import { GridRowId, GridRowModesModel, GridRowModes } from "@mui/x-data-grid";
+import {
+  SaveButton,
+  EditPermissionsButton,
+} from "../../../../../common/button";
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -33,52 +40,31 @@ export function EditPermissions(props: EditToolbarProps) {
     //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
     // }
 
-    if (rowMode === "view"){
+    if (rowMode === "view") {
       setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
     }
   };
 
-  
-
-  // const handleCancel = () => {
-  //   if (!selectedRowParams) {
-  //     return;
-  //   }
-  //   const { id } = selectedRowParams;
-  //   setRowModesModel({
-  //     ...rowModesModel,
-  //     [id]: { mode: GridRowModes.View, ignoreModifications: true },
-  //   });
-  // };
-
-  // alert(rowMode);
 
   return (
-    <Box
-      sx={{
-        borderBottom: 1,
-        borderColor: "divider",
-        p: 1,
-      }}
-    >
-      <Button
-        onClick={handleSaveOrEdit}
-        disabled={!selectedRowParams}
-        // variant="outlined"
-      >
-        {rowMode === "edit" ? <SaveButton selectedRowParams={selectedRowParams}
-            rowMode={rowMode}
-            rowModesModel={rowModesModel}
-            setRowModesModel={setRowModesModel}/> : <EditPermissionsButton />}
-      </Button>
-      {/* <Button
-        onClick={handleCancel}
-        disabled={rowMode === "view"}
-        variant="outlined"
-        sx={{ ml: 1 }}
-      >
-        Cancel
-      </Button> */}
+    <Box>
+      {rowMode === "edit" ? (
+        <SaveButton
+          selectedRowParams={selectedRowParams}
+          rowMode={rowMode}
+          rowModesModel={rowModesModel}
+          setRowModesModel={setRowModesModel}
+        />
+      ) : (
+        <Button
+          className="flexcolumn fs-10"
+          onClick={handleSaveOrEdit}
+          disabled={!selectedRowParams}
+        >
+          <EditIcon className="fs-14" />
+          <p>Edit Permissions</p>
+        </Button>
+      )}
     </Box>
   );
 }
