@@ -6,9 +6,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
 import CheckIcon from "@mui/icons-material/Check";
-import Checkbox from '@mui/material/Checkbox';
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import { PermissionsData } from "../../../services/Data";
@@ -19,13 +17,13 @@ import {
   DataGrid,
   GridRowId,
   GridRowModesModel,
-  GridRowModes,
   GridRowModel,
   GridRowSelectionModel,
   GridActionsCellItem,
 } from "@mui/x-data-grid";
 import { EditPermissions } from "./EditPermissions";
 import { CheckBox } from "@mui/icons-material";
+import { getPermissionSet } from "../../../services/Api";
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -38,8 +36,16 @@ export function ViewPermissions() {
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
   );
-  const [rowSelectionModel, setRowSelectionModel] =
-    React.useState<GridRowSelectionModel>();
+  const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>();
+  const [permissions, setPermissions] = React.useState({});
+
+  React.useEffect(()=>{
+    getPermissionSet().then((permissionset)=>{
+      setPermissions(permissionset);
+    });
+    console.log(permissions);
+  },[selectedRowParams]);
+  
 
   const handleDelete = () => {
     if (!selectedRowParams) {
@@ -63,10 +69,6 @@ export function ViewPermissions() {
     console.log(selectedRowParams);
   };
   console.log(rowSelectionModel);
-  const onRowsSelectionHandler = (ids: any) => {
-    // const Row = ids.map((id:any) => rows.find((row) => row.id === id));
-    console.log(ids);
-  };
 
   const processRowUpdate = (newRow: GridRowModel) => {
     const updatedRow = { ...newRow, isNew: false };
@@ -90,6 +92,7 @@ export function ViewPermissions() {
       headerName: "",
       width: 100,
       cellClassName: "actions",
+      editable: true,
       getActions: ({ id }) => {
         return [
           <GridActionsCellItem
