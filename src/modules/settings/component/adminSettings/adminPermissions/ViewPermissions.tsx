@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import CheckIcon from "@mui/icons-material/Check";
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
-import { PermissionsData } from "../../../services/Data";
+import { PermissionsData ,BindPermissionGrid } from "../../../index";
 import { AddPermissions } from "./AddPermissions";
 import { CloseButton } from "../../../../../common/button";
 import {
@@ -31,6 +31,8 @@ interface SelectedRowParams {
 
 export function ViewPermissions() {
   const [rows, setRows] = React.useState(PermissionsData);
+  const [permissionRows, setPermissionRows] =React.useState([]);
+
   const [selectedRowParams, setSelectedRowParams] =
     React.useState<SelectedRowParams>();
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
@@ -42,9 +44,10 @@ export function ViewPermissions() {
   React.useEffect(()=>{
     getPermissionSet().then((permissionset)=>{
       setPermissions(permissionset);
-    });
-    console.log(permissions);
-  },[selectedRowParams]);
+      setPermissionRows(BindPermissionGrid(permissions));
+     
+    })
+  },[selectedRowParams,permissionRows,permissions]);
   
 
   const handleDelete = () => {
@@ -370,7 +373,7 @@ export function ViewPermissions() {
       <br />
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={rows}
+          rows={permissionRows}
           columns={columns}
           isRowSelectable={(params) => params.row.Role !== "Admin"}
           rowSelectionModel={rowSelectionModel}
