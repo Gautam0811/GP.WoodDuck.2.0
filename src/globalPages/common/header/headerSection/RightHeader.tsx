@@ -18,8 +18,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import "../../../../styles/StyleMain.css";
 
-import {Grid} from '@mui/material';
-import {Profile, Subdivision} from "../index";
+import { Grid } from "@mui/material";
+import { Profile, Subdivision } from "../index";
 
 export function RightHeader() {
   const [name, setName]: any = React.useState({});
@@ -34,16 +34,21 @@ export function RightHeader() {
     fetchName();
   }, []);
 
-
-
   return (
     // View for Right Header section
     <Box className="fs-12 flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
-          <Grid className="flexrow pl-16">
+          <Grid className="flexrow pl-24">
             <Grid>
-              {name.isAdmin ? <Subdivision/ > : <div> <br /></div>}
+              {name.isAdmin ? (
+                <Subdivision />
+              ) : (
+                <div>
+                  {" "}
+                  <br />
+                </div>
+              )}
               <Grid className="font-black" component="div">
                 <IconButton size="small" color="primary" aria-label="menu">
                   <MenuIcon fontSize="small" />

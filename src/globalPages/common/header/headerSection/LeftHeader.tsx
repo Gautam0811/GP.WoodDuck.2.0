@@ -11,30 +11,29 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import "../../../../styles/StyleMain.css";
 
+export function LeftHeader() {
+  const envValue = process.env.REACT_APP_ENV;
 
-export  function LeftHeader() {
-  
-  const envValue =process.env.REACT_APP_ENV;
-  
   return (
     // View for Left header section section
-   
+
     <Box className="flex-grow">
-      <AppBar className="bg-ffb74d position-static" >
-        <Toolbar className ="leftHeader">
-         
-        <div className="mr-64">
-        <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            
+      <AppBar className="bg-ffb74d position-static">
+        <Toolbar className="leftHeader">
+          <div className="mr-64">
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+            ></IconButton>
+          </div>
+          <Typography
+            className="flex-grow font-black"
+            variant="h6"
+            component="div"
           >
-         </IconButton>
-        </div>
-          <Typography className="flex-grow font-black" variant="h6" component="div" >
-         {envValue}
+            {envValue}
           </Typography>
         </Toolbar>
       </AppBar>

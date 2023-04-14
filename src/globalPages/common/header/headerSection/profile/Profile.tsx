@@ -8,10 +8,9 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 import "../../../../../styles/StyleMain.css";
-import {Grid, Stack, Avatar, Modal, Button} from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { useSelector } from 'react-redux';
-
+import { Grid, Stack, Avatar, Modal, Button } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useSelector } from "react-redux";
 
 export function Profile() {
   const [post, setPost]: any = React.useState({});
@@ -20,15 +19,14 @@ export function Profile() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const userInfo= useSelector((state:any) => state.loginInfo);
-  console.log("userInfo"+userInfo);
+  const userInfo = useSelector((state: any) => state.loginInfo);
+  console.log("userInfo" + userInfo);
   const userData = userInfo.find(
-    (user: { userName: any }) => user.userName === JSON.parse(localStorage.getItem("status") || "{}").name
-    
-    // console.log("user.userName"+user.userName)
-    
-  );
+    (user: { userName: any }) =>
+      user.userName === JSON.parse(localStorage.getItem("status") || "{}").name
 
+    // console.log("user.userName"+user.userName)
+  );
 
   // React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
@@ -45,11 +43,11 @@ export function Profile() {
   //   JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
 
   var nameByChar;
-    if(nameByChar !== null && nameByChar !== '') {
-      nameByChar =
+  if (nameByChar !== null && nameByChar !== "") {
+    nameByChar =
       JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
       JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
-   }
+  }
 
   const logout = () => {
     localStorage.clear();
@@ -64,7 +62,12 @@ export function Profile() {
     <Grid>
       <Button onClick={handleOpen}>
         <Stack spacing={1}>
-          <Avatar className="bg-005fa8 fs-16">{nameByChar}</Avatar>
+          <Avatar
+            className="bg-005fa8 fs-16"
+            sx={{ height: "48px", width: "48px", ml: ".5rem" }}
+          >
+            {nameByChar}
+          </Avatar>
         </Stack>
       </Button>
       <Modal open={open} onClose={handleClose}>
@@ -77,8 +80,13 @@ export function Profile() {
           <Typography component="h2" className="col-005fa8">
             {name.firstname + " " + name.lastname}
           </Typography>
-          <Typography className="col-005fa8">{userData && userData.email?userData.email:""}</Typography>
-          <Typography className="col-005fa8">Permission Set: {userData && userData.permissionSet ? userData.permissionSet:""}</Typography>
+          <Typography className="col-005fa8">
+            {userData && userData.email ? userData.email : ""}
+          </Typography>
+          <Typography className="col-005fa8">
+            Permission Set:{" "}
+            {userData && userData.permissionSet ? userData.permissionSet : ""}
+          </Typography>
         </Box>
       </Modal>
     </Grid>
