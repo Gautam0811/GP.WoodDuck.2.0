@@ -31,6 +31,7 @@ interface SelectedRowParams {
 
 export function ViewPermissions() {
   const [rows, setRows] = React.useState(PermissionsData);
+  const [permissionRows, setPermissionRows] = React.useState([]);
   const [selectedRowParams, setSelectedRowParams] =
     React.useState<SelectedRowParams>();
 
@@ -45,9 +46,10 @@ export function ViewPermissions() {
   React.useEffect(() => {
     getPermissionSet().then((permissionset) => {
       setPermissions(permissionset);
+      setPermissionRows(BindPermissionGrid(permissions));
     });
-    console.log(permissions);
-  },[selectedRowParams]);
+ 
+  },[selectedRowParams,permissionRows,permissions]);
   
 
   const handleDelete = () => {

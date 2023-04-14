@@ -12,7 +12,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { GridRowId, GridRowModesModel, GridRowModes } from "@mui/x-data-grid";
 import {
   SaveButton,
-  EditPermissionsButton,
+  // EditPermissionsButton,
 } from "../../../../../../common/button";
 
 interface SelectedRowParams {
