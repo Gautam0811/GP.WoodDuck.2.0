@@ -18,11 +18,11 @@ import {
   GridRowId,
   GridRowModesModel,
   GridRowModel,
-  GridRowSelectionModel,
   GridActionsCellItem,
+  GridRowModes,
 } from "@mui/x-data-grid";
 import { EditPermissions } from "./EditPermissions";
-import { CheckBox } from "@mui/icons-material";
+import Checkbox from "@mui/material/Checkbox";
 import { getPermissionSet } from "../../../services/Api";
 
 interface SelectedRowParams {
@@ -31,21 +31,24 @@ interface SelectedRowParams {
 
 export function ViewPermissions() {
   const [rows, setRows] = React.useState(PermissionsData);
+
   const [selectedRowParams, setSelectedRowParams] =
     React.useState<SelectedRowParams>();
+
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
   );
-  const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>();
+
   const [permissions, setPermissions] = React.useState({});
 
-  React.useEffect(()=>{
-    getPermissionSet().then((permissionset)=>{
+  const [checked, setChecked] = React.useState(true);
+
+  React.useEffect(() => {
+    getPermissionSet().then((permissionset) => {
       setPermissions(permissionset);
     });
     console.log(permissions);
-  },[selectedRowParams]);
-  
+  }, [selectedRowParams]);
 
   const handleDelete = () => {
     if (!selectedRowParams) {
@@ -55,20 +58,10 @@ export function ViewPermissions() {
     setRows(rows.filter((row) => row.id !== id));
   };
 
-  // const handleCellFocus = React.useCallback(
-  //   (event: React.FocusEvent<HTMLDivElement>) => {
-  //     const row = event.currentTarget.parentElement;
-  //     const id = row!.dataset.id!;
-  //     setSelectedRowParams({ id });
-  //     console.log(selectedRowParams);
-  //   },
-  //   []
-  // );
   const handleRowSelection = (id: GridRowId) => () => {
     setSelectedRowParams({ id });
     console.log(selectedRowParams);
   };
-  console.log(rowSelectionModel);
 
   const processRowUpdate = (newRow: GridRowModel) => {
     const updatedRow = { ...newRow, isNew: false };
@@ -84,7 +77,6 @@ export function ViewPermissions() {
     return rowModesModel[id]?.mode || "view";
   }, [rowModesModel, selectedRowParams]);
 
-  
   const columns: GridColDef[] = [
     {
       field: "actions",
@@ -92,11 +84,22 @@ export function ViewPermissions() {
       headerName: "",
       width: 100,
       cellClassName: "actions",
-      editable: true,
       getActions: ({ id }) => {
+        const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+        if (isInEditMode) {
+          setChecked(true);
+          return [
+            <GridActionsCellItem
+              icon={<Checkbox checked={true} />}
+              label="Save"
+              onClick={handleRowSelection(id)}
+            />,
+          ];
+        }
+        setChecked(false);
         return [
           <GridActionsCellItem
-            icon={<CheckBox />}
+            icon={<Checkbox checked={false} />}
             label="Save"
             onClick={handleRowSelection(id)}
           />,
@@ -373,7 +376,6 @@ export function ViewPermissions() {
           rows={rows}
           columns={columns}
           isRowSelectable={(params) => params.row.Role !== "Admin"}
-          rowSelectionModel={rowSelectionModel}
           disableRowSelectionOnClick={true}
           rowModesModel={rowModesModel}
           isCellEditable={(params) => params.row.Role !== "Admin"}
