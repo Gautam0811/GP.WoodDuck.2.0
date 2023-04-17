@@ -10,6 +10,7 @@ import {
 
 const permissionSet = ["Customer.Create", "EnterEditOrder", "Customer.Get", "ManageSG", "ReadOnlyQuote", "ReadOnlyOrder", "Customer.Find", "Customer.Update", "create.order", "create.quote","Customer.Delete","manage.quote","Administration.PermissionSet.Get","Administration.PermissionSet.Find","BusinessModel"];
 function PermissionsSetData(
+    Id:string,
     Role: string,
     EnterEditQuote: boolean,
     EnterEditOrder: boolean,
@@ -28,7 +29,7 @@ function PermissionsSetData(
     PriceExperimentation: boolean
   ) {
     return {
-      id: randomId(),
+      Id,
       Role,
       EnterEditQuote,
       EnterEditOrder,
@@ -45,7 +46,7 @@ function PermissionsSetData(
       ManagingIntegrationMappingMills,
       SendDcxInfo,
       PriceExperimentation,
-      key: Math.random(),
+
     };
   }
 
@@ -54,7 +55,9 @@ function PermissionsSetData(
     props.map((apiData:any) => {
       const permissionData:any =[];
       const permissionArray:any =[];
+      permissionData.push(apiData.permissionSetId);
       permissionData.push(apiData.permissionSetName);
+      
       apiData.availablePermissions.map((permission:any) =>{
         permissionArray.push(permission);
 
