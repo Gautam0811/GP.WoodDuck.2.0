@@ -490,6 +490,10 @@
   font-weight: normal;
 }
 
+.font-weight-bold {
+  font-weight: bold;
+}
+
 /* headings */
 
 
@@ -506,6 +510,11 @@
 /* left */
 .left-16{
   left: 1rem;
+}
+
+/* left */
+.left-32{
+  left: 2rem;
 }
 
 /* right */
@@ -696,7 +705,6 @@
   font-size: 18px !important;
 }
 
-
 /* Login page part */
 .app {
   font-family: sans-serif;
@@ -711,9 +719,21 @@
 }
 
 .leftHeader {
-  width:25%;
+  width:23%;
   background-image:url('../globalPages/common/header/images/logo-gp.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  left: 7px;
 
+}
+
+/*For allowing border for search bar in middle header to have full border*/
+.css-14lo706 {
+  position: absolute;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  top: -2px !important;
 }
 
 
@@ -836,6 +856,10 @@ input[type="submit"]:hover {
 
 .css-ahj2mt-MuiTypography-root.font-bold{
   font-weight: bold;
+}
+
+.css-yie9qf-MuiTypography-root {
+  left: 2rem;
 }
 
 .product-page-grid{
