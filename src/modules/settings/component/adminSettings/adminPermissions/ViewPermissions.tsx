@@ -45,12 +45,15 @@ export function ViewPermissions() {
 
   React.useEffect(() => {
     getPermissionSet().then((permissionset) => {
-      setPermissions(permissionset);
-      setPermissionRows(BindPermissionGrid(permissions));
+      // setPermissions(permissionset);
+      setPermissionRows(BindPermissionGrid(permissionset));
     });
+    
  
-  },[permissionRows,permissions]);
+  },[]);
   
+  console.log(permissionRows);
+
 
   const handleDelete = () => {
     if (!selectedRowParams) {

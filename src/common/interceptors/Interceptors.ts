@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJheWFuIiwiZW1haWwiOiJheWFubWl0cmFAdGVzdC5jb20ifQ.u6wke52xNwkEEZ11ZfjfPiJL9O6ME7pW8cbOQT7FZgA';
+const token = String(process.env.REACT_APP_MANAGE_PERMISSION_SET_TOKEN);
 
 export function axiosRequest() {
     axios.interceptors.request.use(
