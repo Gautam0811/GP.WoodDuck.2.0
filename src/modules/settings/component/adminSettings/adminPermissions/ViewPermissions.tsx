@@ -6,12 +6,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
 import CheckIcon from "@mui/icons-material/Check";
-import Checkbox from '@mui/material/Checkbox';
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
-import { PermissionsData } from "../../../services/Data";
+import { PermissionsData ,BindPermissionGrid } from "../../../index";
 import { AddPermissions } from "./AddPermissions";
 import { CloseButton } from "../../../../../common/button";
 import {
@@ -19,13 +17,13 @@ import {
   DataGrid,
   GridRowId,
   GridRowModesModel,
-  GridRowModes,
   GridRowModel,
-  GridRowSelectionModel,
   GridActionsCellItem,
+  GridRowModes,
 } from "@mui/x-data-grid";
 import { EditPermissions } from "./EditPermissions";
-import { CheckBox } from "@mui/icons-material";
+import Checkbox from "@mui/material/Checkbox";
+import { getPermissionSet } from "../../../services/Api";
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -33,13 +31,26 @@ interface SelectedRowParams {
 
 export function ViewPermissions() {
   const [rows, setRows] = React.useState(PermissionsData);
+  const [permissionRows, setPermissionRows] = React.useState([]);
   const [selectedRowParams, setSelectedRowParams] =
     React.useState<SelectedRowParams>();
+
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
   );
-  const [rowSelectionModel, setRowSelectionModel] =
-    React.useState<GridRowSelectionModel>();
+
+  const [permissions, setPermissions] = React.useState({});
+
+  const [checked, setChecked] = React.useState(true);
+
+  React.useEffect(() => {
+    getPermissionSet().then((permissionset) => {
+      setPermissions(permissionset);
+      setPermissionRows(BindPermissionGrid(permissions));
+    });
+ 
+  },[permissionRows,permissions]);
+  
 
   const handleDelete = () => {
     if (!selectedRowParams) {
@@ -49,23 +60,9 @@ export function ViewPermissions() {
     setRows(rows.filter((row) => row.id !== id));
   };
 
-  // const handleCellFocus = React.useCallback(
-  //   (event: React.FocusEvent<HTMLDivElement>) => {
-  //     const row = event.currentTarget.parentElement;
-  //     const id = row!.dataset.id!;
-  //     setSelectedRowParams({ id });
-  //     console.log(selectedRowParams);
-  //   },
-  //   []
-  // );
   const handleRowSelection = (id: GridRowId) => () => {
     setSelectedRowParams({ id });
     console.log(selectedRowParams);
-  };
-  console.log(rowSelectionModel);
-  const onRowsSelectionHandler = (ids: any) => {
-    // const Row = ids.map((id:any) => rows.find((row) => row.id === id));
-    console.log(ids);
   };
 
   const processRowUpdate = (newRow: GridRowModel) => {
@@ -82,7 +79,6 @@ export function ViewPermissions() {
     return rowModesModel[id]?.mode || "view";
   }, [rowModesModel, selectedRowParams]);
 
-  
   const columns: GridColDef[] = [
     {
       field: "actions",
@@ -91,9 +87,21 @@ export function ViewPermissions() {
       width: 100,
       cellClassName: "actions",
       getActions: ({ id }) => {
+        const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+        if (isInEditMode) {
+          setChecked(true);
+          return [
+            <GridActionsCellItem
+              icon={<Checkbox checked={true} />}
+              label="Save"
+              onClick={handleRowSelection(id)}
+            />,
+          ];
+        }
+        setChecked(false);
         return [
           <GridActionsCellItem
-            icon={<CheckBox />}
+            icon={<Checkbox checked={false} />}
             label="Save"
             onClick={handleRowSelection(id)}
           />,
@@ -367,10 +375,10 @@ export function ViewPermissions() {
       <br />
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={rows}
+        getRowId={(row) => row.Id}
+          rows={permissionRows}
           columns={columns}
           isRowSelectable={(params) => params.row.Role !== "Admin"}
-          rowSelectionModel={rowSelectionModel}
           disableRowSelectionOnClick={true}
           rowModesModel={rowModesModel}
           isCellEditable={(params) => params.row.Role !== "Admin"}

@@ -2,13 +2,18 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import {
   Button,
+  Alert,
+  AlertTitle,
+  IconButton,
+  Typography,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 
 import { GridRowId, GridRowModesModel, GridRowModes } from "@mui/x-data-grid";
 import {
   SaveButton,
-} from "../../../../../common/button";
+  // EditPermissionsButton,
+} from "../../../../../../common/button";
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -21,7 +26,7 @@ interface EditToolbarProps {
   rowMode: "view" | "edit";
 }
 
-export function EditPermissions(props: EditToolbarProps) {
+export function EditManageUsers(props: EditToolbarProps) {
   const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } = props;
 
   const handleSaveOrEdit = () => {

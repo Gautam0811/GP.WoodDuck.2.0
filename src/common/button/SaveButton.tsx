@@ -7,7 +7,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 import Modal from "@mui/material/Modal";
-import { Typography, Button, Grid, MenuItem, Alert, AlertTitle } from "@mui/material";
+import {Typography, Button, Grid, MenuItem, AlertTitle, Alert } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Link } from "react-router-dom";
 import { EditPermissions } from "../../modules/settings/component/adminSettings/adminPermissions/EditPermissions";
@@ -16,10 +16,13 @@ import {
   GridRowModesModel,
   GridRowModes,
 } from '@mui/x-data-grid';
+import CheckIcon from '@mui/icons-material/Check';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import Stack from '@mui/material/Stack';
 
-interface SaveButtonProps {
-  onClick: () => void;
-}
+// interface SaveButtonProps {
+//   onClick: () => void;
+// }
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -32,10 +35,36 @@ interface EditToolbarProps {
   rowMode: "view" | "edit";
 }
 
-
 export function SaveButton(props: EditToolbarProps) {
   const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } = props;
- 
+
+  const handleCancel = () => {
+    if (!selectedRowParams) {
+      return;
+    }
+    const { id } = selectedRowParams;
+    setRowModesModel({
+      ...rowModesModel,
+      [id]: { mode: GridRowModes.View, ignoreModifications: true },
+    });
+  };
+
+  const handleAlertOpen = () => {
+    return(
+      <Alert severity="info" sx={{ width: '100%' }}>
+        <AlertTitle>
+          {/* <CheckCircleOutlineIcon fontSize="large" /> */}
+          <span>
+            <Typography variant="h6">
+              {/* <CheckIcon fontSize="large" /> */}
+              Success
+            </Typography>
+          </span>
+        </AlertTitle>
+      </Alert>
+    )
+  }
+
   const handleSaveOrEdit = () => {
     if (!selectedRowParams) {
       return;
@@ -50,19 +79,8 @@ export function SaveButton(props: EditToolbarProps) {
     // if (rowMode === "view"){
     //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
     // }
+    
   };
-
-  const handleCancel = () => {
-    if (!selectedRowParams) {
-      return;
-    }
-    const { id } = selectedRowParams;
-    setRowModesModel({
-      ...rowModesModel,
-      [id]: { mode: GridRowModes.View, ignoreModifications: true },
-    });
-  };
-
 
   const [post, setPost]: any = React.useState({});
   const [name, setName]: any = React.useState({});
@@ -101,7 +119,7 @@ export function SaveButton(props: EditToolbarProps) {
             <p>Are you sure you want to save the permission sets?</p>
           </Grid>
           <Grid className="flexrow pt-16 justify-space-evenly">
-            <Button onClick={handleSaveOrEdit}  variant="contained">Yes</Button>
+            <Button onClick={handleSaveOrEdit} variant="contained">Yes</Button>
             <Button onClick={handleCancel} className="bg-grey col-white">No</Button>
           </Grid>
         </Box>
