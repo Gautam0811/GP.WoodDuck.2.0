@@ -378,7 +378,7 @@ export function ViewPermissions() {
       <br />
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-        getRowId={(row) => row.Id}
+          getRowId={(row) => row.Id}
           rows={permissionRows}
           columns={columns}
           isRowSelectable={(params) => params.row.Role !== "Admin"}

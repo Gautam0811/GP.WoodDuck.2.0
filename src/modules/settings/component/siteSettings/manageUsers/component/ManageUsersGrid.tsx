@@ -190,7 +190,7 @@ const [rows, setRows] = React.useState(OrdersGridrows);
   
   return (
     <div>
-      <Grid className="settings-header">
+      {/* <Grid className="settings-header">
       <span className="settings-header-text">Manage Users</span>
         <div className="flexrow">
           <EditManageUsers
@@ -214,14 +214,14 @@ const [rows, setRows] = React.useState(OrdersGridrows);
                 </div>
               </div>
             </LoadingButton>
-          </Box>
+          </Box> */}
           {/* <AddManageUsers
             setRows={setRows}
             setRowModesModel={setRowModesModel}
           /> */}
-          <CloseButton />
+          {/* <CloseButton />
         </div>
-      </Grid>
+      </Grid> */}
       <br />
       <br />
       <div className="h-400 w-1000">
