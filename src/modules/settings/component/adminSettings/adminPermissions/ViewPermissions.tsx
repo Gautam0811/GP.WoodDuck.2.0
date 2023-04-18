@@ -7,8 +7,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import CheckIcon from "@mui/icons-material/Check";
-import LoadingButton from "@mui/lab/LoadingButton";
-import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import { PermissionsData, BindPermissionGrid } from "../../../index";
 import { AddPermissions } from "./AddPermissions";
 import { CloseButton } from "../../../../../common/button";
