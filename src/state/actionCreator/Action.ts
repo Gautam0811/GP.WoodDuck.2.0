@@ -2,6 +2,8 @@
  Utility : This componenet is used for redux implementation and help to intialize the type and payload of action.
  Author Krishna Choudharyn 06-03-2023-------------------------   */
 
+
+//This is the Action creater for loginData
 export const loginData = (userDetails:any) => {
 
   return (dispatch:any) => {
@@ -12,6 +14,9 @@ export const loginData = (userDetails:any) => {
     })
   };
 };
+
+
+//This is the Action creater for permissionData
 export const permissionData = (permissionSet:any) => {
 
   return (dispatch:any) => {
