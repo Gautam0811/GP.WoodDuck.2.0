@@ -26,6 +26,7 @@ type ClaimContextType = {
 
 export const ClaimContext = createContext({} as ClaimContextType);
 export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) => {
+    //The actual implementation will have call to a API.
    const claimsInitial:ClaimType[] = [{
     id:"1001",
     username:"admin",
@@ -38,7 +39,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
    const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
    // Get all claims
     const ClaimsData = (claims : ClaimType) => {
-  
+    //The actual implementation will have call to a API.
       setClaims([{
         id:"1001",
         username:"admin",
