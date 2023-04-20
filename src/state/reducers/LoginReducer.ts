@@ -3,13 +3,11 @@
  Author Krishna Choudharyn 06-03-2023-------------------------   */
 
 //This is the Reducer for Login
-const LoginReducer = (state = [], action:any) => {
-
-  if (action.type === "login") {
-    return action.payload;
-  } 
-  else{
-    return state;
-  }
+const LoginReducer = (state = [], action: any) => {
+	if (action.type === 'login') {
+		return action.payload;
+	} else {
+		return state;
+	}
 };
 export default LoginReducer;

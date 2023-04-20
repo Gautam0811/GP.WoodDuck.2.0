@@ -8,25 +8,25 @@ import Box from '@mui/material/Box';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 export function DeleteButton() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
+	const [loading, setLoading] = React.useState(false);
+	function handleClick() {
+		setLoading(true);
+	}
 
-  return (
-    <Box>
-      <Box >
-          <LoadingButton className="fs-10 col-005fa8">
-          <div >
-            <div>
-              <CloseOutlinedIcon className="icontype1"/>
-            </div>
-            <div>
-              <span>DELETE</span>
-            </div>
-          </div>
-          </LoadingButton>
-      </Box>
-    </Box>
-  );
+	return (
+		<Box>
+			<Box>
+				<LoadingButton className="fs-10 col-005fa8">
+					<div>
+						<div>
+							<CloseOutlinedIcon className="icontype1" />
+						</div>
+						<div>
+							<span>DELETE</span>
+						</div>
+					</div>
+				</LoadingButton>
+			</Box>
+		</Box>
+	);
 }
