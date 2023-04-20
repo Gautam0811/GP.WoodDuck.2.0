@@ -23,13 +23,11 @@
   
   .fontsize {
       font-size: 12px;
-     
-  
   }
+
   .appBar {
     position:static;
     background: #ffb74d;
-  
   }
   
   .sidebar-logo {

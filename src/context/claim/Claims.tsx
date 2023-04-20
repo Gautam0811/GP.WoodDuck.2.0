@@ -4,6 +4,7 @@
 
  import React, { useState, createContext } from 'react'
 
+ 
  type ClaimType = {
   id:string,
   username:string,
@@ -24,6 +25,7 @@ type ClaimContextType = {
   children: React.ReactNode
 }
 
+//ClaimContext is used for managing State Globally 
 export const ClaimContext = createContext({} as ClaimContextType);
 export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) => {
     //The actual implementation will have call to a API.
@@ -37,9 +39,12 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
     lastname: "",
     }]
    const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
-   // Get all claims
     const ClaimsData = (claims : ClaimType) => {
+<<<<<<< HEAD
     //The actual implementation will have call to a API.
+=======
+      //The actual implementation will have call to a API.
+>>>>>>> b22e5a1a4ab6eba6466273a2aca15563948a03f5
       setClaims([{
         id:"1001",
         username:"admin",

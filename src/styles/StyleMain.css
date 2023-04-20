@@ -664,8 +664,8 @@
 }
 
 /* for buttons with only text*/
-.css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
-}
+/* .css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
+} */
 
 .css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype1{
   background-color: #005FA8 !important;
@@ -870,7 +870,6 @@ input[type="submit"]:hover {
   align-items: center;
   background-color: #f1f4fb;
 }
-
 
 /* Header Right Section */
 .header-right{

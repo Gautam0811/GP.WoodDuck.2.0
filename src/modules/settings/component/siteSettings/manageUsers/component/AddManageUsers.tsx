@@ -22,7 +22,7 @@ export function AddManageUsers(props: EditToolbarProps) {
   
     const handleClick = () => {
       const id = randomId();
-      setRows((oldRows) => [...oldRows, { id, businessLine:'', }]);
+      setRows((oldRows) => [...oldRows, { id: '', businessLine: '' ,isNew: true }]);
       setRowModesModel((oldModel) => ({
         ...oldModel,
         [id]: { mode: GridRowModes.Edit, fieldToFocus: 'businessLine' },

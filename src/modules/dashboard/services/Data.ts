@@ -2,34 +2,68 @@
 // Component Utility : This is the data page which has all the data in Json format which is used by all the components
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-//This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the 
-//backend architecture is confirmed.
-import { GridColDef } from "@mui/x-data-grid";
-//WD_Dashboard data starts
- function DashboardMarketCreateData(week: string, weekvalue: number, trend: string) {
-  return { week, weekvalue, trend, key: Math.random() };
-}
-//The actual implementation will have call to a API.
-export const DashboardMarketrows = [
-  DashboardMarketCreateData("Week 1", 60, "+"),
-  DashboardMarketCreateData("Week 2", 60, "-"),
-  DashboardMarketCreateData("Week 3", 60, "-"),
-];
+//This is the data which is used by Dashboard component
 
- function DashboardMarketSegmentcreateData(header: string, value: string, growth: string,trend: string) {
-    return { header, value, growth, trend, key: Math.random() };
-}
-//The actual implementation will have call to a API.
-export const DashboardMarketSegmentrows = [
-    DashboardMarketSegmentcreateData("Industrial","0%","0%","0"),
-    DashboardMarketSegmentcreateData("National","0%","0%","0"),
-    DashboardMarketSegmentcreateData("Retail","0%","0%","0"),
-    DashboardMarketSegmentcreateData("Treater","0%","-1%","-"),
-    DashboardMarketSegmentcreateData("Truss","0%","0%","0"),
-    DashboardMarketSegmentcreateData("Wholesale","0%","0%","0"),
-    DashboardMarketSegmentcreateData("Other","0%","100%","+"),
-];
 
+import * as React from "react";
+import {getMarketSegment, getMillsData, getMarketData, getSalesData} from "./Api"
+
+
+//The Market Data API is called and marketData variable is populated with the Market data
+export function MarketData(){
+  const [marketData, setMarketData] = React.useState([]);
+
+  React.useEffect(() => {
+    getMarketData().then((marketdata) => {
+      setMarketData(marketdata);
+    });
+  }, []);
+
+  return marketData;
+}
+
+
+//The Market Segment Data API is called and marketSegment variable is populated with the Market Segment data
+export function MarketSegmentData(){
+  const [marketSegment, setMarketSegment] = React.useState([]);
+
+  React.useEffect(() => {
+    getMarketSegment().then((marketsegmentdata) => {
+      setMarketSegment(marketsegmentdata);
+    });
+  }, []);
+
+  return marketSegment;
+}
+
+//The Mills Data API is called and millsData variable is populated with the Mills data
+export function MillsData(){
+  const [millsData, setMillsData] = React.useState([]);
+
+  React.useEffect(() => {
+    getMillsData().then((millsdata) => {
+      setMillsData(millsdata);
+    });
+  }, []);
+
+  return millsData;
+}
+
+//The Sales Data API is called and salesData variable is populated with the Sales data
+export function SalesData(){
+  const [salesData, setSalesData] = React.useState([]);
+
+  React.useEffect(() => {
+    getSalesData().then((salesdata) => {
+      setSalesData(salesdata);
+    });
+  }, []);
+
+  return salesData;
+}
+
+
+//This function is responsible for creating JSON object for Dashboard mill forecasts and will be removed
  function DasboardMillForecastscreateData(name: string, inventory: number, nextweek: string) {
     return { name, inventory, nextweek };
 }
@@ -49,18 +83,8 @@ export const DasboardMillForecastsrows = [
   DasboardMillForecastscreateData('TAYLORSVILLE', 29,'171% sold'),
 ];
   
- function DasboardMillscreateData(header: string, value: string, growth: string,trend: string) {
-    return { header, value, growth, trend, key: Math.random() };
-}
-//The actual implementation will have call to a API.
-export const DasboardMillsrows = [
-  DasboardMillscreateData("On-hand","49643k","0%","0"),
-  DasboardMillscreateData("Order File","294404k","0.1%","+"),
-  DasboardMillscreateData("Order Ready","13%","0.5%","+"),
-  DasboardMillscreateData("Shipments","0k","0%","0"),
-  DasboardMillscreateData("Production","0.00007911318k","0%","0"),
-];
 
+//This function is responsible for creating JSON object for Dashboard Hit Rate and will be removed
 function DasboardHitRatecreateData(name: string, one: string,two: string,three: string,four: string,total: string ) {
     return { name, one,two,three,four,total };
 }
@@ -76,6 +100,9 @@ export const DasboardHitRaterows = [
   DasboardHitRatecreateData('6x6', '','' ,'N/A','','' ),
 ];
 
+
+
+//This function is responsible for creating JSON object for Dashboard Percent forecasts and will be removed
 function DasboardPercentForecastSoldcreateData(name: string, one: string,two: string,three: string,four: string,total: string ) {
     return { name, one,two,three,four,total };
 }
@@ -90,317 +117,4 @@ export const DasboardPercentForecastSoldrows = [
     DasboardPercentForecastSoldcreateData('4x6', '105%','229%','No Production','59%','165%'),
     DasboardPercentForecastSoldcreateData('6x6', '145%','127%','N/A','17%','88%')
 ];
-  
-function DasboardSalescreateData(header: string, value: string | number, growth: string,trend: string) {
-    return { header, value, growth, trend, key: Math.random() };
-}
-export const DashboardSalesrows = [
-    DasboardSalescreateData("Quotes",895,"0.8%","+"),
-    DasboardSalescreateData("Sales Ave","$376","-0.1%","-"),
-    DasboardSalescreateData("Sales Vol",396,"4.1%","+"),
-    DasboardSalescreateData("Inbound",19,"7.3%","+"),
-    DasboardSalescreateData("Outbound",0,"0%","0"),
-    DasboardSalescreateData("Above",69,"0.7%","+"),
-    DasboardSalescreateData("At",3,"100%","+"),
-    DasboardSalescreateData("Below",1291,"1.9%","+"),
-];
-
 //Dashboard data ends
-
-// Orders Grid Data Starts
-//The actual implementation will have call to a API.
-export const OrdersGridcolumns:GridColDef[] = [
-    { field: "id", headerName: "Order ID", width: 130 },
-    { field: "mill", headerName: "Mill", width: 130 },
-    {
-      field: "salesperson",
-      headerName: "Salesperson",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "customer",
-      headerName: "Customer",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "buyer",
-      headerName: "Buyer",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "customerPo",
-      headerName: "Customer PO",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "mode",
-      headerName: "Mode",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "ordered",
-      headerName: "Ordered",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "promised",
-      headerName: "Promised",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "scheduled",
-      headerName: "Scheduled",
-      align: "center",
-      width: 130,
-    },
-    {
-      field: "readied",
-      headerName: "Readied",
-      align: "center",
-      width: 130,
-    },
-  ];
-  //The actual implementation will have call to a API.
-export function OrdersGridcreateData(
-    id: number,
-    mill: string,
-    salesperson: string,
-    customer: string,
-    buyer: string,
-    customerPo: string,
-    mode: string,
-    ordered: string,
-    promised: string,
-    scheduled: string,
-    readied: string
-  ) {
-    return {
-      id,
-      mill,
-      salesperson,
-      customer,
-      buyer,
-      customerPo,
-      mode,
-      ordered,
-      promised,
-      scheduled,
-      readied,
-    };
-  }
-  //The actual implementation will have call to a API.
-export const OrdersGridrows = [
-    OrdersGridcreateData(
-      465135804,
-      "Talladega",
-      "MPU",
-      "Barnett Co.",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135805,
-      "Piedmont-R",
-      "NOA",
-      "Sunbelt Forest Products",
-      "Mark Jennings",
-      "040",
-      "T",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135806,
-      "Piedmont-R",
-      "NOA",
-      "Sunbelt Forest Products",
-      "Mark Jennings",
-      "039",
-      "T",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135807,
-      "Piedmont-R",
-      "NOA",
-      "Sunbelt Forest Products",
-      "Mark Jennings",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135808,
-      "Talladega",
-      "MPU",
-      "Barnett Co.",
-      "Mark Jennings",
-      "038",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135809,
-      "Piedmont-R",
-      "MPU",
-      "Barnett Co.",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135810,
-      "Talladega",
-      "NOA",
-      "Sunbelt Forest Products",
-      "Jess Abell",
-      "TBD",
-      "T",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135811,
-      "Piedmont-R",
-      "MPU",
-      "Sunbelt Forest Products",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135812,
-      "Talladega",
-      "MPU",
-      "Barnett Co.",
-      "Mark Jennings",
-      "037",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135813,
-      "Piedmont-R",
-      "NOA",
-      "Barnett Co.",
-      "Jess Abell",
-      "TBD",
-      "T",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135814,
-      "Talladega",
-      "MPU",
-      "Sunbelt Forest Products",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135815,
-      "Piedmont-R",
-      "MPU",
-      "Barnett Co.",
-      "Jess Abell",
-      "036",
-      "T",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135816,
-      "Talladega",
-      "NOA",
-      "Sunbelt Forest Products",
-      "Jess Abell",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135817,
-      "Piedmont-R",
-      "MPU",
-      "Barnett Co.",
-      "Mark Jennings",
-      "TBD",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-    OrdersGridcreateData(
-      465135818,
-      "Talladega",
-      "NOA",
-      "Barnett Co.",
-      "Jess Abell",
-      "035",
-      "C",
-      "02/14/2023",
-      "Due in 0 day",
-      "02/15/2023",
-      "02/14/2023"
-    ),
-  ];
-
-//Orders Grid Data ends
-
-//Permission sets and controls data
-function PermissionsSetData(Role: string, EnterEditQuote: boolean, EnterEditOrder: boolean, SetSalesPlan: boolean, ManageSG: boolean, ReadOnlyQuote: boolean, ReadOnlyOrder: boolean, ManageTweaker: boolean, ManageECommerce: boolean, SetControlsPermissions: boolean, AssignDivisionAccess: boolean) {
-  return { Role, EnterEditQuote, EnterEditOrder, SetSalesPlan, ManageSG, ReadOnlyQuote, ReadOnlyOrder, ManageTweaker, ManageECommerce, SetControlsPermissions, AssignDivisionAccess, key: Math.random() };
-}
-export const PermissionsData = [
-  PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
-  PermissionsSetData("Admin",true,true,true,true,true,true,true,true,true,true),
-];

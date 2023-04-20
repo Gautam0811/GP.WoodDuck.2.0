@@ -5,18 +5,79 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ButtonGroup from "@mui/material/ButtonGroup";
 import Grid from "@mui/material/Grid";
-import Divider from "@mui/material/Divider";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { IconButton, Tabs, Tab } from "@mui/material";
-import { ManageUsersGrid } from "./index";
-import AppBar from "@mui/material/AppBar";
-import { OrdersGridcolumns, OrdersGridrows } from "../services/Data";
+import { Tabs, Tab } from "@mui/material";
+import { ViewManageUsers } from "./index";
+import { OrdersGridrows } from "../services/Data";
+import { AddManageUsers } from "./AddManageUsers";
+import { EditManageUsers } from "./EditManageUsers";
+import LoadingButton from "@mui/lab/LoadingButton";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import {
+  GridColDef,
+  GridRowId,
+  GridRowModesModel,
+  GridRowModes,
+  GridValidRowModel,
+  GridActionsCellItem,
+  GridRowSelectionModel,
+  DataGrid,
+} from "@mui/x-data-grid";
+import CheckIcon from "@mui/icons-material/Check";
+import Checkbox from "@mui/material/Checkbox";
+import { CloseButton } from "../../../../../../common/button";
+import {
+  randomId
+} from '@mui/x-data-grid-generator';
+interface SelectedRowParams {
+  id: GridRowId;
+}
 
 export function ManageUsersTabs() {
   const [value, setValue] = React.useState(0);
   const [isActive, setIsActive]: any = React.useState(true);
+
+  const [rowSelectionModel, setRowSelectionModel] =
+    React.useState<GridRowSelectionModel>();
+
+  const [rows, setRows] = React.useState(OrdersGridrows);
+
+  const [selectedRowParams, setSelectedRowParams] =
+    React.useState<SelectedRowParams>();
+
+  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
+    {}
+  );
+
+  const [checked, setChecked] = React.useState(true);
+
+  const handleDelete = () => {
+    if (!selectedRowParams) {
+      return;
+    }
+    const { id } = selectedRowParams;
+    setRows(rows.filter((row) => row.id !== id));
+  };
+
+  const handleRowSelection = (id: GridRowId) => () => {
+    setSelectedRowParams({ id });
+    console.log(selectedRowParams);
+  };
+
+  const processRowUpdate = (newRow: GridValidRowModel) => {
+    const updatedRow = { ...newRow, isNew: false };
+    setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
+    return updatedRow;
+  };
+
+  const rowMode = React.useMemo(() => {
+    if (!selectedRowParams) {
+      return "view";
+    }
+    const { id } = selectedRowParams;
+    return rowModesModel[id]?.mode || "view";
+  }, [rowModesModel, selectedRowParams]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -72,7 +133,6 @@ export function ManageUsersTabs() {
   }
 
   //this returns the index when tab changes
-
   function a11yProps(index: number) {
     //alert(index);
     return {
@@ -80,15 +140,147 @@ export function ManageUsersTabs() {
       "aria-controls": `full-width-tabpanel-${index}`,
     };
   }
+
+  const OrdersGridcolumns: GridColDef[] = [
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "",
+      width: 100,
+      cellClassName: "actions",
+      getActions: ({ id }) => {
+        const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+        if (isInEditMode) {
+          setChecked(true);
+          return [
+            <GridActionsCellItem
+              icon={<Checkbox checked={true} />}
+              label="Save"
+              onClick={handleRowSelection(id)}
+            />,
+          ];
+        }
+        setChecked(false);
+        return [
+          <GridActionsCellItem
+            icon={<Checkbox checked={false} />}
+            label="Save"
+            onClick={handleRowSelection(id)}
+          />,
+        ];
+      },
+    },
+    {
+      field: "businessLine",
+      headerName: "Business Line",
+      type: "string",
+      width: 100,
+    },
+    {
+      field: "subDivision",
+      headerName: "Sub Division",
+      type: "string",
+      editable: true,
+      width: 100,
+    },
+    {
+      field: "firstName",
+      headerName: "First Name",
+      type: "string",
+      width: 100,
+    },
+    {
+      field: "lastName",
+      headerName: "LastName",
+      align: "center",
+      width: 100,
+      type: "string",
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      align: "center",
+      width: 160,
+      type: "string",
+    },
+
+    {
+      field: "permissionSet",
+      headerName: "Permission Set",
+      align: "center",
+      width: 130,
+      type: "string",
+      editable: true,
+    },
+    {
+      field: "activeUser",
+      headerName: "Active User",
+      align: "center",
+      width: 100,
+      type: "boolean",
+      renderCell(params) {
+        return params.value ? (
+          <CheckIcon color="success"></CheckIcon>
+        ) : (
+          <div></div>
+        );
+      },
+    },
+    {
+      field: "temporaryPermission",
+      headerName: "Temporary Permission",
+      align: "center",
+      width: 160,
+      type: "string",
+    },
+    {
+      field: "temporaryPermissionDate",
+      headerName: "Temporary Permission Date Start/End",
+      align: "center",
+      width: 200,
+      type: "string",
+    },
+  ];
+
+  // const rowWithIds = orderFilterGridRow.map((row: any)=>({ id: randomId(), ...row}));
+
   return (
     //This is the tabs header for Manage Users
-
     <Box>
-      <Grid className="bg-grey-white pl-16 w100 align-items-center">
-        <Box></Box>
+      <Grid className="settings-header">
+        <span className="settings-header-text">Manage Users</span>
+        <div className="flexrow">
+          <EditManageUsers
+            selectedRowParams={selectedRowParams}
+            rowMode={rowMode}
+            rowModesModel={rowModesModel}
+            setRowModesModel={setRowModesModel}
+          />
+          <Box>
+            <LoadingButton
+              className="buttontype6"
+              onClick={handleDelete}
+              disabled={!selectedRowParams}
+            >
+              <div>
+                <div>
+                  <DeleteIcon className="icontype1" />
+                </div>
+                <div>
+                  <span>Delete</span>
+                </div>
+              </div>
+            </LoadingButton>
+          </Box>
+          {/* <AddManageUsers
+            setRows={setRows}
+            setRowModesModel={setRowModesModel}
+          /> */}
+          <CloseButton />
+        </div>
       </Grid>
-      <Grid className="bg-grey-white flexrow  justify-space-between pl-16 w100 align-items-center">
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Grid className="bg-grey-white flexrow justify-space-between pl-16 w100 align-items-center">
+        <Box>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -114,13 +306,13 @@ export function ManageUsersTabs() {
         )}
       </Grid>
       <TabPanel value={value} index={0}>
-        <ManageUsersGrid
+        <ViewManageUsers
           isActive={isActive}
           selectedDivision={window.localStorage.getItem("subdivisionValue")}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ManageUsersGrid
+        <ViewManageUsers
           isActive={isActive}
           selectedDivision={window.localStorage.getItem("subdivisionValue")}
         />
@@ -128,6 +320,20 @@ export function ManageUsersTabs() {
       <TabPanel value={value} index={2}>
         <RefreshIcon />
       </TabPanel>
+      <div>
+        <div className="h-400 w-1000">
+          <DataGrid
+            getRowId={(row) => row.id}
+            rows={orderFilterGridRow}
+            columns={OrdersGridcolumns}
+            rowSelectionModel={rowSelectionModel}
+            disableRowSelectionOnClick={true}
+            rowModesModel={rowModesModel}
+            onRowModesModelChange={(model) => setRowModesModel(model)}
+            processRowUpdate={processRowUpdate}
+          />
+        </div>
+      </div>
     </Box>
   );
 }

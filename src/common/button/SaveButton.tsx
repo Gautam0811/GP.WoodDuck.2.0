@@ -51,7 +51,7 @@ export function SaveButton(props: EditToolbarProps) {
 
   const handleAlertOpen = () => {
     return(
-      <Alert severity="info" sx={{ width: '100%' }}>
+      <Alert severity="info" className='w100'>
         <AlertTitle>
           {/* <CheckCircleOutlineIcon fontSize="large" /> */}
           <span>
@@ -88,7 +88,6 @@ export function SaveButton(props: EditToolbarProps) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
-
 
   React.useEffect(() => {
     function fetchName() {

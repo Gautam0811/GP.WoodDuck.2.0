@@ -7,9 +7,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import CheckIcon from "@mui/icons-material/Check";
-import LoadingButton from "@mui/lab/LoadingButton";
-import DeleteIcon from "@mui/icons-material/DeleteOutlined";
-import { PermissionsData ,BindPermissionGrid } from "../../../index";
+import { PermissionsData, BindPermissionGrid } from "../../../index";
 import { AddPermissions } from "./AddPermissions";
 import { CloseButton } from "../../../../../common/button";
 import {
@@ -24,6 +22,7 @@ import {
 import { EditPermissions } from "./EditPermissions";
 import Checkbox from "@mui/material/Checkbox";
 import { getPermissionSet } from "../../../services/Api";
+import { DeletePermissions } from "./DeletePermissions";
 
 interface SelectedRowParams {
   id: GridRowId;
@@ -48,20 +47,9 @@ export function ViewPermissions() {
       // setPermissions(permissionset);
       setPermissionRows(BindPermissionGrid(permissionset));
     });
-    
- 
-  },[]);
-  
+  }, []);
+
   console.log(permissionRows);
-
-
-  const handleDelete = () => {
-    if (!selectedRowParams) {
-      return;
-    }
-    const { id } = selectedRowParams;
-    setRows(rows.filter((row) => row.id !== id));
-  };
 
   const handleRowSelection = (id: GridRowId) => () => {
     setSelectedRowParams({ id });
@@ -352,20 +340,11 @@ export function ViewPermissions() {
             setRowModesModel={setRowModesModel}
           />
           <Box>
-            <LoadingButton
-              className="buttontype6"
-              onClick={handleDelete}
-              disabled={!selectedRowParams}
-            >
-              <div>
-                <div>
-                  <DeleteIcon className="icontype1" />
-                </div>
-                <div>
-                  <span>Delete</span>
-                </div>
-              </div>
-            </LoadingButton>
+            <DeletePermissions
+              rows={permissionRows}
+              setRows={setRows}
+              selectedRowParams={selectedRowParams}
+            />
           </Box>
           <AddPermissions
             setRows={setRows}
@@ -376,7 +355,7 @@ export function ViewPermissions() {
       </Grid>
       <br />
       <br />
-      <div style={{ height: 400, width: "100%" }}>
+      <div className="h-400 w100">
         <DataGrid
           getRowId={(row) => row.Id}
           rows={permissionRows}
