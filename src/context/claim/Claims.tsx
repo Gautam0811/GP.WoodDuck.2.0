@@ -40,11 +40,7 @@ export const ClaimContextProvider = ({ children }: ClaimContextProviderProps) =>
     }]
    const [claims, setClaims] = useState<ClaimType[]> (claimsInitial)
     const ClaimsData = (claims : ClaimType) => {
-<<<<<<< HEAD
-    //The actual implementation will have call to a API.
-=======
       //The actual implementation will have call to a API.
->>>>>>> b22e5a1a4ab6eba6466273a2aca15563948a03f5
       setClaims([{
         id:"1001",
         username:"admin",
