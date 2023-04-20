@@ -16,9 +16,10 @@ import {
 // Manage Users Grid Data
 //The actual implementation will have call to a API.
 export const OrdersGridcolumns: GridColDef[] = [
-  { field: "businessLine", headerName: "Business Line", width: 100 },
-  { field: "subDivision", headerName: "Sub Division", width: 100 },
-  { field: "firstName", headerName: "First Name", width: 100 },
+  { field: "id", headerName: "", type: "number", width: 100 },
+  { field: "businessLine", headerName: "Business Line", type: "string", width: 100 },
+  { field: "subDivision", headerName: "Sub Division", type: "string", width: 100 },
+  { field: "firstName", headerName: "First Name", type: "string", width: 100 },
   {
     field: "lastName",
     headerName: "LastName",
@@ -31,6 +32,7 @@ export const OrdersGridcolumns: GridColDef[] = [
     field: "email",
     headerName: "Email",
     align: "center",
+    type: "string",
     width: 160,
   },
 
@@ -38,6 +40,7 @@ export const OrdersGridcolumns: GridColDef[] = [
     field: "permissionSet",
     headerName: "Permission Set",
     align: "center",
+    type: "string",
     width: 130,
   },
   {
@@ -55,12 +58,14 @@ export const OrdersGridcolumns: GridColDef[] = [
     field: "temporaryPermission",
     headerName: "Temporary Permission",
     align: "center",
+    type: "string",
     width: 160,
   },
   {
     field: "temporaryPermissionDate",
     headerName: "Temporary Permission Date Start/End",
     align: "center",
+    type: "string",
     width: 200,
   },
 ];
@@ -91,36 +96,36 @@ export function OrdersGridcreateData(
   };
 }
 //The actual implementation will have call to a API.
-export const OrdersGridrows = [
+export const OrdersGridrows : GridRowsProp= [
   OrdersGridcreateData(
     "SL",
     "",
     "Talladega",
     "MPU",
     "raj@gapac.com",
-    "Jess Abell",
+    "Trader",
     false,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "sd",
+    "",
     "Piedmont-R",
     "NOA",
     "john@gapac.com",
-    "Mark Jennings",
+    "Trader",
     false,
     "T",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "dc",
+    "",
     "Piedmont-R",
     "NOA",
     "rama@gapac.com",
-    "Mark Jennings",
+    "Advisor",
     false,
     "T",
     "02/14/2023"
@@ -132,29 +137,29 @@ export const OrdersGridrows = [
     "Piedmont-R",
     "NOA",
     "Kri6@gapac.com",
-    "Mark Jennings",
+    "Sales Manager",
     true,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "ds",
+    "",
     "Talladega",
     "MPU",
     "Kri5@gapac.com",
-    "Mark Jennings",
+    "Manager",
     false,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "sc",
+    "",
     "Piedmont-R",
     "MPU",
     "gautam@gapac.com",
-    "Jess Abell",
+    "Manager",
     true,
     "C",
     "02/14/2023"
@@ -165,7 +170,7 @@ export const OrdersGridrows = [
     "Talladega",
     "NOA",
     "rohan@gapac.com",
-    "Jess Abell",
+    "User",
     false,
     "T",
     "02/14/2023"
@@ -176,29 +181,29 @@ export const OrdersGridrows = [
     "Piedmont-R",
     "MPU",
     "raja@gapac.com",
-    "Jess Abell",
+    "Advisor",
     true,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "sx",
+    "",
     "Talladega",
     "MPU",
     "madan@gapac.com",
-    "Mark Jennings",
+    "Sales Manager",
     false,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "c",
+    "",
     "Piedmont-R",
     "NOA",
     "Kri3@gapac.com",
-    "Jess Abell",
+    "Manager",
     true,
     "T",
     "02/14/2023"
@@ -209,18 +214,18 @@ export const OrdersGridrows = [
     "Talladega",
     "MPU",
     "dilip@gapac.com",
-    "Jess Abell",
+    "Sales Manager",
     false,
     "C",
     "02/14/2023"
   ),
   OrdersGridcreateData(
     "SL",
-    "sce",
+    "",
     "Piedmont-R",
     "MPU",
     "Kris@gapac.com",
-    "Jess Abell",
+    "Trader",
     true,
     "T",
     "02/14/2023"

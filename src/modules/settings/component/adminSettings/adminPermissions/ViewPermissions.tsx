@@ -371,7 +371,7 @@ export function ViewPermissions() {
       </Grid>
       <br />
       <br />
-      <div style={{ height: 400, width: "100%" }}>
+      <div className="h-400 w100">
         <DataGrid
           rows={rows}
           columns={columns}
