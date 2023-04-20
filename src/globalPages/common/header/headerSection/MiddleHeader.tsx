@@ -13,50 +13,53 @@ import Select from "@mui/material/Select";
 import "../../../../styles/StyleMain.css";
 import getCustomerData from "../services/HeaderServices";
 
-export  function MiddleHeader() {
-  const [post, setPost]:any = React.useState({});
-  const [name, setName]:any = React.useState({});
+export function MiddleHeader() {
+  const [post, setPost]: any = React.useState({});
+  const [name, setName]: any = React.useState({});
 
-  React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
+  React.useEffect(
+    () => setName(JSON.parse(localStorage.getItem("status") || "{}")),
+    []
+  );
 
   React.useEffect(() => {
-    getCustomerData(name.id).then((customerData:any) => {
+    getCustomerData(name.id).then((customerData: any) => {
       setPost(customerData);
     });
   }, [name]);
-  
+
   return (
     // View for header middle section
-    <Box className="fs-12 flex-grow" >
+    <Box className="fs-12 flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
-          <FormControl
-            
-            className="bg-white position-relative min-width-120"
-          >
+          <FormControl className="bg-white position-relative min-width-120">
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
               value={parseInt(name.id, 10)}
               label="Name"
-              >
-              <MenuItem value={name.id}>{name.firstname + " " + name.lastname}</MenuItem>
+              style={{ height: 50 }}
+            >
+              <MenuItem value={name.id}>
+                {name.firstname + " " + name.lastname}
+              </MenuItem>
             </Select>
           </FormControl>
           <Typography
             component="div"
-            className="gray fs-12 flex-grow position-relative left-16"
+            className="gray fs-12 flex-grow position-relative"
           >
-            Offers
+            <p className="font-weight-bold">OFFERS</p>
             <Typography className="font-black" component="div">
-             {post.offers}
+              {post.offers}
             </Typography>
           </Typography>
           <Typography
             component="div"
             className="gray fs-12 flex-grow position-relative"
           >
-            Quotes
+            <p className="font-weight-bold">OPEN QUOTES</p>
             <Typography className="font-black" component="div">
               {post.quotes}
             </Typography>
@@ -65,27 +68,25 @@ export  function MiddleHeader() {
             component="div"
             className="gray fs-12 flex-grow position-relative"
           >
-            Orders
+            <p className="font-weight-bold">OPEN ORDERS</p>
             <Typography className="font-black" component="div">
-             {post.orders}
+              {post.orders}
             </Typography>
           </Typography>
           <Typography
             component="div"
             className="col-red fs-12 flex-grow position-relative"
-
           >
-            Fullfilments
-            <Typography className="font-black" component="div" >
+            <p className="font-weight-bold">LATE FULFILLMENT</p>
+            <Typography className="font-black" component="div">
               {post.fullfilments}
             </Typography>
           </Typography>
           <Typography
             component="div"
             className="col-red fs-12 flex-grow position-relative"
-
           >
-            Pickups
+            <p className="font-weight-bold">LATE PICKUP</p>
             <Typography className="font-black" component="div">
               {post.pickups}
             </Typography>
@@ -94,8 +95,8 @@ export  function MiddleHeader() {
             component="div"
             className="col-red fs-12 flex-grow position-relative"
           >
-            A/R
-            <Typography className="font-black"  component="div" >
+            <p className="font-weight-bold">A/R ISSUES</p>
+            <Typography className="font-black" component="div">
               {post.ar}
             </Typography>
           </Typography>

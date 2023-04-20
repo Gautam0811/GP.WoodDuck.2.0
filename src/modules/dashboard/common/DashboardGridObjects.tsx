@@ -46,7 +46,6 @@ export default function DasboardGridObjects(props:any) {
                 <td className="font-bold">{row.total}</td>
               </tr>
             ))}
-            
           </tbody>
         </table>
         <br />
