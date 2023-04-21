@@ -7,3 +7,4 @@ export { CancelButton } from './CancelButton';
 export { InactivateButton } from './InactivateButton';
 export { SetTemporaryPermissionsButton } from './SetTemporaryPermissionsButton';
 export { ImportButton } from './ImportButton';
+export { SaveManageUsersButton } from './SaveManageUsersButton';
