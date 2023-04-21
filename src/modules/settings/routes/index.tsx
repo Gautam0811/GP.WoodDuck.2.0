@@ -1,1 +1,1 @@
-export {SettingsRoute} from "./SettingsRoute"
+export { SettingsRoute } from './SettingsRoute';

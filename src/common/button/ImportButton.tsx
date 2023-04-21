@@ -7,24 +7,23 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
-
 export function ImportButton() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
-  return (
-    <Box>
-          <LoadingButton className="fs-10 col-005fa8">
-          <div>
-            <div>
-              <AutorenewIcon className="icontype1"/>
-            </div>
-            <div>
-              <span>IMPORT</span>
-            </div>
-          </div>
-          </LoadingButton>
-    </Box>
-  );
+	const [loading, setLoading] = React.useState(false);
+	function handleClick() {
+		setLoading(true);
+	}
+	return (
+		<Box>
+			<LoadingButton className="fs-10 col-005fa8">
+				<div>
+					<div>
+						<AutorenewIcon className="icontype1" />
+					</div>
+					<div>
+						<span>IMPORT</span>
+					</div>
+				</div>
+			</LoadingButton>
+		</Box>
+	);
 }

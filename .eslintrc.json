@@ -6,8 +6,9 @@
 	},
 	"extends": [
 		"react-app",
-		"plugin:react/recommended",
-		"plugin:prettier/recommended"
+		"plugin:react/recommended"
+		// "airbnb",
+		// "plugin:prettier/recommended"
 	],
 	"parserOptions": {
 		"ecmaFeatures": {

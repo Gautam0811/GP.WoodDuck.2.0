@@ -1,1 +1,1 @@
-export {ViewPermissions} from "./ViewPermissions";
+export { ViewPermissions } from './ViewPermissions';
