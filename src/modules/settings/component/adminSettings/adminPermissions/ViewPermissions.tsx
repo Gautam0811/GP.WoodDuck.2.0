@@ -42,6 +42,7 @@ export function ViewPermissions() {
 
 	const [checked, setChecked] = React.useState(true);
 
+	//get permission set from api
 	React.useEffect(() => {
 		getPermissionSet().then((permissionset) => {
 			// setPermissions(permissionset);
@@ -342,13 +343,11 @@ export function ViewPermissions() {
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
 					/>
-					<Box>
 						<DeletePermissions
 							rows={permissionRows}
 							setRows={setRows}
 							selectedRowParams={selectedRowParams}
 						/>
-					</Box>
 					<AddPermissions
 						setRows={setRows}
 						setRowModesModel={setRowModesModel}

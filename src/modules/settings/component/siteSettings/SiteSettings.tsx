@@ -56,31 +56,14 @@ export function SiteSettings() {
 						Mass Price Product Groups
 					</Typography>
 				</Link>
-				<div className={isExpanded ? 'Sidebar' : 'Sidebar collapsed'}>
-					<div className="bg-white">
-						<Link to="#" className="text-dec-none">
-							<div onClick={handleClickManageUsers}>
-								<Typography className="col-005fa8">
-									Mill Threat Levels
-								</Typography>
-								{manageUsers ? ' ' : ' '}
-							</div>
-						</Link>
-						<Collapse in={manageUsers} timeout="auto">
-							<Link to="/manageUsers" className="link-text">
-								{data.isAdmin ? (
-									<ListItemButton>
-										<Typography className="col-005fa8">
-											Manage Users
-										</Typography>
-									</ListItemButton>
-								) : (
-									<div></div>
-								)}
-							</Link>
-						</Collapse>
-					</div>
-				</div>
+				<Link to="#" className="text-dec-none">
+					<Typography className="col-005fa8">
+						Mill Threat Levels
+					</Typography>
+				</Link>
+				<Link to="/manageUsers" className="text-dec-none">
+					<Typography className="col-005fa8">Manage Users</Typography>
+				</Link>
 				<Link to="#" className="text-dec-none">
 					<Typography className="col-005fa8">Salespersons</Typography>
 				</Link>

@@ -12,16 +12,10 @@ import {
 	Button,
 	Grid,
 	MenuItem,
-	AlertTitle,
-	Alert,
 } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Link } from 'react-router-dom';
-import { EditPermissions } from '../../modules/settings/component/adminSettings/adminPermissions/EditPermissions';
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
-import CheckIcon from '@mui/icons-material/Check';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import Stack from '@mui/material/Stack';
+import { OrdersGridrows } from '../../modules/settings/component/siteSettings/manageUsers/services/Data';
 
 // interface SaveButtonProps {
 //   onClick: () => void;
@@ -85,7 +79,11 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 
     const [user, setUser] = React.useState('Select User');
 
-	const handleChange = (event: SelectChangeEvent) => {
+	const handleUserChange = (event: SelectChangeEvent) => {
+		setUser(event.target.value as string);
+	};
+
+	const handlePermissionSetChange = (event: SelectChangeEvent) => {
 		setUser(event.target.value as string);
 	};
 
@@ -120,15 +118,11 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 					</Typography>
 					<Grid className="pt-8 flex-row-center">
 						<Typography>User(s) Selected:</Typography>
-						<Select onChange={handleChange} value={user}>
-							<MenuItem value={10}>Selected User 1</MenuItem>
-							<MenuItem value={20}>Selected User 2</MenuItem>
-							<MenuItem value={30}>Selected User 3</MenuItem>
-						</Select>
+						<input value={100} disabled></input>
 					</Grid>
 					<Grid className="pt-8 flex-row-center">
 						<Typography>Permissions Set:</Typography>
-						<Select onChange={handleChange} value={user}>
+						<Select onChange={handlePermissionSetChange} value={user}>
 							<MenuItem value={10}>Admin</MenuItem>
 							<MenuItem value={20}>Advisor</MenuItem>
 							<MenuItem value={30}>Sales Manager</MenuItem>

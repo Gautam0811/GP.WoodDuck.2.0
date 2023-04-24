@@ -12,8 +12,6 @@ import { ViewManageUsers } from './index';
 import { OrdersGridrows } from '../services/Data';
 import { AddManageUsers } from './AddManageUsers';
 import { EditManageUsers } from './EditManageUsers';
-import LoadingButton from '@mui/lab/LoadingButton';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import {
 	GridColDef,
 	GridRowId,
@@ -23,6 +21,7 @@ import {
 	GridActionsCellItem,
 	GridRowSelectionModel,
 	DataGrid,
+	GridRowProps,
 } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
@@ -35,6 +34,28 @@ interface SelectedRowParams {
 export function ManageUsersTabs() {
 	const [value, setValue] = React.useState(0);
 	const [isActive, setIsActive]: any = React.useState(true);
+
+	const [orderFilterGridRow, setOrderFilterGridRow]: any = React.useState(
+		OrdersGridrows.filter(
+			(a) =>
+				a.activeUser === isActive &&
+				a.businessLine ===
+					window.localStorage.getItem('subdivisionValue'),
+		),
+	);
+
+	React.useEffect(() => {
+		setOrderFilterGridRow(
+			OrdersGridrows.filter(
+				(a) =>
+					a.activeUser === isActive &&
+					a.businessLine ===
+						window.localStorage.getItem('subdivisionValue'),
+			),
+		);
+	}, [isActive]);
+
+
 
 	const [rowSelectionModel, setRowSelectionModel] =
 		React.useState<GridRowSelectionModel>();
@@ -49,14 +70,6 @@ export function ManageUsersTabs() {
 	);
 
 	const [checked, setChecked] = React.useState(true);
-
-	const handleDelete = () => {
-		if (!selectedRowParams) {
-			return;
-		}
-		const { id } = selectedRowParams;
-		setRows(rows.filter((row) => row.id !== id));
-	};
 
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
@@ -86,26 +99,6 @@ export function ManageUsersTabs() {
 	function setValueInactive() {
 		setIsActive(false);
 	}
-
-	const [orderFilterGridRow, setOrderFilterGridRow]: any = React.useState(
-		OrdersGridrows.filter(
-			(a) =>
-				a.activeUser === isActive &&
-				a.businessLine ===
-					window.localStorage.getItem('subdivisionValue'),
-		),
-	);
-
-	React.useEffect(() => {
-		setOrderFilterGridRow(
-			OrdersGridrows.filter(
-				(a) =>
-					a.activeUser === isActive &&
-					a.businessLine ===
-						window.localStorage.getItem('subdivisionValue'),
-			),
-		);
-	}, [isActive]);
 
 	interface TabPanelProps {
 		children: React.ReactNode;
@@ -257,26 +250,10 @@ export function ManageUsersTabs() {
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
 					/>
-					<Box>
-						<LoadingButton
-							className="buttontype6"
-							onClick={handleDelete}
-							disabled={!selectedRowParams}
-						>
-							<div>
-								<div>
-									<DeleteIcon className="icontype1" />
-								</div>
-								<div>
-									<span>Delete</span>
-								</div>
-							</div>
-						</LoadingButton>
-					</Box>
-					{/* <AddManageUsers
-            setRows={setRows}
-            setRowModesModel={setRowModesModel}
-          /> */}
+					<AddManageUsers
+						setRows={setRows}
+						setRowModesModel={setRowModesModel}
+					/>
 					<CloseButton />
 				</div>
 			</Grid>
