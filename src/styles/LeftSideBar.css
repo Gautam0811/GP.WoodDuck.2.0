@@ -95,3 +95,11 @@
   .Sidebar.collapsed .sidebar-logo {
     display: none;
   }
+
+  /*Mobile left side bar css*/
+
+  .mobile-icon {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+  }
