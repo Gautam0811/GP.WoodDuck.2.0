@@ -10,14 +10,14 @@ interface SelectedRowParams {
 	id: GridRowId;
 }
 
-interface EditToolbarProps {
+interface EditProps {
 	selectedRowParams?: SelectedRowParams;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
 }
 
-export function EditPermissions(props: EditToolbarProps) {
+export function EditPermissions(props: EditProps) {
 	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
 		props;
 

@@ -4,7 +4,6 @@
 // // // // -------------------------
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { PermissionsData, BindPermissionGrid } from '../../../index';
@@ -38,19 +37,15 @@ export function ViewPermissions() {
 		{},
 	);
 
-	const [permissions, setPermissions] = React.useState({});
-
 	const [checked, setChecked] = React.useState(true);
 
 	//get permission set from api
 	React.useEffect(() => {
 		getPermissionSet().then((permissionset) => {
-			// setPermissions(permissionset);
 			setPermissionRows(BindPermissionGrid(permissionset));
 		});
 	}, []);
 
-	console.log(permissionRows);
 
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
@@ -84,6 +79,7 @@ export function ViewPermissions() {
 				if (isInEditMode) {
 					setChecked(true);
 					return [
+						// eslint-disable-next-line react/jsx-key
 						<GridActionsCellItem
 							icon={<Checkbox checked={true} />}
 							label="Save"
@@ -93,6 +89,7 @@ export function ViewPermissions() {
 				}
 				setChecked(false);
 				return [
+					// eslint-disable-next-line react/jsx-key
 					<GridActionsCellItem
 						icon={<Checkbox checked={false} />}
 						label="Save"
@@ -343,11 +340,11 @@ export function ViewPermissions() {
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
 					/>
-						<DeletePermissions
-							rows={permissionRows}
-							setRows={setRows}
-							selectedRowParams={selectedRowParams}
-						/>
+					<DeletePermissions
+						rows={permissionRows}
+						setRows={setRows}
+						selectedRowParams={selectedRowParams}
+					/>
 					<AddPermissions
 						setRows={setRows}
 						setRowModesModel={setRowModesModel}

@@ -21,12 +21,10 @@ import {
 	GridActionsCellItem,
 	GridRowSelectionModel,
 	DataGrid,
-	GridRowProps,
 } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
 import { CloseButton } from '../../../../../../common/button';
-import { randomId } from '@mui/x-data-grid-generator';
 interface SelectedRowParams {
 	id: GridRowId;
 }
@@ -54,8 +52,6 @@ export function ManageUsersTabs() {
 			),
 		);
 	}, [isActive]);
-
-
 
 	const [rowSelectionModel, setRowSelectionModel] =
 		React.useState<GridRowSelectionModel>();
@@ -147,6 +143,7 @@ export function ManageUsersTabs() {
 				if (isInEditMode) {
 					setChecked(true);
 					return [
+						// eslint-disable-next-line react/jsx-key
 						<GridActionsCellItem
 							icon={<Checkbox checked={true} />}
 							label="Save"
@@ -156,6 +153,7 @@ export function ManageUsersTabs() {
 				}
 				setChecked(false);
 				return [
+					// eslint-disable-next-line react/jsx-key
 					<GridActionsCellItem
 						icon={<Checkbox checked={false} />}
 						label="Save"

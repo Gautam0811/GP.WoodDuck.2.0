@@ -8,14 +8,14 @@ import {
 } from '@mui/x-data-grid';
 import { randomId } from '@mui/x-data-grid-generator';
 
-interface EditToolbarProps {
+interface AddProps {
 	setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
 	setRowModesModel: (
 		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
 	) => void;
 }
 
-export function AddPermissions(props: EditToolbarProps) {
+export function AddPermissions(props: AddProps) {
 	const { setRows, setRowModesModel } = props;
 
 	const handleClick = () => {
