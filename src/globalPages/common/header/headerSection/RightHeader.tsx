@@ -39,8 +39,8 @@ export function RightHeader() {
     <Box className="fs-12 flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar>
-          <Grid className="flexrow pl-24">
-            <Grid>
+          <Grid className="flexrow pl-24 rh-margin">
+            <Grid className="user-name">
               {name.isAdmin ? (
                 <Subdivision />
               ) : (
@@ -49,7 +49,7 @@ export function RightHeader() {
                   <br />
                 </div>
               )}
-              <Grid className="font-black" component="div">
+              <Grid className="font-black hide_view" component="div">
                 <IconButton size="small" color="primary" aria-label="menu">
                   <MenuIcon fontSize="small" />
                 </IconButton>

@@ -10,6 +10,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import "../../../../styles/StyleMain.css";
+import { LeftSideBar_Small_Screen } from "../../leftSideBar/LeftSideBar_Small_Screen";
 
 export function LeftHeader() {
   const envValue = process.env.REACT_APP_ENV;
@@ -20,7 +21,7 @@ export function LeftHeader() {
     <Box className="flex-grow">
       <AppBar className="bg-ffb74d position-static">
         <Toolbar className="leftHeader">
-          <div className="mr-64">
+          <div className="mr-64 left-header-button-no-show">
             <IconButton
               size="large"
               edge="start"
@@ -28,6 +29,7 @@ export function LeftHeader() {
               aria-label="menu"
             ></IconButton>
           </div>
+          <LeftSideBar_Small_Screen></LeftSideBar_Small_Screen>
           <Typography
             className="flex-grow font-black"
             variant="h6"
