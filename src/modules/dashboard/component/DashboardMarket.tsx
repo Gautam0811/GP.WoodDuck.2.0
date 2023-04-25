@@ -32,6 +32,7 @@ export default function DashboardMarket(props: any) {
 				<br />
 				<Stack direction="row" spacing={props.spacing}>
 					{props.data.map((row: any) => (
+						// eslint-disable-next-line react/jsx-key
 						<Typography
 							variant="subtitle2"
 							className="font-black ml-32"

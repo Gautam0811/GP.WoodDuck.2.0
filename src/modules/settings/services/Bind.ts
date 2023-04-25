@@ -16,7 +16,7 @@ const permissionSet = [
 	'BusinessModel',
 ];
 function PermissionsSetData(
-	Id: string,
+	id: number,
 	Role: string,
 	EnterEditQuote: boolean,
 	EnterEditOrder: boolean,
@@ -35,7 +35,7 @@ function PermissionsSetData(
 	PriceExperimentation: boolean,
 ) {
 	return {
-		Id,
+		id,
 		Role,
 		EnterEditQuote,
 		EnterEditOrder,
