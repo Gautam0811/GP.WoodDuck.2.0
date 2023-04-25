@@ -28,80 +28,80 @@ export function MiddleHeader() {
 		});
 	}, [name]);
 
-  return (
-    // View for header middle section
-    <Box className="fs-12 flex-grow">
-      <AppBar className="bg-ffb74d position-static">
-        <Toolbar>
-          <FormControl className="bg-white position-relative min-width-120">
-            <Select
-              labelId="demo-select-small"
-              id="demo-select-small"
-              value={parseInt(name.id, 10)}
-              label="Name"
-              style={{ height: 50 }}
-            >
-              <MenuItem value={name.id}>
-                {name.firstname + " " + name.lastname}
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <Typography
-            component="div"
-            className="gray fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">OFFERS</p>
-            <Typography className="font-black" component="div">
-              {post.offers}
-            </Typography>
-          </Typography>
-          <Typography
-            component="div"
-            className="gray fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">OPEN QUOTES</p>
-            <Typography className="font-black" component="div">
-              {post.quotes}
-            </Typography>
-          </Typography>
-          <Typography
-            component="div"
-            className="gray fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">OPEN ORDERS</p>
-            <Typography className="font-black" component="div">
-              {post.orders}
-            </Typography>
-          </Typography>
-          <Typography
-            component="div"
-            className="col-red fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">LATE FULFILLMENT</p>
-            <Typography className="font-black" component="div">
-              {post.fullfilments}
-            </Typography>
-          </Typography>
-          <Typography
-            component="div"
-            className="col-red fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">LATE PICKUP</p>
-            <Typography className="font-black" component="div">
-              {post.pickups}
-            </Typography>
-          </Typography>
-          <Typography
-            component="div"
-            className="col-red fs-9 flex-grow position-relative header-options"
-          >
-            <p className="font-weight-bold">A/R ISSUES</p>
-            <Typography className="font-black" component="div">
-              {post.ar}
-            </Typography>
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+	return (
+		// View for header middle section
+		<Box className="fs-12 flex-grow">
+			<AppBar className="bg-ffb74d position-static">
+				<Toolbar>
+					<FormControl className="bg-white position-relative min-width-120">
+						<Select
+							labelId="demo-select-small"
+							id="demo-select-small"
+							value={parseInt(name.id, 10)}
+							label="Name"
+							style={{ height: 50 }}
+						>
+							<MenuItem value={name.id}>
+								{name.firstname + ' ' + name.lastname}
+							</MenuItem>
+						</Select>
+					</FormControl>
+					<Typography
+						component="div"
+						className="gray fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">OFFERS</p>
+						<Typography className="font-black" component="div">
+							{post.offers}
+						</Typography>
+					</Typography>
+					<Typography
+						component="div"
+						className="gray fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">OPEN QUOTES</p>
+						<Typography className="font-black" component="div">
+							{post.quotes}
+						</Typography>
+					</Typography>
+					<Typography
+						component="div"
+						className="gray fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">OPEN ORDERS</p>
+						<Typography className="font-black" component="div">
+							{post.orders}
+						</Typography>
+					</Typography>
+					<Typography
+						component="div"
+						className="col-red fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">LATE FULFILLMENT</p>
+						<Typography className="font-black" component="div">
+							{post.fullfilments}
+						</Typography>
+					</Typography>
+					<Typography
+						component="div"
+						className="col-red fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">LATE PICKUP</p>
+						<Typography className="font-black" component="div">
+							{post.pickups}
+						</Typography>
+					</Typography>
+					<Typography
+						component="div"
+						className="col-red fs-9 flex-grow position-relative header-options"
+					>
+						<p className="font-weight-bold">A/R ISSUES</p>
+						<Typography className="font-black" component="div">
+							{post.ar}
+						</Typography>
+					</Typography>
+				</Toolbar>
+			</AppBar>
+		</Box>
+	);
 }

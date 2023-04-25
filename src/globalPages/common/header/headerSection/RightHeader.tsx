@@ -34,53 +34,72 @@ export function RightHeader() {
 		fetchName();
 	}, []);
 
-  return (
-    // View for Right Header section
-    <Box className="fs-12 flex-grow">
-      <AppBar className="bg-ffb74d position-static">
-        <Toolbar>
-          <Grid className="flexrow pl-24 rh-margin">
-            <Grid className="user-name">
-              {name.isAdmin ? (
-                <Subdivision />
-              ) : (
-                <div>
-                  {" "}
-                  <br />
-                </div>
-              )}
-              <Grid className="font-black hide_view" component="div">
-                <IconButton size="small" color="primary" aria-label="menu">
-                  <MenuIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" color="primary" aria-label="menu">
-                  <HelpOutlinedIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" color="primary" aria-label="menu">
-                  <CalculateTwoToneIcon fontSize="small" />
-                </IconButton>
-                <Link to="/settings">
-                  <IconButton size="small" color="primary" aria-label="menu">
-                    <SettingsIcon fontSize="small" />
-                  </IconButton>
-                </Link>
-                <IconButton
-                  size="small"
-                  color="primary"
-                  aria-label="show 8 new mails"
-                >
-                  <Badge badgeContent={8} color="error">
-                    <EmailOutlinedIcon fontSize="small" />
-                  </Badge>
-                </IconButton>
-              </Grid>
-            </Grid>
-            <Grid>
-              <Profile />
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+	return (
+		// View for Right Header section
+		<Box className="fs-12 flex-grow">
+			<AppBar className="bg-ffb74d position-static">
+				<Toolbar>
+					<Grid className="flexrow pl-24 rh-margin">
+						<Grid className="user-name">
+							{name.isAdmin ? (
+								<Subdivision />
+							) : (
+								<div>
+									{' '}
+									<br />
+								</div>
+							)}
+							<Grid
+								className="font-black hide_view"
+								component="div"
+							>
+								<IconButton
+									size="small"
+									color="primary"
+									aria-label="menu"
+								>
+									<MenuIcon fontSize="small" />
+								</IconButton>
+								<IconButton
+									size="small"
+									color="primary"
+									aria-label="menu"
+								>
+									<HelpOutlinedIcon fontSize="small" />
+								</IconButton>
+								<IconButton
+									size="small"
+									color="primary"
+									aria-label="menu"
+								>
+									<CalculateTwoToneIcon fontSize="small" />
+								</IconButton>
+								<Link to="/settings">
+									<IconButton
+										size="small"
+										color="primary"
+										aria-label="menu"
+									>
+										<SettingsIcon fontSize="small" />
+									</IconButton>
+								</Link>
+								<IconButton
+									size="small"
+									color="primary"
+									aria-label="show 8 new mails"
+								>
+									<Badge badgeContent={8} color="error">
+										<EmailOutlinedIcon fontSize="small" />
+									</Badge>
+								</IconButton>
+							</Grid>
+						</Grid>
+						<Grid>
+							<Profile />
+						</Grid>
+					</Grid>
+				</Toolbar>
+			</AppBar>
+		</Box>
+	);
 }

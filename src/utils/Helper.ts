@@ -1,5 +1,3 @@
-
-export function logger(obj:any)
-{
-    return console.log(obj);
+export function logger(obj: any) {
+	return console.log(obj);
 }
