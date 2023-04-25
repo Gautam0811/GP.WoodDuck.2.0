@@ -15,11 +15,11 @@ import {
 	MillsData,
 	MarketData,
 	SalesData,
-} from '../services/Data';
+} from '../services/Data'; 
 
 export function Dashboard() {
 	return (
-		<Grid className="flexrow w100 bg-e3f2fd">
+		<Grid className="a w100 bg-e3f2fd">
 			<Grid className="w70 fs-12">
 				<DashboardMarket
 					title="Market"
@@ -52,7 +52,7 @@ export function Dashboard() {
 					spacing={6}
 				/>
 			</Grid>
-			<Grid className="w30">
+			<Grid className="w30 width-md-100">
 				<DasboardMillForecasts />
 			</Grid>
 		</Grid>

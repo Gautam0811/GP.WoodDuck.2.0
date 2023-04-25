@@ -54,8 +54,6 @@ export function ManageUsersTabs() {
 		);
 	}, [isActive]);
 
-
-
 	const [rowSelectionModel, setRowSelectionModel] =
 		React.useState<GridRowSelectionModel>();
 

@@ -95,3 +95,23 @@
   .Sidebar.collapsed .sidebar-logo {
     display: none;
   }
+
+  /* media queries */
+/* 
+  @media only screen and (max-width: 700px) {
+    .Sidebar{
+      display: none;
+    }
+  } */
+  
+  /* @media only screen and (min-width: 768px) {
+    body {
+      background-color: green;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    body {
+      background-color: gray;
+    }
+  } */
