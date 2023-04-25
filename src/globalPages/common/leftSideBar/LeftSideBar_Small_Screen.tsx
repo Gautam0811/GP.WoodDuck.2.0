@@ -56,7 +56,7 @@ export function LeftSideBar_Small_Screen() {
       <Modal open={open} onClose={handleClose}>
         <div className="Sidebar ">
           <Link to="./" className="link-text">
-            <div className="mobile-icon">
+            <div className="mobile-icon mt-32">
               <SpeedIcon className="sidebar-icon" />{" "}
               <Typography className="sidebar-text fs-12">Dashboard</Typography>{" "}
             </div>
