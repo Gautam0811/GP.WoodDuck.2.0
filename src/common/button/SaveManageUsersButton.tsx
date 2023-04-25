@@ -7,21 +7,10 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 import Modal from '@mui/material/Modal';
-import {
-	Typography,
-	Button,
-	Grid,
-	MenuItem,
-	AlertTitle,
-	Alert,
-} from '@mui/material';
+import { Typography, Button, Grid, MenuItem } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Link } from 'react-router-dom';
-import { EditPermissions } from '../../modules/settings/component/adminSettings/adminPermissions/EditPermissions';
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
-import CheckIcon from '@mui/icons-material/Check';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import Stack from '@mui/material/Stack';
+import { OrdersGridrows } from '../../modules/settings/component/siteSettings/manageUsers/services/Data';
 
 // interface SaveButtonProps {
 //   onClick: () => void;
@@ -38,7 +27,7 @@ interface EditToolbarProps {
 	rowMode: 'view' | 'edit';
 }
 
-export function SaveButton(props: EditToolbarProps) {
+export function SaveManageUsersButton(props: EditToolbarProps) {
 	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
 		props;
 
@@ -51,22 +40,6 @@ export function SaveButton(props: EditToolbarProps) {
 			...rowModesModel,
 			[id]: { mode: GridRowModes.View, ignoreModifications: true },
 		});
-	};
-
-	const handleAlertOpen = () => {
-		return (
-			<Alert severity="info" className="w100">
-				<AlertTitle>
-					{/* <CheckCircleOutlineIcon fontSize="large" /> */}
-					<span>
-						<Typography variant="h6">
-							{/* <CheckIcon fontSize="large" /> */}
-							Success
-						</Typography>
-					</span>
-				</AlertTitle>
-			</Alert>
-		);
 	};
 
 	const handleSaveOrEdit = () => {
@@ -98,6 +71,16 @@ export function SaveButton(props: EditToolbarProps) {
 	const handleOpen = () => setOpen(true);
 	// const handleClose = () => setOpen(false);
 
+	const [user, setUser] = React.useState('Select User');
+
+	const handleUserChange = (event: SelectChangeEvent) => {
+		setUser(event.target.value as string);
+	};
+
+	const handlePermissionSetChange = (event: SelectChangeEvent) => {
+		setUser(event.target.value as string);
+	};
+
 	React.useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
@@ -124,13 +107,23 @@ export function SaveButton(props: EditToolbarProps) {
 			</LoadingButton>
 			<Modal open={open}>
 				<Box className="edit-permissions-modal">
-					<Grid className="p-8 pr-32">
-						<Typography className="fs-24 text-align-center col-005fa8">
-							Save Permissions Set Edits?
-						</Typography>
-						<p>
-							Are you sure you want to save the permission sets?
-						</p>
+					<Typography className="fs-24 text-align-center col-005fa8">
+						Edit Users
+					</Typography>
+					<Grid className="pt-8 flex-row-center">
+						<Typography>User(s) Selected:</Typography>
+						<input value={100} disabled></input>
+					</Grid>
+					<Grid className="pt-8 flex-row-center">
+						<Typography>Permissions Set:</Typography>
+						<Select
+							onChange={handlePermissionSetChange}
+							value={user}
+						>
+							<MenuItem value={10}>Admin</MenuItem>
+							<MenuItem value={20}>Advisor</MenuItem>
+							<MenuItem value={30}>Sales Manager</MenuItem>
+						</Select>
 					</Grid>
 					<Grid className="flexrow pt-16 justify-space-evenly">
 						<Button onClick={handleSaveOrEdit} variant="contained">

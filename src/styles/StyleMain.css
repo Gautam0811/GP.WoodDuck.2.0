@@ -870,7 +870,6 @@ input[type="submit"]:hover {
   background-color: #f1f4fb;
 }
 
-
 /* Header Right Section */
 .header-right{
   align-items: center;
@@ -903,7 +902,8 @@ input[type="submit"]:hover {
 .edit-permissions-modal{
   position: absolute;
   top: 190px;
-  right: 300px;
+  right: 500px;
+  padding: 100px;
   border-radius: 5px;
   background-image: linear-gradient(180deg, white, #f1f4fb);
   box-shadow: 30px;

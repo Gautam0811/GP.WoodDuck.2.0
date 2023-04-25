@@ -2,31 +2,31 @@
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import "../../../../styles/StyleMain.css";
-import getCustomerData from "../services/HeaderServices";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import '../../../../styles/StyleMain.css';
+import getCustomerData from '../services/HeaderServices';
 
 export function MiddleHeader() {
-  const [post, setPost]: any = React.useState({});
-  const [name, setName]: any = React.useState({});
+	const [post, setPost]: any = React.useState({});
+	const [name, setName]: any = React.useState({});
 
-  React.useEffect(
-    () => setName(JSON.parse(localStorage.getItem("status") || "{}")),
-    []
-  );
+	React.useEffect(
+		() => setName(JSON.parse(localStorage.getItem('status') || '{}')),
+		[],
+	);
 
-  React.useEffect(() => {
-    getCustomerData(name.id).then((customerData: any) => {
-      setPost(customerData);
-    });
-  }, [name]);
+	React.useEffect(() => {
+		getCustomerData(name.id).then((customerData: any) => {
+			setPost(customerData);
+		});
+	}, [name]);
 
   return (
     // View for header middle section

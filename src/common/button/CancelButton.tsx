@@ -8,21 +8,20 @@ import Box from '@mui/material/Box';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 export function CancelButton() {
-
-  const [loading, setLoading] = React.useState(false);
-  const handleClick = () => setLoading(true);
-  return (
-    <Box>
-          <LoadingButton disabled className="fs-10">
-          <div>
-            <div>
-              <CloseOutlinedIcon className="icontype1" />
-            </div>
-            <div>
-              <span>CANCEL</span>
-            </div>
-          </div>
-          </LoadingButton>
-    </Box>
-  );
+	const [loading, setLoading] = React.useState(false);
+	const handleClick = () => setLoading(true);
+	return (
+		<Box>
+			<LoadingButton disabled className="fs-10">
+				<div>
+					<div>
+						<CloseOutlinedIcon className="icontype1" />
+					</div>
+					<div>
+						<span>CANCEL</span>
+					</div>
+				</div>
+			</LoadingButton>
+		</Box>
+	);
 }

@@ -2,61 +2,63 @@
 // Component Utility : The Component is created for rendering the left collapsable navigation bar in the app
 // Author Ananya Dhar on 1-3-2023
 // -------------------------
-import * as React from "react";
-import { Link } from "react-router-dom";
-import SpeedIcon from "@mui/icons-material/Speed";
-import GridOnIcon from "@mui/icons-material/GridOn";
-import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
-import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
-import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
-import { Divider, Typography } from "@mui/material";
-import ListItemButton from "@mui/material/ListItemButton";
-import Collapse from "@mui/material/Collapse";
-import { ShoppingCartOutlined } from "@mui/icons-material";
-import "../../../styles/LeftSideBar.css";
-import "../../../styles/StyleMain.css";
-import { useState } from "react";
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+import SpeedIcon from '@mui/icons-material/Speed';
+import GridOnIcon from '@mui/icons-material/GridOn';
+import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
+import RequestQuoteOutlinedIcon from '@mui/icons-material/RequestQuoteOutlined';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import { Divider, Typography } from '@mui/material';
+import ListItemButton from '@mui/material/ListItemButton';
+import Collapse from '@mui/material/Collapse';
+import { ShoppingCartOutlined } from '@mui/icons-material';
+import '../../../styles/LeftSideBar.css';
+import '../../../styles/StyleMain.css';
+import { useState } from 'react';
 
 export function LeftSideBar() {
-  const [openOrders, setOpenOrders] = React.useState(false);
+	const [openOrders, setOpenOrders] = React.useState(false);
 
-  const handleClickOrders = () => {
-    setOpenOrders(!openOrders);
-  };
+	const handleClickOrders = () => {
+		setOpenOrders(!openOrders);
+	};
 
-  const [openInvoices, setOpenInvoices] = React.useState(false);
+	const [openInvoices, setOpenInvoices] = React.useState(false);
 
-  const handleClickInvoices = () => {
-    setOpenInvoices(!openInvoices);
-  };
+	const handleClickInvoices = () => {
+		setOpenInvoices(!openInvoices);
+	};
 
-  const [openContracts, setOpenContracts] = React.useState(false);
+	const [openContracts, setOpenContracts] = React.useState(false);
 
-  const handleClickContracts = () => {
-    setOpenContracts(!openContracts);
-  };
+	const handleClickContracts = () => {
+		setOpenContracts(!openContracts);
+	};
 
-  const sidebarCollapsed = localStorage.getItem("sidebar-collapsed");
+	const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
 
-  const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
+	const [isExpanded, setIsExpanded] = useState(
+		sidebarCollapsed ? false : true,
+	);
 
-  const handleToggler = () => {
-    if (isExpanded) {
-      setIsExpanded(false);
-      localStorage.setItem("sidebar-collapsed", true.toString());
-      return;
-    }
-    setIsExpanded(true);
-    localStorage.removeItem("sidebar-collapsed");
-  };
+	const handleToggler = () => {
+		if (isExpanded) {
+			setIsExpanded(false);
+			localStorage.setItem('sidebar-collapsed', true.toString());
+			return;
+		}
+		setIsExpanded(true);
+		localStorage.removeItem('sidebar-collapsed');
+	};
 
   return (
     <div className="sidebar">

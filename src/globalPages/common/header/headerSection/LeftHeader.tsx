@@ -2,7 +2,7 @@
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Krishna Choudhary on 3-23-2023
 // -------------------------
-import * as React from "react";
+import * as React from 'react';
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -13,10 +13,10 @@ import "../../../../styles/StyleMain.css";
 import { LeftSideBar_Small_Screen } from "../../leftSideBar/LeftSideBar_Small_Screen";
 
 export function LeftHeader() {
-  const envValue = process.env.REACT_APP_ENV;
+	const envValue = process.env.REACT_APP_ENV;
 
-  return (
-    // View for Left header section section
+	return (
+		// View for Left header section section
 
     <Box className="flex-grow">
       <AppBar className="bg-ffb74d position-static">
