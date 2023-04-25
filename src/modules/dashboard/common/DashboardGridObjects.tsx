@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import '../../../styles/StyleMain.css';
-import '../../dashboard/styles/DashboardGridObjects.css';
+import '../../../styles/DashboardGridObjects.css';
 
 export default function DasboardGridObjects(props: any) {
 	return (

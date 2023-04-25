@@ -912,4 +912,26 @@ input[type="submit"]:hover {
 }
 
 
+/* media queries
+@media only screen and (min-width: 412px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: green;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background-color: gray;
+  }
+} */
+
+
+
+
 

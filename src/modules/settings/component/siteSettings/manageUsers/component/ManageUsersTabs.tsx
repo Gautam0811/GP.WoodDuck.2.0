@@ -26,7 +26,6 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
 import { CloseButton } from '../../../../../../common/button';
-import { randomId } from '@mui/x-data-grid-generator';
 interface SelectedRowParams {
 	id: GridRowId;
 }
