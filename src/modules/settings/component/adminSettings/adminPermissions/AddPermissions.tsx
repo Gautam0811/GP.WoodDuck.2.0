@@ -8,19 +8,20 @@ import {
 } from '@mui/x-data-grid';
 import { randomId } from '@mui/x-data-grid-generator';
 
-interface EditToolbarProps {
+interface AddProps {
+	rows: any;
 	setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
 	setRowModesModel: (
 		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
 	) => void;
 }
 
-export function AddPermissions(props: EditToolbarProps) {
-	const { setRows, setRowModesModel } = props;
+export function AddPermissions(props: AddProps) {
+	const { rows, setRows, setRowModesModel } = props;
 
 	const handleClick = () => {
-		const id = randomId();
-		setRows((oldRows) => [...oldRows, { id, Role: '', isNew: true }]);
+		let id: number = rows[rows.length - 1].id + 1;
+		setRows((oldRows) => [...oldRows, { id }]);
 		setRowModesModel((oldModel) => ({
 			...oldModel,
 			[id]: { mode: GridRowModes.Edit, fieldToFocus: 'Role' },

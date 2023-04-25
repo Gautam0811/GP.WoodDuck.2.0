@@ -7,12 +7,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 import Modal from '@mui/material/Modal';
-import {
-	Typography,
-	Button,
-	Grid,
-	MenuItem,
-} from '@mui/material';
+import { Typography, Button, Grid, MenuItem } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
 import { OrdersGridrows } from '../../modules/settings/component/siteSettings/manageUsers/services/Data';
@@ -47,7 +42,6 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 		});
 	};
 
-
 	const handleSaveOrEdit = () => {
 		if (!selectedRowParams) {
 			return;
@@ -77,7 +71,7 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 	const handleOpen = () => setOpen(true);
 	// const handleClose = () => setOpen(false);
 
-    const [user, setUser] = React.useState('Select User');
+	const [user, setUser] = React.useState('Select User');
 
 	const handleUserChange = (event: SelectChangeEvent) => {
 		setUser(event.target.value as string);
@@ -122,7 +116,10 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 					</Grid>
 					<Grid className="pt-8 flex-row-center">
 						<Typography>Permissions Set:</Typography>
-						<Select onChange={handlePermissionSetChange} value={user}>
+						<Select
+							onChange={handlePermissionSetChange}
+							value={user}
+						>
 							<MenuItem value={10}>Admin</MenuItem>
 							<MenuItem value={20}>Advisor</MenuItem>
 							<MenuItem value={30}>Sales Manager</MenuItem>

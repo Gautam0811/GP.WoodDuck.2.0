@@ -3,21 +3,26 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 
-import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
+import {
+	GridRowId,
+	GridRowModesModel,
+	GridRowModes,
+	GridRowSelectionModel,
+} from '@mui/x-data-grid';
 import { SaveButton } from '../../../../../common/button';
 
 interface SelectedRowParams {
 	id: GridRowId;
 }
 
-interface EditToolbarProps {
+interface EditProps {
 	selectedRowParams?: SelectedRowParams;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
 }
 
-export function EditPermissions(props: EditToolbarProps) {
+export function EditPermissions(props: EditProps) {
 	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
 		props;
 

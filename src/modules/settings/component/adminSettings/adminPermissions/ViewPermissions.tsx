@@ -4,10 +4,9 @@
 // // // // -------------------------
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CheckIcon from '@mui/icons-material/Check';
-import { PermissionsData, BindPermissionGrid } from '../../../index';
+import { BindPermissionGrid } from '../../../index';
 import { AddPermissions } from './AddPermissions';
 import { CloseButton } from '../../../../../common/button';
 import {
@@ -18,6 +17,8 @@ import {
 	GridRowModel,
 	GridActionsCellItem,
 	GridRowModes,
+	GridRowsProp,
+	GridRowSelectionModel,
 } from '@mui/x-data-grid';
 import { EditPermissions } from './EditPermissions';
 import Checkbox from '@mui/material/Checkbox';
@@ -29,8 +30,9 @@ interface SelectedRowParams {
 }
 
 export function ViewPermissions() {
-	const [rows, setRows] = React.useState(PermissionsData);
-	const [permissionRows, setPermissionRows] = React.useState([]);
+	const [permissionRows, setPermissionRows] = React.useState<GridRowsProp>(
+		[],
+	);
 	const [selectedRowParams, setSelectedRowParams] =
 		React.useState<SelectedRowParams>();
 
@@ -38,28 +40,29 @@ export function ViewPermissions() {
 		{},
 	);
 
-	const [permissions, setPermissions] = React.useState({});
-
 	const [checked, setChecked] = React.useState(true);
 
 	//get permission set from api
 	React.useEffect(() => {
 		getPermissionSet().then((permissionset) => {
-			// setPermissions(permissionset);
 			setPermissionRows(BindPermissionGrid(permissionset));
 		});
 	}, []);
-
-	console.log(permissionRows);
 
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
 		console.log(selectedRowParams);
 	};
 
+	console.log(permissionRows);
+
 	const processRowUpdate = (newRow: GridRowModel) => {
 		const updatedRow = { ...newRow, isNew: false };
-		setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
+		setPermissionRows(
+			permissionRows.map((row) =>
+				row.id === newRow.id ? updatedRow : row,
+			),
+		);
 		return updatedRow;
 	};
 
@@ -82,19 +85,19 @@ export function ViewPermissions() {
 				const isInEditMode =
 					rowModesModel[id]?.mode === GridRowModes.Edit;
 				if (isInEditMode) {
-					setChecked(true);
 					return [
+						// eslint-disable-next-line react/jsx-key
 						<GridActionsCellItem
-							icon={<Checkbox checked={true} />}
+							icon={<Checkbox />}
 							label="Save"
 							onClick={handleRowSelection(id)}
 						/>,
 					];
 				}
-				setChecked(false);
 				return [
+					// eslint-disable-next-line react/jsx-key
 					<GridActionsCellItem
-						icon={<Checkbox checked={false} />}
+						icon={<Checkbox />}
 						label="Save"
 						onClick={handleRowSelection(id)}
 					/>,
@@ -343,14 +346,15 @@ export function ViewPermissions() {
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
 					/>
-						<DeletePermissions
-							rows={permissionRows}
-							setRows={setRows}
-							selectedRowParams={selectedRowParams}
-						/>
+					<DeletePermissions
+						rows={permissionRows}
+						setRows={setPermissionRows}
+						selectedRowParams={selectedRowParams}
+					/>
 					<AddPermissions
-						setRows={setRows}
+						setRows={setPermissionRows}
 						setRowModesModel={setRowModesModel}
+						rows={permissionRows}
 					/>
 					<CloseButton />
 				</div>
@@ -359,9 +363,12 @@ export function ViewPermissions() {
 			<br />
 			<div className="h-400 w100">
 				<DataGrid
-					getRowId={(row) => row.Id}
 					rows={permissionRows}
 					columns={columns}
+					// checkboxSelection
+					// onRowSelectionModelChange={(ids: GridRowId) =>
+					// 	handleRowSelection(ids)
+					// }
 					isRowSelectable={(params) => params.row.Role !== 'Admin'}
 					disableRowSelectionOnClick={true}
 					rowModesModel={rowModesModel}

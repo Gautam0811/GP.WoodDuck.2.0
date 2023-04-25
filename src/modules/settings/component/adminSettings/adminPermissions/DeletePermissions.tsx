@@ -1,6 +1,10 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import { GridRowId, GridRowsProp } from '@mui/x-data-grid';
+import {
+	GridRowId,
+	GridRowsProp,
+	GridRowSelectionModel,
+} from '@mui/x-data-grid';
 
 interface SelectedRowParams {
 	id: GridRowId;

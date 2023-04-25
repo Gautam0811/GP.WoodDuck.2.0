@@ -46,6 +46,7 @@ export default function DashboardObjects(props: any) {
 				<br />
 				<Stack direction="row" spacing={props.spacing}>
 					{props.data.map((row: any) => (
+						// eslint-disable-next-line react/jsx-key
 						<Typography variant="subtitle2" className="col-42a5f5">
 							{row.header}
 							<Typography

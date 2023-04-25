@@ -1,7 +1,6 @@
 import { GridColDef } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { GridRowsProp } from '@mui/x-data-grid';
-import { randomId } from '@mui/x-data-grid-generator';
 // Manage Users Grid Data
 //The actual implementation will have call to a API.
 export const PermissionsDatacolumns: GridColDef[] = [
@@ -234,6 +233,7 @@ export const PermissionsDatacolumns: GridColDef[] = [
 ];
 
 function PermissionsSetData(
+	id: number,
 	Role: string,
 	EnterEditQuote: boolean,
 	EnterEditOrder: boolean,
@@ -252,7 +252,7 @@ function PermissionsSetData(
 	PriceExperimentation: boolean,
 ) {
 	return {
-		id: randomId(),
+		id,
 		Role,
 		EnterEditQuote,
 		EnterEditOrder,
@@ -274,6 +274,7 @@ function PermissionsSetData(
 }
 export const PermissionsData: GridRowsProp = [
 	PermissionsSetData(
+		1,
 		'Admin',
 		true,
 		true,
@@ -292,6 +293,7 @@ export const PermissionsData: GridRowsProp = [
 		true,
 	),
 	PermissionsSetData(
+		2,
 		'Read-Only',
 		false,
 		false,
@@ -310,6 +312,7 @@ export const PermissionsData: GridRowsProp = [
 		false,
 	),
 	PermissionsSetData(
+		3,
 		'Panel Trader',
 		true,
 		true,
