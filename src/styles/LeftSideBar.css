@@ -96,22 +96,10 @@
     display: none;
   }
 
-  /* media queries */
-/* 
-  @media only screen and (max-width: 700px) {
-    .Sidebar{
-      display: none;
-    }
-  } */
-  
-  /* @media only screen and (min-width: 768px) {
-    body {
-      background-color: green;
-    }
+  /*Mobile left side bar css*/
+
+  .mobile-icon {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
   }
-  
-  @media only screen and (min-width: 1200px) {
-    body {
-      background-color: gray;
-    }
-  } */

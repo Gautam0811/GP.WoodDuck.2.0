@@ -60,181 +60,189 @@ export function LeftSideBar() {
 	};
 
 	return (
-		<div className={isExpanded ? 'Sidebar' : 'Sidebar collapsed'}>
-			<div className="sidebar-items">
-				<Link to="./" className="link-text">
-					<div className="item">
-						<SpeedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Dashboard
-						</Typography>{' '}
-					</div>
-				</Link>
-				<Link to="./salesgrid" className="link-text">
-					<div className="item">
-						<GridOnIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Salesgrid
-						</Typography>{' '}
-					</div>
-				</Link>
-				<Link to="/orders" className="link-text">
-					<div className="item" onClick={handleClickOrders}>
-						<ShoppingCartOutlined className="sidebar-icon" />
-						<Typography className="sidebar-text fs-12">
-							Orders
-						</Typography>
-						{openOrders ? ' ' : ' '}
-					</div>
-				</Link>
-				<Collapse in={openOrders} timeout="auto">
-					<div className="sidebar-text">
-						<Link to="/productgroups" className="link-text">
+		<div className="sidebar">
+			<div className={isExpanded ? 'Sidebar' : 'Sidebar collapsed'}>
+				<div className="sidebar-items">
+					<Link to="./" className="link-text">
+						<div className="item">
+							<SpeedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Dashboard
+							</Typography>{' '}
+						</div>
+					</Link>
+					<Link to="./salesgrid" className="link-text">
+						<div className="item">
+							<GridOnIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Salesgrid
+							</Typography>{' '}
+						</div>
+					</Link>
+					<Link to="/orders" className="link-text">
+						<div className="item" onClick={handleClickOrders}>
+							<ShoppingCartOutlined className="sidebar-icon" />
+							<Typography className="sidebar-text fs-12">
+								Orders
+							</Typography>
+							{openOrders ? ' ' : ' '}
+						</div>
+					</Link>
+					<Collapse in={openOrders} timeout="auto">
+						<div className="sidebar-text">
+							<Link to="/productgroups" className="link-text">
+								<ListItemButton className="padding-left">
+									<Typography className="fs-12">
+										Open
+									</Typography>
+								</ListItemButton>
+							</Link>
 							<ListItemButton className="padding-left">
-								<Typography className="fs-12">Open</Typography>
+								<Typography className="fs-12 ">
+									Late Fulfillment
+								</Typography>
 							</ListItemButton>
-						</Link>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12 ">
-								Late Fulfillment
-							</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12 ">
-								Late Pickup
-							</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Today</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">All</Typography>
-						</ListItemButton>
-					</div>
-				</Collapse>
-				<Link to="./orders" className="link-text">
-					<div className="item">
-						<RateReviewOutlinedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Master Quotes
-						</Typography>{' '}
-					</div>
-				</Link>
-				<div className="item">
-					<RequestQuoteOutlinedIcon className="sidebar-icon" />{' '}
-					<Typography className="sidebar-text fs-12">
-						Quote Management
-					</Typography>{' '}
-				</div>
-				<div className="item">
-					<LocalShippingOutlinedIcon className="sidebar-icon" />{' '}
-					<Typography className="sidebar-text fs-12">
-						Shipments
-					</Typography>{' '}
-				</div>
-				{isExpanded ? (
-					<div className="flex-end arrow-item">
-						<ArrowCircleLeftOutlinedIcon
-							className="sidebar-arrow-icon"
-							onClick={handleToggler}
-						/>
-					</div>
-				) : (
-					<div className="arrow-item">
-						<ArrowCircleRightOutlinedIcon
-							className="sidebar-arrow-icon"
-							onClick={handleToggler}
-						/>
-					</div>
-				)}
-				<div className="item" onClick={handleClickInvoices}>
-					<ReceiptOutlinedIcon className="sidebar-icon" />
-					<Typography className="sidebar-text fs-12">
-						Invoices
-					</Typography>
-					{openInvoices ? ' ' : ' '}
-				</div>
-				<Collapse in={openInvoices} timeout="auto">
-					<div className="sidebar-text">
-						<Link to="/salesgrid" className="link-text">
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12 ">
+									Late Pickup
+								</Typography>
+							</ListItemButton>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">Today</Typography>
+							</ListItemButton>
 							<ListItemButton className="padding-left">
 								<Typography className="fs-12">All</Typography>
 							</ListItemButton>
-						</Link>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Open</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Late</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Paid</Typography>
-						</ListItemButton>
-					</div>
-				</Collapse>
-				<Link to="/contracts" className="link-text">
-					<div className="item" onClick={handleClickContracts}>
-						<EditOutlinedIcon className="sidebar-icon" />
+						</div>
+					</Collapse>
+					<Link to="./orders" className="link-text">
+						<div className="item">
+							<RateReviewOutlinedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Master Quotes
+							</Typography>{' '}
+						</div>
+					</Link>
+					<div className="item">
+						<RequestQuoteOutlinedIcon className="sidebar-icon" />{' '}
 						<Typography className="sidebar-text fs-12">
-							Contracts
-						</Typography>
-						{openContracts ? ' ' : ' '}
+							Quote Management
+						</Typography>{' '}
 					</div>
-				</Link>
-				<Collapse in={openContracts} timeout="auto">
-					<div className="sidebar-text fs-12">
-						<Link to="/salesgrid" className="link-text">
+					<div className="item">
+						<LocalShippingOutlinedIcon className="sidebar-icon" />{' '}
+						<Typography className="sidebar-text fs-12">
+							Shipments
+						</Typography>{' '}
+					</div>
+					{isExpanded ? (
+						<div className="flex-end arrow-item">
+							<ArrowCircleLeftOutlinedIcon
+								className="sidebar-arrow-icon"
+								onClick={handleToggler}
+							/>
+						</div>
+					) : (
+						<div className="arrow-item">
+							<ArrowCircleRightOutlinedIcon
+								className="sidebar-arrow-icon"
+								onClick={handleToggler}
+							/>
+						</div>
+					)}
+					<div className="item" onClick={handleClickInvoices}>
+						<ReceiptOutlinedIcon className="sidebar-icon" />
+						<Typography className="sidebar-text fs-12">
+							Invoices
+						</Typography>
+						{openInvoices ? ' ' : ' '}
+					</div>
+					<Collapse in={openInvoices} timeout="auto">
+						<div className="sidebar-text">
+							<Link to="/salesgrid" className="link-text">
+								<ListItemButton className="padding-left">
+									<Typography className="fs-12">
+										All
+									</Typography>
+								</ListItemButton>
+							</Link>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">Open</Typography>
+							</ListItemButton>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">Late</Typography>
+							</ListItemButton>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">Paid</Typography>
+							</ListItemButton>
+						</div>
+					</Collapse>
+					<Link to="/contracts" className="link-text">
+						<div className="item" onClick={handleClickContracts}>
+							<EditOutlinedIcon className="sidebar-icon" />
+							<Typography className="sidebar-text fs-12">
+								Contracts
+							</Typography>
+							{openContracts ? ' ' : ' '}
+						</div>
+					</Link>
+					<Collapse in={openContracts} timeout="auto">
+						<div className="sidebar-text fs-12">
+							<Link to="/salesgrid" className="link-text">
+								<ListItemButton className="padding-left">
+									<Typography className="fs-12">
+										Active
+									</Typography>
+								</ListItemButton>
+							</Link>
 							<ListItemButton className="padding-left">
 								<Typography className="fs-12">
-									Active
+									Inactive
 								</Typography>
 							</ListItemButton>
-						</Link>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Inactive</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">Mine</Typography>
-						</ListItemButton>
-						<ListItemButton className="padding-left">
-							<Typography className="fs-12">All</Typography>
-						</ListItemButton>
-					</div>
-				</Collapse>
-				<Link to="/contracts" className="link-text">
-					<div className="item">
-						<PersonOutlineOutlinedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							People
-						</Typography>{' '}
-					</div>
-				</Link>
-				<Link to="/contracts" className="link-text">
-					<div className="item">
-						<BusinessOutlinedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Facilities
-						</Typography>{' '}
-					</div>
-				</Link>
-				<Link to="/settings" className="link-text">
-					<div className="item">
-						<CachedOutlinedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Supply and Demand
-						</Typography>{' '}
-					</div>
-				</Link>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">Mine</Typography>
+							</ListItemButton>
+							<ListItemButton className="padding-left">
+								<Typography className="fs-12">All</Typography>
+							</ListItemButton>
+						</div>
+					</Collapse>
+					<Link to="/contracts" className="link-text">
+						<div className="item">
+							<PersonOutlineOutlinedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								People
+							</Typography>{' '}
+						</div>
+					</Link>
+					<Link to="/contracts" className="link-text">
+						<div className="item">
+							<BusinessOutlinedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Facilities
+							</Typography>{' '}
+						</div>
+					</Link>
+					<Link to="/settings" className="link-text">
+						<div className="item">
+							<CachedOutlinedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Supply and Demand
+							</Typography>{' '}
+						</div>
+					</Link>
 
-				<Divider />
-				<Link to="/contracts" className="link-text">
-					<div className="item">
-						<FormatListNumberedIcon className="sidebar-icon" />{' '}
-						<Typography className="sidebar-text fs-12">
-							Recent Items
-						</Typography>{' '}
-					</div>
-				</Link>
+					<Divider />
+					<Link to="/contracts" className="link-text">
+						<div className="item">
+							<FormatListNumberedIcon className="sidebar-icon" />{' '}
+							<Typography className="sidebar-text fs-12">
+								Recent Items
+							</Typography>{' '}
+						</div>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

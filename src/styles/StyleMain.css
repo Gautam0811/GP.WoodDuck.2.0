@@ -456,6 +456,9 @@
 }
 
 /* Font sizes */
+.fs-9{
+  font-size: 9px !important;
+}
 
 .fs-10{
   font-size: 10px !important;
@@ -670,10 +673,6 @@
 .NewContractHeaderFontcolor {
   color: '#005fa8';
 }
-
-/* for buttons with only text*/
-/* .css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
-} */
 
 .css-itvipi-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root.buttontype1{
   background-color: #005FA8 !important;
@@ -919,44 +918,124 @@ input[type="submit"]:hover {
   padding: 10px;
 }
 
+/*Hide right header to avoid header re-size*/
 
-/* media queries */
-/* @media only screen and (min-width: 412px) {
-  body {
-    background-color: lightblue;
-  }
-} */
-
-/* @media only screen and (max-width: 1100px) {
-  .a {
+@media only screen and (max-width: 1265px ) {
+  .hide_view {
     display: none;
   }
 } */
 
-/* @media only screen and (min-width: 1200px) {
-  body {
-    background-color: gray;
+/*Resize spacing in middle header*/
+@media only screen and (max-width: 1100px ) {
+  .css-yie9qf-MuiTypography-root {
+    left: 1rem;
   }
 } */
 
-/* .a {
-  display: flex;
-  flex-direction: column;
-} */
-
-
-@media only screen and (min-width: 768px) {
-.a {
-  display: flex;
-  flex-direction: row;
+/*Hide search bar element when screen is less than 1000px*/
+@media only screen and (max-width: 1000px ) {
+  .css-1ud6dge-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    display: none !important;
+  }
+  .css-yie9qf-MuiTypography-root {
+    left: 0rem;
+  }
+  .css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+    display: none !important;
+  }
 }
 
-.width-md-100 {
-  width: 100%;
+/*Toolbar min-height to be 64px regardless of screen size*/
+@media (min-width: 0px ) {
+  .css-hyum1k-MuiToolbar-root {
+    min-height: 64px !important;
+  }
+  .hamburger-menu {
+    display: none !important;
+  }
 }
-} 
 
+@media only screen and (max-width: 800px ) {
+  .header-options {
+    display: none;
+  }
+}
 
+@media only screen and (max-width: 650px ) {
+  .user-name {
+    display: none;
+  }
+}
 
+/*Hamburger menu when */
+@media only screen and (max-width: 500px ) {
+  .hamburger-menu {
+    display:flex !important;
+    margin-left: -1rem;
+  }
+  .leftHeader {
+    background-image: none !important;
+    left: 0px !important;
+  }
+  .left-header-button-no-show {
+    display: none !important;
+  }
+  .css-hyum1k-MuiToolbar-root {
+    padding-right: 1rem;
+  }
+  .rh-margin {
+    margin-left: -1.5rem;
+  }
+  .sidebar {
+    display: none !important;
+  }
+}
 
+@media only screen and (max-width: 455px ) {
+  .hamburger-menu {
+    margin-left: -1.4rem;
+  }
+}
 
+@media only screen and (max-width: 430px ) {
+  .hamburger-menu {
+    margin-left: -1.6rem;
+  }
+}
+
+@media only screen and (max-width: 400px ) {
+  .hamburger-menu {
+    margin-left: -1.8rem;
+  }
+  .rh-margin {
+    margin-left: -1.8rem;
+  }
+}
+
+@media only screen and (max-width: 350px ) {
+  .hamburger-menu {
+    margin-left: -2.0rem;
+  }
+  .rh-margin {
+    margin-left: -2.0rem;
+  }
+}
+
+@media only screen and (max-width: 320px ) {
+  .hamburger-menu {
+    margin-left: -2.2rem;
+  }
+  .rh-margin {
+    margin-left: -2.2rem;
+  }
+}
+
+@media only screen and (max-width: 280px ) {
+  .hamburger-menu {
+    margin-left: -2.4rem;
+  }
+  .rh-margin {
+    margin-left: -2.4rem;
+  }
+}

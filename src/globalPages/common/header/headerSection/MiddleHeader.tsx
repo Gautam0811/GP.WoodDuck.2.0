@@ -48,7 +48,7 @@ export function MiddleHeader() {
 					</FormControl>
 					<Typography
 						component="div"
-						className="gray fs-12 flex-grow position-relative"
+						className="gray fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">OFFERS</p>
 						<Typography className="font-black" component="div">
@@ -57,7 +57,7 @@ export function MiddleHeader() {
 					</Typography>
 					<Typography
 						component="div"
-						className="gray fs-12 flex-grow position-relative"
+						className="gray fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">OPEN QUOTES</p>
 						<Typography className="font-black" component="div">
@@ -66,7 +66,7 @@ export function MiddleHeader() {
 					</Typography>
 					<Typography
 						component="div"
-						className="gray fs-12 flex-grow position-relative"
+						className="gray fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">OPEN ORDERS</p>
 						<Typography className="font-black" component="div">
@@ -75,7 +75,7 @@ export function MiddleHeader() {
 					</Typography>
 					<Typography
 						component="div"
-						className="col-red fs-12 flex-grow position-relative"
+						className="col-red fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">LATE FULFILLMENT</p>
 						<Typography className="font-black" component="div">
@@ -84,7 +84,7 @@ export function MiddleHeader() {
 					</Typography>
 					<Typography
 						component="div"
-						className="col-red fs-12 flex-grow position-relative"
+						className="col-red fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">LATE PICKUP</p>
 						<Typography className="font-black" component="div">
@@ -93,7 +93,7 @@ export function MiddleHeader() {
 					</Typography>
 					<Typography
 						component="div"
-						className="col-red fs-12 flex-grow position-relative"
+						className="col-red fs-9 flex-grow position-relative header-options"
 					>
 						<p className="font-weight-bold">A/R ISSUES</p>
 						<Typography className="font-black" component="div">

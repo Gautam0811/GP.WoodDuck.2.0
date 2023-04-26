@@ -5,20 +5,18 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import '../../../../styles/StyleMain.css';
+import { LeftSideBar_Small_Screen } from '../../leftSideBar/LeftSideBar_Small_Screen';
 
 export function LeftHeader() {
-	const envValue = process.env.REACT_APP_ENV;
-
 	return (
 		// View for Left header section section
 
 		<Box className="flex-grow">
 			<AppBar className="bg-ffb74d position-static">
 				<Toolbar className="leftHeader">
-					<div className="mr-64">
+					<div className="mr-64 left-header-button-no-show">
 						<IconButton
 							size="large"
 							edge="start"
@@ -26,13 +24,7 @@ export function LeftHeader() {
 							aria-label="menu"
 						></IconButton>
 					</div>
-					<Typography
-						className="flex-grow font-black"
-						variant="h6"
-						component="div"
-					>
-						{envValue}
-					</Typography>
+					<LeftSideBar_Small_Screen />
 				</Toolbar>
 			</AppBar>
 		</Box>
