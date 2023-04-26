@@ -2,7 +2,7 @@
 // Component Utility : The Component is created to render site settings tab in the Settings page
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -11,17 +11,16 @@ import { Link } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import Collapse from '@mui/material/Collapse';
 import { ShoppingCartOutlined } from '@mui/icons-material';
-import { useState } from 'react';
 
 export function SiteSettings() {
-	const [manageUsers, setmanageUsers] = React.useState(false);
+	const [manageUsers, setmanageUsers] = useState(false);
 	const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
 	const [isExpanded, setIsExpanded] = useState(
 		sidebarCollapsed ? false : true,
 	);
 
-	const [data, setData]: any = React.useState({});
-	React.useEffect(() => {
+	const [data, setData]: any = useState({});
+	useEffect(() => {
 		setData(JSON.parse(localStorage.getItem('status')!));
 	}, []);
 
@@ -61,9 +60,13 @@ export function SiteSettings() {
 						Mill Threat Levels
 					</Typography>
 				</Link>
-				<Link to="/manageUsers" className="text-dec-none">
-					<Typography className="col-005fa8">Manage Users</Typography>
-				</Link>
+				{data.isAdmin && (
+					<Link to="/manageUsers" className="text-dec-none">
+						<Typography className="col-005fa8">
+							Manage Users
+						</Typography>
+					</Link>
+				)}
 				<Link to="#" className="text-dec-none">
 					<Typography className="col-005fa8">Salespersons</Typography>
 				</Link>

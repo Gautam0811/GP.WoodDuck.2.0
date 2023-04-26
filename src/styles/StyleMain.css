@@ -380,12 +380,20 @@
   width: 32%;
 }
 
+.w35 {
+  width: 35%;
+}
+
 .w38{
   width: 38%;
 }
 
 .w50{
   width: 50%;
+}
+
+.w65 {
+  width: 65%;
 }
 
 .w70 {
@@ -934,7 +942,7 @@ input[type="submit"]:hover {
   .css-yie9qf-MuiTypography-root {
     left: 1rem;
   }
-}
+} */
 
 /*Hide search bar element when screen is less than 1000px*/
 @media only screen and (max-width: 1000px ) {

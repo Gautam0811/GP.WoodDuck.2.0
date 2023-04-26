@@ -2,13 +2,13 @@
 // Component Utility : The Component is created to render settings page
 // Author Ananya Dhar on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import { UserSettings, SiteSettings, AdminSettings } from './index';
 
 export function Settings() {
-	const [data, setData]: any = React.useState({});
-	React.useEffect(() => {
+	const [data, setData]: any = useState({});
+	useEffect(() => {
 		setData(JSON.parse(localStorage.getItem('status')!));
 	}, []);
 	return (
@@ -21,7 +21,7 @@ export function Settings() {
 			{/* settings main section */}
 			<Grid className="w100 flexrow justify-space-evenly">
 				<UserSettings />
-				{data.isAdmin ? <AdminSettings /> : <div></div>}
+				{data.isAdmin && <AdminSettings />}
 				<SiteSettings />
 			</Grid>
 		</Grid>

@@ -2,7 +2,7 @@
 // Component Utility : The Component is created for rendering the left collapsable navigation bar in the app
 // Author Ananya Dhar on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SpeedIcon from '@mui/icons-material/Speed';
 import GridOnIcon from '@mui/icons-material/GridOn';
@@ -23,22 +23,21 @@ import Collapse from '@mui/material/Collapse';
 import { ShoppingCartOutlined } from '@mui/icons-material';
 import '../../../styles/LeftSideBar.css';
 import '../../../styles/StyleMain.css';
-import { useState } from 'react';
 
 export function LeftSideBar() {
-	const [openOrders, setOpenOrders] = React.useState(false);
+	const [openOrders, setOpenOrders] = useState(false);
 
 	const handleClickOrders = () => {
 		setOpenOrders(!openOrders);
 	};
 
-	const [openInvoices, setOpenInvoices] = React.useState(false);
+	const [openInvoices, setOpenInvoices] = useState(false);
 
 	const handleClickInvoices = () => {
 		setOpenInvoices(!openInvoices);
 	};
 
-	const [openContracts, setOpenContracts] = React.useState(false);
+	const [openContracts, setOpenContracts] = useState(false);
 
 	const handleClickContracts = () => {
 		setOpenContracts(!openContracts);

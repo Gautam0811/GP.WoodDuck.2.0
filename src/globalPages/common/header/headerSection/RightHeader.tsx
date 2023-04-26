@@ -3,7 +3,7 @@
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
 
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -22,11 +22,11 @@ import { Grid } from '@mui/material';
 import { Profile, Subdivision } from '../index';
 
 export function RightHeader() {
-	const [name, setName]: any = React.useState({});
+	const [name, setName]: any = useState({});
 
 	// React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);
