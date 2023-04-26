@@ -4,12 +4,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Navigator } from '../../routes';
 import { Login } from '../login';
 import { Header, Footer, LeftSideBar } from '../common';
-
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
-import { UserInfo, permissionSetData } from '../login';
+import { UserInfo } from '../login';
 
 export function Home() {
 	const dispatch = useDispatch();
@@ -23,12 +21,6 @@ export function Home() {
 		// permissionData(permissionSetData);
 	}
 	return (
-		// <div>
-		// {permissionInfo.map((permissionInfo:any) => (
-		//   <p key={permissionInfo.PermissionSets}>
-		//     {permissionInfo.PermissionSets} :
-		//   </p>
-		// ))}
 		<Grid>
 			<Router>
 				<Grid>
@@ -44,10 +36,6 @@ export function Home() {
 					</Grid>
 				</div>
 			</Router>
-			{/* <div>
-        <Footer />
-      </div> */}
 		</Grid>
-		// </div>
 	);
 }

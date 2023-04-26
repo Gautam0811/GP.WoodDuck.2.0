@@ -2,7 +2,6 @@
 // Component Utility : The Component is Created as a reusable component in the Dashboard parent component
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';

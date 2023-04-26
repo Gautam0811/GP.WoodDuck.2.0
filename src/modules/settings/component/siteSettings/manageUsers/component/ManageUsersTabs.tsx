@@ -2,7 +2,7 @@
 // Component Utility : The Component is created display the tabs part below header part of the manage users page
 // Author Ananya Dhar on 06-04-2023
 // -------------------------
-import * as React from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -17,8 +17,9 @@ import {
 	GridRowId,
 	GridRowModesModel,
 	GridRowModes,
-	GridValidRowModel,
+	GridRowModel,
 	GridActionsCellItem,
+	GridRowsProp,
 	GridRowSelectionModel,
 	DataGrid,
 } from '@mui/x-data-grid';
@@ -30,10 +31,10 @@ interface SelectedRowParams {
 }
 
 export function ManageUsersTabs() {
-	const [value, setValue] = React.useState(0);
-	const [isActive, setIsActive]: any = React.useState(true);
+	const [value, setValue] = useState(0);
+	const [isActive, setIsActive]: any = useState(true);
 
-	const [orderFilterGridRow, setOrderFilterGridRow]: any = React.useState(
+	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
 			(a) =>
 				a.activeUser === isActive &&
@@ -42,7 +43,7 @@ export function ManageUsersTabs() {
 		),
 	);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setOrderFilterGridRow(
 			OrdersGridrows.filter(
 				(a) =>
@@ -54,31 +55,35 @@ export function ManageUsersTabs() {
 	}, [isActive]);
 
 	const [rowSelectionModel, setRowSelectionModel] =
-		React.useState<GridRowSelectionModel>();
+		useState<GridRowSelectionModel>();
 
-	const [rows, setRows] = React.useState(OrdersGridrows);
+	// const [rows, setRows] = React.useState(OrdersGridrows);
+
+	const [manageUsersRows, setManageUsersRows] = useState<GridRowsProp>([]);
 
 	const [selectedRowParams, setSelectedRowParams] =
-		React.useState<SelectedRowParams>();
+		useState<SelectedRowParams>();
 
-	const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
-		{},
-	);
+	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
-	const [checked, setChecked] = React.useState(true);
+	const [checked, setChecked] = useState(true);
 
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
 		console.log(selectedRowParams);
 	};
 
-	const processRowUpdate = (newRow: GridValidRowModel) => {
+	const processRowUpdate = (newRow: GridRowModel) => {
 		const updatedRow = { ...newRow, isNew: false };
-		setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
+		setManageUsersRows(
+			manageUsersRows.map((row) =>
+				row.id === newRow.id ? updatedRow : row,
+			),
+		);
 		return updatedRow;
 	};
 
-	const rowMode = React.useMemo(() => {
+	const rowMode = useMemo(() => {
 		if (!selectedRowParams) {
 			return 'view';
 		}
@@ -145,7 +150,7 @@ export function ManageUsersTabs() {
 					return [
 						// eslint-disable-next-line react/jsx-key
 						<GridActionsCellItem
-							icon={<Checkbox checked={true} />}
+							icon={<Checkbox />}
 							label="Save"
 							onClick={handleRowSelection(id)}
 						/>,
@@ -155,7 +160,7 @@ export function ManageUsersTabs() {
 				return [
 					// eslint-disable-next-line react/jsx-key
 					<GridActionsCellItem
-						icon={<Checkbox checked={false} />}
+						icon={<Checkbox />}
 						label="Save"
 						onClick={handleRowSelection(id)}
 					/>,
@@ -249,8 +254,9 @@ export function ManageUsersTabs() {
 						setRowModesModel={setRowModesModel}
 					/>
 					<AddManageUsers
-						setRows={setRows}
+						setRows={setOrderFilterGridRow}
 						setRowModesModel={setRowModesModel}
+						rows={orderFilterGridRow}
 					/>
 					<CloseButton />
 				</div>
@@ -307,7 +313,7 @@ export function ManageUsersTabs() {
 			<div>
 				<div className="h-400 w-1000">
 					<DataGrid
-						getRowId={(row) => row.id}
+						// getRowId={(row) => row.id}
 						rows={orderFilterGridRow}
 						columns={OrdersGridcolumns}
 						rowSelectionModel={rowSelectionModel}

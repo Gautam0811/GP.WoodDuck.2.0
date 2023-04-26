@@ -7,7 +7,6 @@
 import { GridColDef } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { GridRowsProp } from '@mui/x-data-grid';
-import { randomId } from '@mui/x-data-grid-generator';
 
 // Manage Users Grid Data
 //The actual implementation will have call to a API.
@@ -86,6 +85,7 @@ export const OrdersGridcolumns: GridColDef[] = [
 ];
 //The actual implementation will have call to a API.
 export function OrdersGridcreateData(
+	id: number,
 	businessLine: string,
 	subDivision: string,
 	firstName: string,
@@ -97,7 +97,7 @@ export function OrdersGridcreateData(
 	temporaryPermissionDate: string,
 ) {
 	return {
-		id: randomId(),
+		id,
 		businessLine,
 		subDivision,
 		firstName,
@@ -113,6 +113,7 @@ export function OrdersGridcreateData(
 //The actual implementation will have call to a API.
 export const OrdersGridrows: GridRowsProp = [
 	OrdersGridcreateData(
+		1,
 		'SL',
 		'',
 		'Talladega',
@@ -124,6 +125,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		2,
 		'SL',
 		'',
 		'Piedmont-R',
@@ -135,6 +137,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		3,
 		'SL',
 		'',
 		'Piedmont-R',
@@ -147,6 +150,7 @@ export const OrdersGridrows: GridRowsProp = [
 	),
 
 	OrdersGridcreateData(
+		4,
 		'SP',
 		'SPx',
 		'Piedmont-R',
@@ -158,6 +162,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		5,
 		'SL',
 		'',
 		'Talladega',
@@ -169,6 +174,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		6,
 		'SL',
 		'',
 		'Piedmont-R',
@@ -180,6 +186,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		7,
 		'SP',
 		'SPk',
 		'Talladega',
@@ -191,6 +198,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		8,
 		'SP',
 		'SPk',
 		'Piedmont-R',
@@ -202,6 +210,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		9,
 		'SL',
 		'',
 		'Talladega',
@@ -213,6 +222,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		10,
 		'SL',
 		'',
 		'Piedmont-R',
@@ -224,6 +234,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		11,
 		'SP',
 		'SPx',
 		'Talladega',
@@ -235,6 +246,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
+		12,
 		'SL',
 		'',
 		'Piedmont-R',

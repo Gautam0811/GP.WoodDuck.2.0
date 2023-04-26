@@ -2,7 +2,7 @@
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,15 +14,15 @@ import '../../../../styles/StyleMain.css';
 import getCustomerData from '../services/HeaderServices';
 
 export function MiddleHeader() {
-	const [post, setPost]: any = React.useState({});
-	const [name, setName]: any = React.useState({});
+	const [post, setPost]: any = useState({});
+	const [name, setName]: any = useState({});
 
-	React.useEffect(
+	useEffect(
 		() => setName(JSON.parse(localStorage.getItem('status') || '{}')),
 		[],
 	);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		getCustomerData(name.id).then((customerData: any) => {
 			setPost(customerData);
 		});

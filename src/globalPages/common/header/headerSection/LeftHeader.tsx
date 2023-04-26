@@ -2,8 +2,6 @@
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Krishna Choudhary on 3-23-2023
 // -------------------------
-import * as React from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';

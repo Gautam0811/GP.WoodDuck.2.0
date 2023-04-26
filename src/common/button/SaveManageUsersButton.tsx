@@ -2,7 +2,7 @@
 // Component Utility : The Component is created to provide all the buttons that are to be used in WoodDuck 2.0
 // Author Ananya Dhar on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
@@ -10,7 +10,6 @@ import Modal from '@mui/material/Modal';
 import { Typography, Button, Grid, MenuItem } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
-import { OrdersGridrows } from '../../modules/settings/component/siteSettings/manageUsers/services/Data';
 
 // interface SaveButtonProps {
 //   onClick: () => void;
@@ -64,14 +63,14 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 		// }
 	};
 
-	const [post, setPost]: any = React.useState({});
-	const [name, setName]: any = React.useState({});
+	const [post, setPost]: any = useState({});
+	const [name, setName]: any = useState({});
 
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	// const handleClose = () => setOpen(false);
 
-	const [user, setUser] = React.useState('Select User');
+	const [user, setUser] = useState('Select User');
 
 	const handleUserChange = (event: SelectChangeEvent) => {
 		setUser(event.target.value as string);
@@ -81,7 +80,7 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 		setUser(event.target.value as string);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);

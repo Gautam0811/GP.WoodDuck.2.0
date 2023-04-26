@@ -3,7 +3,7 @@
 // Author Ananya Dhar on 24-3-2023
 // -------------------------
 
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
@@ -13,10 +13,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useSelector } from 'react-redux';
 
 export function Profile() {
-	const [post, setPost]: any = React.useState({});
-	const [name, setName]: any = React.useState({});
+	const [post, setPost]: any = useState({});
+	const [name, setName]: any = useState({});
 
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const userInfo = useSelector((state: any) => state.loginInfo);
@@ -31,7 +31,7 @@ export function Profile() {
 
 	// React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);
@@ -59,7 +59,7 @@ export function Profile() {
 		window.location.reload();
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		window.addEventListener('storage', logout);
 	}, [logout]);
 

@@ -2,7 +2,6 @@
 // Component Utility : The Component created for rendering a header navigation bar for all the pages in the app
 // Author Gautam Malhotra on 1-3-2023
 // -------------------------
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import '../../../../styles/StyleMain.css';
 import { LeftHeader, MiddleHeader, RightHeader } from '../index';

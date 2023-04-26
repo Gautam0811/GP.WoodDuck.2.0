@@ -3,7 +3,7 @@
 // // // // Author Gautam Malhotra on 1-3-2023
 // // // // -------------------------
 
-import * as React from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { BindPermissionGrid } from '../../../index';
@@ -30,20 +30,16 @@ interface SelectedRowParams {
 }
 
 export function ViewPermissions() {
-	const [permissionRows, setPermissionRows] = React.useState<GridRowsProp>(
-		[],
-	);
+	const [permissionRows, setPermissionRows] = useState<GridRowsProp>([]);
 	const [selectedRowParams, setSelectedRowParams] =
-		React.useState<SelectedRowParams>();
+		useState<SelectedRowParams>();
 
-	const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
-		{},
-	);
+	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
-	const [checked, setChecked] = React.useState(true);
+	const [checked, setChecked] = useState(true);
 
 	//get permission set from api
-	React.useEffect(() => {
+	useEffect(() => {
 		getPermissionSet().then((permissionset) => {
 			setPermissionRows(BindPermissionGrid(permissionset));
 		});
@@ -66,7 +62,7 @@ export function ViewPermissions() {
 		return updatedRow;
 	};
 
-	const rowMode = React.useMemo(() => {
+	const rowMode = useMemo(() => {
 		if (!selectedRowParams) {
 			return 'view';
 		}

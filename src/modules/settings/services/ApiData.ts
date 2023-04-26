@@ -1,12 +1,12 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { getPermissionSet } from './Api';
 import { BindPermissionGrid } from '../index';
 import { GridRowsProp } from '@mui/x-data-grid';
 
 export function ApiSetData() {
-	const [permissionRows, setPermissionRows] = React.useState([]);
+	const [permissionRows, setPermissionRows] = useState([]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		getPermissionSet().then((permissionset) => {
 			setPermissionRows(BindPermissionGrid(permissionset));
 		});

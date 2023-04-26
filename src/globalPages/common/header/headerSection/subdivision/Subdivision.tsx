@@ -3,25 +3,20 @@
 // Author Ananya Dhar on 29-03-2023
 // -------------------------
 
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
+import { useState, useEffect } from 'react';
 import '../../../../../styles/StyleMain.css';
 import {
 	Grid,
-	Modal,
-	Button,
-	Box,
 	FormControl,
-	InputLabel,
 	Select,
 	MenuItem,
 	SelectChangeEvent,
 } from '@mui/material';
 
 export function Subdivision() {
-	const [name, setName]: any = React.useState({});
-	const [subdivision, setSubdivision] = React.useState('');
-	React.useEffect(() => {
+	const [name, setName]: any = useState({});
+	const [subdivision, setSubdivision] = useState('');
+	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);

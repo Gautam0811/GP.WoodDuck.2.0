@@ -2,16 +2,16 @@
 // Component Utility : The Component created to display the linear progress bar on the Mills Forecast in the Dashboard
 // Author Manas Dixit on 1-3-2023
 // -------------------------
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 export default function LinearWithValueLabel(props: any) {
-	const [color, setColor] = React.useState('');
-	const [colors, setColors] = React.useState('');
+	const [color, setColor] = useState('');
+	const [colors, setColors] = useState('');
 	const value = props.Values;
-	React.useEffect(() => {
+	useEffect(() => {
 		if (value <= 100) {
 			setColors('lightgrey');
 		} else {
@@ -19,7 +19,7 @@ export default function LinearWithValueLabel(props: any) {
 		}
 	}, [value]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (value <= 50) {
 			setColor('green');
 		} else if (value >= 50 && value <= 100) {
