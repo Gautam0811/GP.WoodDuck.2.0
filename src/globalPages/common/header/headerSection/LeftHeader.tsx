@@ -7,14 +7,11 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import '../../../../styles/StyleMain.css';
 import { LeftSideBar_Small_Screen } from '../../leftSideBar/LeftSideBar_Small_Screen';
 
 export function LeftHeader() {
-	const envValue = process.env.REACT_APP_ENV;
-
 	return (
 		// View for Left header section section
 
@@ -29,14 +26,7 @@ export function LeftHeader() {
 							aria-label="menu"
 						></IconButton>
 					</div>
-					<LeftSideBar_Small_Screen></LeftSideBar_Small_Screen>
-					<Typography
-						className="flex-grow font-black"
-						variant="h6"
-						component="div"
-					>
-						{envValue}
-					</Typography>
+					<LeftSideBar_Small_Screen />
 				</Toolbar>
 			</AppBar>
 		</Box>
