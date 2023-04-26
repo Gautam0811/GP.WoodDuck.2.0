@@ -18,7 +18,7 @@ import {
 
 export function Dashboard() {
 	return (
-		<Grid className="a w100 bg-e3f2fd">
+		<Grid className="flexrow w100 bg-e3f2fd">
 			<Grid className="w70 fs-12">
 				<DashboardMarket
 					title="Market"
