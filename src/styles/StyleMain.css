@@ -293,6 +293,10 @@
   margin-left: 1.5rem;
 }
 
+.mr-4{
+  margin-right: 0.2rem;
+}
+
 .mr-8{
   margin-right: 0.5rem;
 }
@@ -910,11 +914,18 @@ input[type="submit"]:hover {
   padding: 10px;
 }
 
+/*Icons hidden in menu until re-size to be less than 1265px*/
+.icons-menu {
+  display: none;
+}
 /*Hide right header to avoid header re-size*/
 
 @media only screen and (max-width: 1265px ) {
   .hide_view {
     display: none;
+  }
+  .icons-menu {
+    display: flex !important;
   }
 }
 
