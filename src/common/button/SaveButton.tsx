@@ -94,7 +94,7 @@ export function SaveButton(props: EditToolbarProps) {
 				</div>
 			</LoadingButton>
 			<Modal open={open}>
-				<Box className="edit-permissions-modal">
+				<Box className="modal-class">
 					<Grid className="p-8 pr-32">
 						<Typography className="fs-24 text-align-center col-005fa8">
 							Save Permissions Set Edits?

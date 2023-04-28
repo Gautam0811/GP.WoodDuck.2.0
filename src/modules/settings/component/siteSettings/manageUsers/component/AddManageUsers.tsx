@@ -1,12 +1,27 @@
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Grid, Modal, Box, Button, Typography } from '@mui/material';
+import {
+	Grid,
+	Modal,
+	Box,
+	Button,
+	Typography,
+	FormGroup,
+	FormControlLabel,
+	Checkbox,
+	Stack,
+	Autocomplete,
+	TextField,
+} from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	GridRowsProp,
 	GridRowModesModel,
 	GridRowModes,
 } from '@mui/x-data-grid';
+
+import { UsersData, permissionSets } from '../services/AddUserData';
+import '../../../../../../styles/StyleMain.css';
 
 interface AddProps {
 	rows: any;
@@ -38,6 +53,50 @@ export function AddManageUsers(props: AddProps) {
 
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
+	const [value, setValue] = useState('');
+
+	const onChange = (event: any) => {
+		setValue(event.target.value);
+	};
+
+	console.log(UsersData.filter((user) => user.email.includes('em')));
+
+	const onSearch = (searchTerm: any) => {
+		setValue(searchTerm);
+		console.log('search', searchTerm);
+	};
+
+	const [selectedPermissionSet, setSelectedPermissionSet] = useState(
+		permissionSets[0].permission,
+	);
+
+	const handleChangePermissionSet = (event: any) => {
+		setSelectedPermissionSet(event.target.permission);
+	};
+
+	const [name, setName]: any = useState({});
+	const [subdivision, setSubdivision] = useState('');
+
+	useEffect(() => {
+		function fetchName() {
+			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
+			setName(nameFetch);
+			setSubdivision(nameFetch.subdivision);
+			//on first time load
+			// window.localStorage.setItem(
+			// 	'subdivisionValue',
+			// 	nameFetch.subdivision,
+			// );
+		}
+		fetchName();
+	}, [subdivision, name]);
+
+	const searchTerm = value.toLowerCase();
+
+	console.log(subdivision);
+	console.log('Permisionssss', permissionSets[1].permission);
 
 	return (
 		<Box>
@@ -52,7 +111,7 @@ export function AddManageUsers(props: AddProps) {
 				</div>
 			</LoadingButton>
 			<Modal open={open}>
-				<Box className="edit-permissions-modal">
+				<Box className="modal-class">
 					<Grid className="p-8 pr-32 ">
 						<Typography className="fs-24 text-align-center col-005fa8">
 							Add User
@@ -61,35 +120,134 @@ export function AddManageUsers(props: AddProps) {
 							<Grid className="flexrow">
 								<Grid>Email:</Grid>
 								<Grid>
-									<input type="email"></input>
+									<input
+										onChange={onChange}
+										type="email"
+									></input>
+									{/* {search
+										.filter((user) =>
+											user.email
+												.toLowerCase()
+												.includes(value),
+										)
+										.map((user) => (
+											<li key={user.id}>{user.email}</li>
+										))} */}
+									<div className="z-5">
+										{UsersData.filter((item) => {
+											const email =
+												item.email.toLowerCase();
+
+											return (
+												searchTerm &&
+												email.startsWith(searchTerm) &&
+												email !== searchTerm
+											);
+										})
+											.slice(0, 10)
+											.map((item) => (
+												<div
+													onClick={() =>
+														onSearch(item.email)
+													}
+													key={item.id}
+												>
+													{item.first_name}(
+													{item.role})
+												</div>
+											))}
+									</div>
+									<Autocomplete
+										id="free-solo-demo"
+										freeSolo
+										options={UsersData.map(
+											(option: any) => option.email,
+										)}
+										renderInput={(params) => (
+											<TextField {...params} />
+										)}
+									/>
 								</Grid>
 								<Grid>
-									<button>Search</button>
+									<button onClick={() => onSearch(value)}>
+										Search
+									</button>
 								</Grid>
 							</Grid>
 							<br />
 							<Grid className="flexrow">
 								<Grid>Permission Set:</Grid>
-								<select>
-									<option>Admin</option>
-									<option>Manager</option>
-									<option>Advisor</option>
+								<select onChange={handleChangePermissionSet}>
+									{permissionSets.map((item) => (
+										<option
+											key={item.id}
+											value={item.permission}
+										>
+											{item.permission}
+										</option>
+									))}
 								</select>
 							</Grid>
 							<br />
-							<Grid>
-								<Typography>Division:</Typography>
+							<Grid className="flexrow">
+								<Typography className="pr-8">
+									Division:
+								</Typography>
+								<Grid className="border-grey-1">
+									{name.subdivision === 'SL' ? (
+										<FormGroup>
+											<FormControlLabel
+												control={
+													<Checkbox defaultChecked />
+												}
+												label="SL"
+												disabled
+											/>
+										</FormGroup>
+									) : (
+										<FormGroup>
+											<FormControlLabel
+												control={
+													<Checkbox defaultChecked />
+												}
+												label="SP"
+												disabled
+											/>
+										</FormGroup>
+									)}
+								</Grid>
 							</Grid>
 							<br />
-							<Grid>
-								<Typography>Sub Division:</Typography>
-							</Grid>
+							{name.subdivision === 'SP' && (
+								<Grid className="flexrow">
+									<Typography className="pr-8">
+										Sub Division:
+									</Typography>
+									<Grid>
+										<FormGroup>
+											<FormControlLabel
+												control={<Checkbox />}
+												label="OSB"
+											/>
+										</FormGroup>
+										<FormGroup>
+											<FormControlLabel
+												control={<Checkbox />}
+												label="PLY"
+											/>
+										</FormGroup>
+									</Grid>
+								</Grid>
+							)}
 						</Grid>
 					</Grid>
 					<Grid className="flexrow pt-16 justify-space-evenly">
-						<Button variant="contained">Save</Button>
+						<Button disabled={!searchTerm} variant="contained">
+							Save
+						</Button>
 						<Button
 							// onClick={handleCancel}
+							onClick={handleClose}
 							className="bg-grey col-white"
 						>
 							Cancel

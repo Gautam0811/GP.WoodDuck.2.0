@@ -5,6 +5,8 @@
 
 import { useState, useEffect } from 'react';
 import '../../../../../styles/StyleMain.css';
+
+import '../../styles/Header.css';
 import {
 	Grid,
 	FormControl,

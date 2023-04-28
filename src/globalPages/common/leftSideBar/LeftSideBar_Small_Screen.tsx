@@ -21,7 +21,7 @@ import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import '../../../styles/LeftSideBar.css';
+import './styles/LeftSideBar.css';
 import '../../../styles/StyleMain.css';
 import { Grid, Stack, Modal, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';

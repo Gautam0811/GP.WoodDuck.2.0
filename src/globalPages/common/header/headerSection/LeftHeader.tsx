@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import '../../../../styles/StyleMain.css';
+import '../styles/Header.css';
 import { LeftSideBar_Small_Screen } from '../../leftSideBar/LeftSideBar_Small_Screen';
 
 export function LeftHeader() {

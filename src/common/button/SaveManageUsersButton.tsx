@@ -105,7 +105,7 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 				</div>
 			</LoadingButton>
 			<Modal open={open}>
-				<Box className="edit-permissions-modal">
+				<Box className="modal-class">
 					<Typography className="fs-24 text-align-center col-005fa8">
 						Edit Users
 					</Typography>

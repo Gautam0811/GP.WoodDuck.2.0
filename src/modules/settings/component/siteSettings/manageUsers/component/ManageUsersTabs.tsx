@@ -26,6 +26,8 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
 import { CloseButton } from '../../../../../../common/button';
+import '../../../../styles/Settings.css';
+
 interface SelectedRowParams {
 	id: GridRowId;
 }

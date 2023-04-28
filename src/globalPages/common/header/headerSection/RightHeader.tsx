@@ -15,7 +15,7 @@ import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
 import CalculateTwoToneIcon from '@mui/icons-material/CalculateTwoTone';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import '../styles/Header.css';
 import '../../../../styles/StyleMain.css';
 
 import { Grid } from '@mui/material';
