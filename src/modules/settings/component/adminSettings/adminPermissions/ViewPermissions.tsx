@@ -83,11 +83,11 @@ export function ViewPermissions() {
 				if (isInEditMode) {
 					return [
 						// eslint-disable-next-line react/jsx-key
-						<GridActionsCellItem
-							icon={<Checkbox />}
-							label="Save"
-							onClick={handleRowSelection(id)}
-						/>,
+						// <GridActionsCellItem
+						// 	icon={<Checkbox />}
+						// 	label="Save"
+						// 	onClick={handleRowSelection(id)}
+						// />,
 					];
 				}
 				return [
@@ -365,6 +365,7 @@ export function ViewPermissions() {
 					// onRowSelectionModelChange={(ids: GridRowId) =>
 					// 	handleRowSelection(ids)
 					// }
+					loading={!permissionRows.length}
 					isRowSelectable={(params) => params.row.Role !== 'Admin'}
 					disableRowSelectionOnClick={true}
 					rowModesModel={rowModesModel}
