@@ -1,379 +1,312 @@
-// // // // WD_Permissions
-// // // // Component Utility : The Component is created to render permissions sets and controls page in Administration settings
-// // // // Author Gautam Malhotra on 1-3-2023
-// // // // -------------------------
-
-import { useState, useEffect, useMemo } from 'react';
-import Grid from '@mui/material/Grid';
-import CheckIcon from '@mui/icons-material/Check';
-import { BindPermissionGrid } from '../../../index';
-import { AddPermissions } from './AddPermissions';
-import { CloseButton } from '../../../../../common/button';
+/* eslint-disable react/jsx-key */
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import CancelIcon from '@mui/icons-material/Close';
 import {
-	GridColDef,
-	DataGrid,
-	GridRowId,
-	GridRowModesModel,
-	GridRowModel,
-	GridActionsCellItem,
-	GridRowModes,
 	GridRowsProp,
-	GridRowSelectionModel,
+	GridRowModesModel,
+	GridRowModes,
+	DataGrid,
+	GridColDef,
+	GridRowParams,
+	MuiEvent,
+	GridToolbarContainer,
+	GridActionsCellItem,
+	GridEventListener,
+	GridRowId,
+	GridRowModel,
 } from '@mui/x-data-grid';
-import { EditPermissions } from './EditPermissions';
-import Checkbox from '@mui/material/Checkbox';
-import { getPermissionSet } from '../../../services/Api';
-import { DeletePermissions } from './DeletePermissions';
+import {
+	randomCreatedDate,
+	randomTraderName,
+	randomUpdatedDate,
+	randomId,
+} from '@mui/x-data-grid-generator';
 
-interface SelectedRowParams {
-	id: GridRowId;
+const initialRows: GridRowsProp = [
+	{
+		id: 1,
+		name: randomTraderName(),
+		age: 25,
+		dateCreated: randomCreatedDate(),
+		lastLogin: randomUpdatedDate(),
+	},
+	{
+		id: 2,
+		name: randomTraderName(),
+		age: 36,
+		dateCreated: randomCreatedDate(),
+		lastLogin: randomUpdatedDate(),
+	},
+	{
+		id: 3,
+		name: randomTraderName(),
+		age: 19,
+		dateCreated: randomCreatedDate(),
+		lastLogin: randomUpdatedDate(),
+	},
+	{
+		id: 4,
+		name: randomTraderName(),
+		age: 28,
+		dateCreated: randomCreatedDate(),
+		lastLogin: randomUpdatedDate(),
+	},
+	{
+		id: 5,
+		name: randomTraderName(),
+		age: 23,
+		dateCreated: randomCreatedDate(),
+		lastLogin: randomUpdatedDate(),
+	},
+];
+
+interface EditToolbarProps {
+	rowsIds: any;
+	rows: any;
+	rowModesModel: any;
+	setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
+	setRowModesModel: (
+		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
+	) => void;
+}
+
+function EditToolbar(props: EditToolbarProps) {
+	const { rowsIds, rows, rowModesModel, setRows, setRowModesModel } = props;
+
+	const handleClick = () => {
+		var id = rows[rows.length - 1].id + 1;
+		setRows((oldRows) => [
+			...oldRows,
+			{ id, name: '', age: '', isNew: true },
+		]);
+		setRowModesModel((oldModel) => ({
+			...oldModel,
+			[id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
+		}));
+	};
+	const handleEditClick = (rowsIds: GridRowId[]) => () => {
+		rowsIds.forEach(function (id: GridRowId) {
+			console.log(id);
+			setRowModesModel({
+				...rowModesModel,
+				[id]: { mode: GridRowModes.Edit },
+			});
+		});
+	};
+
+	return (
+		<GridToolbarContainer>
+			<Button
+				color="primary"
+				startIcon={<AddIcon />}
+				onClick={handleClick}
+			>
+				Add record
+			</Button>
+			<Button
+				color="primary"
+				startIcon={<EditIcon />}
+				onClick={handleEditClick(rowsIds)}
+			/>
+		</GridToolbarContainer>
+	);
 }
 
 export function ViewPermissions() {
-	const [permissionRows, setPermissionRows] = useState<GridRowsProp>([]);
-	const [selectedRowParams, setSelectedRowParams] =
-		useState<SelectedRowParams>();
+	const [rows, setRows] = React.useState(initialRows);
+	const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
+		{},
+	);
+	const [rowsIds, setRowIds] = React.useState<GridRowId[]>([]);
 
-	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
-
-	const [checked, setChecked] = useState(true);
-
-	//get permission set from api
-	useEffect(() => {
-		getPermissionSet().then((permissionset) => {
-			setPermissionRows(BindPermissionGrid(permissionset));
-		});
-	}, []);
-
-	const handleRowSelection = (id: GridRowId) => () => {
-		setSelectedRowParams({ id });
-		console.log(selectedRowParams);
+	const handleRowEditStart = (
+		params: GridRowParams,
+		event: MuiEvent<React.SyntheticEvent>,
+	) => {
+		event.defaultMuiPrevented = true;
 	};
 
-	console.log(permissionRows);
+	const addToRowId = (id: any) => () => {
+		rowsIds.push(id);
+		console.log(rowsIds);
+	};
+
+	console.log(rowsIds);
+
+	const onRowSelectionModelChange = (ids: any) => {
+		addToRowId(ids);
+		console.log(rowsIds);
+	};
+
+	const handleRowEditStop: GridEventListener<'rowEditStop'> = (
+		params,
+		event,
+	) => {
+		event.defaultMuiPrevented = true;
+	};
+
+	const handleEditClick = (id: any) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.Edit },
+		});
+	};
+
+	const handleSaveClick = (id: GridRowId) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.View },
+		});
+	};
+
+	const handleDeleteClick = (id: GridRowId) => () => {
+		setRows(rows.filter((row) => row.id !== id));
+	};
+
+	const handleCancelClick = (id: GridRowId) => () => {
+		setRowModesModel({
+			...rowModesModel,
+			[id]: { mode: GridRowModes.View, ignoreModifications: true },
+		});
+
+		const editedRow = rows.find((row) => row.id === id);
+		if (editedRow!.isNew) {
+			setRows(rows.filter((row) => row.id !== id));
+		}
+	};
 
 	const processRowUpdate = (newRow: GridRowModel) => {
 		const updatedRow = { ...newRow, isNew: false };
-		setPermissionRows(
-			permissionRows.map((row) =>
-				row.id === newRow.id ? updatedRow : row,
-			),
-		);
+		setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
 		return updatedRow;
 	};
 
-	const rowMode = useMemo(() => {
-		if (!selectedRowParams) {
-			return 'view';
-		}
-		const { id } = selectedRowParams;
-		return rowModesModel[id]?.mode || 'view';
-	}, [rowModesModel, selectedRowParams]);
+	const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
+		setRowModesModel(newRowModesModel);
+	};
 
 	const columns: GridColDef[] = [
 		{
 			field: 'actions',
 			type: 'actions',
-			headerName: '',
+			headerName: 'Actions',
 			width: 100,
 			cellClassName: 'actions',
 			getActions: ({ id }) => {
-				const isInEditMode =
-					rowModesModel[id]?.mode === GridRowModes.Edit;
-				if (isInEditMode) {
-					return [
-						// eslint-disable-next-line react/jsx-key
-						// <GridActionsCellItem
-						// 	icon={<Checkbox />}
-						// 	label="Save"
-						// 	onClick={handleRowSelection(id)}
-						// />,
-					];
-				}
 				return [
-					// eslint-disable-next-line react/jsx-key
 					<GridActionsCellItem
-						icon={<Checkbox />}
+						icon={<SaveIcon />}
 						label="Save"
-						onClick={handleRowSelection(id)}
+						onClick={addToRowId(id)}
 					/>,
 				];
 			},
 		},
+		// {
+		// 	field: 'actions',
+		// 	type: 'actions',
+		// 	headerName: 'Actions',
+		// 	width: 100,
+		// 	cellClassName: 'actions',
+		// 	getActions: ({ id }) => {
+		// 		const isInEditMode =
+		// 			rowModesModel[id]?.mode === GridRowModes.Edit;
 
-		{ field: 'Role', headerName: 'Role', width: 100, editable: true },
-		{
-			field: 'EnterEditQuote',
-			headerName: 'Enter Edit Quote',
-			width: 100,
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-		},
-		{
-			field: 'EnterEditOrder',
-			headerName: 'Enter Edit Order',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'SetSalesPlan',
-			headerName: 'Set Sales Plan',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 160,
-		},
+		// 		if (isInEditMode) {
+		// 			return [
+		// 				<GridActionsCellItem
+		// 					icon={<SaveIcon />}
+		// 					label="Save"
+		// 					onClick={handleSaveClick(id)}
+		// 				/>,
+		// 				<GridActionsCellItem
+		// 					icon={<CancelIcon />}
+		// 					label="Cancel"
+		// 					className="textPrimary"
+		// 					onClick={handleCancelClick(id)}
+		// 					color="inherit"
+		// 				/>,
+		// 			];
+		// 		}
 
+		// 		return [
+		// 			<GridActionsCellItem
+		// 				icon={<EditIcon />}
+		// 				label="Edit"
+		// 				className="textPrimary"
+		// 				onClick={handleEditClick(id)}
+		// 				color="inherit"
+		// 			/>,
+		// 			<GridActionsCellItem
+		// 				icon={<DeleteIcon />}
+		// 				label="Delete"
+		// 				onClick={handleDeleteClick(id)}
+		// 				color="inherit"
+		// 			/>,
+		// 		];
+		// 	},
+		// },
+		{ field: 'name', headerName: 'Name', width: 180, editable: true },
+		{ field: 'age', headerName: 'Age', type: 'number', editable: true },
 		{
-			field: 'ManageSG',
-			headerName: 'Manage Sales Grids',
-			align: 'center',
-			type: 'boolean',
+			field: 'dateCreated',
+			headerName: 'Date Created',
+			type: 'date',
+			width: 180,
 			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
 		},
 		{
-			field: 'ReadOnlyQuote',
-			headerName: 'Read-Only Quote',
-			align: 'center',
-			type: 'boolean',
+			field: 'lastLogin',
+			headerName: 'Last Login',
+			type: 'dateTime',
+			width: 220,
 			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'ReadOnlyOrder',
-			headerName: 'Read-Only Order',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'ManageTweaker',
-			headerName: 'Manage Tweaker',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'ManageECommerce',
-			headerName: 'Manage E-Commerce',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'SetControlsPermissions',
-			headerName: 'Set/Controls Permissions',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'AssignDivisionAccess',
-			headerName: 'Assign Division Access',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'Dashboard',
-			headerName: 'Dashboard',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'ManagingDefaultListViews',
-			headerName: 'Managing Default List Views',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'ManagingIntegrationMappingMills',
-			headerName: 'Managing Integration Mapping Mills to Products',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'SendDcxInfo',
-			headerName: 'Send DCX Info',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
-		},
-		{
-			field: 'PriceExperimentation',
-			headerName: 'Price Experimentation (Lumber Only)',
-			align: 'center',
-			type: 'boolean',
-			editable: true,
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-			width: 100,
 		},
 	];
 
 	return (
-		<div>
-			<Grid className="settings-header">
-				<span className="settings-header-text">
-					Manage Permission Sets
-				</span>
-				<div className="flexrow">
-					<EditPermissions
-						selectedRowParams={selectedRowParams}
-						rowMode={rowMode}
-						rowModesModel={rowModesModel}
-						setRowModesModel={setRowModesModel}
-					/>
-					<DeletePermissions
-						rows={permissionRows}
-						setRows={setPermissionRows}
-						selectedRowParams={selectedRowParams}
-					/>
-					<AddPermissions
-						setRows={setPermissionRows}
-						setRowModesModel={setRowModesModel}
-						rows={permissionRows}
-					/>
-					<CloseButton />
-				</div>
-			</Grid>
-			<br />
-			<br />
-			<div className="h-400 w100">
-				<DataGrid
-					rows={permissionRows}
-					columns={columns}
-					// checkboxSelection
-					// onRowSelectionModelChange={(ids: GridRowId) =>
-					// 	handleRowSelection(ids)
-					// }
-					loading={!permissionRows.length}
-					isRowSelectable={(params) => params.row.Role !== 'Admin'}
-					disableRowSelectionOnClick={true}
-					rowModesModel={rowModesModel}
-					isCellEditable={(params) => params.row.Role !== 'Admin'}
-					onRowModesModelChange={(model) => setRowModesModel(model)}
-					processRowUpdate={processRowUpdate}
-				/>
-			</div>
-		</div>
+		<Box
+			sx={{
+				height: 500,
+				width: '100%',
+				'& .actions': {
+					color: 'text.secondary',
+				},
+				'& .textPrimary': {
+					color: 'text.primary',
+				},
+			}}
+		>
+			<DataGrid
+				rows={rows}
+				columns={columns}
+				// checkboxSelection
+				// onRowSelectionModelChange={(ids) => console.log(ids)}
+				editMode="row"
+				rowModesModel={rowModesModel}
+				onRowModesModelChange={handleRowModesModelChange}
+				onRowEditStart={handleRowEditStart}
+				onRowEditStop={handleRowEditStop}
+				processRowUpdate={processRowUpdate}
+				slots={{
+					toolbar: EditToolbar,
+				}}
+				slotProps={{
+					toolbar: {
+						rowsIds,
+						rows,
+						rowModesModel,
+						setRows,
+						setRowModesModel,
+					},
+				}}
+			/>
+		</Box>
 	);
 }
