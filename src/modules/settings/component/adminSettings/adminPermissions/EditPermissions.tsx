@@ -10,18 +10,24 @@ interface SelectedRowParams {
 }
 
 interface EditProps {
-	selectedRowParams?: SelectedRowParams;
+	setSelectedRowParams: any;
+	selectedRowParams: SelectedRowParams;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
 }
 
 export function EditPermissions(props: EditProps) {
-	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
-		props;
+	const {
+		setSelectedRowParams,
+		selectedRowParams,
+		rowMode,
+		rowModesModel,
+		setRowModesModel,
+	} = props;
 
 	const handleSaveOrEdit = () => {
-		if (!selectedRowParams) {
+		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
 			return;
 		}
 		const { id } = selectedRowParams;
@@ -43,6 +49,7 @@ export function EditPermissions(props: EditProps) {
 		<Box>
 			{rowMode === 'edit' ? (
 				<SaveButton
+					setSelectedRowParams={setSelectedRowParams}
 					selectedRowParams={selectedRowParams}
 					rowMode={rowMode}
 					rowModesModel={rowModesModel}
@@ -52,7 +59,9 @@ export function EditPermissions(props: EditProps) {
 				<Button
 					className="flexcolumn fs-10"
 					onClick={handleSaveOrEdit}
-					disabled={!selectedRowParams}
+					disabled={
+						selectedRowParams.id === 0 || selectedRowParams.id === 1
+					}
 				>
 					<EditIcon className="fs-14" />
 					<p>Edit Permissions</p>

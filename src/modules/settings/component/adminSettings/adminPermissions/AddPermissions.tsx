@@ -8,6 +8,7 @@ import {
 } from '@mui/x-data-grid';
 
 interface AddProps {
+	setSelectedRowParams: any;
 	rows: any;
 	setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
 	setRowModesModel: (
@@ -16,7 +17,7 @@ interface AddProps {
 }
 
 export function AddPermissions(props: AddProps) {
-	const { rows, setRows, setRowModesModel } = props;
+	const { setSelectedRowParams, rows, setRows, setRowModesModel } = props;
 
 	const handleClick = () => {
 		let id: number = rows[rows.length - 1].id + 1;
@@ -25,6 +26,7 @@ export function AddPermissions(props: AddProps) {
 			...oldModel,
 			[id]: { mode: GridRowModes.Edit, fieldToFocus: 'Role' },
 		}));
+		setSelectedRowParams({ id });
 	};
 
 	return (

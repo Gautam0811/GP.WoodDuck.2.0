@@ -19,18 +19,24 @@ interface SelectedRowParams {
 }
 
 interface EditToolbarProps {
-	selectedRowParams?: SelectedRowParams;
+	setSelectedRowParams: any;
+	selectedRowParams: SelectedRowParams;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
 }
 
 export function SaveButton(props: EditToolbarProps) {
-	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
-		props;
+	const {
+		setSelectedRowParams,
+		selectedRowParams,
+		rowMode,
+		rowModesModel,
+		setRowModesModel,
+	} = props;
 
 	const handleCancel = () => {
-		if (!selectedRowParams) {
+		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
 			return;
 		}
 		const { id } = selectedRowParams;
@@ -38,10 +44,11 @@ export function SaveButton(props: EditToolbarProps) {
 			...rowModesModel,
 			[id]: { mode: GridRowModes.View, ignoreModifications: true },
 		});
+		setSelectedRowParams({ id: 0 });
 	};
 
 	const handleSaveOrEdit = () => {
-		if (!selectedRowParams) {
+		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
 			return;
 		}
 		const { id } = selectedRowParams;
@@ -56,13 +63,12 @@ export function SaveButton(props: EditToolbarProps) {
 				[id]: { mode: GridRowModes.Edit },
 			});
 		}
-
+		setSelectedRowParams({ id: 0 });
 		// if (rowMode === "view"){
 		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
 		// }
 	};
 
-	const [post, setPost]: any = useState({});
 	const [name, setName]: any = useState({});
 
 	const [open, setOpen] = useState(false);
@@ -81,7 +87,9 @@ export function SaveButton(props: EditToolbarProps) {
 		<Box>
 			<LoadingButton
 				onClick={handleOpen}
-				disabled={!selectedRowParams}
+				disabled={
+					selectedRowParams.id === 0 || selectedRowParams.id === 1
+				}
 				className="fs-10 col-005fa8"
 			>
 				<div>
