@@ -1,74 +1,63 @@
+// data
+// Component Utility : This is the data page which has all the data in Json format which is used by all the components
+// Author Gautam Malhotra on 1-3-2023
+// -------------------------
+//This is the data which is used by different components, it is hard coded now but will be replaced by API calls once the
+//backend architecture is confirmed.
 import { GridColDef } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { GridRowsProp } from '@mui/x-data-grid';
+
 // Manage Users Grid Data
 //The actual implementation will have call to a API.
-export const PermissionsDatacolumns: GridColDef[] = [
-	{ field: 'Role', headerName: 'Role', width: 100, editable: true },
+export const OrdersGridcolumns: GridColDef[] = [
+	{ field: 'id', headerName: '', type: 'number', width: 100 },
 	{
-		field: 'EnterEditQuote',
-		headerName: 'Enter Edit Quote',
-		width: 100,
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-	},
-	{
-		field: 'EnterEditOrder',
-		headerName: 'Enter Edit Order',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
+		field: 'businessLine',
+		headerName: 'Business Line',
+		type: 'string',
 		width: 100,
 	},
 	{
-		field: 'SetSalesPlan',
-		headerName: 'Set Sales Plan',
+		field: 'subDivision',
+		headerName: 'Sub Division',
+		type: 'string',
+		width: 100,
+	},
+	{
+		field: 'firstName',
+		headerName: 'First Name',
+		type: 'string',
+		width: 100,
+	},
+	{
+		field: 'lastName',
+		headerName: 'LastName',
 		align: 'center',
-		type: 'boolean',
+		width: 100,
+		type: 'string',
 		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
+	},
+	{
+		field: 'email',
+		headerName: 'Email',
+		align: 'center',
+		type: 'string',
 		width: 160,
 	},
 
 	{
-		field: 'ManageSG',
-		headerName: 'Manage Sales Grids',
+		field: 'permissionSet',
+		headerName: 'Permission Set',
 		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
+		type: 'string',
+		width: 130,
 	},
 	{
-		field: 'ReadOnlyQuote',
-		headerName: 'Read-Only Quote',
+		field: 'activeUser',
+		headerName: 'Active User',
 		align: 'center',
+		width: 100,
 		type: 'boolean',
 		editable: true,
 		renderCell(params) {
@@ -78,256 +67,194 @@ export const PermissionsDatacolumns: GridColDef[] = [
 				<div></div>
 			);
 		},
-		width: 100,
 	},
 	{
-		field: 'ReadOnlyOrder',
-		headerName: 'Read-Only Order',
+		field: 'temporaryPermission',
+		headerName: 'Temporary Permission',
 		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
+		type: 'string',
+		width: 160,
 	},
 	{
-		field: 'ManageTweaker',
-		headerName: 'Manage Tweaker',
+		field: 'temporaryPermissionDate',
+		headerName: 'Temporary Permission Date Start/End',
 		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'ManageECommerce',
-		headerName: 'Manage E-Commerce',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'SetControlsPermissions',
-		headerName: 'Set/Controls Permissions',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'AssignDivisionAccess',
-		headerName: 'Assign Division Access',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'Dashboard',
-		headerName: 'Dashboard',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'ManagingDefaultListViews',
-		headerName: 'Managing Default List Views',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'ManagingIntegrationMappingMills',
-		headerName: 'Managing Integration Mapping Mills to Products',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'SendDcxInfo',
-		headerName: 'Send DCX Info',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
-	},
-	{
-		field: 'PriceExperimentation',
-		headerName: 'Price Experimentation (Lumber Only)',
-		align: 'center',
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-		width: 100,
+		type: 'string',
+		width: 200,
 	},
 ];
-
-function PermissionsSetData(
+//The actual implementation will have call to a API.
+export function OrdersGridcreateData(
 	id: number,
-	Role: string,
-	EnterEditQuote: boolean,
-	EnterEditOrder: boolean,
-	SetSalesPlan: boolean,
-	ManageSG: boolean,
-	ReadOnlyQuote: boolean,
-	ReadOnlyOrder: boolean,
-	ManageTweaker: boolean,
-	ManageECommerce: boolean,
-	SetControlsPermissions: boolean,
-	AssignDivisionAccess: boolean,
-	Dashboard: boolean,
-	ManagingDefaultListViews: boolean,
-	ManagingIntegrationMappingMills: boolean,
-	SendDcxInfo: boolean,
-	PriceExperimentation: boolean,
+	businessLine: string,
+	subDivision: string,
+	firstName: string,
+	lastName: string,
+	email: string,
+	permissionSet: string,
+	activeUser: boolean,
+	temporaryPermission: string,
+	temporaryPermissionDate: string,
 ) {
 	return {
 		id,
-		Role,
-		EnterEditQuote,
-		EnterEditOrder,
-		SetSalesPlan,
-		ManageSG,
-		ReadOnlyQuote,
-		ReadOnlyOrder,
-		ManageTweaker,
-		ManageECommerce,
-		SetControlsPermissions,
-		AssignDivisionAccess,
-		Dashboard,
-		ManagingDefaultListViews,
-		ManagingIntegrationMappingMills,
-		SendDcxInfo,
-		PriceExperimentation,
+		businessLine,
+		subDivision,
+		firstName,
+		lastName,
+		email,
+		permissionSet,
+		activeUser,
+		temporaryPermission,
+		temporaryPermissionDate,
 		key: Math.random(),
 	};
 }
-export const PermissionsData: GridRowsProp = [
-	PermissionsSetData(
+//The actual implementation will have call to a API.
+export const OrdersGridrows: GridRowsProp = [
+	OrdersGridcreateData(
 		1,
-		'Admin',
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
+		'SL',
+		'',
+		'Talladega',
+		'MPU',
+		'raj@gapac.com',
+		'Trader',
+		false,
+		'C',
+		'02/14/2023',
 	),
-	PermissionsSetData(
+	OrdersGridcreateData(
 		2,
-		'Read-Only',
+		'SL',
+		'',
+		'Piedmont-R',
+		'NOA',
+		'john@gapac.com',
+		'Trader',
 		false,
-		false,
-		false,
-		false,
-		true,
-		true,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
+		'T',
+		'02/14/2023',
 	),
-	PermissionsSetData(
+	OrdersGridcreateData(
 		3,
-		'Panel Trader',
+		'SL',
+		'',
+		'Piedmont-R',
+		'NOA',
+		'rama@gapac.com',
+		'Advisor',
+		false,
+		'T',
+		'02/14/2023',
+	),
+
+	OrdersGridcreateData(
+		4,
+		'SP',
+		'SPx',
+		'Piedmont-R',
+		'NOA',
+		'Kri6@gapac.com',
+		'Sales Manager',
 		true,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		5,
+		'SL',
+		'',
+		'Talladega',
+		'MPU',
+		'Kri5@gapac.com',
+		'Manager',
+		false,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		6,
+		'SL',
+		'',
+		'Piedmont-R',
+		'MPU',
+		'gautam@gapac.com',
+		'Manager',
 		true,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		7,
+		'SP',
+		'SPk',
+		'Talladega',
+		'NOA',
+		'rohan@gapac.com',
+		'User',
 		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
+		'T',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		8,
+		'SP',
+		'SPk',
+		'Piedmont-R',
+		'MPU',
+		'raja@gapac.com',
+		'Advisor',
 		true,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		9,
+		'SL',
+		'',
+		'Talladega',
+		'MPU',
+		'madan@gapac.com',
+		'Sales Manager',
 		false,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		10,
+		'SL',
+		'',
+		'Piedmont-R',
+		'NOA',
+		'Kri3@gapac.com',
+		'Manager',
+		true,
+		'T',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		11,
+		'SP',
+		'SPx',
+		'Talladega',
+		'MPU',
+		'dilip@gapac.com',
+		'Sales Manager',
 		false,
-		false,
-		false,
+		'C',
+		'02/14/2023',
+	),
+	OrdersGridcreateData(
+		12,
+		'SL',
+		'',
+		'Piedmont-R',
+		'MPU',
+		'Kris@gapac.com',
+		'Trader',
+		true,
+		'T',
+		'02/14/2023',
 	),
 ];

@@ -1,5 +1,5 @@
 import './App.css';
-import { Home } from './globalPages/home/index';
+import { Home } from './modules/home/index';
 import { ClaimContextProvider } from './context/claim/Claims';
 
 function App() {
