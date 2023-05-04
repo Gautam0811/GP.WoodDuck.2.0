@@ -21,7 +21,7 @@ import {
 } from '@mui/x-data-grid';
 import { EditPermissions } from './EditPermissions';
 import Checkbox from '@mui/material/Checkbox';
-import { getPermissionSet } from '../../../services/Api';
+import { getPermissionSet } from '../../../services/PermissionApi';
 import { DeletePermissions } from './DeletePermissions';
 
 interface SelectedRowParams {

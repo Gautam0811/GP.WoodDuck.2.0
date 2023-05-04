@@ -58,7 +58,7 @@ export function AdminSettings() {
 				</Link>
 				<Link to="/settings/adminpermissions" className="text-dec-none">
 					<Typography className="col-005fa8">
-						Permission Sets and Controls
+						Manage Permission Sets and Controls
 					</Typography>
 				</Link>
 			</Stack>
