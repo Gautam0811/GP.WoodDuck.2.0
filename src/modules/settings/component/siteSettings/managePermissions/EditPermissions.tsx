@@ -57,14 +57,20 @@ export function EditPermissions(props: EditProps) {
 				/>
 			) : (
 				<Button
-					className="flexcolumn fs-10"
+					className="buttontype6"
 					onClick={handleSaveOrEdit}
 					disabled={
 						selectedRowParams.id === 0 || selectedRowParams.id === 1
 					}
 				>
-					<EditIcon className="fs-14" />
-					<p>Edit Permissions</p>
+					<div>
+						<div>
+							<EditIcon className="icontype1" />
+						</div>
+						<div>
+							<span>Edit</span>
+						</div>
+					</div>
 				</Button>
 			)}
 		</Box>

@@ -14,6 +14,7 @@ import {
 	DataGrid,
 	GridRowId,
 	GridRowModes,
+	GridCellModes,
 	GridRowModesModel,
 	GridRowModel,
 	GridActionsCellItem,
@@ -47,6 +48,12 @@ export function ViewPermissions() {
 	};
 
 	console.log(permissionRows);
+
+	const handleOnCellDoubleClick = (params: any) => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		params.isEditable === false;
+		console.log(params);
+	};
 
 	const processRowUpdate = (newRow: GridRowModel) => {
 		const updatedRow = { ...newRow, isNew: false };
@@ -365,6 +372,9 @@ export function ViewPermissions() {
 					loading={!permissionRows.length}
 					isRowSelectable={(params) => params.row.Role !== 'Admin'}
 					disableRowSelectionOnClick={true}
+					onCellDoubleClick={(params, event) => {
+						event.defaultMuiPrevented = true;
+					}}
 					rowModesModel={rowModesModel}
 					isCellEditable={(params) => params.row.Role !== 'Admin'}
 					onRowModesModelChange={(model) => setRowModesModel(model)}

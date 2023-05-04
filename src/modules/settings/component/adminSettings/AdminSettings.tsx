@@ -56,11 +56,6 @@ export function AdminSettings() {
 						Misc Utilities
 					</Typography>
 				</Link>
-				<Link to="/settings/adminpermissions" className="text-dec-none">
-					<Typography className="col-005fa8">
-						Manage Permission Sets and Controls
-					</Typography>
-				</Link>
 			</Stack>
 			<br />
 		</Box>
