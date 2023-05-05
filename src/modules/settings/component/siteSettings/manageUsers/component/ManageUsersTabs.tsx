@@ -25,7 +25,11 @@ import {
 } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
-import { CloseButton } from '../../../../../../common/button';
+import {
+	CloseButton,
+	DeactivateButton,
+	SetTemporaryPermissionsButton,
+} from '../../../../../../common/button';
 import '../../../../styles/Settings.css';
 
 interface SelectedRowParams {
@@ -249,16 +253,23 @@ export function ManageUsersTabs() {
 			<Grid className="settings-header">
 				<span className="settings-header-text">Manage Users</span>
 				<div className="flexrow">
+					<AddManageUsers
+						setRows={setOrderFilterGridRow}
+						setRowModesModel={setRowModesModel}
+						rows={orderFilterGridRow}
+					/>
 					<EditManageUsers
 						selectedRowParams={selectedRowParams}
 						rowMode={rowMode}
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
 					/>
-					<AddManageUsers
-						setRows={setOrderFilterGridRow}
+					<SetTemporaryPermissionsButton />
+					<DeactivateButton
+						selectedRowParams={selectedRowParams}
+						rowMode={rowMode}
+						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
-						rows={orderFilterGridRow}
 					/>
 					<CloseButton />
 				</div>

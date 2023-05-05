@@ -38,3 +38,15 @@
     text-align:left;
     border:none;
   }
+
+  /* Add manage users modal component */
+  .modal-add-class{
+    position: absolute;
+    top: 130px;
+    right: 420px;
+    padding: 100px;
+    border-radius: 5px;
+    background-image: linear-gradient(180deg, white, #f1f4fb);
+    box-shadow: 30px;
+    padding: 10px;
+  }

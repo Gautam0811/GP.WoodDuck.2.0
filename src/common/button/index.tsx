@@ -4,7 +4,7 @@ export { EditButton } from './EditButton';
 export { SaveButton } from './SaveButton';
 export { DeleteButton } from './DeleteButton';
 export { CancelButton } from './CancelButton';
-export { InactivateButton } from './InactivateButton';
+export { DeactivateButton } from './DeactivateButton';
 export { SetTemporaryPermissionsButton } from './SetTemporaryPermissionsButton';
 export { ImportButton } from './ImportButton';
 export { SaveManageUsersButton } from './SaveManageUsersButton';

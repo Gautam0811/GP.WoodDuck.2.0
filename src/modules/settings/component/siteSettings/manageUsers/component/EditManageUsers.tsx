@@ -55,7 +55,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 					disabled={!selectedRowParams}
 				>
 					<EditIcon className="fs-14" />
-					<p>Edit Users</p>
+					<p>Edit</p>
 				</Button>
 			)}
 		</Box>
