@@ -922,10 +922,15 @@ input[type="submit"]:hover {
   padding: 10px;
 }
 
-/*Icons hidden in menu until re-size to be less than 1265px*/
+/*Hidden until re-size to be less than a certain size*/
 .icons-menu {
   display: none;
 }
+
+.mill-forcasts-dash {
+  display: none;
+}
+
 /*Hide right header to avoid header re-size*/
 
 @media only screen and (max-width: 1265px ) {
@@ -958,6 +963,15 @@ input[type="submit"]:hover {
 }
 
 /*Toolbar min-height to be 64px regardless of screen size*/
+@media only screen and (max-width: 1200px) {
+  .mill-forcasts-dash-display-none {
+    display: none;
+  }
+  .mill-forcasts-dash {
+    display: block;
+  }
+}
+
 @media (min-width: 0px ) {
   .css-hyum1k-MuiToolbar-root {
     min-height: 64px !important;
