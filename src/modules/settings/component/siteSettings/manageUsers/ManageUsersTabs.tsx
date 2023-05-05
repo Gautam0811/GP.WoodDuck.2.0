@@ -29,8 +29,8 @@ import {
 	CloseButton,
 	DeactivateButton,
 	SetTemporaryPermissionsButton,
-} from '../../../../../../common/button';
-import '../../../../styles/Settings.css';
+} from '../../../../../common/button';
+import '../../../styles/Settings.css';
 
 interface SelectedRowParams {
 	id: GridRowId;
