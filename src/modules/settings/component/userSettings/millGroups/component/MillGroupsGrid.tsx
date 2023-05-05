@@ -26,7 +26,7 @@ export function MillGroupsGrid() {
 	return (
 		<Container>
 			<Paper style={{ padding: 10 }}>
-				<MaterialTable items={tableData} />
+				<DndTable items={tableData} />
 			</Paper>
 		</Container>
 	);

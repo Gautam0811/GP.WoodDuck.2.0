@@ -16,6 +16,7 @@ import {
 	TableContainer,
 	TableHead,
 	TableRow,
+	Button,
 } from '@mui/material';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import { DataItem } from './MillGroupsGrid';
@@ -23,6 +24,12 @@ import { DataItem } from './MillGroupsGrid';
 export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 	// cache the items provided via props in state
 	const [localItems, setLocalItems] = useState<Array<DataItem>>(items);
+
+	const handleDelete = (postIndex: number) => {
+		setLocalItems((prevPosts: any) =>
+			prevPosts.filter((_: any, index: any) => index !== postIndex),
+		);
+	};
 
 	const handleDragEnd = (
 		result: DropResult,
@@ -117,6 +124,24 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 														</TableCell>
 														<TableCell align="right">
 															{item.Mills}
+														</TableCell>
+														<TableCell>
+															<Button
+																style={{
+																	marginRight: 10,
+																}}
+															>
+																Edit
+															</Button>
+															<Button
+																onClick={() =>
+																	handleDelete(
+																		index,
+																	)
+																}
+															>
+																Delete
+															</Button>
 														</TableCell>
 													</TableRow>
 												);
