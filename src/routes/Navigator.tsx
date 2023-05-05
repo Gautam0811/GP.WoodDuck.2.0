@@ -13,7 +13,7 @@ export function Navigator() {
 				<Route path="/" element={<Dashboard />} />
 				<Route path="/settings/*" element={<Settings />} />
 				<Route
-					path="/settings/adminpermissions"
+					path="/settings/ManagePermissions"
 					element={<Permissions />}
 				/>
 				<Route path="/manageUsers" element={<ManageUsers />} />
