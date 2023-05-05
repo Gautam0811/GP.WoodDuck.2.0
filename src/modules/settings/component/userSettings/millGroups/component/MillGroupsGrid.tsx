@@ -15,7 +15,7 @@ export interface DataItem {
 export function MillGroupsGrid() {
 	const tableData: Array<DataItem> = [
 		{ uuid: '1', id: 1, name: 'All Mills', Default: '', Mills: 7 },
-		{ uuid: '2', id: 2, name: 'Rpcky Cracks', Default: '', Mills: 11 },
+		{ uuid: '2', id: 2, name: 'Rocky Cracks', Default: '', Mills: 11 },
 		{ uuid: '3', id: 3, name: 'Eastern', Default: '', Mills: 14 },
 		{ uuid: '4', id: 4, name: 'Studs', Default: '', Mills: 4 },
 		{ uuid: '5', id: 4, name: 'Single Mills', Default: '', Mills: 2 },
