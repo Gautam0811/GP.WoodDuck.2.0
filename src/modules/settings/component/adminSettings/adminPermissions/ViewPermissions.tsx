@@ -1,312 +1,205 @@
-/* eslint-disable react/jsx-key */
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import CancelIcon from '@mui/icons-material/Close';
+import React, { useState } from 'react';
 import {
-	GridRowsProp,
-	GridRowModesModel,
-	GridRowModes,
-	DataGrid,
-	GridColDef,
-	GridRowParams,
-	MuiEvent,
-	GridToolbarContainer,
-	GridActionsCellItem,
-	GridEventListener,
-	GridRowId,
-	GridRowModel,
-} from '@mui/x-data-grid';
-import {
-	randomCreatedDate,
-	randomTraderName,
-	randomUpdatedDate,
-	randomId,
-} from '@mui/x-data-grid-generator';
+	Grid,
+	TextField,
+	Button,
+	Checkbox,
+	TableCell,
+	TableContainer,
+	Table,
+	TableHead,
+	TableBody,
+	TableRow,
+	Paper,
+} from '@mui/material';
 
-const initialRows: GridRowsProp = [
-	{
-		id: 1,
-		name: randomTraderName(),
-		age: 25,
-		dateCreated: randomCreatedDate(),
-		lastLogin: randomUpdatedDate(),
-	},
-	{
-		id: 2,
-		name: randomTraderName(),
-		age: 36,
-		dateCreated: randomCreatedDate(),
-		lastLogin: randomUpdatedDate(),
-	},
-	{
-		id: 3,
-		name: randomTraderName(),
-		age: 19,
-		dateCreated: randomCreatedDate(),
-		lastLogin: randomUpdatedDate(),
-	},
-	{
-		id: 4,
-		name: randomTraderName(),
-		age: 28,
-		dateCreated: randomCreatedDate(),
-		lastLogin: randomUpdatedDate(),
-	},
-	{
-		id: 5,
-		name: randomTraderName(),
-		age: 23,
-		dateCreated: randomCreatedDate(),
-		lastLogin: randomUpdatedDate(),
-	},
-];
-
-interface EditToolbarProps {
-	rowsIds: any;
-	rows: any;
-	rowModesModel: any;
-	setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
-	setRowModesModel: (
-		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-	) => void;
+interface RowData {
+	id: number;
+	name: string;
+	age: number;
 }
 
-function EditToolbar(props: EditToolbarProps) {
-	const { rowsIds, rows, rowModesModel, setRows, setRowModesModel } = props;
-
-	const handleClick = () => {
-		var id = rows[rows.length - 1].id + 1;
-		setRows((oldRows) => [
-			...oldRows,
-			{ id, name: '', age: '', isNew: true },
-		]);
-		setRowModesModel((oldModel) => ({
-			...oldModel,
-			[id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
-		}));
-	};
-	const handleEditClick = (rowsIds: GridRowId[]) => () => {
-		rowsIds.forEach(function (id: GridRowId) {
-			console.log(id);
-			setRowModesModel({
-				...rowModesModel,
-				[id]: { mode: GridRowModes.Edit },
-			});
-		});
-	};
-
-	return (
-		<GridToolbarContainer>
-			<Button
-				color="primary"
-				startIcon={<AddIcon />}
-				onClick={handleClick}
-			>
-				Add record
-			</Button>
-			<Button
-				color="primary"
-				startIcon={<EditIcon />}
-				onClick={handleEditClick(rowsIds)}
-			/>
-		</GridToolbarContainer>
-	);
+interface Props {
+	rows: RowData[];
+	onSave: (data: RowData[]) => void;
 }
 
-export function ViewPermissions() {
-	const [rows, setRows] = React.useState(initialRows);
-	const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
-		{},
-	);
-	const [rowsIds, setRowIds] = React.useState<GridRowId[]>([]);
+var EditMode = false;
 
-	const handleRowEditStart = (
-		params: GridRowParams,
-		event: MuiEvent<React.SyntheticEvent>,
-	) => {
-		event.defaultMuiPrevented = true;
-	};
+const ViewPermissions: React.FC<Props> = ({ rows, onSave }) => {
+	const [editingRows, setEditingRows] = useState<Record<number, RowData>>({});
+	const [selectedRows, setSelectedRows] = useState<number[]>([]);
+	const [isEditing, setIsEditing] = useState<boolean>(false);
 
-	const addToRowId = (id: any) => () => {
-		rowsIds.push(id);
-		console.log(rowsIds);
-	};
-
-	console.log(rowsIds);
-
-	const onRowSelectionModelChange = (ids: any) => {
-		addToRowId(ids);
-		console.log(rowsIds);
-	};
-
-	const handleRowEditStop: GridEventListener<'rowEditStop'> = (
-		params,
-		event,
-	) => {
-		event.defaultMuiPrevented = true;
-	};
-
-	const handleEditClick = (id: any) => () => {
-		setRowModesModel({
-			...rowModesModel,
-			[id]: { mode: GridRowModes.Edit },
-		});
-	};
-
-	const handleSaveClick = (id: GridRowId) => () => {
-		setRowModesModel({
-			...rowModesModel,
-			[id]: { mode: GridRowModes.View },
-		});
-	};
-
-	const handleDeleteClick = (id: GridRowId) => () => {
-		setRows(rows.filter((row) => row.id !== id));
-	};
-
-	const handleCancelClick = (id: GridRowId) => () => {
-		setRowModesModel({
-			...rowModesModel,
-			[id]: { mode: GridRowModes.View, ignoreModifications: true },
-		});
-
-		const editedRow = rows.find((row) => row.id === id);
-		if (editedRow!.isNew) {
-			setRows(rows.filter((row) => row.id !== id));
+	const handleCheckboxChange = (id: number) => {
+		console.log(id);
+		// selectedRows.include(id)
+		console.log(selectedRows);
+		if (isEditing) {
+			if (selectedRows.includes(id)) {
+				setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
+				setEditingRows((prev) => {
+					const { [id]: deleted, ...rest } = prev;
+					return rest;
+				});
+			} else {
+				setSelectedRows([...selectedRows, id]);
+				setEditingRows((prev) => ({
+					...prev,
+					[id]: rows.find((row) => row.id === id) as RowData,
+				}));
+			}
 		}
 	};
 
-	const processRowUpdate = (newRow: GridRowModel) => {
-		const updatedRow = { ...newRow, isNew: false };
-		setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
-		return updatedRow;
-	};
+	// const handleCreateNewRow = (values: Person) => {
+	// 	tableData.push(values);
+	// 	setTableData([...tableData]);
+	//   };
 
-	const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
-		setRowModesModel(newRowModesModel);
-	};
-
-	const columns: GridColDef[] = [
-		{
-			field: 'actions',
-			type: 'actions',
-			headerName: 'Actions',
-			width: 100,
-			cellClassName: 'actions',
-			getActions: ({ id }) => {
-				return [
-					<GridActionsCellItem
-						icon={<SaveIcon />}
-						label="Save"
-						onClick={addToRowId(id)}
-					/>,
-				];
+	const handleEdit = (id: number, field: keyof RowData, value: any) => {
+		setEditingRows((prev) => ({
+			...prev,
+			[id]: {
+				...prev[id],
+				[field]: value,
 			},
-		},
-		// {
-		// 	field: 'actions',
-		// 	type: 'actions',
-		// 	headerName: 'Actions',
-		// 	width: 100,
-		// 	cellClassName: 'actions',
-		// 	getActions: ({ id }) => {
-		// 		const isInEditMode =
-		// 			rowModesModel[id]?.mode === GridRowModes.Edit;
+		}));
+	};
 
-		// 		if (isInEditMode) {
-		// 			return [
-		// 				<GridActionsCellItem
-		// 					icon={<SaveIcon />}
-		// 					label="Save"
-		// 					onClick={handleSaveClick(id)}
-		// 				/>,
-		// 				<GridActionsCellItem
-		// 					icon={<CancelIcon />}
-		// 					label="Cancel"
-		// 					className="textPrimary"
-		// 					onClick={handleCancelClick(id)}
-		// 					color="inherit"
-		// 				/>,
-		// 			];
-		// 		}
+	const handleSave = () => {
+		const editedRows = rows.map((row) =>
+			editingRows[row.id] ? editingRows[row.id] : row,
+		);
+		onSave(editedRows);
+		console.log(editedRows);
+		//var a = document.getElementById("Age");
+		// console.log(a.innerText);
+		setEditingRows({});
+		setSelectedRows([]);
+		setIsEditing(false);
+	};
 
-		// 		return [
-		// 			<GridActionsCellItem
-		// 				icon={<EditIcon />}
-		// 				label="Edit"
-		// 				className="textPrimary"
-		// 				onClick={handleEditClick(id)}
-		// 				color="inherit"
-		// 			/>,
-		// 			<GridActionsCellItem
-		// 				icon={<DeleteIcon />}
-		// 				label="Delete"
-		// 				onClick={handleDeleteClick(id)}
-		// 				color="inherit"
-		// 			/>,
-		// 		];
-		// 	},
-		// },
-		{ field: 'name', headerName: 'Name', width: 180, editable: true },
-		{ field: 'age', headerName: 'Age', type: 'number', editable: true },
-		{
-			field: 'dateCreated',
-			headerName: 'Date Created',
-			type: 'date',
-			width: 180,
-			editable: true,
-		},
-		{
-			field: 'lastLogin',
-			headerName: 'Last Login',
-			type: 'dateTime',
-			width: 220,
-			editable: true,
-		},
-	];
+	const handleEditClick = () => {
+		EditMode = true;
+		setIsEditing(true);
+		console.log(selectedRows);
+	};
+
+	const handleCancelClick = () => {
+		setEditingRows({});
+		setSelectedRows([]);
+		setIsEditing(false);
+	};
 
 	return (
-		<Box
-			sx={{
-				height: 500,
-				width: '100%',
-				'& .actions': {
-					color: 'text.secondary',
-				},
-				'& .textPrimary': {
-					color: 'text.primary',
-				},
-			}}
-		>
-			<DataGrid
-				rows={rows}
-				columns={columns}
-				// checkboxSelection
-				// onRowSelectionModelChange={(ids) => console.log(ids)}
-				editMode="row"
-				rowModesModel={rowModesModel}
-				onRowModesModelChange={handleRowModesModelChange}
-				onRowEditStart={handleRowEditStart}
-				onRowEditStop={handleRowEditStop}
-				processRowUpdate={processRowUpdate}
-				slots={{
-					toolbar: EditToolbar,
-				}}
-				slotProps={{
-					toolbar: {
-						rowsIds,
-						rows,
-						rowModesModel,
-						setRows,
-						setRowModesModel,
-					},
-				}}
-			/>
-		</Box>
+		<TableContainer component={Paper}>
+			<Grid container justifyContent="flex-end" mt={2}>
+				<Grid item>
+					<Button
+						variant="contained"
+						color="primary"
+						onClick={handleSave}
+					>
+						Save
+					</Button>
+				</Grid>
+
+				<Grid item>
+					<Button
+						variant="contained"
+						color="primary"
+						onClick={handleEditClick}
+					>
+						Edit
+					</Button>
+				</Grid>
+
+				<Grid item>
+					<Button
+						variant="contained"
+						color="primary"
+						onClick={handleCancelClick}
+					>
+						Cancel
+					</Button>
+				</Grid>
+			</Grid>
+			<Table>
+				<TableHead>
+					<TableRow>
+						<TableCell padding="checkbox">
+							<Checkbox
+								indeterminate={
+									selectedRows.length > 0 &&
+									selectedRows.length < rows.length
+								}
+								checked={selectedRows.length === rows.length}
+								onChange={() =>
+									selectedRows.length === rows.length
+										? setSelectedRows([])
+										: setSelectedRows(
+												rows.map((row) => row.id),
+										  )
+								}
+							/>
+						</TableCell>
+						<TableCell>Name</TableCell>
+						<TableCell>Age</TableCell>
+					</TableRow>
+				</TableHead>
+				<TableBody>
+					{rows.map((row) => (
+						<TableRow key={row.id}>
+							<TableCell padding="checkbox">
+								<Checkbox
+									checked={selectedRows.includes(row.id)}
+									onChange={() =>
+										handleCheckboxChange(row.id)
+									}
+								/>
+							</TableCell>
+							<TableCell>
+								<TextField
+									label="Name"
+									value={
+										editingRows[row.id]?.name ?? row.name
+									}
+									onChange={(e) =>
+										handleEdit(
+											row.id,
+											'name',
+											e.target.value,
+										)
+									}
+									fullWidth
+									disabled={!selectedRows.includes(row.id)}
+									// disabled={true}
+								/>
+							</TableCell>
+							<TableCell>
+								<TextField
+									label="Age"
+									type="number"
+									value={editingRows[row.id]?.age ?? row.age}
+									onChange={(e) =>
+										handleEdit(
+											row.id,
+											'age',
+											e.target.value,
+										)
+									}
+									fullWidth
+									//disabled={true}
+									disabled={!selectedRows.includes(row.id)}
+								/>
+							</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+		</TableContainer>
 	);
-}
+};
+
+export { ViewPermissions };
