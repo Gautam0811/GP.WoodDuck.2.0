@@ -873,6 +873,11 @@ input[type="submit"]:hover {
   left: 2rem;
 }
 
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  border: none !important;
+  height: 10px !important;
+}
+
 .product-page-grid{
   width:100%;
   display: flex;

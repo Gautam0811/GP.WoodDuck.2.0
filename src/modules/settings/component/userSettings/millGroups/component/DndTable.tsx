@@ -32,7 +32,7 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 
 	const handleTextFieldChange = (
 		rowInd: number,
-		colName: 'name',
+		colName: string,
 		value: string,
 	) => {
 		localItems[rowInd][colName] = value;
@@ -137,22 +137,15 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 															<TableCell>
 																{item.id}
 															</TableCell>
-															<TableCell
-																align="right"
-																onClick={() => {
-																	setRowIndex(
-																		index,
-																	);
-																	setColIndex(
-																		0,
-																	);
-																}}
-															>
+															<TableCell align="right">
 																{rowIndex ===
 																	index &&
 																colIndex ===
 																	0 ? (
 																	<TextField
+																		style={{
+																			border: '0px',
+																		}}
 																		placeholder={
 																			item.name
 																		}
@@ -190,16 +183,102 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 																)}
 															</TableCell>
 															<TableCell align="right">
-																{item.Default}
+																{rowIndex ===
+																	index &&
+																colIndex ===
+																	0 ? (
+																	<TextField
+																		placeholder={
+																			item.Default
+																		}
+																		defaultValue={
+																			localItems[
+																				index
+																			][
+																				'Default'
+																			]
+																		}
+																		onChange={(
+																			event,
+																		) =>
+																			handleTextFieldChange(
+																				index,
+																				'Default',
+																				event
+																					.target
+																					.value,
+																			)
+																		}
+																		onKeyPress={(
+																			e,
+																		) => {
+																			if (
+																				e.key ===
+																				'Enter'
+																			) {
+																				handleExit();
+																			}
+																		}}
+																	/>
+																) : (
+																	item.Default
+																)}
 															</TableCell>
 															<TableCell align="right">
-																{item.Mills}
+																{rowIndex ===
+																	index &&
+																colIndex ===
+																	0 ? (
+																	<TextField
+																		placeholder={
+																			item.Mills
+																		}
+																		defaultValue={
+																			localItems[
+																				index
+																			][
+																				'Mills'
+																			]
+																		}
+																		onChange={(
+																			event,
+																		) =>
+																			handleTextFieldChange(
+																				index,
+																				'Mills',
+																				event
+																					.target
+																					.value,
+																			)
+																		}
+																		onKeyPress={(
+																			e,
+																		) => {
+																			if (
+																				e.key ===
+																				'Enter'
+																			) {
+																				handleExit();
+																			}
+																		}}
+																	/>
+																) : (
+																	item.Mills
+																)}
 															</TableCell>
 															<TableCell>
 																<Button
 																	style={{
 																		marginRight:
 																			-8,
+																	}}
+																	onClick={() => {
+																		setRowIndex(
+																			index,
+																		);
+																		setColIndex(
+																			0,
+																		);
 																	}}
 																>
 																	Edit

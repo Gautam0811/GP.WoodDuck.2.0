@@ -7,9 +7,9 @@ import Paper from '@mui/material/Paper';
 export interface DataItem {
 	uuid: string;
 	id: number;
-	name: string;
+	[name: string]: any;
 	Default: string;
-	Mills: number;
+	[Mills: number]: any;
 }
 
 export function MillGroupsGrid() {
