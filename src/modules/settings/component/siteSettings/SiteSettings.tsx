@@ -78,6 +78,16 @@ export function SiteSettings() {
 						Cross Reference Data
 					</Typography>
 				</Link>
+				{data.isAdmin && (
+					<Link
+						to="/settings/managepermissions"
+						className="text-dec-none"
+					>
+						<Typography className="col-005fa8">
+							Manage Permission Sets and Controls
+						</Typography>
+					</Link>
+				)}
 			</Stack>
 			<br />
 		</Box>

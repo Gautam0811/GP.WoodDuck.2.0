@@ -36,7 +36,6 @@ export const OrdersGridcolumns: GridColDef[] = [
 		align: 'center',
 		width: 100,
 		type: 'string',
-		editable: true,
 	},
 	{
 		field: 'email',

@@ -6,15 +6,15 @@ import Grid from '@mui/material/Grid';
 import DashboardMarket from './DashboardMarket';
 import DashboardObjects from '../common/DashboardObjects';
 import DashboardGridObjects from '../common/DashboardGridObjects';
-import DashboardMillForecasts from './DashboardMillForecast';
-import { DasboardHitRaterows } from '../services/Data';
-import { DasboardPercentForecastSoldrows } from '../services/Data';
+import DasboardMillForecasts from './DashboardMillForecast';
+import { DasboardHitRaterows } from '../services/DashboardData';
+import { DasboardPercentForecastSoldrows } from '../services/DashboardData';
 import {
 	MarketSegmentData,
 	MillsData,
 	MarketData,
 	SalesData,
-} from '../services/Data';
+} from '../services/DashboardData';
 
 export function Dashboard() {
 	return (

@@ -1,0 +1,52 @@
+/* settings */
+/* for settings header */
+.settings-header{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f4fb;
+  }
+  
+  /* for settings header text*/
+  .settings-header-text{
+    justify-content: center; 
+    padding-left: 20px;
+    font-weight: bold;
+  }
+  
+  /* for setting mainsection */
+  .css-vj1n65-MuiGrid-root.settings-mainsection-grid{
+      padding-top: 50px;
+      justify-content: space-evenly;
+      display: flex;
+      flex-direction: row;
+  }
+  
+  .settings-table{
+    color: #1357a6; 
+  }
+  
+  .settings-table th{
+    color: black;
+    background-color: #f1f4fb;
+    padding:10px;
+  }
+  
+  .settings-table tr{
+    text-align:left;
+    border:none;
+  }
+
+  /* Add manage users modal component */
+  .modal-add-class{
+    position: absolute;
+    top: 130px;
+    right: 420px;
+    padding: 100px;
+    border-radius: 5px;
+    background-image: linear-gradient(180deg, white, #f1f4fb);
+    box-shadow: 30px;
+    padding: 10px;
+  }

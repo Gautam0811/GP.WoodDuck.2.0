@@ -46,7 +46,7 @@ export function EditButton(props: any) {
 				</div>
 			</LoadingButton>
 			<Modal open={open} onClose={handleClose}>
-				<Box className="edit-permissions-modal">
+				<Box className="modal-class">
 					<Grid className="p-8 pr-32">
 						<Typography className="fs-24 text-align-center col-005fa8">
 							Edit Permission Set

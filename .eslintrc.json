@@ -20,6 +20,8 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
+		"no-unused-expressions": "off",
+		"@typescript-eslint/no-unused-expressions": "error",
 		"react/react-in-jsx-scope": ["off"],
 		"react/jsx-filename-extension": [
 			1,

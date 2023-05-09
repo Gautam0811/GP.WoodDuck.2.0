@@ -19,18 +19,24 @@ interface SelectedRowParams {
 }
 
 interface EditToolbarProps {
-	selectedRowParams?: SelectedRowParams;
+	setSelectedRowParams: any;
+	selectedRowParams: SelectedRowParams;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
 }
 
 export function SaveButton(props: EditToolbarProps) {
-	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
-		props;
+	const {
+		setSelectedRowParams,
+		selectedRowParams,
+		rowMode,
+		rowModesModel,
+		setRowModesModel,
+	} = props;
 
 	const handleCancel = () => {
-		if (!selectedRowParams) {
+		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
 			return;
 		}
 		const { id } = selectedRowParams;
@@ -38,10 +44,11 @@ export function SaveButton(props: EditToolbarProps) {
 			...rowModesModel,
 			[id]: { mode: GridRowModes.View, ignoreModifications: true },
 		});
+		setSelectedRowParams({ id: 0 });
 	};
 
 	const handleSaveOrEdit = () => {
-		if (!selectedRowParams) {
+		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
 			return;
 		}
 		const { id } = selectedRowParams;
@@ -56,6 +63,7 @@ export function SaveButton(props: EditToolbarProps) {
 				[id]: { mode: GridRowModes.Edit },
 			});
 		}
+		setSelectedRowParams({ id: 0 });
 
 		// if (rowMode === "view"){
 		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -94,7 +102,7 @@ export function SaveButton(props: EditToolbarProps) {
 				</div>
 			</LoadingButton>
 			<Modal open={open}>
-				<Box className="edit-permissions-modal">
+				<Box className="modal-class">
 					<Grid className="p-8 pr-32">
 						<Typography className="fs-24 text-align-center col-005fa8">
 							Save Permissions Set Edits?
