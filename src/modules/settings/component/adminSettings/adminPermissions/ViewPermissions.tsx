@@ -1,7 +1,11 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
+import Modal from '@mui/material/Modal';
 import {
 	GridRowsProp,
 	GridCellModesModel,
@@ -17,6 +21,7 @@ import {
 import { BindPermissionGrid } from '../../../index';
 import { getPermissionSet } from '../../../services/Api';
 import { useState, useEffect } from 'react';
+import { Grid, Typography } from '@mui/material';
 
 interface EditToolbarProps {
 	permissionRows: any;
@@ -49,7 +54,8 @@ export function ViewPermissions() {
 		{
 			field: 'EnterEditQuote',
 			headerName: 'Enter Edit Quote',
-			width: 100,
+			headerAlign: 'center',
+			width: 130,
 			type: 'boolean',
 			editable: true,
 			renderCell(params) {
@@ -73,7 +79,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SetSalesPlan',
@@ -88,7 +94,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 160,
+			width: 130,
 		},
 
 		{
@@ -104,7 +110,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 150,
 		},
 		{
 			field: 'ReadOnlyQuote',
@@ -119,7 +125,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ReadOnlyOrder',
@@ -134,7 +140,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManageTweaker',
@@ -149,7 +155,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManageECommerce',
@@ -164,7 +170,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SetControlsPermissions',
@@ -179,7 +185,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'AssignDivisionAccess',
@@ -194,7 +200,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 150,
 		},
 		{
 			field: 'Dashboard',
@@ -224,7 +230,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManagingIntegrationMappingMills',
@@ -239,7 +245,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SendDcxInfo',
@@ -254,7 +260,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'PriceExperimentation',
@@ -269,7 +275,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 	];
 	const onRowSelectionModelChange = (ids: any) => {
@@ -291,7 +297,8 @@ export function ViewPermissions() {
 			setCellModesModel,
 			setPermissionRows,
 		} = props;
-
+		const [open, setOpen] = useState(false);
+		const handleOpen = () => setOpen(true);
 		const isInEditMode = Object.keys(cellModesModel).some((rowId) => {
 			return (
 				cellModesModel[rowId].Role.mode === GridCellModes.Edit &&
@@ -423,6 +430,83 @@ export function ViewPermissions() {
 
 			setCellModesModel(newModel);
 		};
+		const handleCancel = () => {
+			console.log('handleclick');
+			console.log(filterRows);
+			const newModel = filterRows.reduce<any>((acc, row: any) => {
+				console.log(row.id);
+				console.log(acc);
+				acc[row.id] = {
+					Role: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					EnterEditQuote: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					EnterEditOrder: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SetSalesPlan: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageSG: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ReadOnlyQuote: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ReadOnlyOrder: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageTweaker: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageECommerce: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SetControlsPermissions: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					AssignDivisionAccess: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					Dashboard: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManagingDefaultListViews: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManagingIntegrationMappingMills: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SendDcxInfo: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					PriceExperimentation: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+				};
+				return acc;
+			}, {});
+
+			setCellModesModel(newModel);
+		};
 		const handleAdd = () => {
 			let id: number = permissionRows[permissionRows.length - 1].id + 1;
 			setPermissionRows((oldRows) => [...oldRows, { id }]);
@@ -491,39 +575,65 @@ export function ViewPermissions() {
 		};
 
 		return (
-			<GridToolbarContainer>
-				<Button
-					color="primary"
-					startIcon={<AddIcon />}
-					onClick={handleClick}
-					disabled={isInEditMode}
-				>
-					Edit
-				</Button>
-				<Button
-					color="primary"
-					startIcon={<AddIcon />}
-					onClick={handleDelete}
-				>
-					Delete
-				</Button>
-				<Button
-					color="primary"
-					startIcon={<AddIcon />}
-					onClick={handleAdd}
-					disabled={isInEditMode}
-				>
-					Add
-				</Button>
-				<Button
-					color="primary"
-					startIcon={<AddIcon />}
-					onClick={handleSave}
-					disabled={!isInEditMode}
-				>
-					Save
-				</Button>
-			</GridToolbarContainer>
+			<Grid style={{ float: 'right', marginLeft: 'auto' }}>
+				<GridToolbarContainer>
+					<Button
+						color="primary"
+						startIcon={<EditIcon />}
+						onClick={handleClick}
+						disabled={isInEditMode}
+					>
+						Edit
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<DeleteIcon />}
+						onClick={handleDelete}
+					>
+						Delete
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<AddOutlinedIcon />}
+						onClick={handleAdd}
+						disabled={isInEditMode}
+					>
+						Add
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<SaveIcon />}
+						onClick={handleOpen}
+						disabled={!isInEditMode}
+					>
+						Save
+					</Button>
+				</GridToolbarContainer>
+				<Modal open={open}>
+					<Box className="modal-class">
+						<Grid className="p-8 pr-32">
+							<Typography className="fs-24 text-align-center col-005fa8">
+								Save Permissions Set Edits?
+							</Typography>
+							<p>
+								Are you sure you want to save the permission
+								sets?
+							</p>
+						</Grid>
+						<Grid className="flexrow pt-16 justify-space-evenly">
+							<Button onClick={handleSave} variant="contained">
+								Yes
+							</Button>
+							<Button
+								onClick={handleCancel}
+								className="bg-grey col-white"
+							>
+								No
+							</Button>
+						</Grid>
+					</Box>
+				</Modal>
+			</Grid>
 		);
 	}
 
@@ -579,10 +689,10 @@ export function ViewPermissions() {
 	};
 
 	return (
-		<Box
+		<Grid
 			sx={{
 				height: 500,
-				width: '100%',
+				width: '85%',
 				'& .actions': {
 					color: 'text.secondary',
 				},
@@ -618,6 +728,6 @@ export function ViewPermissions() {
 					},
 				}}
 			/>
-		</Box>
+		</Grid>
 	);
 }
