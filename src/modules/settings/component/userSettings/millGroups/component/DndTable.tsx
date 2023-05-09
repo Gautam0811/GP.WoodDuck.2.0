@@ -29,6 +29,7 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 
 	const [rowIndex, setRowIndex] = React.useState(-1);
 	const [colIndex, setColIndex] = React.useState(-1);
+	const [selectedEdit, setSelectedEdit] = React.useState(false);
 
 	const handleTextFieldChange = (
 		rowInd: number,
@@ -47,6 +48,18 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 		setLocalItems((prevPosts: any) =>
 			prevPosts.filter((_: any, index: any) => index !== postIndex),
 		);
+	};
+
+	const handleEdit = (index: number) => {
+		setSelectedEdit(!selectedEdit);
+		if (selectedEdit == false) {
+			setRowIndex(index);
+			setColIndex(0);
+		}
+		if (selectedEdit == true) {
+			setRowIndex(-1);
+			setColIndex(-1);
+		}
 	};
 
 	const handleDragEnd = (
@@ -272,14 +285,11 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 																		marginRight:
 																			-8,
 																	}}
-																	onClick={() => {
-																		setRowIndex(
+																	onClick={() =>
+																		handleEdit(
 																			index,
-																		);
-																		setColIndex(
-																			0,
-																		);
-																	}}
+																		)
+																	}
 																>
 																	Edit
 																</Button>
