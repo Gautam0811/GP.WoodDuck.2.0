@@ -51,11 +51,11 @@ export function Dashboard() {
 					spacing={6}
 				/>
 				<div className="mx-32 mill-forcasts-dash">
-					<DashboardMillForecasts />
+					<DasboardMillForecasts />
 				</div>
 			</Grid>
 			<Grid className="w30 width-md-100 mill-forcasts-dash-display-none">
-				<DashboardMillForecasts />
+				<DasboardMillForecasts />
 			</Grid>
 		</Grid>
 	);
