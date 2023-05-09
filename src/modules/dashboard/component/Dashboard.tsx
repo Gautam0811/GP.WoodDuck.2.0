@@ -19,7 +19,7 @@ import {
 export function Dashboard() {
 	return (
 		<Grid className="flexrow w100 bg-e3f2fd">
-			<Grid className="w70 fs-12">
+			<Grid className="fs-12">
 				<DashboardMarket
 					title="Market"
 					data={MarketData()}
@@ -50,8 +50,11 @@ export function Dashboard() {
 					data={DasboardHitRaterows}
 					spacing={6}
 				/>
+				<div className="mx-32 mill-forcasts-dash">
+					<DasboardMillForecasts />
+				</div>
 			</Grid>
-			<Grid className="w30 width-md-100">
+			<Grid className="w30 width-md-100 mill-forcasts-dash-display-none">
 				<DasboardMillForecasts />
 			</Grid>
 		</Grid>
