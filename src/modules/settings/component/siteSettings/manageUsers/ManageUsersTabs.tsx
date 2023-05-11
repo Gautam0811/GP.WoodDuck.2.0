@@ -29,6 +29,7 @@ import {
 	CloseButton,
 	DeactivateButton,
 	SetTemporaryPermissionsButton,
+	ActivateButton,
 } from '../../../../../common/button';
 import '../../../styles/Settings.css';
 
@@ -69,6 +70,14 @@ export function ManageUsersTabs() {
 
 	const [selectedRowParams, setSelectedRowParams] =
 		useState<SelectedRowParams>();
+
+	// const [notify, setNotify] = useState({
+	// 	isOpen: false,
+	// 	message: '',
+	// 	type: '',
+	// });
+
+	// const [apiResponse, setApiResponse] = useState(true);
 
 	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
@@ -253,24 +262,45 @@ export function ManageUsersTabs() {
 			<Grid className="settings-header">
 				<span className="settings-header-text">Manage Users</span>
 				<div className="flexrow">
-					<AddManageUsers
-						setRows={setOrderFilterGridRow}
-						setRowModesModel={setRowModesModel}
-						rows={orderFilterGridRow}
-					/>
-					<EditManageUsers
-						selectedRowParams={selectedRowParams}
-						rowMode={rowMode}
-						rowModesModel={rowModesModel}
-						setRowModesModel={setRowModesModel}
-					/>
-					<SetTemporaryPermissionsButton />
-					<DeactivateButton
-						selectedRowParams={selectedRowParams}
-						rowMode={rowMode}
-						rowModesModel={rowModesModel}
-						setRowModesModel={setRowModesModel}
-					/>
+					{isActive ? (
+						<div className="flexrow">
+							<AddManageUsers
+								setRows={setOrderFilterGridRow}
+								setRowModesModel={setRowModesModel}
+								rows={orderFilterGridRow}
+								isActive={isActive}
+							/>
+							<EditManageUsers
+								selectedRowParams={selectedRowParams}
+								rowMode={rowMode}
+								rowModesModel={rowModesModel}
+								setRowModesModel={setRowModesModel}
+								isActive={isActive}
+							/>
+							<SetTemporaryPermissionsButton
+								selectedRowParams={selectedRowParams}
+								rowMode={rowMode}
+								rowModesModel={rowModesModel}
+								setRowModesModel={setRowModesModel}
+								isActive={isActive}
+							/>
+						</div>
+					) : null}
+					{isActive ? (
+						<DeactivateButton
+							selectedRowParams={selectedRowParams}
+							rowMode={rowMode}
+							rowModesModel={rowModesModel}
+							setRowModesModel={setRowModesModel}
+						/>
+					) : (
+						<ActivateButton
+							selectedRowParams={selectedRowParams}
+							rowMode={rowMode}
+							rowModesModel={rowModesModel}
+							setRowModesModel={setRowModesModel}
+						/>
+					)}
 					<CloseButton />
 				</div>
 			</Grid>

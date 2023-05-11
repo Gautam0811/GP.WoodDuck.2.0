@@ -8,3 +8,4 @@ export { DeactivateButton } from './DeactivateButton';
 export { SetTemporaryPermissionsButton } from './SetTemporaryPermissionsButton';
 export { ImportButton } from './ImportButton';
 export { SaveManageUsersButton } from './SaveManageUsersButton';
+export { ActivateButton } from './ActivateButton';

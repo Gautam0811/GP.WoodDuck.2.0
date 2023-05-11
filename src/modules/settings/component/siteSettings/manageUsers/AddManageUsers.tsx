@@ -10,15 +10,16 @@ import {
 	Checkbox,
 } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	GridRowsProp,
 	GridRowModesModel,
 	GridRowModes,
 } from '@mui/x-data-grid';
-import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
+import { SnackbarOrigin } from '@mui/material/Snackbar';
 import { UsersData, permissionSets } from '../manageUsers/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
+import Notification from '../../../services/Notification';
 
 interface AddProps {
 	rows: any;
@@ -26,6 +27,7 @@ interface AddProps {
 	setRowModesModel: (
 		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
 	) => void;
+	isActive: boolean;
 }
 
 export interface State extends SnackbarOrigin {
@@ -42,36 +44,67 @@ const options: CheckBoxOptions[] = [
 	{ label: 'PLY', value: 'PLY' },
 ];
 
+export interface State extends SnackbarOrigin {
+	openSnack: boolean;
+}
+
 export function AddManageUsers(props: AddProps) {
-	const [state, setState] = React.useState<State>({
+	const [state, setState] = useState<State>({
 		openSnack: false,
 		vertical: 'top',
-		horizontal: 'center',
+		horizontal: 'right',
 	});
-	const { vertical, horizontal, openSnack } = state;
+
+	// const { vertical, horizontal, openSnack } = state;
 
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
 
-	const handleCloseSnack = () => {
-		setState({ ...state, openSnack: false });
-	};
+	// const handleCloseSnack = () => {
+	// 	setState({ ...state, openSnack: false });
+	// };
 
-	const { rows, setRows, setRowModesModel } = props;
+	const { rows, setRows, setRowModesModel, isActive } = props;
+
+	const [user, setUser] = useState(UsersData);
+
+	const [notify, setNotify] = useState({
+		isOpen: false,
+		message: '',
+		type: '',
+	});
+
+	const [apiResponse, setApiResponse] = useState(false);
 
 	const [open, setOpen] = useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
+	const handleOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
 
+	const handleCancel = () => {
+		setOpen(false);
+		setApiResponse(false);
+		setNotify({
+			isOpen: true,
+			message:
+				'User added unsuccessful.  Added user(s) have not been saved, please contact IT Admin.',
+			type: 'error',
+		});
+	};
 	const [value, setValue] = useState('');
 
 	const onChange = (event: any) => {
+		console.log('onchange', emailId);
 		setValue(event.target.value);
 	};
 
-	const onSearch = (emailId: any) => {
+	const onSearch = (emailId: string) => {
+		console.log(emailId);
 		setValue(emailId);
 		console.log('search', emailId);
 	};
@@ -134,7 +167,12 @@ export function AddManageUsers(props: AddProps) {
 			[id]: { mode: GridRowModes.View, fieldToFocus: 'businessLine' },
 		}));
 		handleClose();
-		console.log(id);
+		setApiResponse(true);
+		setNotify({
+			isOpen: true,
+			message: 'User added Successful, User has been successfully added!',
+			type: 'success',
+		});
 	};
 
 	let empty;
@@ -149,9 +187,42 @@ export function AddManageUsers(props: AddProps) {
 
 	const emailId = value.toLowerCase();
 
+	// check if array contains the entered emailId
+	const isFound = user.some((element: any) => {
+		if (element.email === emailId) {
+			return true;
+		}
+		return false;
+	});
+
+	if (isFound) {
+		console.log('Email Id exists');
+	} else {
+		console.log('EmailId does not exist');
+	}
+
+	const [emailExists, setEmailExists] = useState(false);
+
+	// check if entered email is already present in the datagrid list
+	const isEmailExists = (emailId: any) => {
+		for (const row of rows) {
+			if (row.email === emailId) {
+				setEmailExists(true);
+			} else {
+				setEmailExists(false);
+			}
+		}
+	};
+
+	console.log('emailecistts', emailExists);
+
 	return (
 		<>
-			<LoadingButton className="buttontype4" onClick={handleOpen}>
+			<LoadingButton
+				className="fs-10"
+				disabled={!isActive}
+				onClick={handleOpen}
+			>
 				<div>
 					<div>
 						<AddOutlinedIcon className="icontype1" />
@@ -161,6 +232,11 @@ export function AddManageUsers(props: AddProps) {
 					</div>
 				</div>
 			</LoadingButton>
+			{apiResponse ? (
+				<Notification notify={notify} setNotify={setNotify} />
+			) : (
+				<Notification notify={notify} setNotify={setNotify} />
+			)}
 			<Modal open={open}>
 				<Box className="modal-add-class">
 					<Grid className="p-8 pr-32 ">
@@ -168,12 +244,26 @@ export function AddManageUsers(props: AddProps) {
 							Add User
 						</Typography>
 						<Grid>
+							{emailId ? null : (
+								<div className="col-red">Required *</div>
+							)}
+							{isFound || !emailId ? null : (
+								<div className="col-red">
+									User does not exist
+								</div>
+							)}
+							{emailExists ? (
+								<div className="col-red">
+									User already entered in the list
+								</div>
+							) : null}
 							<Grid className="flexrow">
 								<Grid>Email:</Grid>
 								<Grid>
 									<input
 										onChange={onChange}
-										type="email"
+										type="text"
+										value={emailId}
 										required
 									></input>
 									{/* ToDo: Waiting for backend API */}
@@ -190,23 +280,31 @@ export function AddManageUsers(props: AddProps) {
 											.slice(0, 10)
 											.map((item) => (
 												<div
-													onClick={() =>
-														onSearch(item.email)
-													}
+													onClick={() => {
+														onSearch(item.email);
+														isEmailExists(
+															item.email,
+														);
+													}}
+													className="email-drop-down-container"
 													key={item.id}
 												>
-													{item.first_name}(
-													{item.role})
+													<ul>
+														<li>
+															{item.first_name}(
+															{item.role})
+														</li>
+													</ul>
 												</div>
 											))}
 									</div>
 								</Grid>
 								{/* Put check email null and email present in array wala logic */}
-								{/* <Grid>
-									<button onClick={() => onSearch(value)}>
+								<Grid>
+									<button onClick={() => onSearch(emailId)}>
 										Search
 									</button>
-								</Grid> */}
+								</Grid>
 							</Grid>
 							<br />
 							{name.subdivision === 'SP' ? (
@@ -319,24 +417,33 @@ export function AddManageUsers(props: AddProps) {
 						</Grid>
 					</Grid>
 					<Grid className="flexrow pt-16 justify-space-evenly">
+						{name.subdivision === 'SP' ? (
+							<Button
+								disabled={
+									empty || !isFound || emailExists || !emailId
+								}
+								onClick={handleClickSnack({
+									vertical: 'top',
+									horizontal: 'right',
+								})}
+								variant="contained"
+							>
+								Add
+							</Button>
+						) : (
+							<Button
+								disabled={!isFound || emailExists || !emailId}
+								onClick={handleClickSnack({
+									vertical: 'top',
+									horizontal: 'right',
+								})}
+								variant="contained"
+							>
+								Add
+							</Button>
+						)}
 						<Button
-							disabled={empty || !emailId}
-							onClick={handleClickSnack({
-								vertical: 'top',
-								horizontal: 'right',
-							})}
-							variant="contained"
-						>
-							Save
-						</Button>
-						<Snackbar
-							anchorOrigin={{ vertical, horizontal }}
-							open={rows}
-							message="Successfully created"
-							key={vertical + horizontal}
-						/>
-						<Button
-							onClick={handleClose}
+							onClick={handleCancel}
 							className="bg-grey col-white"
 						>
 							Cancel

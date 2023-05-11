@@ -1,11 +1,8 @@
-// WD_Buttons
-// Component Utility : The Component is created to provide all the buttons that are to be used in WoodDuck 2.0
-// Author Ananya Dhar on 1-3-2023
-// -------------------------
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { GridRowId, GridRowModesModel } from '@mui/x-data-grid';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 interface SelectedRowParams {
 	id: GridRowId;
@@ -18,19 +15,18 @@ interface EditToolbarProps {
 	rowMode: 'view' | 'edit';
 }
 
-export function DeactivateButton(props: EditToolbarProps) {
-	const { selectedRowParams, rowModesModel, rowMode, setRowModesModel } =
-		props;
+export function ActivateButton(props: EditToolbarProps) {
+	const { selectedRowParams } = props;
 
 	return (
 		<Box>
 			<LoadingButton disabled={!selectedRowParams} className="fs-10">
 				<div>
 					<div>
-						<CloseOutlinedIcon className="icontype1" />
+						<AddOutlinedIcon className="icontype1" />
 					</div>
 					<div>
-						<span>Deactivate</span>
+						<span>Activate</span>
 					</div>
 				</div>
 			</LoadingButton>

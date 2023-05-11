@@ -41,14 +41,15 @@ export function RightHeader() {
 				<Toolbar>
 					<Grid className="flexrow pl-24 rh-margin">
 						<Grid className="user-name">
-							{name.isAdmin ? (
+							{/* {name.isAdmin ? (
 								<Subdivision />
 							) : (
 								<div>
 									{' '}
 									<br />
 								</div>
-							)}
+							)} */}
+							<Subdivision />
 							<Grid
 								className="font-black hide_view"
 								component="div"

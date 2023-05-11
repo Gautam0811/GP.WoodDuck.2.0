@@ -61,7 +61,7 @@ export function SiteSettings() {
 					</Typography>
 				</Link>
 				{data.isAdmin && (
-					<Link to="/manageUsers" className="text-dec-none">
+					<Link to="/settings/manageUsers" className="text-dec-none">
 						<Typography className="col-005fa8">
 							Manage Users
 						</Typography>

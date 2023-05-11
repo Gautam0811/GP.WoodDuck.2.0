@@ -50,3 +50,38 @@
     box-shadow: 30px;
     padding: 10px;
   }
+
+  /* email input dropdown  */
+  .email-drop-down-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .email-drop-down-container ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: calc(100% + 5px);
+    min-width: 100%;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    gap: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #d4d4d4;
+    list-style: none;
+  }
+  
+  .email-drop-down-container ul li{
+    background-color: #fcfcfc;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color ease .2s;
+  }
+  .email-drop-down-container ul li:hover{
+    background-color: #005fa8;
+    color: #fcfcfc;
+  }

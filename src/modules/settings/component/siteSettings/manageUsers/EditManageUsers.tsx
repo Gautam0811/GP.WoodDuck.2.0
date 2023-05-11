@@ -14,11 +14,17 @@ interface EditToolbarProps {
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
+	isActive: boolean;
 }
 
 export function EditManageUsers(props: EditToolbarProps) {
-	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
-		props;
+	const {
+		selectedRowParams,
+		rowMode,
+		rowModesModel,
+		setRowModesModel,
+		isActive,
+	} = props;
 
 	const handleSaveOrEdit = () => {
 		if (!selectedRowParams) {
@@ -52,7 +58,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 				<Button
 					className="flexcolumn fs-10"
 					onClick={handleSaveOrEdit}
-					disabled={!selectedRowParams}
+					disabled={!selectedRowParams || !isActive}
 				>
 					<EditIcon className="fs-14" />
 					<p>Edit</p>
