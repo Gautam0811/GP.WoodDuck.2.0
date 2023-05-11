@@ -201,16 +201,6 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 																colIndex ===
 																	0 ? (
 																	<TextField
-																		placeholder={
-																			item.Default
-																		}
-																		defaultValue={
-																			localItems[
-																				index
-																			][
-																				'Default'
-																			]
-																		}
 																		onChange={(
 																			event,
 																		) =>

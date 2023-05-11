@@ -1,116 +1,79 @@
-// // // // WD_Permissions
-// // // // Component Utility : The Component is created to render permissions sets and controls page in Administration settings
-// // // // Author Gautam Malhotra on 1-3-2023
-// // // // -------------------------
-
-import { useState, useEffect, useMemo } from 'react';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
-import { BindPermissionGrid } from '../../../index';
-import { AddPermissions } from './AddPermissions';
-import { CloseButton } from '../../../../../common/button';
+import Modal from '@mui/material/Modal';
 import {
-	GridColDef,
-	DataGrid,
-	GridRowId,
-	GridRowModes,
-	GridCellModes,
-	GridRowModesModel,
-	GridRowModel,
-	GridActionsCellItem,
 	GridRowsProp,
+	GridCellModesModel,
+	DataGrid,
+	GridColDef,
+	MuiEvent,
+	GridToolbarContainer,
+	GridEventListener,
+	GridRowModel,
+	GridCellModes,
+	GridCellParams,
 } from '@mui/x-data-grid';
-import { EditPermissions } from './EditPermissions';
-import Checkbox from '@mui/material/Checkbox';
+import { BindPermissionGrid } from '../../../index';
 import { getPermissionSet } from '../../../services/PermissionApi';
-import { DeletePermissions } from './DeletePermissions';
+import { useState, useEffect } from 'react';
+import { Grid, Typography } from '@mui/material';
+import { Notification } from '../../../services/Notification';
+import { SnackbarOrigin } from '@mui/material/Snackbar';
 
-interface SelectedRowParams {
-	id: GridRowId;
+interface EditToolbarProps {
+	permissionRows: any;
+	cellModesModel: GridCellModesModel;
+	setCellModesModel: (
+		newModel: (oldModel: GridCellModesModel) => GridCellModesModel,
+	) => void;
+	setPermissionRows: (
+		newRows: (oldRows: GridRowsProp) => GridRowsProp,
+	) => void;
+}
+export interface State extends SnackbarOrigin {
+	openSnack: boolean;
 }
 
 export function ViewPermissions() {
+	let lodash = require('lodash');
 	const [permissionRows, setPermissionRows] = useState<GridRowsProp>([]);
-	const [selectedRowParams, setSelectedRowParams] =
-		useState<SelectedRowParams>({ id: 0 });
+	// const [rows, setRows] = useState(permissionRows);
+	const [cellModesModel, setCellModesModel] = useState<GridCellModesModel>(
+		{},
+	);
+	const [filterRows, setFilterRows] = useState<GridRowsProp>([]);
 
-	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
+	const [notify, setNotify] = useState({
+		isOpen: false,
+		message: '',
+		type: '',
+	});
+	const [state, setState] = useState<State>({
+		openSnack: false,
+		vertical: 'top',
+		horizontal: 'right',
+	});
 
-	//get permission set from api
+	const [apiResponse, setApiResponse] = useState(false);
+
 	useEffect(() => {
-		getPermissionSet().then((permissionset) => {
+		getPermissionSet().then((permissionset: any) => {
 			setPermissionRows(BindPermissionGrid(permissionset));
 		});
 	}, []);
 
-	const handleRowSelection = (id: GridRowId) => () => {
-		setSelectedRowParams({ id });
-	};
-
-	console.log(permissionRows);
-
-	const handleOnCellDoubleClick = (params: any) => {
-		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-		params.isEditable === false;
-		console.log(params);
-	};
-
-	const processRowUpdate = (newRow: GridRowModel) => {
-		const updatedRow = { ...newRow, isNew: false };
-		setPermissionRows(
-			permissionRows.map((row) =>
-				row.id === newRow.id ? updatedRow : row,
-			),
-		);
-		return updatedRow;
-	};
-
-	const rowMode = useMemo(() => {
-		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
-			return 'view';
-		}
-		const { id } = selectedRowParams;
-		return rowModesModel[id]?.mode || 'view';
-	}, [rowModesModel, selectedRowParams]);
-
 	const columns: GridColDef[] = [
-		{
-			field: 'actions',
-			type: 'actions',
-			headerName: '',
-			width: 100,
-			cellClassName: 'actions',
-			getActions: ({ id }) => {
-				const isInEditMode =
-					rowModesModel[id]?.mode === GridRowModes.Edit;
-				if (isInEditMode) {
-					return [
-						//eslint-disable-next-line react/jsx-key
-						<GridActionsCellItem
-							icon={<Checkbox checked />}
-							label="Edit"
-							onClick={handleRowSelection(id)}
-						/>,
-					];
-				}
-				return [
-					// eslint-disable-next-line react/jsx-key
-					<GridActionsCellItem
-						icon={
-							<Checkbox checked={selectedRowParams.id === id} />
-						}
-						label="Select"
-						onClick={handleRowSelection(id)}
-					/>,
-				];
-			},
-		},
-
 		{ field: 'Role', headerName: 'Role', width: 100, editable: true },
 		{
 			field: 'EnterEditQuote',
 			headerName: 'Enter Edit Quote',
-			width: 100,
+			headerAlign: 'center',
+			width: 130,
 			type: 'boolean',
 			editable: true,
 			renderCell(params) {
@@ -134,7 +97,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SetSalesPlan',
@@ -149,7 +112,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 160,
+			width: 130,
 		},
 
 		{
@@ -165,7 +128,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 150,
 		},
 		{
 			field: 'ReadOnlyQuote',
@@ -180,7 +143,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ReadOnlyOrder',
@@ -195,7 +158,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManageTweaker',
@@ -210,7 +173,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManageECommerce',
@@ -225,7 +188,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SetControlsPermissions',
@@ -240,7 +203,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'AssignDivisionAccess',
@@ -255,7 +218,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 150,
 		},
 		{
 			field: 'Dashboard',
@@ -285,7 +248,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'ManagingIntegrationMappingMills',
@@ -300,7 +263,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'SendDcxInfo',
@@ -315,7 +278,7 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 		{
 			field: 'PriceExperimentation',
@@ -330,57 +293,489 @@ export function ViewPermissions() {
 					<div></div>
 				);
 			},
-			width: 100,
+			width: 130,
 		},
 	];
+	const onRowSelectionModelChange = (ids: any) => {
+		console.log('handleRowEditStart');
+		const selectedIDs = new Set(ids);
+		console.log('selectedIDs :' + selectedIDs);
+		setFilterRows(
+			permissionRows.filter((row: any) => {
+				return selectedIDs.has(row.id);
+			}),
+		);
+
+		console.log(filterRows);
+	};
+	function EditToolbar(props: EditToolbarProps) {
+		const {
+			permissionRows,
+			cellModesModel,
+			setCellModesModel,
+			setPermissionRows,
+		} = props;
+		const [open, setOpen] = useState(false);
+		const handleOpen = () => setOpen(true);
+		const isInEditMode = Object.keys(cellModesModel).some((rowId) => {
+			return (
+				cellModesModel[rowId].Role.mode === GridCellModes.Edit &&
+				cellModesModel[rowId].EnterEditQuote.mode ===
+					GridCellModes.Edit &&
+				cellModesModel[rowId].EnterEditOrder.mode === GridCellModes.Edit
+			);
+		});
+
+		const handleClickSnack = (newState: SnackbarOrigin) => () => {
+			setState({ openSnack: true, ...newState });
+			handleSave();
+		};
+		const handleClick = () => {
+			console.log('handleclick');
+			console.log(filterRows);
+			const newModel = filterRows.reduce<any>((acc, row: any) => {
+				console.log(row.id);
+				console.log(acc);
+				acc[row.id] = {
+					Role: {
+						mode: GridCellModes.Edit,
+					},
+					EnterEditQuote: {
+						mode: GridCellModes.Edit,
+					},
+					EnterEditOrder: {
+						mode: GridCellModes.Edit,
+					},
+					SetSalesPlan: {
+						mode: GridCellModes.Edit,
+					},
+					ManageSG: {
+						mode: GridCellModes.Edit,
+					},
+					ReadOnlyQuote: {
+						mode: GridCellModes.Edit,
+					},
+					ReadOnlyOrder: {
+						mode: GridCellModes.Edit,
+					},
+					ManageTweaker: {
+						mode: GridCellModes.Edit,
+					},
+					ManageECommerce: {
+						mode: GridCellModes.Edit,
+					},
+					SetControlsPermissions: {
+						mode: GridCellModes.Edit,
+					},
+					AssignDivisionAccess: {
+						mode: GridCellModes.Edit,
+					},
+					Dashboard: {
+						mode: GridCellModes.Edit,
+					},
+					ManagingDefaultListViews: {
+						mode: GridCellModes.Edit,
+					},
+					ManagingIntegrationMappingMills: {
+						mode: GridCellModes.Edit,
+					},
+					SendDcxInfo: {
+						mode: GridCellModes.Edit,
+					},
+					PriceExperimentation: {
+						mode: GridCellModes.Edit,
+					},
+				};
+				return acc;
+			}, {});
+
+			setCellModesModel(newModel);
+		};
+		const handleSave = () => {
+			console.log('handleclick');
+			console.log(filterRows);
+			const newModel = filterRows.reduce<any>((acc, row: any) => {
+				console.log(row.id);
+				console.log(acc);
+				acc[row.id] = {
+					Role: {
+						mode: GridCellModes.View,
+					},
+					EnterEditQuote: {
+						mode: GridCellModes.View,
+					},
+					EnterEditOrder: {
+						mode: GridCellModes.View,
+					},
+					SetSalesPlan: {
+						mode: GridCellModes.View,
+					},
+					ManageSG: {
+						mode: GridCellModes.View,
+					},
+					ReadOnlyQuote: {
+						mode: GridCellModes.View,
+					},
+					ReadOnlyOrder: {
+						mode: GridCellModes.View,
+					},
+					ManageTweaker: {
+						mode: GridCellModes.View,
+					},
+					ManageECommerce: {
+						mode: GridCellModes.View,
+					},
+					SetControlsPermissions: {
+						mode: GridCellModes.View,
+					},
+					AssignDivisionAccess: {
+						mode: GridCellModes.View,
+					},
+					Dashboard: {
+						mode: GridCellModes.View,
+					},
+					ManagingDefaultListViews: {
+						mode: GridCellModes.View,
+					},
+					ManagingIntegrationMappingMills: {
+						mode: GridCellModes.View,
+					},
+					SendDcxInfo: {
+						mode: GridCellModes.View,
+					},
+					PriceExperimentation: {
+						mode: GridCellModes.View,
+					},
+				};
+				return acc;
+			}, {});
+
+			setCellModesModel(newModel);
+			setApiResponse(true);
+
+			setNotify({
+				isOpen: true,
+				message: 'Permission sets updated, new values added!',
+				type: 'success',
+			});
+		};
+		const handleCancel = () => {
+			console.log('handleclick');
+			console.log(filterRows);
+			const newModel = filterRows.reduce<any>((acc, row: any) => {
+				console.log(row.id);
+				console.log(acc);
+				acc[row.id] = {
+					Role: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					EnterEditQuote: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					EnterEditOrder: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SetSalesPlan: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageSG: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ReadOnlyQuote: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ReadOnlyOrder: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageTweaker: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManageECommerce: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SetControlsPermissions: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					AssignDivisionAccess: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					Dashboard: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManagingDefaultListViews: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					ManagingIntegrationMappingMills: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					SendDcxInfo: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+					PriceExperimentation: {
+						mode: GridCellModes.View,
+						ignoreModifications: true,
+					},
+				};
+				return acc;
+			}, {});
+
+			setCellModesModel(newModel);
+			setApiResponse(false);
+
+			setNotify({
+				isOpen: true,
+				message: 'Permission sets not updated!',
+				type: 'error',
+			});
+		};
+		const handleAdd = () => {
+			let id: number = permissionRows[permissionRows.length - 1].id + 1;
+			setPermissionRows((oldRows) => [...oldRows, { id }]);
+			setFilterRows(permissionRows);
+			console.log(filterRows);
+			setCellModesModel((oldModel) => ({
+				...oldModel,
+				[id]: {
+					Role: {
+						mode: GridCellModes.Edit,
+					},
+					EnterEditQuote: {
+						mode: GridCellModes.Edit,
+					},
+					EnterEditOrder: {
+						mode: GridCellModes.Edit,
+					},
+					SetSalesPlan: {
+						mode: GridCellModes.Edit,
+					},
+					ManageSG: {
+						mode: GridCellModes.Edit,
+					},
+					ReadOnlyQuote: {
+						mode: GridCellModes.Edit,
+					},
+					ReadOnlyOrder: {
+						mode: GridCellModes.Edit,
+					},
+					ManageTweaker: {
+						mode: GridCellModes.Edit,
+					},
+					ManageECommerce: {
+						mode: GridCellModes.Edit,
+					},
+					SetControlsPermissions: {
+						mode: GridCellModes.Edit,
+					},
+					AssignDivisionAccess: {
+						mode: GridCellModes.Edit,
+					},
+					Dashboard: {
+						mode: GridCellModes.Edit,
+					},
+					ManagingDefaultListViews: {
+						mode: GridCellModes.Edit,
+					},
+					ManagingIntegrationMappingMills: {
+						mode: GridCellModes.Edit,
+					},
+					SendDcxInfo: {
+						mode: GridCellModes.Edit,
+					},
+					PriceExperimentation: {
+						mode: GridCellModes.Edit,
+					},
+				},
+			}));
+		};
+
+		const handleDelete = () => {
+			const difference = setPermissionRows(
+				permissionRows.filter((row: any) => !filterRows.includes(row)),
+			);
+			console.log(difference);
+		};
+
+		return (
+			<Grid style={{ float: 'right', marginLeft: 'auto' }}>
+				<GridToolbarContainer>
+					<Button
+						color="primary"
+						startIcon={<EditIcon />}
+						onClick={handleClick}
+						disabled={!filterRows.length}
+					>
+						Edit
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<DeleteIcon />}
+						onClick={handleDelete}
+						disabled={!filterRows.length}
+					>
+						Delete
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<AddOutlinedIcon />}
+						onClick={handleAdd}
+						disabled={isInEditMode}
+					>
+						Add
+					</Button>
+					<Button
+						color="primary"
+						startIcon={<SaveIcon />}
+						onClick={handleOpen}
+						disabled={!isInEditMode}
+					>
+						Save
+					</Button>
+				</GridToolbarContainer>
+				{apiResponse ? (
+					<Notification notify={notify} setNotify={setNotify} />
+				) : (
+					<Notification notify={notify} setNotify={setNotify} />
+				)}
+				<Modal open={open}>
+					<Box className="modal-class">
+						<Grid className="p-8 pr-32">
+							<Typography className="fs-24 text-align-center col-005fa8">
+								Save Permissions Set Edits?
+							</Typography>
+							<p>
+								Are you sure you want to save the permission
+								sets?
+							</p>
+						</Grid>
+						<Grid className="flexrow pt-16 justify-space-evenly">
+							<Button
+								onClick={handleClickSnack({
+									vertical: 'top',
+									horizontal: 'right',
+								})}
+								variant="contained"
+							>
+								Yes
+							</Button>
+							<Button
+								onClick={handleCancel}
+								className="bg-grey col-white"
+							>
+								No
+							</Button>
+						</Grid>
+					</Box>
+				</Modal>
+			</Grid>
+		);
+	}
+
+	const handleCellEditStart = (
+		params: GridCellParams,
+		event: MuiEvent<React.SyntheticEvent>,
+	) => {
+		event.defaultMuiPrevented = true;
+	};
+
+	const handleCellEditStop: GridEventListener<'rowEditStop'> = (
+		params,
+		event,
+	) => {
+		event.defaultMuiPrevented = true;
+	};
+
+	const processRowUpdate = (newRow: GridRowModel) => {
+		const updatedRow = { ...newRow, isNew: false };
+		let changesValue: GridRowModel;
+
+		permissionRows.map((row) => {
+			if (row.id === newRow.id) {
+				const changes = lodash.differenceWith(
+					lodash.toPairs(newRow),
+					lodash.toPairs(row),
+					lodash.isEqual,
+				);
+
+				// Changes in array form
+				//console.log(changes);
+				// Changes in object form
+				//console.log(lodash.fromPairs(changes));
+				changesValue = lodash.fromPairs(changes);
+				lodash.merge(row, lodash.fromPairs(changes));
+				//setPermissionRows(lodash.merge(row, lodash.fromPairs(changes)));
+			}
+		});
+
+		setPermissionRows((prevRows) =>
+			prevRows.map((row) =>
+				row.id === changesValue.id ? changesValue : row,
+			),
+		);
+		//console.log(updatedRow);
+		return updatedRow;
+	};
+	console.log(permissionRows);
+	const handleCellModesModelChange = (
+		newCellModesModel: GridCellModesModel,
+	) => {
+		setCellModesModel(newCellModesModel);
+	};
 
 	return (
-		<div>
-			<Grid className="settings-header">
-				<span className="settings-header-text">
-					Manage Permission Sets
-				</span>
-				<div className="flexrow">
-					<EditPermissions
-						setSelectedRowParams={setSelectedRowParams}
-						selectedRowParams={selectedRowParams}
-						rowMode={rowMode}
-						rowModesModel={rowModesModel}
-						setRowModesModel={setRowModesModel}
-					/>
-					<DeletePermissions
-						setSelectedRowParams={setSelectedRowParams}
-						rows={permissionRows}
-						setRows={setPermissionRows}
-						selectedRowParams={selectedRowParams}
-					/>
-					<AddPermissions
-						setSelectedRowParams={setSelectedRowParams}
-						setRows={setPermissionRows}
-						setRowModesModel={setRowModesModel}
-						rows={permissionRows}
-					/>
-					<CloseButton />
-				</div>
-			</Grid>
-			<br />
-			<br />
-			<div className="h-400 w100">
-				<DataGrid
-					rows={permissionRows}
-					columns={columns}
-					loading={!permissionRows.length}
-					isRowSelectable={(params) => params.row.Role !== 'Admin'}
-					disableRowSelectionOnClick={true}
-					onCellDoubleClick={(params, event) => {
-						event.defaultMuiPrevented = true;
-					}}
-					rowModesModel={rowModesModel}
-					isCellEditable={(params) => params.row.Role !== 'Admin'}
-					onRowModesModelChange={(model) => setRowModesModel(model)}
-					processRowUpdate={processRowUpdate}
-				/>
-			</div>
-		</div>
+		<Grid
+			sx={{
+				height: 500,
+				width: '85%',
+				'& .actions': {
+					color: 'text.secondary',
+				},
+				'& .textPrimary': {
+					color: 'text.primary',
+				},
+			}}
+		>
+			<DataGrid
+				rows={permissionRows}
+				columns={columns}
+				editMode="cell"
+				cellModesModel={cellModesModel}
+				checkboxSelection
+				disableRowSelectionOnClick
+				onRowSelectionModelChange={onRowSelectionModelChange}
+				isRowSelectable={(params) =>
+					params.row.Role !== 'Administrator'
+				}
+				onCellModesModelChange={handleCellModesModelChange}
+				onCellEditStart={handleCellEditStart}
+				onCellEditStop={handleCellEditStop}
+				processRowUpdate={processRowUpdate}
+				slots={{
+					toolbar: EditToolbar,
+				}}
+				slotProps={{
+					toolbar: {
+						permissionRows,
+						cellModesModel,
+						setCellModesModel,
+						setPermissionRows,
+					},
+				}}
+			/>
+		</Grid>
 	);
 }
