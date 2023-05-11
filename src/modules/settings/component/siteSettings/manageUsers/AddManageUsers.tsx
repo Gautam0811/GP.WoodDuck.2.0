@@ -19,7 +19,7 @@ import {
 import { SnackbarOrigin } from '@mui/material/Snackbar';
 import { UsersData, permissionSets } from '../manageUsers/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
-import Notification from '../../../services/Notification';
+import { Notification } from '../../../services/Notification';
 
 interface AddProps {
 	rows: any;

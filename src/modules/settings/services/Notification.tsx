@@ -6,7 +6,7 @@ export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
 
-export default function Notification(props: any) {
+export function Notification(props: any) {
 	const { notify, setNotify, vertical, horizontal } = props;
 
 	const [open, setOpen] = useState(true);
