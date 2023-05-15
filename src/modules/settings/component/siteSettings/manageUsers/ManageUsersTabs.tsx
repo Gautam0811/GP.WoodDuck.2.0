@@ -1,6 +1,6 @@
 // ManageUserTabs
 // Component Utility : The Component is created display the tabs part below header part of the manage users page
-// Author Ananya Dhar on 06-04-2023
+// Author Ananya Dhar on 04-05-2023
 // -------------------------
 import { useEffect, useState, useMemo } from 'react';
 import Typography from '@mui/material/Typography';
@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Tabs, Tab } from '@mui/material';
 import { ViewManageUsers } from './index';
-import { OrdersGridrows } from '../../../services/Data';
+import { OrdersGridrows } from '../../../../settings/services/ManageUsersData';
 import { AddManageUsers } from './AddManageUsers';
 import { EditManageUsers } from './EditManageUsers';
 import {
@@ -63,26 +63,11 @@ export function ManageUsersTabs() {
 
 	const [rowSelectionModel, setRowSelectionModel] =
 		useState<GridRowSelectionModel>();
-
-	// const [rows, setRows] = React.useState(OrdersGridrows);
-
 	const [manageUsersRows, setManageUsersRows] = useState<GridRowsProp>([]);
-
 	const [selectedRowParams, setSelectedRowParams] =
 		useState<SelectedRowParams>();
-
-	// const [notify, setNotify] = useState({
-	// 	isOpen: false,
-	// 	message: '',
-	// 	type: '',
-	// });
-
-	// const [apiResponse, setApiResponse] = useState(true);
-
 	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
-
 	const [checked, setChecked] = useState(true);
-
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
 		console.log(selectedRowParams);
@@ -253,8 +238,6 @@ export function ManageUsersTabs() {
 			type: 'string',
 		},
 	];
-
-	// const rowWithIds = orderFilterGridRow.map((row: any)=>({ id: randomId(), ...row}));
 
 	return (
 		//This is the tabs header for Manage Users

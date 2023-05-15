@@ -1,3 +1,7 @@
+/*Component Name :AddManageUsers 
+ Utility : This componenet is used to add new users.
+ Author Krishna Choudharyn 04-05-2023-------------------------   */
+
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
 	Grid,
@@ -17,9 +21,12 @@ import {
 	GridRowModes,
 } from '@mui/x-data-grid';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
-import { UsersData, permissionSets } from '../manageUsers/services/AddUserData';
+import {
+	UsersData,
+	permissionSets,
+} from '../../../../settings/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
-import { Notification } from '../../../services/Notification';
+import { Notification } from '../../../../../common/Alert/Notification';
 
 interface AddProps {
 	rows: any;
@@ -55,21 +62,12 @@ export function AddManageUsers(props: AddProps) {
 		horizontal: 'right',
 	});
 
-	// const { vertical, horizontal, openSnack } = state;
-
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
-
-	// const handleCloseSnack = () => {
-	// 	setState({ ...state, openSnack: false });
-	// };
-
 	const { rows, setRows, setRowModesModel, isActive } = props;
-
 	const [user, setUser] = useState(UsersData);
-
 	const [notify, setNotify] = useState({
 		isOpen: false,
 		message: '',
@@ -115,7 +113,6 @@ export function AddManageUsers(props: AddProps) {
 
 	const [name, setName]: any = useState({});
 	const [businessLine, setBusinessLine] = useState('');
-
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
 	//if value is in selectedOptions, it is removed. Otherwise its added
