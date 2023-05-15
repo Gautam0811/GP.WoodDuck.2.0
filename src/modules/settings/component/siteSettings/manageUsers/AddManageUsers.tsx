@@ -1,3 +1,7 @@
+/*Component Name :AddManageUsers 
+ Utility : This componenet is used to add new users.
+ Author Krishna Choudharyn 04-05-2023-------------------------   */
+
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Grid, Modal, Box, Button, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
@@ -7,15 +11,18 @@ import {
 	GridRowModes,
 } from '@mui/x-data-grid';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
-import { UsersData, permissionSets } from '../manageUsers/services/AddUserData';
+import {
+	UsersData,
+	permissionSets,
+} from '../../../../settings/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
-import { Notification } from '../../../services/Notification';
 import Division from './Division';
 import { AddButton } from '../../../../../common/button';
 import ButtonGrid from './ButtonGrid';
 import EmailInput from './EmailInput';
 import PermissionSetDropdown from './PermissionSetDropdown';
 import SubDivisionCheckBox from './SubDivisionCheckBox';
+import { Notification } from '../../../../../common/Alert/Notification';
 
 interface AddProps {
 	rows: any;
@@ -51,8 +58,7 @@ export function AddManageUsers(props: AddProps) {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
-
-	const { rows, setRows, setRowModesModel } = props;
+	const { rows, setRows, setRowModesModel, isActive } = props;
 	const [user, setUser] = useState(UsersData);
 	const [notify, setNotify] = useState({
 		isOpen: false,

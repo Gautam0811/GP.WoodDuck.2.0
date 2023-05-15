@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import '../../../styles/StyleMain.css';
-import LinearWithValueLabel from './LinearProgressBar';
+import LinearWithValueLabel from '../../../common/LinearBar/LinearProgressBar';
 import { DasboardMillForecastsrows } from '../services/DashboardData';
 
 export default function DasboardMillForecasts() {

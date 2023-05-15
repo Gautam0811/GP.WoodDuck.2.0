@@ -1,6 +1,6 @@
 // WD_SiteSettings
 // Component Utility : The Component is created to render site settings tab in the Settings page
-// Author Gautam Malhotra on 1-3-2023
+// Author Gautam Malhotra on 1-5-2023
 // -------------------------
 import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
@@ -62,7 +62,7 @@ export function SiteSettings() {
 					</Typography>
 				</Link>
 				{data.isAdmin && (
-					<Link to="/settings/manageUsers" className="text-dec-none">
+					<Link to="/manageUsers" className="text-dec-none">
 						<Typography className="col-005fa8">
 							Manage Users
 						</Typography>

@@ -4,8 +4,8 @@
 // -------------------------
 import Grid from '@mui/material/Grid';
 import DashboardMarket from './DashboardMarket';
-import DashboardObjects from '../common/DashboardObjects';
-import DashboardGridObjects from '../common/DashboardGridObjects';
+import DashboardObjects from './DashboardObjects';
+import DashboardGridObjects from './DashboardGridObjects';
 import DasboardMillForecasts from './DashboardMillForecast';
 import { DasboardHitRaterows } from '../services/DashboardData';
 import { DasboardPercentForecastSoldrows } from '../services/DashboardData';
@@ -19,7 +19,7 @@ import {
 export function Dashboard() {
 	return (
 		<Grid className="flexrow w100 bg-e3f2fd">
-			<Grid className="fs-12">
+			<Grid className="w70 fs-12">
 				<DashboardMarket
 					title="Market"
 					data={MarketData()}
@@ -50,11 +50,8 @@ export function Dashboard() {
 					data={DasboardHitRaterows}
 					spacing={6}
 				/>
-				<div className="mx-32 mill-forcasts-dash">
-					<DasboardMillForecasts />
-				</div>
 			</Grid>
-			<Grid className="w30 width-md-100 mill-forcasts-dash-display-none">
+			<Grid className="w30 width-md-100">
 				<DasboardMillForecasts />
 			</Grid>
 		</Grid>

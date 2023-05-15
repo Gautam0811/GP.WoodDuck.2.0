@@ -1,11 +1,11 @@
-/*Component Name : DeletePermissions 
- Utility : This componenet is used delete the permission set.
- Author Gautam Malhotra 06-05-2023-------------------------*/
+/*Component Name :Notification 
+ Utility : This componenet is used to save the event for permission set and control.
+ Author Gautam Malhotra 06-05-2023-------------------------   */
 
 import { useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import SaveIcon from '@mui/icons-material/Save';
 import {
 	GridRowModesModel,
 	GridRowModes,
@@ -15,21 +15,22 @@ import { Notification } from '../../../../../common/Alert/Notification';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
 import Modal from '@mui/material/Modal';
 
-interface DeleteProps {
+interface SaveProps {
 	filterRows: GridRowsProp;
-	permissionRows: any;
-	setPermissionRows: (
-		newRows: (oldRows: GridRowsProp) => GridRowsProp,
-	) => void;
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (
 		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
+	) => void;
+	add: any;
+	permissionRows: any;
+	setPermissionRows: (
+		newRows: (oldRows: GridRowsProp) => GridRowsProp,
 	) => void;
 }
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
-export function DeletePermissions(props: DeleteProps) {
+export function SavePermissions(props: SaveProps) {
 	const [notify, setNotify] = useState({
 		isOpen: false,
 		message: '',
@@ -48,15 +49,16 @@ export function DeletePermissions(props: DeleteProps) {
 	};
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
-		handleDelete();
+		handleSave();
 		setOpen(false);
 	};
 	const {
 		filterRows,
-		permissionRows,
-		setPermissionRows,
 		rowModesModel,
 		setRowModesModel,
+		add,
+		permissionRows,
+		setPermissionRows,
 	} = props;
 
 	const isInEditMode = Object.keys(rowModesModel).some((rowId) => {
@@ -74,14 +76,35 @@ export function DeletePermissions(props: DeleteProps) {
 			};
 			return acc;
 		}, {});
-
 		setRowModesModel(newModel);
+		if (add) {
+			handleDelete();
+		}
 		setApiResponse(false);
 		setOpen(false);
 		setNotify({
 			isOpen: true,
-			message: 'Permission sets not deleted!',
+			message: 'Permission sets not updated!',
 			type: 'error',
+		});
+	};
+	const handleSave = () => {
+		console.log('handleclick');
+		console.log(filterRows);
+		const newModel = filterRows.reduce<any>((acc, row: any) => {
+			console.log(row.id);
+			console.log(acc);
+			acc[row.id] = { mode: GridRowModes.View };
+			return acc;
+		}, {});
+
+		setRowModesModel(newModel);
+		setApiResponse(true);
+
+		setNotify({
+			isOpen: true,
+			message: 'Permission sets updated, new values added!',
+			type: 'success',
 		});
 	};
 	const handleDelete = () => {
@@ -90,10 +113,11 @@ export function DeletePermissions(props: DeleteProps) {
 		);
 		console.log(difference);
 		setApiResponse(true);
+		setOpen(false);
 		setNotify({
 			isOpen: true,
-			message: 'Permission sets deleted!',
-			type: 'success',
+			message: 'Permission set not Added!',
+			type: 'error',
 		});
 	};
 
@@ -101,14 +125,26 @@ export function DeletePermissions(props: DeleteProps) {
 		<div>
 			<Modal open={open}>
 				<Box className="modal-class">
-					<Grid className="p-8 pr-32">
-						<Typography className="fs-24 text-align-center col-005fa8">
-							Delete Permissions Sets?
-						</Typography>
-						<p>
-							Are you sure you want to delete the permission sets?
-						</p>
-					</Grid>
+					{add ? (
+						<Grid className="p-8 pr-32">
+							<Typography className="fs-24 text-align-center col-005fa8">
+								Save Permissions Sets?
+							</Typography>
+							<p>
+								Are you sure you want to Add new permission set?
+							</p>
+						</Grid>
+					) : (
+						<Grid className="p-8 pr-32">
+							<Typography className="fs-24 text-align-center col-005fa8">
+								Save Permissions Sets?
+							</Typography>
+							<p>
+								Are you sure you want to Edit the permission
+								sets?
+							</p>
+						</Grid>
+					)}
 					<Grid className="flexrow pt-16 justify-space-evenly">
 						<Button
 							onClick={handleClickSnack({
@@ -136,14 +172,14 @@ export function DeletePermissions(props: DeleteProps) {
 			<LoadingButton
 				className="buttontype6"
 				onClick={handleOpen}
-				disabled={isInEditMode || !filterRows.length}
+				disabled={!isInEditMode}
 			>
 				<div>
 					<div>
-						<DeleteIcon className="icontype1" />
+						<SaveIcon className="icontype1" />
 					</div>
 					<div>
-						<span>Delete</span>
+						<span>Save</span>
 					</div>
 				</div>
 			</LoadingButton>

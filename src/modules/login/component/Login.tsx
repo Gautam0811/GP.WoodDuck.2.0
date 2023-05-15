@@ -5,7 +5,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import '../styles/Login.css';
 
-import { ClaimContext } from '../../../context/claim/Claims';
+import { ClaimContext } from '../../../context/claim/ClaimContext';
 
 export function Login() {
 	const [errorMessages, setErrorMessages]: any = useState({});

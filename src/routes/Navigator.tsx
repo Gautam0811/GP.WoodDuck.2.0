@@ -15,7 +15,7 @@ export function Navigator() {
 					path="/settings/ManagePermissions"
 					element={<Permissions />}
 				/>
-				<Route path="/settings/manageUsers" element={<ManageUsers />} />
+				<Route path="/manageUsers" element={<ManageUsers />} />
 				<Route path="/millGroups" element={<MillGroups />} />
 			</Routes>
 		</div>

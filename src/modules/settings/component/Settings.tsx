@@ -1,6 +1,6 @@
 // WD_Settings
 // Component Utility : The Component is created to render settings page
-// Author Ananya Dhar on 1-3-2023
+// Author Ananya Dhar on 1-5-2023
 // -------------------------
 import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';

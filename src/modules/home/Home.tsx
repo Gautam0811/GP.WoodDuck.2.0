@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navigator } from '../../routes';
 import { Login } from '../login';
-import { Header, Footer, LeftSideBar } from '../../globalPages';
+import { Header, Footer, LeftSideBar } from '../../modules/globalPages';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';

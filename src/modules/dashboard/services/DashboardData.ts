@@ -10,7 +10,7 @@ import {
 	getMillsData,
 	getMarketData,
 	getSalesData,
-} from './DashboardApi';
+} from './DashboardService';
 
 //The Market Data API is called and marketData variable is populated with the Market data
 export function MarketData() {
