@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { useState, useEffect } from 'react';
-import { permissionSets } from '../manageUsers/services/AddUserData';
+import { permissionSets } from '../../../services/AddUserData';
 
 export default function PermissionSetDropdown(props: any) {
 	const [division, setDivision]: any = useState({});

@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { UsersData } from '../manageUsers/services/AddUserData';
+import { UsersData } from '../../../services/AddUserData';
 
 export default function EmailInput(props: any) {
 	return (
