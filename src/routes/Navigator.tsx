@@ -4,7 +4,6 @@ import { Dashboard } from '../modules/dashboard';
 import { Settings, ManageUsers } from '../modules/settings';
 import { Permissions } from '../modules/settings';
 import { MillGroups } from '../modules/settings/component/userSettings/millGroups';
-
 //This is global Router function for Navigating all pages.
 export function Navigator() {
 	return (

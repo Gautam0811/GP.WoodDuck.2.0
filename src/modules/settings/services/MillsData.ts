@@ -9,7 +9,7 @@ import { GridColDef } from '@mui/x-data-grid';
 // Manage Users Grid Data
 //The actual implementation will have call to a API.
 export const OrdersGridcolumns: GridColDef[] = [
-	{ field: 'businessLine', headerName: 'Business Line', width: 100 },
+	{ field: 'division', headerName: 'Division', width: 100 },
 	{ field: 'firstname', headerName: 'FirstName', width: 100 },
 	{
 		field: 'lastName',
@@ -51,7 +51,7 @@ export const OrdersGridcolumns: GridColDef[] = [
 ];
 //The actual implementation will have call to a API.
 export function OrdersGridcreateData(
-	businessLine: string,
+	division: string,
 	firstname: string,
 	lastName: string,
 	id: string,
@@ -61,7 +61,7 @@ export function OrdersGridcreateData(
 	temporaryPermissiondate: string,
 ) {
 	return {
-		businessLine,
+		division,
 		firstname,
 		lastName,
 		id,

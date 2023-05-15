@@ -14,16 +14,6 @@ export function Notification(props: any) {
 		setNotify({ ...notify, isOpen: false });
 	};
 
-	// const [state, setState] = useState<State>({
-	// 	openSnack: false,
-	// 	vertical: 'top',
-	// 	horizontal: 'right',
-	// });
-
-	// const handleCloseSnack = () => {
-	// 	setState({ ...state, openSnack: false });
-	// };
-
 	return (
 		<Snackbar
 			onClose={handleClose}

@@ -25,6 +25,7 @@ import {
 } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
+
 import {
 	CloseButton,
 	DeactivateButton,
@@ -45,8 +46,7 @@ export function ManageUsersTabs() {
 		OrdersGridrows.filter(
 			(a: any) =>
 				a.activeUser === isActive &&
-				a.businessLine ===
-					window.localStorage.getItem('subdivisionValue'),
+				a.division === window.localStorage.getItem('subdivisionValue'),
 		),
 	);
 
@@ -55,7 +55,7 @@ export function ManageUsersTabs() {
 			OrdersGridrows.filter(
 				(a: any) =>
 					a.activeUser === isActive &&
-					a.businessLine ===
+					a.division ===
 						window.localStorage.getItem('subdivisionValue'),
 			),
 		);
@@ -83,11 +83,13 @@ export function ManageUsersTabs() {
 
 	const [checked, setChecked] = useState(true);
 
+	//for selecting a row
 	const handleRowSelection = (id: GridRowId) => () => {
 		setSelectedRowParams({ id });
 		console.log(selectedRowParams);
 	};
 
+	//For edit permission set
 	const processRowUpdate = (newRow: GridRowModel) => {
 		const updatedRow = { ...newRow, isNew: false };
 		setManageUsersRows(
@@ -98,6 +100,7 @@ export function ManageUsersTabs() {
 		return updatedRow;
 	};
 
+	//to determine the mode of the row
 	const rowMode = useMemo(() => {
 		if (!selectedRowParams) {
 			return 'view';
@@ -106,6 +109,7 @@ export function ManageUsersTabs() {
 		return rowModesModel[id]?.mode || 'view';
 	}, [rowModesModel, selectedRowParams]);
 
+	//when the tab is changed
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
 	};
@@ -183,8 +187,8 @@ export function ManageUsersTabs() {
 			},
 		},
 		{
-			field: 'businessLine',
-			headerName: 'Business Line',
+			field: 'division',
+			headerName: 'Division',
 			type: 'string',
 			width: 100,
 		},
@@ -253,8 +257,6 @@ export function ManageUsersTabs() {
 			type: 'string',
 		},
 	];
-
-	// const rowWithIds = orderFilterGridRow.map((row: any)=>({ id: randomId(), ...row}));
 
 	return (
 		//This is the tabs header for Manage Users

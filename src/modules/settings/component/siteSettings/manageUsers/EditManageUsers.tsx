@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
 import { SaveManageUsersButton } from '../../../../../common/button';
@@ -55,14 +56,22 @@ export function EditManageUsers(props: EditToolbarProps) {
 					setRowModesModel={setRowModesModel}
 				/>
 			) : (
-				<Button
-					className="flexcolumn fs-10"
-					onClick={handleSaveOrEdit}
-					disabled={!selectedRowParams || !isActive}
-				>
-					<EditIcon className="fs-14" />
-					<p>Edit</p>
-				</Button>
+				<Box>
+					<LoadingButton
+						className="flexcolumn fs-10"
+						onClick={handleSaveOrEdit}
+						disabled={!selectedRowParams}
+					>
+						<div>
+							<div>
+								<EditIcon className="fs-14" />
+							</div>
+							<div>
+								<span>Edit</span>
+							</div>
+						</div>
+					</LoadingButton>
+				</Box>
 			)}
 		</Box>
 	);

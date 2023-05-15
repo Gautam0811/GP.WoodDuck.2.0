@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import Collapse from '@mui/material/Collapse';
 import { ShoppingCartOutlined } from '@mui/icons-material';
+import { BrowserRouter } from 'react-router-dom';
 
 export function SiteSettings() {
 	const [manageUsers, setmanageUsers] = useState(false);

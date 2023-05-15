@@ -21,13 +21,7 @@ interface SetTemporaryPermissionsProps {
 export function SetTemporaryPermissionsButton(
 	props: SetTemporaryPermissionsProps,
 ) {
-	const {
-		isActive,
-		selectedRowParams,
-		rowModesModel,
-		rowMode,
-		setRowModesModel,
-	} = props;
+	const { selectedRowParams } = props;
 
 	return (
 		<Box>

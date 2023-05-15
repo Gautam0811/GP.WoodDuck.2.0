@@ -1,15 +1,5 @@
 import LoadingButton from '@mui/lab/LoadingButton';
-import {
-	Grid,
-	Modal,
-	Box,
-	Button,
-	Typography,
-	FormGroup,
-	FormControlLabel,
-	Checkbox,
-} from '@mui/material';
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { Grid, Modal, Box, Button, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import {
 	GridRowsProp,
@@ -20,6 +10,12 @@ import { SnackbarOrigin } from '@mui/material/Snackbar';
 import { UsersData, permissionSets } from '../manageUsers/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
 import { Notification } from '../../../services/Notification';
+import Division from './Division';
+import { AddButton } from '../../../../../common/button';
+import ButtonGrid from './ButtonGrid';
+import EmailInput from './EmailInput';
+import PermissionSetDropdown from './PermissionSetDropdown';
+import SubDivisionCheckBox from './SubDivisionCheckBox';
 
 interface AddProps {
 	rows: any;
@@ -29,21 +25,17 @@ interface AddProps {
 	) => void;
 	isActive: boolean;
 }
-
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
-
 interface CheckBoxOptions {
 	label: string;
 	value: string;
 }
-
 const options: CheckBoxOptions[] = [
 	{ label: 'OSB', value: 'OSB' },
 	{ label: 'PLY', value: 'PLY' },
 ];
-
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
@@ -55,31 +47,22 @@ export function AddManageUsers(props: AddProps) {
 		horizontal: 'right',
 	});
 
-	// const { vertical, horizontal, openSnack } = state;
-
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
 
-	// const handleCloseSnack = () => {
-	// 	setState({ ...state, openSnack: false });
-	// };
-
-	const { rows, setRows, setRowModesModel, isActive } = props;
-
+	const { rows, setRows, setRowModesModel } = props;
 	const [user, setUser] = useState(UsersData);
-
 	const [notify, setNotify] = useState({
 		isOpen: false,
 		message: '',
 		type: '',
 	});
-
 	const [apiResponse, setApiResponse] = useState(false);
-
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => {
+		setSelectedOptions([]);
 		setOpen(true);
 	};
 	const handleClose = () => {
@@ -97,25 +80,19 @@ export function AddManageUsers(props: AddProps) {
 		});
 	};
 	const [value, setValue] = useState('');
-
-	const onChange = (event: any) => {
-		console.log('onchange', emailId);
+	const handleOnChange = (event: any) => {
 		setValue(event.target.value);
 	};
 
-	const onSearch = (emailId: string) => {
-		console.log(emailId);
+	const handleOnSearch = (emailId: string) => {
 		setValue(emailId);
-		console.log('search', emailId);
 	};
 
 	const [selectedPermissionSet, setSelectedPermissionSet] = useState(
 		permissionSets[0].permission,
 	);
-
 	const [name, setName]: any = useState({});
-	const [businessLine, setBusinessLine] = useState('');
-
+	const [division, setDivision] = useState('');
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
 	//if value is in selectedOptions, it is removed. Otherwise its added
@@ -128,12 +105,11 @@ export function AddManageUsers(props: AddProps) {
 			setSelectedOptions([...selectedOptions, value]);
 		}
 	};
-
 	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);
-			setBusinessLine(nameFetch.subdivision);
+			setDivision(nameFetch.subdivision);
 		}
 		fetchName();
 	}, []);
@@ -145,13 +121,11 @@ export function AddManageUsers(props: AddProps) {
 		const lastName = data[0].last_name;
 		const temporaryPermission = data[0].temporaryPermission;
 		const temporaryPermissionDate = data[0].temporaryPermissionDate;
-
-		console.log(data);
 		setRows((oldRows) => [
 			...oldRows,
 			{
 				id,
-				businessLine: businessLine,
+				division: division,
 				subDivision: selectedOptions,
 				firstName: firstName,
 				lastName: lastName,
@@ -164,7 +138,7 @@ export function AddManageUsers(props: AddProps) {
 		]);
 		setRowModesModel((oldModel) => ({
 			...oldModel,
-			[id]: { mode: GridRowModes.View, fieldToFocus: 'businessLine' },
+			[id]: { mode: GridRowModes.View, fieldToFocus: 'division' },
 		}));
 		handleClose();
 		setApiResponse(true);
@@ -176,17 +150,13 @@ export function AddManageUsers(props: AddProps) {
 	};
 
 	let empty;
-
 	if (selectedOptions.length < 1) {
 		empty = true;
 	} else {
 		empty = false;
 	}
 
-	console.log('Empty', empty);
-
 	const emailId = value.toLowerCase();
-
 	// check if array contains the entered emailId
 	const isFound = user.some((element: any) => {
 		if (element.email === emailId) {
@@ -194,17 +164,10 @@ export function AddManageUsers(props: AddProps) {
 		}
 		return false;
 	});
-
-	if (isFound) {
-		console.log('Email Id exists');
-	} else {
-		console.log('EmailId does not exist');
-	}
-
 	const [emailExists, setEmailExists] = useState(false);
 
 	// check if entered email is already present in the datagrid list
-	const isEmailExists = (emailId: any) => {
+	const handleIsEmailExists = (emailId: any) => {
 		for (const row of rows) {
 			if (row.email === emailId) {
 				setEmailExists(true);
@@ -214,24 +177,9 @@ export function AddManageUsers(props: AddProps) {
 		}
 	};
 
-	console.log('emailecistts', emailExists);
-
 	return (
 		<>
-			<LoadingButton
-				className="fs-10"
-				disabled={!isActive}
-				onClick={handleOpen}
-			>
-				<div>
-					<div>
-						<AddOutlinedIcon className="icontype1" />
-					</div>
-					<div>
-						<span>ADD</span>
-					</div>
-				</div>
-			</LoadingButton>
+			<AddButton onClick={handleOpen} />
 			{apiResponse ? (
 				<Notification notify={notify} setNotify={setNotify} />
 			) : (
@@ -257,198 +205,35 @@ export function AddManageUsers(props: AddProps) {
 									User already entered in the list
 								</div>
 							) : null}
-							<Grid className="flexrow">
-								<Grid>Email:</Grid>
-								<Grid>
-									<input
-										onChange={onChange}
-										type="text"
-										value={emailId}
-										required
-									></input>
-									{/* ToDo: Waiting for backend API */}
-									<div onChange={onChange} className="z-5">
-										{UsersData.filter((item) => {
-											const email =
-												item.email.toLowerCase();
-											return (
-												emailId &&
-												email.startsWith(emailId) &&
-												email !== emailId
-											);
-										})
-											.slice(0, 10)
-											.map((item) => (
-												<div
-													onClick={() => {
-														onSearch(item.email);
-														isEmailExists(
-															item.email,
-														);
-													}}
-													className="email-drop-down-container"
-													key={item.id}
-												>
-													<ul>
-														<li>
-															{item.first_name}(
-															{item.role})
-														</li>
-													</ul>
-												</div>
-											))}
-									</div>
-								</Grid>
-								{/* Put check email null and email present in array wala logic */}
-								<Grid>
-									<button onClick={() => onSearch(emailId)}>
-										Search
-									</button>
-								</Grid>
-							</Grid>
+							<EmailInput
+								emailId={emailId}
+								handleOnSearch={handleOnSearch}
+								handleIsEmailExists={handleIsEmailExists}
+								handleOnChange={handleOnChange}
+							/>
 							<br />
-							{name.subdivision === 'SP' ? (
-								<Grid className="flexrow">
-									<Grid>Permission Set: </Grid>
-									<select
-										onChange={(e) =>
-											setSelectedPermissionSet(
-												e.target.value,
-											)
-										}
-									>
-										{permissionSets
-											.filter(
-												(a) => a.subdivision === 'SP',
-											)
-											.map((item) => (
-												<option
-													key={item.id}
-													value={item.permission}
-												>
-													{item.permission}
-												</option>
-											))}
-									</select>
-								</Grid>
-							) : (
-								<Grid className="flexrow">
-									<Grid>Permission Set: </Grid>
-									<select
-										onChange={(e) =>
-											setSelectedPermissionSet(
-												e.target.value,
-											)
-										}
-									>
-										{permissionSets
-											.filter(
-												(a) => a.subdivision === 'SL',
-											)
-											.map((item) => (
-												<option
-													key={item.id}
-													value={item.permission}
-												>
-													{item.permission}
-												</option>
-											))}
-									</select>
-								</Grid>
-							)}
+							<PermissionSetDropdown
+								setSelectedPermissionSet={
+									setSelectedPermissionSet
+								}
+							/>
 							<br />
-							<Grid className="flexrow">
-								<Typography className="pr-8">
-									Division:
-								</Typography>
-								<Grid className="border-grey-1">
-									{name.subdivision === 'SL' ? (
-										<FormGroup>
-											<FormControlLabel
-												control={
-													<Checkbox defaultChecked />
-												}
-												label="SL"
-												disabled
-											/>
-										</FormGroup>
-									) : (
-										<FormGroup>
-											<FormControlLabel
-												control={
-													<Checkbox defaultChecked />
-												}
-												label="SP"
-												disabled
-											/>
-										</FormGroup>
-									)}
-								</Grid>
-							</Grid>
+							<Division />
 							<br />
-							{name.subdivision === 'SP' && (
-								<Grid className="flexrow">
-									<Typography className="pr-8">
-										Sub Division:
-									</Typography>
-									<Grid>
-										{options.map((option) => (
-											<div key={option.value}>
-												<label>
-													<input
-														type="checkbox"
-														value={option.value}
-														checked={selectedOptions.includes(
-															option.value,
-														)}
-														onChange={(e) =>
-															handleCheckBoxChange(
-																e.target.value,
-															)
-														}
-													/>
-													{option.label}
-												</label>
-											</div>
-										))}
-									</Grid>
-								</Grid>
-							)}
+							<SubDivisionCheckBox
+								selectedOptions={selectedOptions}
+								handleCheckBoxChange={handleCheckBoxChange}
+							/>
 						</Grid>
 					</Grid>
-					<Grid className="flexrow pt-16 justify-space-evenly">
-						{name.subdivision === 'SP' ? (
-							<Button
-								disabled={
-									empty || !isFound || emailExists || !emailId
-								}
-								onClick={handleClickSnack({
-									vertical: 'top',
-									horizontal: 'right',
-								})}
-								variant="contained"
-							>
-								Add
-							</Button>
-						) : (
-							<Button
-								disabled={!isFound || emailExists || !emailId}
-								onClick={handleClickSnack({
-									vertical: 'top',
-									horizontal: 'right',
-								})}
-								variant="contained"
-							>
-								Add
-							</Button>
-						)}
-						<Button
-							onClick={handleCancel}
-							className="bg-grey col-white"
-						>
-							Cancel
-						</Button>
-					</Grid>
+					<ButtonGrid
+						emailExists={emailExists}
+						emailId={emailId}
+						empty={empty}
+						isFound={isFound}
+						handleClickSnack={handleClickSnack}
+						handleCancel={handleCancel}
+					/>
 				</Box>
 			</Modal>
 		</>

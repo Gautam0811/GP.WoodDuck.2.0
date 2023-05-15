@@ -13,8 +13,8 @@ import { GridRowsProp } from '@mui/x-data-grid';
 export const OrdersGridcolumns: GridColDef[] = [
 	{ field: 'id', headerName: '', type: 'number', width: 100 },
 	{
-		field: 'businessLine',
-		headerName: 'Business Line',
+		field: 'division',
+		headerName: 'Division',
 		type: 'string',
 		width: 100,
 	},
@@ -86,7 +86,7 @@ export const OrdersGridcolumns: GridColDef[] = [
 //The actual implementation will have call to a API.
 export function OrdersGridcreateData(
 	id: number,
-	businessLine: string,
+	division: string,
 	subDivision: string,
 	firstName: string,
 	lastName: string,
@@ -98,7 +98,7 @@ export function OrdersGridcreateData(
 ) {
 	return {
 		id,
-		businessLine,
+		division,
 		subDivision,
 		firstName,
 		lastName,
