@@ -1,8 +1,15 @@
+/*Component Name : Permission Set Dropdown
+ Utility : This component is used to display permission set dropdown in modal component
+ Author Ananya Dhar 04-05-2023-------------------------   */
 import { Grid } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { permissionSets } from '../../../services/AddUserData';
 
-export default function PermissionSetDropdown(props: any) {
+interface PermissionSetProps {
+	setSelectedPermissionSet: any;
+}
+
+export function PermissionSetDropdown(props: PermissionSetProps) {
 	const [division, setDivision]: any = useState({});
 
 	useEffect(() => {

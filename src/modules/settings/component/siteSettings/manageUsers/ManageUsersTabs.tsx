@@ -25,6 +25,7 @@ import {
 } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
+import { useSelector } from 'react-redux';
 
 import {
 	CloseButton,
@@ -33,33 +34,35 @@ import {
 	ActivateButton,
 } from '../../../../../common/button';
 import '../../../styles/Settings.css';
+import { TabPanel } from './TabPanel';
 
 interface SelectedRowParams {
 	id: GridRowId;
 }
 
 export function ManageUsersTabs() {
+	const division = useSelector((state: any) => state.divisionInfo);
+
 	const [value, setValue] = useState(0);
 	const [isActive, setIsActive]: any = useState(true);
+	// const division = window.localStorage.getItem('subdivisionValue');
 
+	// console.log('Divisiion', division);
 	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
-			(a: any) =>
-				a.activeUser === isActive &&
-				a.division === window.localStorage.getItem('subdivisionValue'),
+			(a: any) => a.activeUser === isActive && a.division === division,
 		),
 	);
 
 	useEffect(() => {
+		console.log('Div', division);
 		setOrderFilterGridRow(
 			OrdersGridrows.filter(
 				(a: any) =>
-					a.activeUser === isActive &&
-					a.division ===
-						window.localStorage.getItem('subdivisionValue'),
+					a.activeUser === isActive && a.division === division,
 			),
 		);
-	}, [isActive]);
+	}, [isActive, division]);
 
 	const [rowSelectionModel, setRowSelectionModel] =
 		useState<GridRowSelectionModel>();
@@ -106,31 +109,6 @@ export function ManageUsersTabs() {
 		setIsActive(false);
 	}
 
-	interface TabPanelProps {
-		children: React.ReactNode;
-		value: number;
-		index: number;
-	}
-	function TabPanel(props: TabPanelProps) {
-		const { children, value, index, ...other } = props;
-
-		return (
-			<div
-				role="tabpanel"
-				hidden={value !== index}
-				id={`full-width-tabpanel-${index}`}
-				aria-labelledby={`full-width-tab-${index}`}
-				{...other}
-			>
-				{value === index && (
-					<Box>
-						<Typography>{children}</Typography>
-					</Box>
-				)}
-			</div>
-		);
-	}
-
 	//this returns the index when tab changes
 	function a11yProps(index: number) {
 		//alert(index);
@@ -147,6 +125,7 @@ export function ManageUsersTabs() {
 			headerName: '',
 			width: 100,
 			cellClassName: 'actions',
+			align: 'center',
 			getActions: ({ id }) => {
 				const isInEditMode =
 					rowModesModel[id]?.mode === GridRowModes.Edit;
@@ -177,6 +156,7 @@ export function ManageUsersTabs() {
 			headerName: 'Division',
 			type: 'string',
 			width: 100,
+			align: 'center',
 		},
 		{
 			field: 'subDivision',
@@ -184,12 +164,14 @@ export function ManageUsersTabs() {
 			type: 'string',
 			editable: true,
 			width: 100,
+			align: 'center',
 		},
 		{
 			field: 'firstName',
 			headerName: 'First Name',
 			type: 'string',
 			width: 100,
+			align: 'center',
 		},
 		{
 			field: 'lastName',
@@ -236,8 +218,15 @@ export function ManageUsersTabs() {
 			type: 'string',
 		},
 		{
-			field: 'temporaryPermissionDate',
-			headerName: 'Temporary Permission Date Start/End',
+			field: 'temporaryPermissionStartDate',
+			headerName: 'Temporary Permission Start Date',
+			align: 'center',
+			width: 200,
+			type: 'string',
+		},
+		{
+			field: 'temporaryPermissionEndDate',
+			headerName: 'Temporary Permission End Date',
 			align: 'center',
 			width: 200,
 			type: 'string',
@@ -325,17 +314,13 @@ export function ManageUsersTabs() {
 			<TabPanel value={value} index={0}>
 				<ViewManageUsers
 					isActive={isActive}
-					selectedDivision={window.localStorage.getItem(
-						'subdivisionValue',
-					)}
+					selectedDivision={division}
 				/>
 			</TabPanel>
 			<TabPanel value={value} index={1}>
 				<ViewManageUsers
 					isActive={isActive}
-					selectedDivision={window.localStorage.getItem(
-						'subdivisionValue',
-					)}
+					selectedDivision={division}
 				/>
 			</TabPanel>
 			<TabPanel value={value} index={2}>

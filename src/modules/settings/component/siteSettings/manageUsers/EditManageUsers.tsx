@@ -1,6 +1,6 @@
 /*Component Name :EditManageUsers 
  Utility : This componenet is used to edit users permission set.
- Author Krishna Choudharyn 04-05-2023-------------------------   */
+ Author Ananya Dhar 04-05-2023-------------------------   */
 
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
@@ -62,13 +62,13 @@ export function EditManageUsers(props: EditToolbarProps) {
 			) : (
 				<Box>
 					<LoadingButton
-						className="flexcolumn fs-10"
+						className="buttontype4"
 						onClick={handleSaveOrEdit}
 						disabled={!selectedRowParams}
 					>
 						<div>
 							<div>
-								<EditIcon className="fs-14" />
+								<EditIcon />
 							</div>
 							<div>
 								<span>Edit</span>

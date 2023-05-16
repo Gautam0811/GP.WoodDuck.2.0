@@ -5,6 +5,9 @@
 
 import { useState, useEffect } from 'react';
 import '../../../../../styles/StyleMain.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../../../../state';
 
 import '../../styles/Header.css';
 import {
@@ -16,6 +19,10 @@ import {
 } from '@mui/material';
 
 export function Subdivision() {
+	const dispatch = useDispatch();
+	const { divisionData } = bindActionCreators(actionCreators, dispatch);
+	const divisionInfo = useSelector((state: any) => state.divisionInfo);
+
 	const [name, setName]: any = useState({});
 	const [subdivision, setSubdivision] = useState('');
 	useEffect(() => {
@@ -33,9 +40,11 @@ export function Subdivision() {
 	}, []);
 
 	const handleChange = (event: SelectChangeEvent) => {
-		setSubdivision(event.target.value);
+		divisionData(event.target.value);
 		//on select of subdivision load
 		window.localStorage.setItem('subdivisionValue', event.target.value);
+		// console.log(subdivision);
+		// console.log(localStorage.getItem('subdivisionValue') || '{}');
 	};
 	return (
 		// View for Subdivision section
@@ -45,7 +54,7 @@ export function Subdivision() {
 					{/* <InputLabel id="demo-simple-select-standard-label">{name.subdivision}</InputLabel> */}
 					<Select
 						id="demo-simple-select-standard"
-						value={subdivision}
+						value={divisionInfo}
 						onChange={handleChange}
 						className="col-005fa8"
 					>

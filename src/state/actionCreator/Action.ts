@@ -21,3 +21,12 @@ export const permissionData = (permissionSet: any) => {
 		});
 	};
 };
+
+export const divisionData = (division: any) => {
+	return (dispatch: any) => {
+		dispatch({
+			type: 'division',
+			payload: division,
+		});
+	};
+};

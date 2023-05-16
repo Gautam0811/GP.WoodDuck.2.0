@@ -8,80 +8,6 @@ import { GridColDef } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import { GridRowsProp } from '@mui/x-data-grid';
 
-// Manage Users Grid Data
-//The actual implementation will have call to a API.
-export const OrdersGridcolumns: GridColDef[] = [
-	{ field: 'id', headerName: '', type: 'number', width: 100 },
-	{
-		field: 'division',
-		headerName: 'Division',
-		type: 'string',
-		width: 100,
-	},
-	{
-		field: 'subDivision',
-		headerName: 'Sub Division',
-		type: 'string',
-		width: 100,
-	},
-	{
-		field: 'firstName',
-		headerName: 'First Name',
-		type: 'string',
-		width: 100,
-	},
-	{
-		field: 'lastName',
-		headerName: 'LastName',
-		align: 'center',
-		width: 100,
-		type: 'string',
-	},
-	{
-		field: 'email',
-		headerName: 'Email',
-		align: 'center',
-		type: 'string',
-		width: 160,
-	},
-
-	{
-		field: 'permissionSet',
-		headerName: 'Permission Set',
-		align: 'center',
-		type: 'string',
-		width: 130,
-	},
-	{
-		field: 'activeUser',
-		headerName: 'Active User',
-		align: 'center',
-		width: 100,
-		type: 'boolean',
-		editable: true,
-		renderCell(params) {
-			return params.value ? (
-				<CheckIcon color="success"></CheckIcon>
-			) : (
-				<div></div>
-			);
-		},
-	},
-	{
-		field: 'temporaryPermission',
-		headerName: 'Temporary Permission',
-		align: 'center',
-		type: 'string',
-		width: 160,
-	},
-	{
-		field: 'temporaryPermissionDate',
-		headerName: 'Temporary Permission Date Start/End',
-		align: 'center',
-		type: 'string',
-		width: 200,
-	},
-];
 //The actual implementation will have call to a API.
 export function OrdersGridcreateData(
 	id: number,
@@ -93,7 +19,8 @@ export function OrdersGridcreateData(
 	permissionSet: string,
 	activeUser: boolean,
 	temporaryPermission: string,
-	temporaryPermissionDate: string,
+	temporaryPermissionStartDate: string,
+	temporaryPermissionEndDate: string,
 ) {
 	return {
 		id,
@@ -105,7 +32,8 @@ export function OrdersGridcreateData(
 		permissionSet,
 		activeUser,
 		temporaryPermission,
-		temporaryPermissionDate,
+		temporaryPermissionStartDate,
+		temporaryPermissionEndDate,
 		key: Math.random(),
 	};
 }
@@ -122,6 +50,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 	OrdersGridcreateData(
 		2,
@@ -132,6 +61,7 @@ export const OrdersGridrows: GridRowsProp = [
 		'john@gapac.com',
 		'',
 		false,
+		'',
 		'',
 		'',
 	),
@@ -146,6 +76,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 
 	OrdersGridcreateData(
@@ -157,7 +88,8 @@ export const OrdersGridrows: GridRowsProp = [
 		'Kri6@gapac.com',
 		'Sales Manager',
 		true,
-		'C',
+		'Trader',
+		'02/14/2023',
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
@@ -171,6 +103,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 	OrdersGridcreateData(
 		6,
@@ -181,7 +114,8 @@ export const OrdersGridrows: GridRowsProp = [
 		'gautam@gapac.com',
 		'Manager',
 		true,
-		'C',
+		'Trader',
+		'02/14/2023',
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
@@ -195,6 +129,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 	OrdersGridcreateData(
 		8,
@@ -205,7 +140,8 @@ export const OrdersGridrows: GridRowsProp = [
 		'raja@gapac.com',
 		'Advisor',
 		true,
-		'C',
+		'Manager',
+		'02/14/2023',
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
@@ -219,6 +155,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 	OrdersGridcreateData(
 		10,
@@ -229,7 +166,8 @@ export const OrdersGridrows: GridRowsProp = [
 		'Kri3@gapac.com',
 		'Manager',
 		true,
-		'T',
+		'Sales',
+		'02/14/2023',
 		'02/14/2023',
 	),
 	OrdersGridcreateData(
@@ -243,6 +181,7 @@ export const OrdersGridrows: GridRowsProp = [
 		false,
 		'',
 		'',
+		'',
 	),
 	OrdersGridcreateData(
 		12,
@@ -253,7 +192,8 @@ export const OrdersGridrows: GridRowsProp = [
 		'Kris@gapac.com',
 		'Trader',
 		true,
-		'T',
+		'Admin',
+		'02/14/2023',
 		'02/14/2023',
 	),
 ];

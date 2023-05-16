@@ -1,6 +1,8 @@
+/*Component Name : SubDivisionCheckBox
+ Utility : This component is used to take SubDivision as an input
+ Author Ananya Dhar 04-05-2023-------------------------   */
 import { Grid, Typography } from '@mui/material';
-import { useState, useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 interface CheckBoxOptions {
 	label: string;
 	value: string;
@@ -10,22 +12,17 @@ const options: CheckBoxOptions[] = [
 	{ label: 'PLY', value: 'PLY' },
 ];
 
-export default function SubDivisionCheckBox(props: any) {
-	const [division, setDivision]: any = useState({});
+interface SubDivisionCheckBoxProps {
+	selectedOptions: any;
+	handleCheckBoxChange: any;
+}
 
-	useEffect(() => {
-		function fetchName() {
-			let fetchDivision = JSON.parse(
-				localStorage.getItem('status') || '{}',
-			);
-			setDivision(fetchDivision);
-		}
-		fetchName();
-	}, []);
+export function SubDivisionCheckBox(props: SubDivisionCheckBoxProps) {
+	const division = useSelector((state: any) => state.divisionInfo);
 
 	return (
 		<Grid>
-			{division.subdivision === 'SP' && (
+			{division === 'SP' && (
 				<Grid className="flexrow">
 					<Typography className="pr-8">Sub Division:</Typography>
 					<Grid>

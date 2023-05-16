@@ -1,7 +1,20 @@
+/*Component Name :ButtonGrid 
+ Utility : This component is used for Buttons in the modal component
+ Author Ananya Dhar 15-05-2023-------------------------   */
 import { Button, Grid } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { SnackbarOrigin } from '@mui/material/Snackbar';
 
-export default function ButtonGrid(props: any) {
+interface ButtonGridProps {
+	empty: boolean;
+	isFound: boolean;
+	emailExists: boolean;
+	emailId: string;
+	handleCancel: () => void;
+	handleClickSnack: (newState: SnackbarOrigin) => () => void;
+}
+
+export function ButtonGrid(props: ButtonGridProps) {
 	const [division, setDivision]: any = useState({});
 
 	useEffect(() => {

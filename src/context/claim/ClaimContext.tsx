@@ -9,7 +9,7 @@ type ClaimType = {
 	username: string;
 	password: string;
 	isAdmin: boolean;
-	subdivision: string;
+	division: string;
 	firstname: string;
 	lastname: string;
 };
@@ -36,7 +36,7 @@ export const ClaimContextProvider = ({
 			username: 'admin',
 			password: 'admin@123',
 			isAdmin: true,
-			subdivision: '',
+			division: '',
 			firstname: '',
 			lastname: '',
 		},
@@ -50,7 +50,7 @@ export const ClaimContextProvider = ({
 				username: 'admin',
 				password: 'admin@123',
 				isAdmin: true,
-				subdivision: 'SL',
+				division: 'SL',
 				firstname: 'admin',
 				lastname: '',
 			},
@@ -59,7 +59,7 @@ export const ClaimContextProvider = ({
 				username: 'Ananya',
 				password: 'password@123',
 				isAdmin: false,
-				subdivision: '',
+				division: '',
 				firstname: 'Ananya',
 				lastname: 'Dhar',
 			},
@@ -68,7 +68,7 @@ export const ClaimContextProvider = ({
 				username: 'Gautam',
 				password: 'password@123',
 				isAdmin: false,
-				subdivision: '',
+				division: '',
 				firstname: 'Gautam',
 				lastname: 'Malhotra',
 			},
@@ -77,7 +77,7 @@ export const ClaimContextProvider = ({
 				username: 'Abhishek',
 				password: 'password@123',
 				isAdmin: true,
-				subdivision: 'SP',
+				division: 'SP',
 				firstname: 'Abhishek',
 				lastname: 'Bhatt',
 			},

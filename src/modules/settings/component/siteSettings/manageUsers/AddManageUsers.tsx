@@ -1,9 +1,7 @@
 /*Component Name :AddManageUsers 
- Utility : This componenet is used to add new users.
- Author Krishna Choudharyn 04-05-2023-------------------------   */
-
-import LoadingButton from '@mui/lab/LoadingButton';
-import { Grid, Modal, Box, Button, Typography } from '@mui/material';
+ Utility : This component is used to add new users.
+ Author Ananya Dhar 04-05-2023-------------------------   */
+import { Grid, Modal, Box, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import {
 	GridRowsProp,
@@ -16,12 +14,14 @@ import {
 	permissionSets,
 } from '../../../../settings/services/AddUserData';
 import '../../../../../styles/StyleMain.css';
-import Division from './Division';
 import { AddButton } from '../../../../../common/button';
-import ButtonGrid from './ButtonGrid';
-import EmailInput from './EmailInput';
-import PermissionSetDropdown from './PermissionSetDropdown';
-import SubDivisionCheckBox from './SubDivisionCheckBox';
+import {
+	Division,
+	EmailInput,
+	PermissionSetDropdown,
+	ButtonGrid,
+	SubDivisionCheckBox,
+} from './index';
 import { Notification } from '../../../../../common/Alert/Notification';
 
 interface AddProps {
@@ -35,14 +35,7 @@ interface AddProps {
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
-interface CheckBoxOptions {
-	label: string;
-	value: string;
-}
-const options: CheckBoxOptions[] = [
-	{ label: 'OSB', value: 'OSB' },
-	{ label: 'PLY', value: 'PLY' },
-];
+
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
@@ -53,7 +46,6 @@ export function AddManageUsers(props: AddProps) {
 		vertical: 'top',
 		horizontal: 'right',
 	});
-
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
@@ -68,6 +60,7 @@ export function AddManageUsers(props: AddProps) {
 	const [apiResponse, setApiResponse] = useState(false);
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => {
+		setValue('');
 		setSelectedOptions([]);
 		setOpen(true);
 	};
@@ -126,7 +119,10 @@ export function AddManageUsers(props: AddProps) {
 		const firstName = data[0].first_name;
 		const lastName = data[0].last_name;
 		const temporaryPermission = data[0].temporaryPermission;
-		const temporaryPermissionDate = data[0].temporaryPermissionDate;
+		const temporaryPermissionStartDate =
+			data[0].temporaryPermissionStartDate;
+		const temporaryPermissionEndDate = data[0].temporaryPermissionEndDate;
+
 		setRows((oldRows) => [
 			...oldRows,
 			{
@@ -139,7 +135,8 @@ export function AddManageUsers(props: AddProps) {
 				email: emailId,
 				activeUser: true,
 				temporaryPermission: temporaryPermission,
-				temporaryPermissionDate: temporaryPermissionDate,
+				temporaryPermissionStartDate: temporaryPermissionStartDate,
+				temporaryPermissionEndDate: temporaryPermissionEndDate,
 			},
 		]);
 		setRowModesModel((oldModel) => ({

@@ -9,7 +9,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 export function AddButton(props: any) {
 	return (
 		<Box>
-			<LoadingButton onClick={props.onClick} className="fs-10 col-005fa8">
+			<LoadingButton onClick={props.onClick} className="buttontype6">
 				<div>
 					<div>
 						<AddOutlinedIcon className="icontype1" />
