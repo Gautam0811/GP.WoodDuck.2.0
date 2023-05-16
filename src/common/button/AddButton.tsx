@@ -6,7 +6,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-export function AddButton() {
+export function AddButton(props: { onClick: () => void }) {
 	return (
 		<Box>
 			<LoadingButton className="fs-10 col-005fa8">
