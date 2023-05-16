@@ -36,7 +36,6 @@ export function MillGroupsGrid() {
 
 	return (
 		<div>
-			<AddButton onClick={() => handleAddData()} />
 			<Container>
 				<Paper style={{ padding: 10 }}>
 					<DndTable items={tableData} />
