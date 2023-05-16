@@ -10,7 +10,6 @@ export interface DataItem {
 	id: number;
 	[name: string]: any;
 	Default: boolean;
-	Default: boolean;
 	[Mills: number]: any;
 }
 
