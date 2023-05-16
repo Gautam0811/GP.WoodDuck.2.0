@@ -88,6 +88,16 @@ export function SiteSettings() {
 						</Typography>
 					</Link>
 				)}
+				{data.isAdmin && (
+					<Link
+						to="/settings/manageDefaultUserSetting"
+						className="text-dec-none"
+					>
+						<Typography className="col-005fa8">
+							Manage Default Settings
+						</Typography>
+					</Link>
+				)}
 			</Stack>
 			<br />
 		</Box>

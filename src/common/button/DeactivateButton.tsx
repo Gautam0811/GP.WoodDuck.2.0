@@ -4,7 +4,7 @@
 // -------------------------
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import BlockIcon from '@mui/icons-material/Block';
 import { GridRowId, GridRowModesModel } from '@mui/x-data-grid';
 
 interface SelectedRowParams {
@@ -19,12 +19,18 @@ interface EditToolbarProps {
 }
 
 export function DeactivateButton(props: EditToolbarProps) {
+	const { selectedRowParams, rowModesModel, rowMode, setRowModesModel } =
+		props;
+
 	return (
 		<Box>
-			<LoadingButton className="fs-10 col-005fa8">
+			<LoadingButton
+				disabled={!selectedRowParams}
+				className="buttontype6"
+			>
 				<div>
 					<div>
-						<CloseOutlinedIcon className="icontype1" />
+						<BlockIcon className="icontype1" />
 					</div>
 					<div>
 						<span>Deactivate</span>

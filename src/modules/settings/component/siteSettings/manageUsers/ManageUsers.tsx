@@ -1,3 +1,7 @@
+/*Component Name :ManageUsers 
+ Utility : This component is the parent component of manage user.
+ Author Ananya Dhar 04-05-2023-------------------------   */
+
 import Grid from '@mui/material/Grid';
 import { ManageUsersTabs } from './index';
 

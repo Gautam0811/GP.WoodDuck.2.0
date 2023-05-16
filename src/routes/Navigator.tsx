@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Dashboard } from '../modules/dashboard';
 import { Settings, ManageUsers } from '../modules/settings';
+import { ManageDefaultSetting } from '../modules/settings/component/siteSettings/manageDefaultUserSetting';
 import { Permissions } from '../modules/settings';
 import { MillGroups } from '../modules/settings/component/userSettings/millGroups';
 
@@ -18,6 +19,10 @@ export function Navigator() {
 				/>
 				<Route path="/manageUsers" element={<ManageUsers />} />
 				<Route path="/millGroups" element={<MillGroups />} />
+				<Route
+					path="/settings/manageDefaultUserSetting"
+					element={<ManageDefaultSetting />}
+				/>
 			</Routes>
 		</div>
 	);

@@ -10,6 +10,7 @@ export interface DataItem {
 	id: number;
 	[name: string]: any;
 	Default: boolean;
+	Default: boolean;
 	[Mills: number]: any;
 }
 
@@ -24,13 +25,15 @@ var tableData: Array<DataItem> = [
 ];
 
 export function MillGroupsGrid() {
-	const handleAddData = () => {
-		tableData = [
-			...tableData,
-			{ uuid: '', id: 0, name: '', Default: false, Mills: 0 },
-		];
-		console.log(tableData);
-	};
+	const tableData: Array<DataItem> = [
+		{ uuid: '1', id: 1, name: 'All Mills', Default: true, Mills: 7 },
+		{ uuid: '2', id: 2, name: 'Rocky Cracks', Default: false, Mills: 11 },
+		{ uuid: '3', id: 3, name: 'Eastern', Default: false, Mills: 14 },
+		{ uuid: '4', id: 4, name: 'Studs', Default: false, Mills: 4 },
+		{ uuid: '5', id: 5, name: 'Single Mills', Default: false, Mills: 2 },
+		{ uuid: '6', id: 6, name: 'Reload', Default: false, Mills: 6 },
+		{ uuid: '7', id: 7, name: 'New', Default: false, Mills: 21 },
+	];
 
 	return (
 		<div>

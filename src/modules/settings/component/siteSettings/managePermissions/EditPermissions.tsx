@@ -1,78 +1,62 @@
+/*Component Name :Notification 
+ Utility : This componenet is used to edit the permission set.
+ Author Krishna Choudhary 06-05-2023-------------------------   */
+
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import EditIcon from '@mui/icons-material/Edit';
 
-import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
-import { SaveButton } from '../../../../../common/button';
-
-interface SelectedRowParams {
-	id: GridRowId;
-}
+import {
+	GridRowModesModel,
+	GridRowModes,
+	GridRowsProp,
+} from '@mui/x-data-grid';
 
 interface EditProps {
-	setSelectedRowParams: any;
-	selectedRowParams: SelectedRowParams;
+	filterRows: GridRowsProp;
 	rowModesModel: GridRowModesModel;
-	setRowModesModel: (value: GridRowModesModel) => void;
-	rowMode: 'view' | 'edit';
+	setRowModesModel: (
+		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
+	) => void;
+	setAdd: any;
 }
 
 export function EditPermissions(props: EditProps) {
-	const {
-		setSelectedRowParams,
-		selectedRowParams,
-		rowMode,
-		rowModesModel,
-		setRowModesModel,
-	} = props;
+	const { filterRows, rowModesModel, setRowModesModel, setAdd } = props;
 
-	const handleSaveOrEdit = () => {
-		if (selectedRowParams.id === 0 || selectedRowParams.id === 1) {
-			return;
-		}
-		const { id } = selectedRowParams;
-		// if (rowMode === "edit") {
-		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-		// } else {
-		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-		// }
+	const isInEditMode = Object.keys(rowModesModel).some((rowId) => {
+		return rowModesModel[rowId].mode === GridRowModes.Edit;
+	});
+	const handleClick = () => {
+		console.log('handleclick');
+		console.log(filterRows);
+		const newModel = filterRows.reduce<any>((acc, row: any) => {
+			console.log(row.id);
+			console.log(acc);
+			acc[row.id] = { mode: GridRowModes.Edit };
+			return acc;
+		}, {});
 
-		if (rowMode === 'view') {
-			setRowModesModel({
-				...rowModesModel,
-				[id]: { mode: GridRowModes.Edit },
-			});
-		}
+		setRowModesModel(newModel);
+		setAdd(false);
 	};
 
 	return (
 		<Box>
-			{rowMode === 'edit' ? (
-				<SaveButton
-					setSelectedRowParams={setSelectedRowParams}
-					selectedRowParams={selectedRowParams}
-					rowMode={rowMode}
-					rowModesModel={rowModesModel}
-					setRowModesModel={setRowModesModel}
-				/>
-			) : (
-				<Button
-					className="buttontype6"
-					onClick={handleSaveOrEdit}
-					disabled={
-						selectedRowParams.id === 0 || selectedRowParams.id === 1
-					}
-				>
+			<LoadingButton
+				className="buttontype4"
+				onClick={handleClick}
+				disabled={isInEditMode || !filterRows.length}
+			>
+				<div>
 					<div>
-						<div>
-							<EditIcon className="icontype1" />
-						</div>
-						<div>
-							<span>Edit</span>
-						</div>
+						<EditIcon className="icontype1" />
 					</div>
-				</Button>
-			)}
+					<div>
+						<span>Edit</span>
+					</div>
+				</div>
+			</LoadingButton>
 		</Box>
 	);
 }

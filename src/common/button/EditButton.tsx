@@ -35,7 +35,7 @@ export function EditButton(props: any) {
 
 	return (
 		<Box>
-			<LoadingButton onClick={handleOpen} className="fs-10 col-005fa8">
+			<LoadingButton onClick={handleOpen} className="buttontype6">
 				<div>
 					<div>
 						<EditIcon className="icontype1" />

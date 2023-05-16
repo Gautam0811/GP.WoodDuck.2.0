@@ -1,6 +1,11 @@
+/*Component Name :EditManageUsers 
+ Utility : This componenet is used to edit users permission set.
+ Author Ananya Dhar 04-05-2023-------------------------   */
+
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
 import { SaveManageUsersButton } from '../../../../../common/button';
@@ -14,11 +19,17 @@ interface EditToolbarProps {
 	rowModesModel: GridRowModesModel;
 	setRowModesModel: (value: GridRowModesModel) => void;
 	rowMode: 'view' | 'edit';
+	isActive: boolean;
 }
 
 export function EditManageUsers(props: EditToolbarProps) {
-	const { selectedRowParams, rowMode, rowModesModel, setRowModesModel } =
-		props;
+	const {
+		selectedRowParams,
+		rowMode,
+		rowModesModel,
+		setRowModesModel,
+		isActive,
+	} = props;
 
 	const handleSaveOrEdit = () => {
 		if (!selectedRowParams) {
@@ -49,14 +60,22 @@ export function EditManageUsers(props: EditToolbarProps) {
 					setRowModesModel={setRowModesModel}
 				/>
 			) : (
-				<Button
-					className="flexcolumn fs-10"
-					onClick={handleSaveOrEdit}
-					disabled={!selectedRowParams}
-				>
-					<EditIcon className="fs-14" />
-					<p>Edit</p>
-				</Button>
+				<Box>
+					<LoadingButton
+						className="buttontype6"
+						onClick={handleSaveOrEdit}
+						disabled={!selectedRowParams}
+					>
+						<div>
+							<div>
+								<EditIcon className="icontype1" />
+							</div>
+							<div>
+								<span>Edit</span>
+							</div>
+						</div>
+					</LoadingButton>
+				</Box>
 			)}
 		</Box>
 	);

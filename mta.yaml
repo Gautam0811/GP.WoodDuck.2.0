@@ -1,0 +1,80 @@
+_schema-version: "3.2"
+ID: frontend
+version: 0.0.1
+modules:
+- name: frontend-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: frontend-destination-service
+    parameters:
+      content-target: true
+  - name: frontend_html_repo_host
+    parameters:
+      service-key:
+        name: frontend_html_repo_host-key
+  - name: uaa_frontend
+    parameters:
+      service-key:
+        name: uaa_frontend-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: ReactPOC_frontend_html_repo_host
+          ServiceInstanceName: frontend-html5-app-host-service
+          ServiceKeyName: frontend_html_repo_host-key
+          sap.cloud.service: ReactPOC
+        - Authentication: OAuth2UserTokenExchange
+          Name: ReactPOC_uaa_frontend
+          ServiceInstanceName: frontend-xsuaa-service
+          ServiceKeyName: uaa_frontend-key
+          sap.cloud.service: ReactPOC
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: frontend_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: frontend_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - frontendModule-content.zip
+      name: frontendModule
+      target-path: resources/
+- name: frontendModule
+  type: html5
+  path: frontendModule
+  build-parameters:
+    builder: custom
+    commands:
+    - npm install
+    - npm run build
+    supported-platforms: []
+resources:
+- name: frontend-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+    service: destination
+    service-name: frontend-destination-service
+    service-plan: lite
+- name: frontend_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: frontend-html5-app-host-service
+    service-plan: app-host
+- name: uaa_frontend
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: frontend-xsuaa-service
+    service-plan: application
