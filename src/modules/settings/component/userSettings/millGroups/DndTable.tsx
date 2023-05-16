@@ -171,12 +171,10 @@ export const DndTable: React.FC<{ items: DataItem[] }> = ({ items }) => {
 																index &&
 															colIndex === 0 ? (
 																<TextField
-																	style={{
-																		border: '0px',
-																	}}
 																	placeholder={
 																		item.name
 																	}
+																	name="mills"
 																	defaultValue={
 																		localItems[
 																			index
