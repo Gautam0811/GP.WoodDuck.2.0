@@ -18,33 +18,22 @@ import {
 	SelectChangeEvent,
 } from '@mui/material';
 
-export function Subdivision() {
+export function Division() {
 	const dispatch = useDispatch();
 	const { divisionData } = bindActionCreators(actionCreators, dispatch);
 	const divisionInfo = useSelector((state: any) => state.divisionInfo);
 
 	const [name, setName]: any = useState({});
-	const [subdivision, setSubdivision] = useState('');
 	useEffect(() => {
 		function fetchName() {
 			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
 			setName(nameFetch);
-			setSubdivision(nameFetch.subdivision);
-			//on first time load
-			window.localStorage.setItem(
-				'subdivisionValue',
-				nameFetch.subdivision,
-			);
 		}
 		fetchName();
 	}, []);
 
 	const handleChange = (event: SelectChangeEvent) => {
 		divisionData(event.target.value);
-		//on select of subdivision load
-		window.localStorage.setItem('subdivisionValue', event.target.value);
-		// console.log(subdivision);
-		// console.log(localStorage.getItem('subdivisionValue') || '{}');
 	};
 	return (
 		// View for Subdivision section

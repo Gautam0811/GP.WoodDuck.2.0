@@ -19,12 +19,10 @@ import '../styles/Header.css';
 import '../../../../styles/StyleMain.css';
 
 import { Grid } from '@mui/material';
-import { Profile, Subdivision } from '../index';
+import { Profile, Division } from '../index';
 
 export function RightHeader() {
 	const [name, setName]: any = useState({});
-
-	// React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
 	useEffect(() => {
 		function fetchName() {
@@ -49,7 +47,7 @@ export function RightHeader() {
 									<br />
 								</div>
 							)} */}
-							<Subdivision />
+							<Division />
 							<Grid
 								className="font-black hide_view"
 								component="div"

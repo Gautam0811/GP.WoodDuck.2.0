@@ -45,9 +45,6 @@ export function ManageUsersTabs() {
 
 	const [value, setValue] = useState(0);
 	const [isActive, setIsActive]: any = useState(true);
-	// const division = window.localStorage.getItem('subdivisionValue');
-
-	// console.log('Divisiion', division);
 	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
 			(a: any) => a.activeUser === isActive && a.division === division,
@@ -55,7 +52,6 @@ export function ManageUsersTabs() {
 	);
 
 	useEffect(() => {
-		console.log('Div', division);
 		setOrderFilterGridRow(
 			OrdersGridrows.filter(
 				(a: any) =>

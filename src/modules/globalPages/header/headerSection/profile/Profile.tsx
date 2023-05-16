@@ -36,11 +36,7 @@ export function Profile() {
 		(user: { userName: any }) =>
 			user.userName ===
 			JSON.parse(localStorage.getItem('status') || '{}').name,
-
-		// console.log("user.userName"+user.userName)
 	);
-
-	// React.useEffect((() => setName(JSON.parse(localStorage.getItem('status') || '{}'))), []);
 
 	useEffect(() => {
 		function fetchName() {
@@ -49,10 +45,6 @@ export function Profile() {
 		}
 		fetchName();
 	}, []);
-
-	// var nameByChar =
-	//   JSON.parse(localStorage.getItem("status") || "{}").firstname.charAt(0) +
-	//   JSON.parse(localStorage.getItem("status") || "{}").lastname.charAt(0);
 
 	var nameByChar;
 	if (nameByChar !== null && nameByChar !== '') {
