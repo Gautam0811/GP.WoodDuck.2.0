@@ -1,6 +1,6 @@
 // WD_SiteSettings
 // Component Utility : The Component is created to render site settings tab in the Settings page
-// Author Gautam Malhotra on 1-5-2023
+// Author Gautam Malhotra on 1-3-2023
 // -------------------------
 import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import Collapse from '@mui/material/Collapse';
 import { ShoppingCartOutlined } from '@mui/icons-material';
-import { BrowserRouter } from 'react-router-dom';
 
 export function SiteSettings() {
 	const [manageUsers, setmanageUsers] = useState(false);
@@ -86,6 +85,16 @@ export function SiteSettings() {
 					>
 						<Typography className="col-005fa8">
 							Manage Permission Sets and Controls
+						</Typography>
+					</Link>
+				)}
+				{data.isAdmin && (
+					<Link
+						to="/settings/manageDefaultUserSetting"
+						className="text-dec-none"
+					>
+						<Typography className="col-005fa8">
+							Manage Default Settings
 						</Typography>
 					</Link>
 				)}

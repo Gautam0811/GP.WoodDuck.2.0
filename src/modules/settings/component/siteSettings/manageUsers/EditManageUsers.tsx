@@ -62,13 +62,13 @@ export function EditManageUsers(props: EditToolbarProps) {
 			) : (
 				<Box>
 					<LoadingButton
-						className="buttontype4"
+						className="buttontype6"
 						onClick={handleSaveOrEdit}
 						disabled={!selectedRowParams}
 					>
 						<div>
 							<div>
-								<EditIcon />
+								<EditIcon className="icontype1" />
 							</div>
 							<div>
 								<span>Edit</span>

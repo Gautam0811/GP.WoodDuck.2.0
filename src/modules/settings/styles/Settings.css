@@ -1,92 +1,56 @@
 /* settings */
 /* for settings header */
 .settings-header{
-    width:100%;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f4fb;
+}
+
+/* for settings header text*/
+.settings-header-text{
+  justify-content: center; 
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+/* for setting mainsection */
+.css-vj1n65-MuiGrid-root.settings-mainsection-grid{
+    padding-top: 50px;
+    justify-content: space-evenly;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f1f4fb;
-  }
-  
-  /* for settings header text*/
-  .settings-header-text{
-    justify-content: center; 
-    padding-left: 20px;
-    font-weight: bold;
-  }
-  
-  /* for setting mainsection */
-  .css-vj1n65-MuiGrid-root.settings-mainsection-grid{
-      padding-top: 50px;
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: row;
-  }
-  
-  .settings-table{
-    color: #1357a6; 
-  }
-  
-  .settings-table th{
-    color: black;
-    background-color: #f1f4fb;
-    padding:10px;
-  }
-  
-  .settings-table tr{
-    text-align:left;
-    border:none;
-  }
+}
 
-  /* Add manage users modal component */
-  .modal-add-class{
-    position: absolute;
-    top: 130px;
-    right: 420px;
-    padding: 100px;
-    border-radius: 5px;
-    background-image: linear-gradient(180deg, white, #f1f4fb);
-    box-shadow: 30px;
-    padding: 10px;
-  }
+.settings-table{
+  color: #1357a6; 
+}
 
-  /* email input dropdown  */
-  .email-drop-down-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: auto;
-    width: auto;
+.settings-table th{
+  color: black;
+  background-color: #f1f4fb;
+  padding:10px;
+}
 
-  }
+.settings-table tr{
+  text-align:left;
+  border:none;
+}
+/* for default settings header */
+.default-settings-header{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f4fb;
+}
 
-  .email-drop-down-container ul {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: calc(100% + 5px);
-    min-width: 100%;
-    max-height: 130px;
-    overflow-y: auto;
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-    border-radius: 4px;
-    box-shadow: 0 0 5px #d4d4d4;
-    list-style: none;
-  }
-  
-  .email-drop-down-container ul li{
-    background-color: #fcfcfc;
-    padding: 5px 10px; 
-    cursor: pointer;
-    transition: background-color ease .2s;
-    font-size: 12px;
-  }
-  .email-drop-down-container ul li:hover{
-    background-color: #005fa8;
-    color: #fcfcfc;
-  }
+/* for default settings header text*/
+.default-settings-header-text{
+  justify-content: center; 
+  padding-left: 20px;
+  font-weight: bold;
+}

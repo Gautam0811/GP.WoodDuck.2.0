@@ -11,7 +11,7 @@ export function CloseButton() {
 	return (
 		<Box>
 			<Link className="text-dec-none" to="/settings">
-				<LoadingButton className="fs-10 col-005fa8">
+				<LoadingButton className="buttontype6">
 					<div>
 						<div>
 							<CloseOutlinedIcon className="icontype1" />

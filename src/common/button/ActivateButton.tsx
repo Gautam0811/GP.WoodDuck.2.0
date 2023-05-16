@@ -20,7 +20,10 @@ export function ActivateButton(props: EditToolbarProps) {
 
 	return (
 		<Box>
-			<LoadingButton disabled={!selectedRowParams} className="fs-10">
+			<LoadingButton
+				disabled={!selectedRowParams}
+				className="buttontype6"
+			>
 				<div>
 					<div>
 						<AddOutlinedIcon className="icontype1" />

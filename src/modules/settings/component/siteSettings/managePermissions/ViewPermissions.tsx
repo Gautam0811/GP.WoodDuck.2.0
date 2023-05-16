@@ -88,6 +88,9 @@ export function ViewPermissions() {
 						filterRows={filterRows}
 						rowModesModel={rowModesModel}
 						setRowModesModel={setRowModesModel}
+						add={add}
+						permissionRows={permissionRows}
+						setPermissionRows={setPermissionRows}
 					/>
 					<SavePermissions
 						filterRows={filterRows}

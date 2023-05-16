@@ -63,7 +63,7 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 		// }
 	};
 
-	// const [post, setPost]: any = useState({});
+	const [post, setPost]: any = useState({});
 	const [name, setName]: any = useState({});
 
 	const [open, setOpen] = useState(false);
@@ -93,7 +93,7 @@ export function SaveManageUsersButton(props: EditToolbarProps) {
 			<LoadingButton
 				onClick={handleOpen}
 				disabled={!selectedRowParams}
-				className="fs-10 col-005fa8"
+				className="buttontype6"
 			>
 				<div>
 					<div>

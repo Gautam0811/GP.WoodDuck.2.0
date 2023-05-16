@@ -21,11 +21,20 @@ interface SetTemporaryPermissionsProps {
 export function SetTemporaryPermissionsButton(
 	props: SetTemporaryPermissionsProps,
 ) {
-	const { selectedRowParams } = props;
+	const {
+		isActive,
+		selectedRowParams,
+		rowModesModel,
+		rowMode,
+		setRowModesModel,
+	} = props;
 
 	return (
 		<Box>
-			<LoadingButton disabled={!selectedRowParams} className="fs-10">
+			<LoadingButton
+				disabled={!selectedRowParams}
+				className="buttontype6"
+			>
 				<div>
 					<div>
 						<RocketIcon className="icontype1" />

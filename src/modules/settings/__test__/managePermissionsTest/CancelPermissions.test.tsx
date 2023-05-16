@@ -7,6 +7,7 @@ import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
 import { CancelPermissions } from '../../component/siteSettings/managePermissions';
 import { GridRowModesModel } from '@mui/x-data-grid/models';
+import { GridValidRowModel } from '@mui/x-data-grid-pro';
 
 afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
@@ -21,6 +22,15 @@ describe('Clp Page', () => {
 			rowModesModel={{}}
 			setRowModesModel={function (
 				newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
+			): void {
+				throw new Error('Function not implemented.');
+			}}
+			add={undefined}
+			permissionRows={{}}
+			setPermissionRows={function (
+				newRows: (
+					oldRows: readonly GridValidRowModel[],
+				) => readonly GridValidRowModel[],
 			): void {
 				throw new Error('Function not implemented.');
 			}}

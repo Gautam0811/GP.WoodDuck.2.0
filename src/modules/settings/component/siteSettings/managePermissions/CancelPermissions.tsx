@@ -19,6 +19,11 @@ interface CancelProps {
 	setRowModesModel: (
 		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
 	) => void;
+	add: any;
+	permissionRows: any;
+	setPermissionRows: (
+		newRows: (oldRows: GridRowsProp) => GridRowsProp,
+	) => void;
 }
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
@@ -38,9 +43,19 @@ export function CancelPermissions(props: CancelProps) {
 	const [apiResponse, setApiResponse] = useState(false);
 	const handleClickSnack = (newState: SnackbarOrigin) => () => {
 		setState({ openSnack: true, ...newState });
+		if (add) {
+			handleDelete();
+		}
 		handleCancel();
 	};
-	const { filterRows, rowModesModel, setRowModesModel } = props;
+	const {
+		filterRows,
+		rowModesModel,
+		setRowModesModel,
+		add,
+		permissionRows,
+		setPermissionRows,
+	} = props;
 
 	const isInEditMode = Object.keys(rowModesModel).some((rowId) => {
 		return rowModesModel[rowId].mode === GridRowModes.Edit;
@@ -66,7 +81,18 @@ export function CancelPermissions(props: CancelProps) {
 			type: 'error',
 		});
 	};
-
+	const handleDelete = () => {
+		const difference = setPermissionRows(
+			permissionRows.filter((row: any) => !filterRows.includes(row)),
+		);
+		console.log(difference);
+		setApiResponse(true);
+		setNotify({
+			isOpen: true,
+			message: 'Permission set not Added!',
+			type: 'error',
+		});
+	};
 	return (
 		<div>
 			{apiResponse ? (

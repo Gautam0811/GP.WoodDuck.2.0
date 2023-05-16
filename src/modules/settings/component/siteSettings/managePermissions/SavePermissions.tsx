@@ -94,10 +94,12 @@ export function SavePermissions(props: SaveProps) {
 		const newModel = filterRows.reduce<any>((acc, row: any) => {
 			console.log(row.id);
 			console.log(acc);
-			acc[row.id] = { mode: GridRowModes.View };
+			acc[row.id] = {
+				mode: GridRowModes.View,
+				ignoreModifications: false,
+			};
 			return acc;
 		}, {});
-
 		setRowModesModel(newModel);
 		setApiResponse(true);
 

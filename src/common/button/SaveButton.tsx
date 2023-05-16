@@ -90,7 +90,7 @@ export function SaveButton(props: EditToolbarProps) {
 			<LoadingButton
 				onClick={handleOpen}
 				disabled={!selectedRowParams}
-				className="fs-10 col-005fa8"
+				className="buttontype6"
 			>
 				<div>
 					<div>
