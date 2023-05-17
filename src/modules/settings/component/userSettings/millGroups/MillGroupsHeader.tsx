@@ -33,7 +33,6 @@ export function MillGroupsHeader() {
 						My Mill Groups
 					</Typography>
 					<Grid className="flexrow pr-16">
-						<AddButton />
 						<ImportButton />
 						<CloseButton />
 					</Grid>
