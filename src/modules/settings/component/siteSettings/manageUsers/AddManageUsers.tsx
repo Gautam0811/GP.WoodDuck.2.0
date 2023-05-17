@@ -2,7 +2,7 @@
  Utility : This component is used to add new users.
  Author Ananya Dhar 04-05-2023-------------------------   */
 import { Grid, Modal, Box, Typography } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
 	GridRowsProp,
 	GridRowModesModel,
@@ -23,6 +23,7 @@ import {
 	SubDivisionCheckBox,
 } from './index';
 import { Notification } from '../../../../../common/Alert/Notification';
+import { useSelector } from 'react-redux';
 
 interface AddProps {
 	rows: any;
@@ -35,12 +36,12 @@ interface AddProps {
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
-
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
 
 export function AddManageUsers(props: AddProps) {
+	const division = useSelector((state: any) => state.divisionInfo);
 	const [state, setState] = useState<State>({
 		openSnack: false,
 		vertical: 'top',
@@ -50,7 +51,7 @@ export function AddManageUsers(props: AddProps) {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
-	const { rows, setRows, setRowModesModel, isActive } = props;
+	const { rows, setRows, setRowModesModel } = props;
 	const [user, setUser] = useState(UsersData);
 	const [notify, setNotify] = useState({
 		isOpen: false,
@@ -67,7 +68,6 @@ export function AddManageUsers(props: AddProps) {
 	const handleClose = () => {
 		setOpen(false);
 	};
-
 	const handleCancel = () => {
 		setOpen(false);
 		setApiResponse(false);
@@ -79,21 +79,20 @@ export function AddManageUsers(props: AddProps) {
 		});
 	};
 	const [value, setValue] = useState('');
+	const [searchValue, setSearchValue] = useState('');
 	const handleOnChange = (event: any) => {
 		setValue(event.target.value);
 	};
-
-	const handleOnSearch = (emailId: string) => {
+	const handleOnSelect = (emailId: string) => {
 		setValue(emailId);
 	};
-
+	const handleOnSearch = (emailId: string) => {
+		setSearchValue(emailId);
+	};
 	const [selectedPermissionSet, setSelectedPermissionSet] = useState(
 		permissionSets[0].permission,
 	);
-	const [name, setName]: any = useState({});
-	const [division, setDivision] = useState('');
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-
 	//if value is in selectedOptions, it is removed. Otherwise its added
 	const handleCheckBoxChange = (value: string) => {
 		if (selectedOptions.includes(value)) {
@@ -104,15 +103,6 @@ export function AddManageUsers(props: AddProps) {
 			setSelectedOptions([...selectedOptions, value]);
 		}
 	};
-	useEffect(() => {
-		function fetchName() {
-			let nameFetch = JSON.parse(localStorage.getItem('status') || '{}');
-			setName(nameFetch);
-			setDivision(nameFetch.subdivision);
-		}
-		fetchName();
-	}, []);
-
 	const handleClickSave = () => {
 		let id: number = rows[rows.length - 1].id + 1;
 		var data = UsersData.filter(({ email }) => email === emailId);
@@ -122,7 +112,6 @@ export function AddManageUsers(props: AddProps) {
 		const temporaryPermissionStartDate =
 			data[0].temporaryPermissionStartDate;
 		const temporaryPermissionEndDate = data[0].temporaryPermissionEndDate;
-
 		setRows((oldRows) => [
 			...oldRows,
 			{
@@ -162,13 +151,12 @@ export function AddManageUsers(props: AddProps) {
 	const emailId = value.toLowerCase();
 	// check if array contains the entered emailId
 	const isFound = user.some((element: any) => {
-		if (element.email === emailId) {
+		if (element.email === searchValue) {
 			return true;
 		}
 		return false;
 	});
 	const [emailExists, setEmailExists] = useState(false);
-
 	// check if entered email is already present in the datagrid list
 	const handleIsEmailExists = (emailId: any) => {
 		for (const row of rows) {
@@ -195,10 +183,10 @@ export function AddManageUsers(props: AddProps) {
 							Add User
 						</Typography>
 						<Grid>
-							{emailId ? null : (
+							{searchValue ? null : (
 								<div className="col-red">Required *</div>
 							)}
-							{isFound || !emailId ? null : (
+							{isFound || !searchValue ? null : (
 								<div className="col-red">
 									User does not exist
 								</div>
@@ -211,18 +199,16 @@ export function AddManageUsers(props: AddProps) {
 							<EmailInput
 								emailId={emailId}
 								handleOnSearch={handleOnSearch}
+								handleOnSelect={handleOnSelect}
 								handleIsEmailExists={handleIsEmailExists}
 								handleOnChange={handleOnChange}
 							/>
-							<br />
 							<PermissionSetDropdown
 								setSelectedPermissionSet={
 									setSelectedPermissionSet
 								}
 							/>
-							<br />
 							<Division />
-							<br />
 							<SubDivisionCheckBox
 								selectedOptions={selectedOptions}
 								handleCheckBoxChange={handleCheckBoxChange}

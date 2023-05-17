@@ -15,27 +15,30 @@ export function Division() {
 	const division = useSelector((state: any) => state.divisionInfo);
 
 	return (
-		<Grid className="flexrow">
-			<Typography className="pr-8">Division:</Typography>
-			<Grid className="border-grey-1">
-				{division === 'SL' ? (
-					<FormGroup>
-						<FormControlLabel
-							control={<Checkbox defaultChecked />}
-							label="SL"
-							disabled
-						/>
-					</FormGroup>
-				) : (
-					<FormGroup>
-						<FormControlLabel
-							control={<Checkbox defaultChecked />}
-							label="SP"
-							disabled
-						/>
-					</FormGroup>
-				)}
+		<Grid>
+			<Grid className="flexrow">
+				<Typography className="pr-8">Division:</Typography>
+				<Grid className="border-grey-1">
+					{division === 'SL' ? (
+						<FormGroup>
+							<FormControlLabel
+								control={<Checkbox defaultChecked />}
+								label="SL"
+								disabled
+							/>
+						</FormGroup>
+					) : (
+						<FormGroup>
+							<FormControlLabel
+								control={<Checkbox defaultChecked />}
+								label="SP"
+								disabled
+							/>
+						</FormGroup>
+					)}
+				</Grid>
 			</Grid>
+			<br />
 		</Grid>
 	);
 }

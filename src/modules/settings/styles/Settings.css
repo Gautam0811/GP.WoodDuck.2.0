@@ -38,19 +38,55 @@
   text-align:left;
   border:none;
 }
-/* for default settings header */
-.default-settings-header{
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f1f4fb;
+
+/* Add manage users modal component */
+.modal-add-class{
+  position: absolute;
+  top: 130px;
+  right: 420px;
+  padding: 100px;
+  border-radius: 5px;
+  background-image: linear-gradient(180deg, white, #f1f4fb);
+  box-shadow: 30px;
+  padding: 10px;
 }
 
-/* for default settings header text*/
-.default-settings-header-text{
-  justify-content: center; 
-  padding-left: 20px;
-  font-weight: bold;
+/* email input dropdown  */
+.email-drop-down-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: auto;
+  width: auto;
+
+}
+
+.email-drop-down-container ul {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(100% + 5px);
+  min-width: 100%;
+  max-height: 130px;
+  overflow-y: auto;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #d4d4d4;
+  list-style: none;
+}
+
+.email-drop-down-container ul li{
+  background-color: #fcfcfc;
+  padding: 5px 10px; 
+  cursor: pointer;
+  transition: background-color ease .2s;
+  font-size: 12px;
+}
+.email-drop-down-container ul li:hover{
+  background-color: #005fa8;
+  color: #fcfcfc;
 }

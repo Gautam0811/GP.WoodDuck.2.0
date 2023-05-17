@@ -26,7 +26,6 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 import Checkbox from '@mui/material/Checkbox';
 import { useSelector } from 'react-redux';
-
 import {
 	CloseButton,
 	DeactivateButton,
@@ -236,7 +235,7 @@ export function ManageUsersTabs() {
 				<span className="settings-header-text">Manage Users</span>
 				<div className="flexrow">
 					{isActive ? (
-						<div className="flexrow">
+						<Grid className="flexrow">
 							<AddManageUsers
 								setRows={setOrderFilterGridRow}
 								setRowModesModel={setRowModesModel}
@@ -257,7 +256,7 @@ export function ManageUsersTabs() {
 								setRowModesModel={setRowModesModel}
 								isActive={isActive}
 							/>
-						</div>
+						</Grid>
 					) : null}
 					{isActive ? (
 						<DeactivateButton

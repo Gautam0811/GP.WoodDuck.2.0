@@ -26,6 +26,10 @@ describe('Clp Page', () => {
 			handleOnChange={function (event: any): void {
 				throw new Error('Function not implemented');
 			}}
+			handleOnSelect={function (emailId: any): void {
+				throw new Error('Function not implemented');
+			}}
+
 		/>,
 	);
 
