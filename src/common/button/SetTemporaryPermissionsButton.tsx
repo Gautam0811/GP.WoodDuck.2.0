@@ -5,34 +5,22 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import RocketIcon from '@mui/icons-material/Rocket';
-import { GridRowId, GridRowModesModel } from '@mui/x-data-grid';
+import { GridRowsProp } from '@mui/x-data-grid';
 
-interface SelectedRowParams {
-	id: GridRowId;
-}
 interface SetTemporaryPermissionsProps {
 	isActive: boolean;
-	selectedRowParams?: SelectedRowParams;
-	rowModesModel: GridRowModesModel;
-	setRowModesModel: (value: GridRowModesModel) => void;
-	rowMode: 'view' | 'edit';
+	filterRows: GridRowsProp;
 }
 
 export function SetTemporaryPermissionsButton(
 	props: SetTemporaryPermissionsProps,
 ) {
-	const {
-		isActive,
-		selectedRowParams,
-		rowModesModel,
-		rowMode,
-		setRowModesModel,
-	} = props;
+	const { filterRows } = props;
 
 	return (
 		<Box>
 			<LoadingButton
-				disabled={!selectedRowParams}
+				disabled={!filterRows.length || filterRows.length > 5}
 				className="buttontype6"
 			>
 				<div>

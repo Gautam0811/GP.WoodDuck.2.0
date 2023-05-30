@@ -3,11 +3,7 @@
  Author Ananya Dhar 04-05-2023-------------------------   */
 import { Grid, Modal, Box, Typography } from '@mui/material';
 import { useState } from 'react';
-import {
-	GridRowsProp,
-	GridRowModesModel,
-	GridRowModes,
-} from '@mui/x-data-grid';
+import { GridRowsProp } from '@mui/x-data-grid';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
 import {
 	UsersData,
@@ -28,19 +24,14 @@ import { useSelector } from 'react-redux';
 interface AddProps {
 	rows: any;
 	setRows: (newRows: (oldRows: GridRowsProp) => any) => void;
-	setRowModesModel: (
-		newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-	) => void;
-	isActive: boolean;
-}
-export interface State extends SnackbarOrigin {
-	openSnack: boolean;
+	filterRows: GridRowsProp;
 }
 export interface State extends SnackbarOrigin {
 	openSnack: boolean;
 }
 
 export function AddManageUsers(props: AddProps) {
+	const { rows, setRows, filterRows } = props;
 	const division = useSelector((state: any) => state.divisionInfo);
 	const [state, setState] = useState<State>({
 		openSnack: false,
@@ -51,7 +42,6 @@ export function AddManageUsers(props: AddProps) {
 		setState({ openSnack: true, ...newState });
 		handleClickSave();
 	};
-	const { rows, setRows, setRowModesModel } = props;
 	const [user, setUser] = useState(UsersData);
 	const [notify, setNotify] = useState({
 		isOpen: false,
@@ -128,10 +118,6 @@ export function AddManageUsers(props: AddProps) {
 				temporaryPermissionEndDate: temporaryPermissionEndDate,
 			},
 		]);
-		setRowModesModel((oldModel) => ({
-			...oldModel,
-			[id]: { mode: GridRowModes.View, fieldToFocus: 'division' },
-		}));
 		handleClose();
 		setApiResponse(true);
 		setNotify({
@@ -170,7 +156,7 @@ export function AddManageUsers(props: AddProps) {
 
 	return (
 		<>
-			<AddButton onClick={handleOpen} />
+			<AddButton onClick={handleOpen} filterRows={filterRows} />
 			{apiResponse ? (
 				<Notification notify={notify} setNotify={setNotify} />
 			) : (

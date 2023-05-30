@@ -26,7 +26,7 @@ export function EmailInput(props: EmailInputProps) {
 						required
 					></input>
 					{props.emailId.length >= 3 && (
-						<div className="email-drop-down-container">
+						<Grid className="email-drop-down-container">
 							{/* ToDo: Waiting for backend API */}
 							<ul className="z-5">
 								{UsersData.filter((item) => {
@@ -57,14 +57,13 @@ export function EmailInput(props: EmailInputProps) {
 										</li>
 									))}
 							</ul>
-						</div>
+						</Grid>
 					)}
 				</Grid>
 				<Grid>
 					<button
 						onClick={(event) => {
 							props.handleOnSearch(props.emailId);
-							console.log('aa->', props.emailId);
 						}}
 					>
 						Search

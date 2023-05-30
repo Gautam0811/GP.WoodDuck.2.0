@@ -15,47 +15,22 @@ export function PermissionSetDropdown(props: PermissionSetProps) {
 	return (
 		<Grid>
 			<Grid>
-				{division === 'SP' ? (
-					<Grid className="flexrow">
-						<Grid>Permission Set: </Grid>
-						<select
-							onChange={(e) =>
-								props.setSelectedPermissionSet(e.target.value)
-							}
-						>
-							{permissionSets
-								.filter((a) => a.subdivision === 'SP')
-								.map((item) => (
-									<option
-										key={item.id}
-										value={item.permission}
-									>
-										{item.permission}
-									</option>
-								))}
-						</select>
-					</Grid>
-				) : (
-					<Grid className="flexrow">
-						<Grid>Permission Set: </Grid>
-						<select
-							onChange={(e) =>
-								props.setSelectedPermissionSet(e.target.value)
-							}
-						>
-							{permissionSets
-								.filter((a) => a.subdivision === 'SL')
-								.map((item) => (
-									<option
-										key={item.id}
-										value={item.permission}
-									>
-										{item.permission}
-									</option>
-								))}
-						</select>
-					</Grid>
-				)}
+				<Grid className="flexrow">
+					<Grid>Permission Set: </Grid>
+					<select
+						onChange={(e) =>
+							props.setSelectedPermissionSet(e.target.value)
+						}
+					>
+						{permissionSets
+							.filter((a) => a.division === division)
+							.map((item) => (
+								<option key={item.id} value={item.permission}>
+									{item.permission}
+								</option>
+							))}
+					</select>
+				</Grid>
 			</Grid>
 			<br />
 		</Grid>

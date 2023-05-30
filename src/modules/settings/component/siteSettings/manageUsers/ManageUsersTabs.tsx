@@ -2,107 +2,89 @@
 // Component Utility : The Component is created display the tabs part below header part of the manage users page
 // Author Ananya Dhar on 04-05-2023
 // -------------------------
-import { useEffect, useState, useMemo } from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import { Tabs, Tab } from '@mui/material';
-import { ViewManageUsers } from './index';
-import { OrdersGridrows } from '../../../../settings/services/ManageUsersData';
-import { AddManageUsers } from './AddManageUsers';
-import { EditManageUsers } from './EditManageUsers';
-import {
-	GridColDef,
-	GridRowId,
-	GridRowModesModel,
-	GridRowModes,
-	GridRowModel,
-	GridActionsCellItem,
-	GridRowsProp,
-	GridRowSelectionModel,
-	DataGrid,
-} from '@mui/x-data-grid';
-import CheckIcon from '@mui/icons-material/Check';
-import Checkbox from '@mui/material/Checkbox';
-import { useSelector } from 'react-redux';
-import {
-	CloseButton,
-	DeactivateButton,
-	SetTemporaryPermissionsButton,
-	ActivateButton,
-} from '../../../../../common/button';
-import '../../../styles/Settings.css';
-import { TabPanel } from './TabPanel';
+import { useEffect, useState } from 'react';
 
-interface SelectedRowParams {
-	id: GridRowId;
-}
+import RefreshIcon from '@mui/icons-material/Refresh';
+import { Tabs, Tab, Grid, Box, Typography, Alert } from '@mui/material';
+import { ViewManageUsers, DeactivateManageUsers } from './index';
+import { ActivateManageUsers } from './index';
+import { OrdersGridrows } from '../../../../settings/services/ManageUsersData';
+import { AddManageUsers } from './index';
+import { EditManageUsers } from './index';
+import { OrdersGridcolumns } from '../../../services/ManageUsersColumns';
+import { GridRowsProp, GridRowSelectionModel } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
+import { useSelector } from 'react-redux';
+import { CloseButton } from '../../../../../common/button';
+import { SetTemporaryPermissionsButton } from '../../../../../common/button';
+import '../../../styles/Settings.css';
+import { TabPanel } from './index';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../../../../state';
 
 export function ManageUsersTabs() {
 	const division = useSelector((state: any) => state.divisionInfo);
+	const dispatch = useDispatch();
+	const { activeData } = bindActionCreators(actionCreators, dispatch);
+	const active = useSelector((state: any) => state.activeInfo);
 
 	const [value, setValue] = useState(0);
-	const [isActive, setIsActive]: any = useState(true);
+	// const [isActive, setIsActive]: any = useState(true);
 	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
-			(a: any) => a.activeUser === isActive && a.division === division,
+			(a: any) => a.activeUser === active && a.division === division,
 		),
 	);
 
 	useEffect(() => {
 		setOrderFilterGridRow(
 			OrdersGridrows.filter(
-				(a: any) =>
-					a.activeUser === isActive && a.division === division,
+				(a: any) => a.activeUser === active && a.division === division,
 			),
 		);
-	}, [isActive, division]);
+	}, [active, division]);
+	const [filterRows, setFilterRows] = useState<GridRowsProp>([]);
+
+	const onRowSelectionModelChange = (ids: any) => {
+		console.log('handleRowEditStart');
+		const selectedIDs = new Set(ids);
+		console.log('selectedIDs :' + selectedIDs);
+		setFilterRows(
+			orderFilterGridRow.filter((row: any) => {
+				return selectedIDs.has(row.id);
+			}),
+		);
+	};
 
 	const [rowSelectionModel, setRowSelectionModel] =
 		useState<GridRowSelectionModel>();
-	const [manageUsersRows, setManageUsersRows] = useState<GridRowsProp>([]);
-	const [selectedRowParams, setSelectedRowParams] =
-		useState<SelectedRowParams>();
-	const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
-	const [checked, setChecked] = useState(true);
 
-	//for selecting a row
-	const handleRowSelection = (id: GridRowId) => () => {
-		setSelectedRowParams({ id });
-		console.log(selectedRowParams);
-	};
+	let shouldHideSubDivisionColumn: any;
 
-	//For edit permission set
-	const processRowUpdate = (newRow: GridRowModel) => {
-		const updatedRow = { ...newRow, isNew: false };
-		setManageUsersRows(
-			manageUsersRows.map((row) =>
-				row.id === newRow.id ? updatedRow : row,
-			),
-		);
-		return updatedRow;
-	};
+	if (division === 'SP') {
+		shouldHideSubDivisionColumn = false;
+	} else {
+		shouldHideSubDivisionColumn = true;
+	}
 
-	//to determine the mode of the row
-	const rowMode = useMemo(() => {
-		if (!selectedRowParams) {
-			return 'view';
+	const [columns, setColumns] = useState(OrdersGridcolumns);
+
+	useEffect(() => {
+		if (shouldHideSubDivisionColumn) {
+			let data = columns.filter(
+				(column) => column.field !== 'subDivision',
+			);
+			setColumns(data);
+		} else {
+			setColumns(OrdersGridcolumns);
 		}
-		const { id } = selectedRowParams;
-		return rowModesModel[id]?.mode || 'view';
-	}, [rowModesModel, selectedRowParams]);
+	}, [shouldHideSubDivisionColumn]);
 
 	//when the tab is changed
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
 	};
-	function setValueActive() {
-		setIsActive(true);
-	}
-	function setValueInactive() {
-		setIsActive(false);
-	}
 
 	//this returns the index when tab changes
 	function a11yProps(index: number) {
@@ -113,164 +95,40 @@ export function ManageUsersTabs() {
 		};
 	}
 
-	const OrdersGridcolumns: GridColDef[] = [
-		{
-			field: 'actions',
-			type: 'actions',
-			headerName: '',
-			width: 100,
-			cellClassName: 'actions',
-			align: 'center',
-			getActions: ({ id }) => {
-				const isInEditMode =
-					rowModesModel[id]?.mode === GridRowModes.Edit;
-				if (isInEditMode) {
-					setChecked(true);
-					return [
-						// eslint-disable-next-line react/jsx-key
-						<GridActionsCellItem
-							icon={<Checkbox />}
-							label="Save"
-							onClick={handleRowSelection(id)}
-						/>,
-					];
-				}
-				setChecked(false);
-				return [
-					// eslint-disable-next-line react/jsx-key
-					<GridActionsCellItem
-						icon={<Checkbox />}
-						label="Save"
-						onClick={handleRowSelection(id)}
-					/>,
-				];
-			},
-		},
-		{
-			field: 'division',
-			headerName: 'Division',
-			type: 'string',
-			width: 100,
-			align: 'center',
-		},
-		{
-			field: 'subDivision',
-			headerName: 'Sub Division',
-			type: 'string',
-			editable: true,
-			width: 100,
-			align: 'center',
-		},
-		{
-			field: 'firstName',
-			headerName: 'First Name',
-			type: 'string',
-			width: 100,
-			align: 'center',
-		},
-		{
-			field: 'lastName',
-			headerName: 'LastName',
-			align: 'center',
-			width: 100,
-			type: 'string',
-		},
-		{
-			field: 'email',
-			headerName: 'Email',
-			align: 'center',
-			width: 160,
-			type: 'string',
-		},
-
-		{
-			field: 'permissionSet',
-			headerName: 'Permission Set',
-			align: 'center',
-			width: 130,
-			type: 'string',
-			editable: true,
-		},
-		{
-			field: 'activeUser',
-			headerName: 'Active User',
-			align: 'center',
-			width: 100,
-			type: 'boolean',
-			renderCell(params) {
-				return params.value ? (
-					<CheckIcon color="success"></CheckIcon>
-				) : (
-					<div></div>
-				);
-			},
-		},
-		{
-			field: 'temporaryPermission',
-			headerName: 'Temporary Permission',
-			align: 'center',
-			width: 160,
-			type: 'string',
-		},
-		{
-			field: 'temporaryPermissionStartDate',
-			headerName: 'Temporary Permission Start Date',
-			align: 'center',
-			width: 200,
-			type: 'string',
-		},
-		{
-			field: 'temporaryPermissionEndDate',
-			headerName: 'Temporary Permission End Date',
-			align: 'center',
-			width: 200,
-			type: 'string',
-		},
-	];
-
 	return (
 		//This is the tabs header for Manage Users
 		<Box>
 			<Grid className="settings-header">
 				<span className="settings-header-text">Manage Users</span>
 				<div className="flexrow">
-					{isActive ? (
+					{active ? (
 						<Grid className="flexrow">
 							<AddManageUsers
 								setRows={setOrderFilterGridRow}
-								setRowModesModel={setRowModesModel}
 								rows={orderFilterGridRow}
-								isActive={isActive}
+								filterRows={filterRows}
 							/>
 							<EditManageUsers
-								selectedRowParams={selectedRowParams}
-								rowMode={rowMode}
-								rowModesModel={rowModesModel}
-								setRowModesModel={setRowModesModel}
-								isActive={isActive}
+								filterRows={filterRows}
+								setRows={setOrderFilterGridRow}
 							/>
 							<SetTemporaryPermissionsButton
-								selectedRowParams={selectedRowParams}
-								rowMode={rowMode}
-								rowModesModel={rowModesModel}
-								setRowModesModel={setRowModesModel}
-								isActive={isActive}
+								isActive={active}
+								filterRows={filterRows}
 							/>
 						</Grid>
 					) : null}
-					{isActive ? (
-						<DeactivateButton
-							selectedRowParams={selectedRowParams}
-							rowMode={rowMode}
-							rowModesModel={rowModesModel}
-							setRowModesModel={setRowModesModel}
+					{active ? (
+						<DeactivateManageUsers
+							filterRows={filterRows}
+							setRows={setOrderFilterGridRow}
+							rows={orderFilterGridRow}
 						/>
 					) : (
-						<ActivateButton
-							selectedRowParams={selectedRowParams}
-							rowMode={rowMode}
-							rowModesModel={rowModesModel}
-							setRowModesModel={setRowModesModel}
+						<ActivateManageUsers
+							filterRows={filterRows}
+							setRows={setOrderFilterGridRow}
+							rows={orderFilterGridRow}
 						/>
 					)}
 					<CloseButton />
@@ -286,16 +144,21 @@ export function ManageUsersTabs() {
 						<Tab
 							label="Active"
 							{...a11yProps(0)}
-							onClick={setValueActive}
+							onClick={() => activeData(true)}
 						/>
 						<Tab
 							label="Inactive"
 							{...a11yProps(1)}
-							onClick={setValueInactive}
+							onClick={() => activeData(false)}
 						/>
 						<Tab icon={<RefreshIcon />} {...a11yProps(2)} />
 					</Tabs>
 				</Box>
+				{filterRows.length > 5 && (
+					<Alert className="z-5">
+						Cannot select more than 5 Users.
+					</Alert>
+				)}
 				{orderFilterGridRow.length > 1 ? (
 					<Typography className="pr-16 gray">
 						{orderFilterGridRow.length} Users
@@ -308,13 +171,13 @@ export function ManageUsersTabs() {
 			</Grid>
 			<TabPanel value={value} index={0}>
 				<ViewManageUsers
-					isActive={isActive}
+					isActive={active}
 					selectedDivision={division}
 				/>
 			</TabPanel>
 			<TabPanel value={value} index={1}>
 				<ViewManageUsers
-					isActive={isActive}
+					isActive={active}
 					selectedDivision={division}
 				/>
 			</TabPanel>
@@ -324,16 +187,13 @@ export function ManageUsersTabs() {
 			<div>
 				<div className="h-400 w-1000">
 					<DataGrid
-						// getRowId={(row) => row.id}
+						getRowId={(row) => row.id}
 						rows={orderFilterGridRow}
-						columns={OrdersGridcolumns}
+						columns={columns}
 						rowSelectionModel={rowSelectionModel}
-						disableRowSelectionOnClick={true}
-						rowModesModel={rowModesModel}
-						onRowModesModelChange={(model) =>
-							setRowModesModel(model)
-						}
-						processRowUpdate={processRowUpdate}
+						checkboxSelection
+						disableRowSelectionOnClick
+						onRowSelectionModelChange={onRowSelectionModelChange}
 					/>
 				</div>
 			</div>

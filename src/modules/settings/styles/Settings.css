@@ -49,6 +49,7 @@
   background-image: linear-gradient(180deg, white, #f1f4fb);
   box-shadow: 30px;
   padding: 10px;
+  width: 25%;
 }
 
 /* email input dropdown  */
@@ -59,7 +60,6 @@
   position: relative;
   height: auto;
   width: auto;
-
 }
 
 .email-drop-down-container ul {
@@ -89,4 +89,9 @@
 .email-drop-down-container ul li:hover{
   background-color: #005fa8;
   color: #fcfcfc;
+}
+
+/* Email selected word wrap */
+.email-selected-word-wrap {
+  word-wrap: break-word !important;
 }

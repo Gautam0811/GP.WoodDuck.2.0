@@ -1,6 +1,6 @@
 /*Component Name : AddUserData
- Utility : This componenet is used to fetch the data from backend services.
- Author Krishna Choudharyn 06-05-2023-------------------------   */
+ Utility : This component is used to fetch the data from backend services.
+ Author Ananya Dhar 06-05-2023-------------------------   */
 
 //The actual implementation will have call to a API.
 export const UsersData = [
@@ -230,31 +230,56 @@ export const permissionSets = [
 	{
 		id: 1,
 		permission: 'Admin',
-		subdivision: 'SP',
+		division: 'SP',
 	},
 	{
 		id: 2,
 		permission: 'Leader',
-		subdivision: 'SP',
+		division: 'SP',
 	},
 	{
 		id: 3,
 		permission: 'Sales Manager',
-		subdivision: 'SP',
+		division: 'SP',
 	},
 	{
 		id: 4,
 		permission: 'Advisor',
-		subdivision: 'SL',
+		division: 'SL',
 	},
 	{
 		id: 5,
 		permission: 'Trader',
-		subdivision: 'SL',
+		division: 'SL',
 	},
 	{
 		id: 6,
 		permission: 'Senior Trader',
-		subdivision: 'SL',
+		division: 'SL',
+	},
+	{
+		id: 7,
+		permission: 'Sales Manager',
+		division: 'SP',
+	},
+	{
+		id: 8,
+		permission: 'Sales Manager',
+		division: 'SP',
+	},
+	{
+		id: 9,
+		permission: 'Sales Manager',
+		division: 'SP',
+	},
+	{
+		id: 10,
+		permission: 'Sales Manager',
+		division: 'SP',
+	},
+	{
+		id: 11,
+		permission: 'Sales Manager',
+		division: 'SP',
 	},
 ];

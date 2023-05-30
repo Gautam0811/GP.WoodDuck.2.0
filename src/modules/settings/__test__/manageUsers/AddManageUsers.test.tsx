@@ -6,7 +6,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
 import { AddManageUsers } from '../../component/siteSettings/manageUsers';
-import { GridRowModesModel, GridRowsProp } from '@mui/x-data-grid';
+import { GridRowsProp } from '@mui/x-data-grid';
 
 afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
@@ -21,12 +21,7 @@ describe('Clp Page', () => {
 			setRows={function (newRows: (oldRows: GridRowsProp) => any): void {
 				throw new Error('Function not implemented');
 			}}
-			setRowModesModel={function (
-				newModel: (oldModel: GridRowModesModel) => GridRowModesModel,
-			): void {
-				throw new Error('Function not implemented.');
-			}}
-			isActive={true}
+			filterRows={[]}
 		/>,
 	);
 

@@ -4,12 +4,23 @@
 // -------------------------
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
+import { GridRowsProp } from '@mui/x-data-grid';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-export function AddButton(props: any) {
+interface AddButtonProps {
+	filterRows: GridRowsProp;
+	onClick: () => void;
+}
+
+export function AddButton(props: AddButtonProps) {
+	const { onClick, filterRows } = props;
 	return (
 		<Box>
-			<LoadingButton onClick={props.onClick} className="buttontype6">
+			<LoadingButton
+				onClick={onClick}
+				disabled={filterRows.length >= 1}
+				className="buttontype6"
+			>
 				<div>
 					<div>
 						<AddOutlinedIcon className="icontype1" />

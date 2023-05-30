@@ -22,11 +22,22 @@ export const permissionData = (permissionSet: any) => {
 	};
 };
 
+//This is the Action creator for selected division
 export const divisionData = (division: any) => {
 	return (dispatch: any) => {
 		dispatch({
 			type: 'division',
 			payload: division,
+		});
+	};
+};
+
+//This is the Action creator for active/inactive
+export const activeData = (active: any) => {
+	return (dispatch: any) => {
+		dispatch({
+			type: 'active',
+			payload: active,
 		});
 	};
 };

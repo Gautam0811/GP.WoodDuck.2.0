@@ -1,27 +1,21 @@
 import Box from '@mui/material/Box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { GridRowId, GridRowModesModel } from '@mui/x-data-grid';
+import { GridRowsProp } from '@mui/x-data-grid';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-interface SelectedRowParams {
-	id: GridRowId;
-}
-
 interface EditToolbarProps {
-	selectedRowParams?: SelectedRowParams;
-	rowModesModel: GridRowModesModel;
-	setRowModesModel: (value: GridRowModesModel) => void;
-	rowMode: 'view' | 'edit';
+	filterRows: GridRowsProp;
+	onClick: () => void;
 }
 
 export function ActivateButton(props: EditToolbarProps) {
-	const { selectedRowParams } = props;
+	const { filterRows, onClick } = props;
 
 	return (
 		<Box>
 			<LoadingButton
-				disabled={!selectedRowParams}
+				onClick={onClick}
+				disabled={!filterRows.length || filterRows.length > 5}
 				className="buttontype6"
 			>
 				<div>

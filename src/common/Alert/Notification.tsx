@@ -1,6 +1,6 @@
 /*Component Name :Notification 
- Utility : This componenet is used todisplay the Toast Meesage.
- Author Krishna Choudharyn 06-03-2023-------------------------   */
+ Utility : This component is used todisplay the Toast Meesage.
+ Author Ananya Dhar 06-03-2023-------------------------   */
 
 import { Snackbar, Alert } from '@mui/material';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
@@ -21,7 +21,9 @@ export function Notification(props: any) {
 			open={notify.isOpen}
 			autoHideDuration={2000}
 		>
-			<Alert severity={notify.type}>{notify.message}</Alert>
+			<Alert severity={notify.type}>
+				{notify.message} <br /> {notify.message2}
+			</Alert>
 		</Snackbar>
 	);
 }

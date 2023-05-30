@@ -1,82 +1,80 @@
 /*Component Name :EditManageUsers 
- Utility : This componenet is used to edit users permission set.
+ Utility : This component is used to edit users permission set.
  Author Ananya Dhar 04-05-2023-------------------------   */
 
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import LoadingButton from '@mui/lab/LoadingButton';
-
-import { GridRowId, GridRowModesModel, GridRowModes } from '@mui/x-data-grid';
-import { SaveManageUsersButton } from '../../../../../common/button';
-
-interface SelectedRowParams {
-	id: GridRowId;
-}
+import { useState } from 'react';
+import { GridRowsProp } from '@mui/x-data-grid';
+import { EditButton } from '../../../../../common/button';
+import { useSelector } from 'react-redux';
+import { permissionSets } from '../../../../settings/services/AddUserData';
+import { EditManageUsersModal } from './EditManageUsersModal';
 
 interface EditToolbarProps {
-	selectedRowParams?: SelectedRowParams;
-	rowModesModel: GridRowModesModel;
-	setRowModesModel: (value: GridRowModesModel) => void;
-	rowMode: 'view' | 'edit';
-	isActive: boolean;
+	filterRows: GridRowsProp;
+	setRows: (newRows: (oldRows: GridRowsProp) => any) => void;
 }
 
 export function EditManageUsers(props: EditToolbarProps) {
-	const {
-		selectedRowParams,
-		rowMode,
-		rowModesModel,
-		setRowModesModel,
-		isActive,
-	} = props;
+	const { filterRows, setRows } = props;
+	const division = useSelector((state: any) => state.divisionInfo);
 
-	const handleSaveOrEdit = () => {
-		if (!selectedRowParams) {
-			return;
-		}
-		const { id } = selectedRowParams;
-		// if (rowMode === "edit") {
-		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-		// } else {
-		//   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-		// }
+	const [selectedPermissionSet, setSelectedPermissionSet] = useState('');
 
-		if (rowMode === 'view') {
-			setRowModesModel({
-				...rowModesModel,
-				[id]: { mode: GridRowModes.Edit },
-			});
+	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+	//if value is in selectedOptions, it is removed. Otherwise its added
+	const handleCheckBoxChange = (value: string) => {
+		if (selectedOptions.includes(value)) {
+			setSelectedOptions(
+				selectedOptions.filter((option) => option !== value),
+			);
+		} else {
+			setSelectedOptions([...selectedOptions, value]);
 		}
 	};
 
+	let fullNames: string[] = filterRows.map(
+		(person) => person.firstName + ' ' + person.lastName,
+	);
+
+	if (fullNames.length > 1) {
+		fullNames = filterRows.map(
+			(person) => person.firstName + ' ' + person.lastName + ',' + ' ',
+		);
+	} else {
+		fullNames = filterRows.map(
+			(person) => person.firstName + ' ' + person.lastName + ' ',
+		);
+	}
+
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => {
+		setOpen(true);
+		setSelectedOptions([]);
+		setSelectedPermissionSet(
+			permissionSets.filter(
+				(permission) => permission.division === division,
+			)[0].permission,
+		);
+	};
+
 	return (
-		<Box>
-			{rowMode === 'edit' ? (
-				<SaveManageUsersButton
-					selectedRowParams={selectedRowParams}
-					rowMode={rowMode}
-					rowModesModel={rowModesModel}
-					setRowModesModel={setRowModesModel}
-				/>
-			) : (
-				<Box>
-					<LoadingButton
-						className="buttontype6"
-						onClick={handleSaveOrEdit}
-						disabled={!selectedRowParams}
-					>
-						<div>
-							<div>
-								<EditIcon className="icontype1" />
-							</div>
-							<div>
-								<span>Edit</span>
-							</div>
-						</div>
-					</LoadingButton>
-				</Box>
-			)}
-		</Box>
+		<>
+			<Box>
+				<EditButton onClick={handleOpen} filterRows={filterRows} />
+			</Box>
+			<EditManageUsersModal
+				open={open}
+				setOpen={setOpen}
+				fullNames={fullNames}
+				filterRows={filterRows}
+				setRows={setRows}
+				selectedOptions={selectedOptions}
+				selectedPermissionSet={selectedPermissionSet}
+				handleCheckBoxChange={handleCheckBoxChange}
+				setSelectedPermissionSet={setSelectedPermissionSet}
+			/>
+		</>
 	);
 }

@@ -1,3 +1,6 @@
+/*Component Name : TabPanel
+ Utility : This component is used to display the Tabs
+ Author Ananya Dhar 04-05-2023-------------------------   */
 import { Box, Typography } from '@mui/material';
 
 interface TabPanelProps {
