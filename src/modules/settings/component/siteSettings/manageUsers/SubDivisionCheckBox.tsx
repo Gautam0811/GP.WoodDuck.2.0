@@ -22,32 +22,35 @@ export function SubDivisionCheckBox(props: SubDivisionCheckBoxProps) {
 
 	return (
 		<Grid>
-			{division === 'SP' && (
-				<Grid className="flexrow">
-					<Typography className="pr-8">Sub Division:</Typography>
-					<Grid>
-						{options.map((option) => (
-							<div key={option.value}>
-								<label>
-									<input
-										type="checkbox"
-										value={option.value}
-										checked={props.selectedOptions.includes(
-											option.value,
-										)}
-										onChange={(e) =>
-											props.handleCheckBoxChange(
-												e.target.value,
-											)
-										}
-									/>
-									{option.label}
-								</label>
-							</div>
-						))}
+			<Grid>
+				{division === 'SP' && (
+					<Grid className="flexrow">
+						<Typography className="pr-8">Sub Division:</Typography>
+						<Grid>
+							{options.map((option) => (
+								<div key={option.value}>
+									<label>
+										<input
+											type="checkbox"
+											value={option.value}
+											checked={props.selectedOptions.includes(
+												option.value,
+											)}
+											onChange={(e) =>
+												props.handleCheckBoxChange(
+													e.target.value,
+												)
+											}
+										/>
+										{option.label}
+									</label>
+								</div>
+							))}
+						</Grid>
 					</Grid>
-				</Grid>
-			)}
+				)}
+			</Grid>
+			<br />
 		</Grid>
 	);
 }

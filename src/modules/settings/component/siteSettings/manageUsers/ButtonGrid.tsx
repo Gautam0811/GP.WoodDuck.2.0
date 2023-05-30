@@ -2,9 +2,8 @@
  Utility : This component is used for Buttons in the modal component
  Author Ananya Dhar 15-05-2023-------------------------   */
 import { Button, Grid } from '@mui/material';
-import { useState, useEffect } from 'react';
 import { SnackbarOrigin } from '@mui/material/Snackbar';
-
+import { useSelector } from 'react-redux';
 interface ButtonGridProps {
 	empty: boolean;
 	isFound: boolean;
@@ -15,21 +14,10 @@ interface ButtonGridProps {
 }
 
 export function ButtonGrid(props: ButtonGridProps) {
-	const [division, setDivision]: any = useState({});
-
-	useEffect(() => {
-		function fetchName() {
-			let fetchDivision = JSON.parse(
-				localStorage.getItem('status') || '{}',
-			);
-			setDivision(fetchDivision);
-		}
-		fetchName();
-	}, []);
-
+	const division = useSelector((state: any) => state.divisionInfo);
 	return (
 		<Grid className="flexrow pt-16 justify-space-evenly">
-			{division.subdivision === 'SP' ? (
+			{division === 'SP' ? (
 				<Button
 					disabled={
 						props.empty ||

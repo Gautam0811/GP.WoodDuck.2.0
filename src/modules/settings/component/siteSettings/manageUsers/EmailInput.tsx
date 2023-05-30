@@ -7,57 +7,71 @@ import { UsersData } from '../../../services/AddUserData';
 interface EmailInputProps {
 	emailId: string;
 	handleOnSearch: (emailId: string) => void;
+	handleOnSelect: (emailId: string) => void;
 	handleIsEmailExists: (emailId: string) => void;
 	handleOnChange: (event: any) => void;
 }
 
 export function EmailInput(props: EmailInputProps) {
 	return (
-		<Grid className="flexrow">
-			<Grid>Email:</Grid>
-			<Grid>
-				<input
-					onChange={props.handleOnChange}
-					type="text"
-					value={props.emailId}
-					required
-				></input>
-				{props.emailId.length >= 3 && (
-					<div className="email-drop-down-container">
-						{/* ToDo: Waiting for backend API */}
-						<ul className="z-5">
-							{UsersData.filter((item) => {
-								const email = item.email.toLowerCase();
-								return (
-									props.emailId &&
-									email.startsWith(props.emailId) &&
-									email !== props.emailId
-								);
-							})
-								.slice(0, 10)
-								.map((item) => (
-									<li
-										onClick={() => {
-											props.handleOnSearch(item.email);
-											props.handleIsEmailExists(
-												item.email,
-											);
-										}}
-										key={item.id}
-									>
-										<div className="justify-space-between">
-											<div>{item.first_name}</div>
-											<div>({item.role})</div>
-										</div>
-									</li>
-								))}
-						</ul>
-					</div>
-				)}
+		<Grid>
+			<Grid className="flexrow">
+				<Grid>Email:</Grid>
+				<Grid>
+					<input
+						type="text"
+						id="id_email"
+						onChange={props.handleOnChange}
+						value={props.emailId}
+						required
+					></input>
+					{props.emailId.length >= 3 && (
+						<div className="email-drop-down-container">
+							{/* ToDo: Waiting for backend API */}
+							<ul className="z-5">
+								{UsersData.filter((item) => {
+									const email = item.email.toLowerCase();
+									return (
+										props.emailId &&
+										email.startsWith(props.emailId) &&
+										email !== props.emailId
+									);
+								})
+									.slice(0, 10)
+									.map((item) => (
+										<li
+											onClick={() => {
+												props.handleOnSelect(
+													item.email,
+												);
+												props.handleIsEmailExists(
+													item.email,
+												);
+											}}
+											key={item.id}
+										>
+											<div className="justify-space-between">
+												<div>{item.first_name}</div>
+												<div>({item.role})</div>
+											</div>
+										</li>
+									))}
+							</ul>
+						</div>
+					)}
+				</Grid>
+				<Grid>
+					<button
+						onClick={(event) => {
+							props.handleOnSearch(props.emailId);
+							console.log('aa->', props.emailId);
+						}}
+					>
+						Search
+					</button>
+				</Grid>
 			</Grid>
-			<Grid>
-				<button>Search</button>
-			</Grid>
+			<br />
 		</Grid>
 	);
 }
