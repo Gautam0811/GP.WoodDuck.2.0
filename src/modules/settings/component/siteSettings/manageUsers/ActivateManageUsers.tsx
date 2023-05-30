@@ -15,7 +15,7 @@ interface ActivateManageUsersProps {
 }
 
 export function ActivateManageUsers(props: ActivateManageUsersProps) {
-	const { filterRows, setRows } = props;
+	const { filterRows, setRows, rows } = props;
 
 	let fullNames: string[] = filterRows.map(
 		(person) => person.firstName + ' ' + person.lastName,
@@ -47,6 +47,7 @@ export function ActivateManageUsers(props: ActivateManageUsersProps) {
 				setOpen={setOpen}
 				setRows={setRows}
 				filterRows={filterRows}
+				rows={rows}
 			/>
 		</>
 	);

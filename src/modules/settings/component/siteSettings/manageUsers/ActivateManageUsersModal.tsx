@@ -17,10 +17,11 @@ interface ActivateManageUsersModalProps {
 	setOpen: any;
 	filterRows: GridRowsProp;
 	setRows: (newRows: (oldRows: GridRowsProp) => any) => void;
+	rows: any;
 }
 
 export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
-	const { open, setOpen, filterRows, setRows } = props;
+	const { open, setOpen, filterRows, setRows, rows } = props;
 	const active = useSelector((state: any) => state.activeInfo);
 	const [notifyActivate, setNotifyActivate] = useState({
 		isOpen: false,
@@ -65,7 +66,7 @@ export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
 			console.log('entry', entry);
 			index = index + 1;
 		}
-		setRows((rows) => [...rows]);
+		setRows(rows.filter((row: any) => !filterRows.includes(row)));
 		setApiResponse(true);
 		setNotifyActivate({
 			isOpen: true,

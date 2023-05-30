@@ -30,7 +30,6 @@ export function ManageUsersTabs() {
 	const active = useSelector((state: any) => state.activeInfo);
 
 	const [value, setValue] = useState(0);
-	// const [isActive, setIsActive]: any = useState(true);
 	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
 			(a: any) => a.activeUser === active && a.division === division,

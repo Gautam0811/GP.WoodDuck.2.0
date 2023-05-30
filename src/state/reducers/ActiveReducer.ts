@@ -3,7 +3,8 @@
  Author Ananya Dhar 06-03-2023-------------------------   */
 
 //This is the Reducer for active tabs
-const activeReducer = (state = [], action: any) => {
+const initialState = true;
+const activeReducer = (state = initialState, action: any) => {
 	if (action.type === 'active') {
 		return action.payload;
 	} else {

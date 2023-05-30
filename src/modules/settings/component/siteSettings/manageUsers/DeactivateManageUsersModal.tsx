@@ -5,7 +5,7 @@
 import { Modal, Grid, Box, Typography } from '@mui/material';
 import { ButtonGridDeactivate } from './index';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Notification } from '../../../../../common/Alert/Notification';
 import { GridRowsProp } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
@@ -15,12 +15,13 @@ interface DeactivateManageUsersModalProps {
 	setOpen: any;
 	filterRows: GridRowsProp;
 	setRows: (newRows: (oldRows: GridRowsProp) => any) => void;
+	rows: any;
 }
 
 export function DeactivateManageUsersModal(
 	props: DeactivateManageUsersModalProps,
 ) {
-	const { open, setOpen, filterRows, setRows } = props;
+	const { open, setOpen, filterRows, setRows, rows } = props;
 	const active = useSelector((state: any) => state.activeInfo);
 
 	const [notify, setNotify] = useState({
@@ -48,7 +49,7 @@ export function DeactivateManageUsersModal(
 			console.log('entry', entry);
 			index = index + 1;
 		}
-		setRows((rows) => [...rows]);
+		setRows(rows.filter((row: any) => !filterRows.includes(row)));
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
@@ -70,6 +71,7 @@ export function DeactivateManageUsersModal(
 		});
 		handleClose();
 	};
+
 	return (
 		<>
 			{apiResponse ? (

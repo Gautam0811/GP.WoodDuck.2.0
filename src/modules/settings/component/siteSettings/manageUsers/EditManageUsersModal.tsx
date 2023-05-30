@@ -50,7 +50,7 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 	});
 	const [apiResponse, setApiResponse] = useState(false);
 
-	const handleClickSave = () => {
+	const updatePermissionSubDivision = () => {
 		// let id: number = rows[rows.length - 1].id + 1;
 		let index = 0;
 		for (let entry of filterRows) {
@@ -110,7 +110,7 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 							/>
 							<ButtonGridEdit
 								handleCancel={handleCancel}
-								handleClickSave={handleClickSave}
+								handleClickSave={updatePermissionSubDivision}
 							/>
 						</Grid>
 					</Grid>
