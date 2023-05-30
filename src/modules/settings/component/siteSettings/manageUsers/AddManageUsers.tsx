@@ -33,15 +33,6 @@ export interface State extends SnackbarOrigin {
 export function AddManageUsers(props: AddProps) {
 	const { rows, setRows, filterRows } = props;
 	const division = useSelector((state: any) => state.divisionInfo);
-	const [state, setState] = useState<State>({
-		openSnack: false,
-		vertical: 'top',
-		horizontal: 'right',
-	});
-	const handleClickSnack = (newState: SnackbarOrigin) => () => {
-		setState({ openSnack: true, ...newState });
-		handleClickSave();
-	};
 	const [user, setUser] = useState(UsersData);
 	const [notify, setNotify] = useState({
 		isOpen: false,
@@ -206,7 +197,7 @@ export function AddManageUsers(props: AddProps) {
 						emailId={emailId}
 						empty={empty}
 						isFound={isFound}
-						handleClickSnack={handleClickSnack}
+						handleClickSave={handleClickSave}
 						handleCancel={handleCancel}
 					/>
 				</Box>

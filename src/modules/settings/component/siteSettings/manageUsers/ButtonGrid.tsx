@@ -2,7 +2,6 @@
  Utility : This component is used for Buttons in the modal component
  Author Ananya Dhar 15-05-2023-------------------------   */
 import { Button, Grid } from '@mui/material';
-import { SnackbarOrigin } from '@mui/material/Snackbar';
 import { useSelector } from 'react-redux';
 interface ButtonGridProps {
 	empty: boolean;
@@ -10,7 +9,7 @@ interface ButtonGridProps {
 	emailExists: boolean;
 	emailId: string;
 	handleCancel: () => void;
-	handleClickSnack: (newState: SnackbarOrigin) => () => void;
+	handleClickSave: () => void;
 }
 
 export function ButtonGrid(props: ButtonGridProps) {
@@ -25,10 +24,7 @@ export function ButtonGrid(props: ButtonGridProps) {
 						props.emailExists ||
 						!props.emailId
 					}
-					onClick={props.handleClickSnack({
-						vertical: 'top',
-						horizontal: 'right',
-					})}
+					onClick={props.handleClickSave}
 					variant="contained"
 				>
 					Add
@@ -38,10 +34,7 @@ export function ButtonGrid(props: ButtonGridProps) {
 					disabled={
 						!props.isFound || props.emailExists || !props.emailId
 					}
-					onClick={props.handleClickSnack({
-						vertical: 'top',
-						horizontal: 'right',
-					})}
+					onClick={props.handleClickSave}
 					variant="contained"
 				>
 					Add
