@@ -5,16 +5,8 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import { IconButton, Tabs, Tab } from '@mui/material';
-import {
-	AddButton,
-	CloseButton,
-	ImportButton,
-} from '../../../../../common/button/index';
+import { CloseButton, ImportButton } from '../../../../../common/button/index';
 
 export function MillGroupsHeader() {
 	const [value, setValue] = React.useState('Active');
