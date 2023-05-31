@@ -24,7 +24,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
 	//if value is in selectedOptions, it is removed. Otherwise its added
-	const handleCheckBoxChange = (value: string) => {
+	const handleCheckBoxChangeSubDivision = (value: string) => {
 		if (selectedOptions.includes(value)) {
 			setSelectedOptions(
 				selectedOptions.filter((option) => option !== value),
@@ -49,7 +49,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 	}
 
 	const [open, setOpen] = useState(false);
-	const handleOpen = () => {
+	const openEditModal = () => {
 		setOpen(true);
 		setSelectedOptions([]);
 		setSelectedPermissionSet(
@@ -62,7 +62,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 	return (
 		<>
 			<Box>
-				<EditButton onClick={handleOpen} filterRows={filterRows} />
+				<EditButton onClick={openEditModal} filterRows={filterRows} />
 			</Box>
 			<EditManageUsersModal
 				open={open}
@@ -72,7 +72,7 @@ export function EditManageUsers(props: EditToolbarProps) {
 				setRows={setRows}
 				selectedOptions={selectedOptions}
 				selectedPermissionSet={selectedPermissionSet}
-				handleCheckBoxChange={handleCheckBoxChange}
+				handleCheckBoxChange={handleCheckBoxChangeSubDivision}
 				setSelectedPermissionSet={setSelectedPermissionSet}
 			/>
 		</>

@@ -38,7 +38,7 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 		handleCheckBoxChange,
 	} = props;
 
-	const handleClose = () => {
+	const closeEditModal = () => {
 		setOpen(false);
 	};
 
@@ -69,11 +69,10 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 			message2: 'Changes to users have been saved',
 			type: 'success',
 		});
-		handleClose();
+		closeEditModal();
 	};
 
-	const handleCancel = () => {
-		handleClose();
+	const cancelEditModal = () => {
 		setApiResponse(false);
 		setNotify({
 			isOpen: true,
@@ -82,6 +81,7 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 				'Changes to users have not been saved, Please contact IT Admin',
 			type: 'error',
 		});
+		closeEditModal();
 	};
 
 	return (
@@ -109,7 +109,7 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 								handleCheckBoxChange={handleCheckBoxChange}
 							/>
 							<ButtonGridEdit
-								handleCancel={handleCancel}
+								handleCancel={cancelEditModal}
 								handleClickSave={updatePermissionSubDivision}
 							/>
 						</Grid>

@@ -31,7 +31,7 @@ export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
 	});
 	const [apiResponse, setApiResponse] = useState(false);
 
-	const handleClose = () => {
+	const closeActivateModal = () => {
 		setOpen(false);
 	};
 
@@ -70,23 +70,23 @@ export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
 		setApiResponse(true);
 		setNotifyActivate({
 			isOpen: true,
-			message: 'Successfully Activated User.',
-			message2: 'User has been successfully Activated.',
+			message: 'Successfully Activated User(s).',
+			message2: 'User(s) have been successfully Activated.',
 			type: 'success',
 		});
-		handleClose();
+		closeActivateModal();
 	};
 
-	const handleCancel = () => {
+	const cancelActivateModal = () => {
 		setApiResponse(true);
 		setNotifyActivate({
 			isOpen: true,
-			message: 'Activation of User Unsuccessful.',
+			message: 'Activation of User(s) Unsuccessful.',
 			message2:
 				'Activation of the selected user(s) failed. Please contact your IT Admin.',
 			type: 'error',
 		});
-		handleClose();
+		closeActivateModal();
 	};
 
 	return (
@@ -118,7 +118,7 @@ export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
 						/>
 						<Grid>
 							<ButtonGridDeactivate
-								handleCancel={handleCancel}
+								handleCancel={cancelActivateModal}
 								handleClickSave={handleClickSaveActivate}
 							/>
 						</Grid>

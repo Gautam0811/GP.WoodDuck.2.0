@@ -32,7 +32,7 @@ export function DeactivateManageUsers(props: DeactivateManageUsersProps) {
 	}
 
 	const [open, setOpen] = useState(false);
-	const handleOpen = () => {
+	const openDeactivateModal = () => {
 		setOpen(true);
 	};
 
@@ -40,7 +40,7 @@ export function DeactivateManageUsers(props: DeactivateManageUsersProps) {
 		<>
 			<Box>
 				<DeactivateButton
-					onClick={handleOpen}
+					onClick={openDeactivateModal}
 					filterRows={filterRows}
 				/>
 			</Box>

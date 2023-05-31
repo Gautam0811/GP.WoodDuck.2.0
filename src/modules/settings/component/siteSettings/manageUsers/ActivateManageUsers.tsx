@@ -32,15 +32,17 @@ export function ActivateManageUsers(props: ActivateManageUsersProps) {
 	}
 
 	const [open, setOpen] = useState(false);
-	const handleOpen = () => {
+	const openActivateModal = () => {
 		setOpen(true);
-		console.log('FilterRows===>', filterRows);
 	};
 
 	return (
 		<>
 			<Box>
-				<ActivateButton onClick={handleOpen} filterRows={filterRows} />
+				<ActivateButton
+					onClick={openActivateModal}
+					filterRows={filterRows}
+				/>
 			</Box>
 			<ActivateManageUsersModal
 				open={open}

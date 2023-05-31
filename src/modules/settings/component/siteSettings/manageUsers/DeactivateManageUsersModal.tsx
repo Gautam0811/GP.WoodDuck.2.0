@@ -5,7 +5,7 @@
 import { Modal, Grid, Box, Typography } from '@mui/material';
 import { ButtonGridDeactivate } from './index';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Notification } from '../../../../../common/Alert/Notification';
 import { GridRowsProp } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ export function DeactivateManageUsersModal(
 	});
 	const [apiResponse, setApiResponse] = useState(false);
 
-	const handleClose = () => {
+	const closeDeactivateModal = () => {
 		setOpen(false);
 	};
 
@@ -53,23 +53,23 @@ export function DeactivateManageUsersModal(
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
-			message: 'Successfully Deactivated User.',
-			message2: 'User has been successfully deactivated.',
+			message: 'Successfully Deactivated User(s).',
+			message2: 'User(s) have been successfully deactivated.',
 			type: 'success',
 		});
-		handleClose();
+		closeDeactivateModal();
 	};
 
-	const handleCancel = () => {
+	const cancelDeactivateModal = () => {
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
-			message: 'Deactivation of User Unsuccessful.',
+			message: 'Deactivation of User(s) Unsuccessful.',
 			message2:
 				'Deactivation of the selected user(s) failed. Please contact your IT Admin.',
 			type: 'error',
 		});
-		handleClose();
+		closeDeactivateModal();
 	};
 
 	return (
@@ -94,7 +94,7 @@ export function DeactivateManageUsersModal(
 						</Typography>
 						<Grid>
 							<ButtonGridDeactivate
-								handleCancel={handleCancel}
+								handleCancel={cancelDeactivateModal}
 								handleClickSave={handleClickSaveDeactivate}
 							/>
 						</Grid>
