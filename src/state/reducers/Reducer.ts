@@ -3,6 +3,7 @@ import loginReducer from './LoginReducer';
 import permissionReducer from './PermissionReducer';
 import divisionReducer from './DivisionReducer';
 import activeReducer from './ActiveReducer';
+import expandedReducer from './ExpandedReducer';
 
 // This is the reducer for combining all the reducers
 const reducers = combineReducers({
@@ -10,5 +11,6 @@ const reducers = combineReducers({
 	permissionInfo: permissionReducer,
 	divisionInfo: divisionReducer,
 	activeInfo: activeReducer,
+	expandedInfo: expandedReducer,
 });
 export default reducers;

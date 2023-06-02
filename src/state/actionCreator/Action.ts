@@ -41,3 +41,13 @@ export const activeData = (active: any) => {
 		});
 	};
 };
+
+//This is the Actiona creator for expanded SideNavBar
+export const expandedData = (expanded: any) => {
+	return (dispatch: any) => {
+		dispatch({
+			type: 'expanded',
+			payload: expanded,
+		});
+	};
+};

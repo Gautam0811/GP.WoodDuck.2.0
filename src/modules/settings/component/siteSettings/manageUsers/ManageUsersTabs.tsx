@@ -22,13 +22,15 @@ import { TabPanel } from './index';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../../../state';
+import { store } from '../../../../../state/store/Store';
+import { Provider } from 'react-redux';
 
 export function ManageUsersTabs() {
 	const division = useSelector((state: any) => state.divisionInfo);
 	const dispatch = useDispatch();
 	const { activeData } = bindActionCreators(actionCreators, dispatch);
 	const active = useSelector((state: any) => state.activeInfo);
-
+	const expanded = useSelector((state: any) => state.expandedInfo);
 	const [value, setValue] = useState(0);
 	const [orderFilterGridRow, setOrderFilterGridRow] = useState(
 		OrdersGridrows.filter(
@@ -44,9 +46,7 @@ export function ManageUsersTabs() {
 		);
 	}, [active, division]);
 	const [filterRows, setFilterRows] = useState<GridRowsProp>([]);
-
 	const onRowSelectionModelChange = (ids: any) => {
-		console.log('handleRowEditStart');
 		const selectedIDs = new Set(ids);
 		console.log('selectedIDs :' + selectedIDs);
 		setFilterRows(
@@ -60,15 +60,12 @@ export function ManageUsersTabs() {
 		useState<GridRowSelectionModel>();
 
 	let shouldHideSubDivisionColumn: any;
-
 	if (division === 'SP') {
 		shouldHideSubDivisionColumn = false;
 	} else {
 		shouldHideSubDivisionColumn = true;
 	}
-
 	const [columns, setColumns] = useState(OrdersGridcolumns);
-
 	useEffect(() => {
 		if (shouldHideSubDivisionColumn) {
 			let data = columns.filter(
@@ -81,7 +78,10 @@ export function ManageUsersTabs() {
 	}, [shouldHideSubDivisionColumn]);
 
 	//when the tab is changed
-	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+	const handleChangeTabs = (
+		event: React.SyntheticEvent,
+		newValue: number,
+	) => {
 		setValue(newValue);
 	};
 
@@ -96,17 +96,25 @@ export function ManageUsersTabs() {
 
 	return (
 		//This is the tabs header for Manage Users
-		<Box>
-			<Grid className="settings-header">
+		<Box sx={{ overflowX: 'hidden' }}>
+			<Grid
+				className={
+					expanded
+						? 'settings-header grid-width'
+						: 'settings-header grid-width-collapsed'
+				}
+			>
 				<span className="settings-header-text">Manage Users</span>
 				<div className="flexrow">
 					{active ? (
 						<Grid className="flexrow">
-							<AddManageUsers
-								setRows={setOrderFilterGridRow}
-								rows={orderFilterGridRow}
-								filterRows={filterRows}
-							/>
+							<Provider store={store}>
+								<AddManageUsers
+									setRows={setOrderFilterGridRow}
+									rows={orderFilterGridRow}
+									filterRows={filterRows}
+								/>
+							</Provider>
 							<EditManageUsers
 								filterRows={filterRows}
 								setRows={setOrderFilterGridRow}
@@ -133,11 +141,17 @@ export function ManageUsersTabs() {
 					<CloseButton />
 				</div>
 			</Grid>
-			<Grid className="bg-grey-white flexrow justify-space-between pl-16 w100 align-items-center">
+			<Grid
+				className={
+					expanded
+						? 'grid-width bg-grey-white flexrow justify-space-between pl-16 w100 align-items-center'
+						: 'grid-width-collapsed bg-grey-white flexrow justify-space-between pl-16 w100 align-items-center'
+				}
+			>
 				<Box>
 					<Tabs
 						value={value}
-						onChange={handleChange}
+						onChange={handleChangeTabs}
 						aria-label="basic tabs example"
 					>
 						<Tab
@@ -183,18 +197,20 @@ export function ManageUsersTabs() {
 			<TabPanel value={value} index={2}>
 				<RefreshIcon />
 			</TabPanel>
-			<div>
-				<div className="h-400 w-1000">
-					<DataGrid
-						getRowId={(row) => row.id}
-						rows={orderFilterGridRow}
-						columns={columns}
-						rowSelectionModel={rowSelectionModel}
-						checkboxSelection
-						disableRowSelectionOnClick
-						onRowSelectionModelChange={onRowSelectionModelChange}
-					/>
-				</div>
+			<div
+				className={
+					expanded ? 'h-400 grid-width' : 'h-400 grid-width-collapsed'
+				}
+			>
+				<DataGrid
+					getRowId={(row) => row.id}
+					rows={orderFilterGridRow}
+					columns={columns}
+					rowSelectionModel={rowSelectionModel}
+					checkboxSelection
+					disableRowSelectionOnClick
+					onRowSelectionModelChange={onRowSelectionModelChange}
+				/>
 			</div>
 		</Box>
 	);

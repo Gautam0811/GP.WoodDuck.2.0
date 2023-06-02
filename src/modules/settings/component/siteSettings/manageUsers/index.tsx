@@ -17,6 +17,7 @@ export { TabPanel } from './TabPanel';
 export { EmailsSelected } from './EmailsSelected';
 export { ButtonGridEdit } from './ButtonGridEdit';
 export { ButtonGridDeactivate } from './ButtonGridDeactivate';
+export { EditManageUsersModal } from './EditManageUsersModal';
 export { DeactivateManageUsersModal } from './DeactivateManageUsersModal';
 export { ActivateManageUsersModal } from './ActivateManageUsersModal';
 export { ActivateManageUsers } from './ActivateManageUsers';

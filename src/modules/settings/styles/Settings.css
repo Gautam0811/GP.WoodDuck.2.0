@@ -2,6 +2,16 @@
 /* for settings header */
 .settings-header{
   width:100%;
+  /* width: calc(100% - 52px); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f4fb;
+}
+.settings-header-collapsed{
+  width:100%;
+  /* width: calc(100% - 150px); */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,6 +47,14 @@
 .settings-table tr{
   text-align:left;
   border:none;
+}
+
+.grid-width{
+  width: calc(100% - 150px);
+}
+
+.grid-width-collapsed{
+  width: calc(100% - 52px);
 }
 
 /* Add manage users modal component */

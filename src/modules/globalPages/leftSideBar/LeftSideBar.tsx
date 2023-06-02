@@ -23,8 +23,15 @@ import Collapse from '@mui/material/Collapse';
 import { ShoppingCartOutlined } from '@mui/icons-material';
 import './styles/LeftSideBar.css';
 import '../../../styles/StyleMain.css';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../../state';
+import { useSelector } from 'react-redux';
 
 export function LeftSideBar() {
+	const dispatch = useDispatch();
+	const { expandedData } = bindActionCreators(actionCreators, dispatch);
+
 	const [openOrders, setOpenOrders] = useState(false);
 
 	const handleClickOrders = () => {
@@ -42,26 +49,21 @@ export function LeftSideBar() {
 	const handleClickContracts = () => {
 		setOpenContracts(!openContracts);
 	};
-
-	const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
-
-	const [isExpanded, setIsExpanded] = useState(
-		sidebarCollapsed ? false : true,
-	);
+	const expanded = useSelector((state: any) => state.expandedInfo);
 
 	const handleToggler = () => {
-		if (isExpanded) {
-			setIsExpanded(false);
+		if (expanded) {
+			expandedData(false);
 			localStorage.setItem('sidebar-collapsed', true.toString());
 			return;
 		}
-		setIsExpanded(true);
+		expandedData(true);
 		localStorage.removeItem('sidebar-collapsed');
 	};
 
 	return (
 		<div className="sidebar">
-			<div className={isExpanded ? 'Sidebar' : 'Sidebar collapsed'}>
+			<div className={expanded ? 'Sidebar' : 'Sidebar collapsed'}>
 				<div className="sidebar-items">
 					<Link to="./" className="link-text">
 						<div className="item">
@@ -135,7 +137,7 @@ export function LeftSideBar() {
 							Shipments
 						</Typography>{' '}
 					</div>
-					{isExpanded ? (
+					{expanded ? (
 						<div className="flex-end arrow-item">
 							<ArrowCircleLeftOutlinedIcon
 								className="sidebar-arrow-icon"
