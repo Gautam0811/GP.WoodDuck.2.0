@@ -57,12 +57,10 @@ export function ActivateManageUsersModal(props: ActivateManageUsersModalProps) {
 		let index = 0;
 		for (let entry of filterRows) {
 			filterRows[index].permissionSet = selectedPermissionSet;
-			console.log('activeeeee', active);
 			filterRows[index].activeUser = !active;
 			filterRows[index].temporaryPermission = '';
 			filterRows[index].temporaryPermissionStartDate = '';
 			filterRows[index].temporaryPermissionEndDate = '';
-			console.log('index', index);
 			console.log('entry', entry);
 			index = index + 1;
 		}

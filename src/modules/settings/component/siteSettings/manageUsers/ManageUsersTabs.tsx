@@ -48,7 +48,6 @@ export function ManageUsersTabs() {
 	const [filterRows, setFilterRows] = useState<GridRowsProp>([]);
 	const onRowSelectionModelChange = (ids: any) => {
 		const selectedIDs = new Set(ids);
-		console.log('selectedIDs :' + selectedIDs);
 		setFilterRows(
 			orderFilterGridRow.filter((row: any) => {
 				return selectedIDs.has(row.id);

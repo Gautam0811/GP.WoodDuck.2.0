@@ -40,12 +40,10 @@ export function DeactivateManageUsersModal(
 		let index = 0;
 		for (let entry of filterRows) {
 			filterRows[index].permissionSet = '';
-			console.log('active=>', active);
 			filterRows[index].activeUser = !active;
 			filterRows[index].temporaryPermission = '';
 			filterRows[index].temporaryPermissionStartDate = '';
 			filterRows[index].temporaryPermissionEndDate = '';
-			console.log('index', index);
 			console.log('entry', entry);
 			index = index + 1;
 		}
