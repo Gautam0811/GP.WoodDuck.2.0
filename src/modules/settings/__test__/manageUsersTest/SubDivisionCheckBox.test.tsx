@@ -6,22 +6,31 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
 import { SubDivisionCheckBox } from '../../component/siteSettings/manageUsers';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
 afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('Clp Page', () => {
-	afterEach(cleanup);
+describe('SubDivisionCheckBox Component', () => {
+	const initialState = {};
+	const mockStore = configureStore();
+	let store;
 
+	afterEach(cleanup);
+	store = mockStore(initialState);
 	const wrapper = render(
-		<SubDivisionCheckBox
-			selectedOptions={undefined}
-			handleCheckBoxChange={undefined}
-		/>,
+		<Provider store={store}>
+			<SubDivisionCheckBox
+				selectedOptions={undefined}
+				handleCheckBoxChange={undefined}
+			/>
+			,
+		</Provider>,
 	);
 
-	test.only('SubDivisionCheckBox to be loaded', () => {
+	test.only('SubDivisionCheckBox Component to be loaded', () => {
 		expect(wrapper).toBeDefined();
 	});
 });

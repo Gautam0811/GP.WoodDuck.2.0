@@ -11,7 +11,7 @@ afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('Clp Page', () => {
+describe('EmailsSelected Component', () => {
 	afterEach(cleanup);
 
 	const wrapper = render(<EmailsSelected fullNames={[]} />);

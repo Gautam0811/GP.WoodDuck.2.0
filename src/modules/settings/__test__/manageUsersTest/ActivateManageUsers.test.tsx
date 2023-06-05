@@ -6,26 +6,35 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
 import { ActivateManageUsers } from '../../component/siteSettings/manageUsers';
-import { GridRowsProp } from '@mui/x-data-grid';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
 afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('Clp Page', () => {
-	afterEach(cleanup);
+describe('ActivateManageUsers Component', () => {
+	const initialState = {};
+	const mockStore = configureStore();
+	let store;
 
+	afterEach(cleanup);
+	store = mockStore(initialState);
 	const wrapper = render(
-		<ActivateManageUsers
-			rows={undefined}
-			setRows={function (newRows: (oldRows: GridRowsProp) => any): void {
-				throw new Error('Function not implemented');
-			}}
-			filterRows={[]}
-		/>,
+		<Provider store={store}>
+			<ActivateManageUsers
+				rows={undefined}
+				setRows={function (
+					newRows: (oldRows: GridRowsProp) => any,
+				): void {
+					throw new Error('Function not implemented');
+				}}
+				filterRows={[]}
+			/>
+		</Provider>,
 	);
 
-	test.only('ActivateManageUsers to be loaded', () => {
+	test.only('Activate Manage Users Component to be loaded', () => {
 		expect(wrapper).toBeDefined();
 	});
 });

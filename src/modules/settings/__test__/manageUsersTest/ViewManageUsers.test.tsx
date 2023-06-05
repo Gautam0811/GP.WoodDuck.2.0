@@ -11,7 +11,7 @@ afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('Clp Page', () => {
+describe('ViewManageUsers Component Page', () => {
 	afterEach(cleanup);
 
 	const wrapper = render(<ViewManageUsers />);

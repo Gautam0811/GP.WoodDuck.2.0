@@ -1,6 +1,6 @@
 /*Component Name : ButtonGridEdit Test file
  Utility : This component is used to test the ButtonGridEdit Component
- Author Ananya Dhar 15-05-2023-------------------------   */
+ Author Ananya Dhar 02-06-2023-------------------------   */
 
 import React from 'react';
 import '@testing-library/jest-dom';
@@ -11,7 +11,7 @@ afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('Clp Page', () => {
+describe('ButtonGridEdit Component', () => {
 	afterEach(cleanup);
 
 	const mockFunction = jest.fn();

@@ -22,8 +22,6 @@ import { TabPanel } from './index';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../../../state';
-import { store } from '../../../../../state/store/Store';
-import { Provider } from 'react-redux';
 
 export function ManageUsersTabs() {
 	const division = useSelector((state: any) => state.divisionInfo);
@@ -107,13 +105,11 @@ export function ManageUsersTabs() {
 				<div className="flexrow">
 					{active ? (
 						<Grid className="flexrow">
-							<Provider store={store}>
-								<AddManageUsers
-									setRows={setOrderFilterGridRow}
-									rows={orderFilterGridRow}
-									filterRows={filterRows}
-								/>
-							</Provider>
+							<AddManageUsers
+								setRows={setOrderFilterGridRow}
+								rows={orderFilterGridRow}
+								filterRows={filterRows}
+							/>
 							<EditManageUsers
 								filterRows={filterRows}
 								setRows={setOrderFilterGridRow}
