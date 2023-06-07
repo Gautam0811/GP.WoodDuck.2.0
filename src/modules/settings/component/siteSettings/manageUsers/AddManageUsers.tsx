@@ -12,10 +12,10 @@ import {
 import '../../../../../styles/StyleMain.css';
 import { AddButton } from '../../../../../common/button';
 import {
-	Division,
-	EmailInput,
+	DivisionAddManageUsers,
+	EmailInputAdd,
 	PermissionSetDropdown,
-	ButtonGrid,
+	ButtonGridAdd,
 	SubDivisionCheckBox,
 } from './index';
 import { Notification } from '../../../../../common/Alert/Notification';
@@ -173,7 +173,7 @@ export function AddManageUsers(props: AddProps) {
 									User already entered in the list
 								</div>
 							) : null}
-							<EmailInput
+							<EmailInputAdd
 								emailId={emailId}
 								handleOnSearch={handleOnSearch}
 								handleOnSelect={handleOnSelect}
@@ -185,14 +185,14 @@ export function AddManageUsers(props: AddProps) {
 									setSelectedPermissionSet
 								}
 							/>
-							<Division />
+							<DivisionAddManageUsers />
 							<SubDivisionCheckBox
 								selectedOptions={selectedOptions}
 								handleCheckBoxChange={handleCheckBoxChange}
 							/>
 						</Grid>
 					</Grid>
-					<ButtonGrid
+					<ButtonGridAdd
 						emailExists={emailExists}
 						emailId={emailId}
 						empty={empty}

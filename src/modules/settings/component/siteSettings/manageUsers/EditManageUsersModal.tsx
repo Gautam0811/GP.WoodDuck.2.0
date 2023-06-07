@@ -12,7 +12,7 @@ import {
 import { GridRowsProp } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { Notification } from '../../../../../common/Alert/Notification';
-
+import * as EditManageUsersConstant from '../../../../../common/constant/EditManageUsersConstant';
 interface EditManageUsersModalProps {
 	open: boolean;
 	setOpen: any;
@@ -64,9 +64,8 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
-			message:
-				'Successfully changed the Permission Sets and/or Sub Divisions in Bulk',
-			message2: 'Changes to users have been saved',
+			message: String(EditManageUsersConstant.FIRST_SAVE_MESSAGE),
+			message2: String(EditManageUsersConstant.SECOND_SAVE_MESSAGE),
 			type: 'success',
 		});
 		closeEditModal();
@@ -76,9 +75,8 @@ export function EditManageUsersModal(props: EditManageUsersModalProps) {
 		setApiResponse(false);
 		setNotify({
 			isOpen: true,
-			message: 'Permission Sets and/or Sub Divisions change unsuccessful',
-			message2:
-				'Changes to users have not been saved, Please contact IT Admin',
+			message: String(EditManageUsersConstant.FIRST_CANCEL_MESSAGE),
+			message2: String(EditManageUsersConstant.SECOND_CANCEL_MESSAGE),
 			type: 'error',
 		});
 		closeEditModal();

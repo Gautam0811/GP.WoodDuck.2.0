@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { Notification } from '../../../../../common/Alert/Notification';
 import { GridRowsProp } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
+import * as DeactivateManageUsersConstant from '../../../../../common/constant/DeactivateManageUsersConstant';
 
 interface DeactivateManageUsersModalProps {
 	open: boolean;
@@ -44,15 +45,14 @@ export function DeactivateManageUsersModal(
 			filterRows[index].temporaryPermission = '';
 			filterRows[index].temporaryPermissionStartDate = '';
 			filterRows[index].temporaryPermissionEndDate = '';
-			console.log('entry', entry);
 			index = index + 1;
 		}
 		setRows(rows.filter((row: any) => !filterRows.includes(row)));
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
-			message: 'Successfully Deactivated User(s).',
-			message2: 'User(s) have been successfully deactivated.',
+			message: String(DeactivateManageUsersConstant.FIRST_YES_MESSAGE),
+			message2: String(DeactivateManageUsersConstant.SECOND_YES_MESSAGE),
 			type: 'success',
 		});
 		closeDeactivateModal();
@@ -62,9 +62,8 @@ export function DeactivateManageUsersModal(
 		setApiResponse(true);
 		setNotify({
 			isOpen: true,
-			message: 'Deactivation of User(s) Unsuccessful.',
-			message2:
-				'Deactivation of the selected user(s) failed. Please contact your IT Admin.',
+			message: String(DeactivateManageUsersConstant.FIRST_NO_MESSAGE),
+			message2: String(DeactivateManageUsersConstant.SECOND_NO_MESSAGE),
 			type: 'error',
 		});
 		closeDeactivateModal();

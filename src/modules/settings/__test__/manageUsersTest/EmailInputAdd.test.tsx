@@ -1,21 +1,21 @@
-/*Component Name :Email Input Test file
- Utility : This component is used to test the EmailInput Component
+/*Component Name :EmailInputAdd Test file
+ Utility : This component is used to test the EmailInputAdd Component
  Author Ananya Dhar 15-05-2023-------------------------   */
 
 import React from 'react';
 import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
-import { EmailInput } from '../../component/siteSettings/manageUsers';
+import { EmailInputAdd } from '../../component/siteSettings/manageUsers';
 
 afterEach(() => {
 	cleanup(); // Resets the DOM after each test suite
 });
 
-describe('EmailInput Component', () => {
+describe('EmailInputAdd Component', () => {
 	afterEach(cleanup);
 
 	const wrapper = render(
-		<EmailInput
+		<EmailInputAdd
 			emailId={'emcclune0@gp.com'}
 			handleOnSearch={function (emailId: string): void {
 				throw new Error('Function not implemented');
@@ -33,7 +33,7 @@ describe('EmailInput Component', () => {
 		/>,
 	);
 
-	test.only('Email Input to be loaded', () => {
+	test.only('EmailInputAdd to be loaded', () => {
 		expect(wrapper).toBeDefined();
 	});
 });

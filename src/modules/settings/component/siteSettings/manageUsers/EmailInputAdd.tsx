@@ -1,10 +1,10 @@
-/*Component Name : Email Input
- Utility : This component is used to take email as input
+/*Component Name : EmailInputAdd
+ Utility : This component is used to take email as input in AddManageUsers Component
  Author Ananya Dhar 04-05-2023-------------------------   */
 import { Grid } from '@mui/material';
 import { UsersData } from '../../../services/AddUserData';
 
-interface EmailInputProps {
+interface EmailInputAddProps {
 	emailId: string;
 	handleOnSearch: (emailId: string) => void;
 	handleOnSelect: (emailId: string) => void;
@@ -12,7 +12,7 @@ interface EmailInputProps {
 	handleOnChange: (event: any) => void;
 }
 
-export function EmailInput(props: EmailInputProps) {
+export function EmailInputAdd(props: EmailInputAddProps) {
 	return (
 		<Grid>
 			<Grid className="flexrow">

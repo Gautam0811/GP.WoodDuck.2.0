@@ -6,6 +6,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { cleanup, render } from '@testing-library/react';
 import { ActivateManageUsers } from '../../component/siteSettings/manageUsers';
+import { GridRowsProp } from '@mui/x-data-grid';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 

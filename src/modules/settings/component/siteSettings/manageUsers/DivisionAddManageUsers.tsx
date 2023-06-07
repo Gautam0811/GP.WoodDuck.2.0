@@ -1,5 +1,5 @@
-// Component: Division
-// Component Utility : This Component is created to display the selected division
+// Component: DivisionAddManageUsers
+// Component Utility : This Component is created to display the selected division in the AddManageUsers component
 // Author Ananya Dhar on 15-05-2023
 // -------------------------
 import {
@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-export function Division() {
+export function DivisionAddManageUsers() {
 	const division = useSelector((state: any) => state.divisionInfo);
 
 	return (

@@ -1,9 +1,9 @@
-/*Component Name :ButtonGrid 
- Utility : This component is used for Buttons in the modal component
+/*Component Name :ButtonGridAdd
+ Utility : This component is used for Buttons in the AddManageUsers component
  Author Ananya Dhar 15-05-2023-------------------------   */
 import { Button, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
-interface ButtonGridProps {
+interface ButtonGridAddProps {
 	empty: boolean;
 	isFound: boolean;
 	emailExists: boolean;
@@ -12,7 +12,7 @@ interface ButtonGridProps {
 	handleClickSave: () => void;
 }
 
-export function ButtonGrid(props: ButtonGridProps) {
+export function ButtonGridAdd(props: ButtonGridAddProps) {
 	const division = useSelector((state: any) => state.divisionInfo);
 	return (
 		<Grid className="flexrow pt-16 justify-space-evenly">

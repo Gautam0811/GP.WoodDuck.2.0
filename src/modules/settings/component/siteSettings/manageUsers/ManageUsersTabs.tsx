@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
 import { CloseButton } from '../../../../../common/button';
 import { SetTemporaryPermissionsButton } from '../../../../../common/button';
 import '../../../styles/Settings.css';
-import { TabPanel } from './index';
+import { TabPanelManageUsers } from './index';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../../../state';
@@ -84,7 +84,6 @@ export function ManageUsersTabs() {
 
 	//this returns the index when tab changes
 	function a11yProps(index: number) {
-		//alert(index);
 		return {
 			id: `full-width-tab-${index}`,
 			'aria-controls': `full-width-tabpanel-${index}`,
@@ -177,21 +176,21 @@ export function ManageUsersTabs() {
 					</Typography>
 				)}
 			</Grid>
-			<TabPanel value={value} index={0}>
+			<TabPanelManageUsers value={value} index={0}>
 				<ViewManageUsers
 					isActive={active}
 					selectedDivision={division}
 				/>
-			</TabPanel>
-			<TabPanel value={value} index={1}>
+			</TabPanelManageUsers>
+			<TabPanelManageUsers value={value} index={1}>
 				<ViewManageUsers
 					isActive={active}
 					selectedDivision={division}
 				/>
-			</TabPanel>
-			<TabPanel value={value} index={2}>
+			</TabPanelManageUsers>
+			<TabPanelManageUsers value={value} index={2}>
 				<RefreshIcon />
-			</TabPanel>
+			</TabPanelManageUsers>
 			<div
 				className={
 					expanded ? 'h-400 grid-width' : 'h-400 grid-width-collapsed'
